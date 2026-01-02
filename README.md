@@ -20,6 +20,8 @@ This project supports a chapter for [The Prompt Book](https://thepromptbook.org/
 ```
 mentor_eval/
 ├── run_eval.py              # Orchestration script
+├── requirements.txt         # Python dependencies
+├── CREDENTIALS.md           # Shared API keys (team only)
 ├── prompts/
 │   ├── mentor.md            # MentorAI system prompt
 │   └── personas/
@@ -36,31 +38,16 @@ Prompts are stored as standalone Markdown files for easy iteration—edit any pr
 ### 1. Install Dependencies
 
 ```bash
-pip install openai langsmith langchain
+pip install -r requirements.txt
 ```
 
 ### 2. Configure Environment Variables
 
-Create a `.env` file or export these variables:
-
-```bash
-# OpenAI
-export OPENAI_API_KEY="your-openai-api-key"
-
-# LangSmith
-export LANGCHAIN_TRACING_V2="true"
-export LANGCHAIN_API_KEY="your-langsmith-api-key"
-export LANGCHAIN_PROJECT="MentorAI-Eval"
-```
-
-The LangSmith project ID is `0e37e65d-df0a-496f-9e5c-7a88c6c70d65`.
-
-You can also set `LANGCHAIN_PROJECT` to a different value if you want to log to a separate project for experimentation.
+See [CREDENTIALS.md](CREDENTIALS.md) for the shared API keys and setup instructions.
 
 ### 3. Verify LangSmith Connection
 
-After running your first conversation, traces should appear at:
-https://smith.langchain.com/o/[your-org]/projects/p/0e37e65d-df0a-496f-9e5c-7a88c6c70d65
+After running your first conversation, traces should appear in the **MentorAI-Eval** project at [smith.langchain.com](https://smith.langchain.com).
 
 ## Usage
 

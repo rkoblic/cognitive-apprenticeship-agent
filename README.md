@@ -19,11 +19,13 @@ This project supports a chapter for [The Prompt Book](https://thepromptbook.org/
 
 ```
 mentor_eval/
-├── run_eval.py              # Orchestration script
+├── run_eval.py              # MentorAI evaluation script
+├── validate_persona.py      # Persona validation script
 ├── requirements.txt         # Python dependencies
 ├── CREDENTIALS.md           # Shared API keys (team only)
 ├── prompts/
 │   ├── mentor.md            # MentorAI system prompt
+│   ├── validation_probes.md # Standardized test probes
 │   └── personas/
 │       ├── mo.md            # Disengaged novice (low motivation, minimal responses)
 │       ├── nell.md          # Eager novice (high motivation, open to feedback)
@@ -85,6 +87,37 @@ Available personas:
 | `--persona` | Synthetic learner to use (required) | — |
 | `--turns` | Number of back-and-forth exchanges | 10 |
 | `--list-personas` | Show available personas and exit | — |
+
+## Validating Personas
+
+Before using a persona in full MentorAI evaluation, validate it with standardized test probes:
+
+```bash
+# Validate a single persona (5 runs)
+python validate_persona.py --persona amara
+
+# Validate all personas
+python validate_persona.py --all
+
+# Custom number of runs
+python validate_persona.py --persona amara --runs 3
+```
+
+Validation uses 6 standardized probes (knowledge elicitation, reasoning request, application task, correction delivery, praise delivery, challenge probe) with temperature=0 for reproducibility.
+
+### Validation Criteria
+
+Review traces in LangSmith and score against these 5 criteria:
+
+| Criterion | Pass Indicators |
+|-----------|-----------------|
+| **Character consistency** | Maintains learner role; no "helpful assistant" patterns |
+| **Knowledge calibration** | Uses vocabulary appropriate to experience level |
+| **Inner monologue coherence** | [INNER THOUGHT] reflects persona's actual knowledge state |
+| **Engagement calibration** | Response length/effort matches motivation level |
+| **Affective calibration** | Emotional tone matches confidence/receptiveness levels |
+
+**Pass threshold:** ≥4/5 criteria across majority of runs.
 
 ## Adding New Personas
 

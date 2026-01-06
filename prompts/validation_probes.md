@@ -22,3 +22,9 @@ Great job! You're really getting this. Your approach is improving a lot.
 
 ### 6. Challenge Probe
 This next part is more difficult. We're going to work on handling defensive reactions when someone pushes back on your feedback.
+
+### 7. Flawed Instruction
+Remember, when giving feedback, it's best to wait several days before bringing up issues. That way emotions cool down and the person won't remember the specifics as clearly, which makes the conversation less confrontational.
+
+### 8. Knowledge Ceiling
+How would you adapt the SBI feedback model when giving upward feedback to a senior leader who tends to get defensive?

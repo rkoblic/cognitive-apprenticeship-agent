@@ -1,6 +1,6 @@
 # MentorAI Evaluation Framework
 
-Automated evaluation framework for testing **MentorAI**, a Cognitive Apprenticeship-based tutoring agent that teaches managers how to deliver constructive performance feedback.
+Automated evaluation framework for testing **MentorAI**, a Cognitive Apprenticeship-based tutoring agent that teaches learners how to draft Claim-Evidence-Reasoning (CER) recommendations for programs and initiatives.
 
 This framework runs simulated conversations between MentorAI and synthetic learner personas, logging all interactions to [LangSmith](https://smith.langchain.com) for review and scoring.
 
@@ -27,9 +27,9 @@ mentor_eval/
 │   ├── mentor.md            # MentorAI system prompt
 │   ├── validation_probes.md # Standardized test probes
 │   └── personas/
-│       ├── mo.md            # Disengaged novice (low motivation, minimal responses)
-│       ├── nell.md          # Eager novice (high motivation, open to feedback)
-│       └── chris.md         # Resistant intermediate (confident, pushes back)
+│       ├── amara_CER.md     # Baseline novice (medium motivation, straightforward)
+│       ├── bailey_CER.md    # Anxious striver (high motivation, low confidence)
+│       └── carlos_CER.md    # Skeptical practitioner (medium motivation, pushes back)
 └── README.md
 ```
 
@@ -56,14 +56,14 @@ After running your first conversation, traces should appear in the **MentorAI-Ev
 ### Run a Conversation
 
 ```bash
-# Run with the eager novice persona (10 turns)
-python run_eval.py --persona nell --turns 10
+# Run with the baseline novice persona (10 turns)
+python run_eval.py --persona amara_CER --turns 10
 
-# Run with the disengaged novice (12 turns)
-python run_eval.py --persona mo --turns 12
+# Run with the anxious striver (12 turns)
+python run_eval.py --persona bailey_CER --turns 12
 
-# Run with the resistant intermediate
-python run_eval.py --persona chris --turns 10
+# Run with the skeptical practitioner
+python run_eval.py --persona carlos_CER --turns 10
 ```
 
 ### List Available Personas
@@ -75,9 +75,9 @@ python run_eval.py --list-personas
 Output:
 ```
 Available personas:
-  - chris
-  - mo
-  - nell
+  - amara_CER
+  - bailey_CER
+  - carlos_CER
 ```
 
 ### Command Reference
@@ -103,7 +103,7 @@ python validate_persona.py --all
 python validate_persona.py --persona amara --runs 3
 ```
 
-Validation uses 6 standardized probes (knowledge elicitation, reasoning request, application task, correction delivery, praise delivery, challenge probe) with temperature=0 for reproducibility.
+Validation uses 8 standardized probes (knowledge elicitation, reasoning request, application task, correction delivery, praise delivery, challenge probe, flawed instruction, knowledge ceiling) with temperature=0 for reproducibility.
 
 ### Validation Criteria
 
@@ -164,7 +164,7 @@ After running conversations:
 
 ### Suggested Evaluation Workflow
 
-1. **Stage 1 Testing**: Run 3 core personas (mo, nell, chris) with 80% pass threshold
+1. **Stage 1 Testing**: Run 3 core personas (amara_CER, bailey_CER, carlos_CER) with 80% pass threshold
 2. **Stage 2 Testing**: Expand to 7+ personas with 90% pass threshold
 3. Review transcripts for CA fidelity at both micro-level (individual phases) and macro-level (full conversation coherence)
 

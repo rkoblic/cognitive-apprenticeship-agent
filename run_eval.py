@@ -125,6 +125,62 @@ def extract_inner_thought(learner_output: str) -> str | None:
 
 
 # =============================================================================
+# CONVERSATION TERMINATION DETECTION
+# =============================================================================
+
+def detect_conversation_end(mentor_response: str, learner_response: str,
+                            recent_exchanges: list[tuple[str, str]]) -> bool:
+    """
+    Detect if the conversation has reached a natural end point.
+
+    Checks for:
+    - Exit ticket delivery (mentor prompt specifies this as session close)
+    - Goodbye/farewell patterns from both parties
+    - Repetitive short exchanges suggesting wrap-up
+
+    Args:
+        mentor_response: The mentor's most recent message
+        learner_response: The learner's most recent visible response
+        recent_exchanges: Last few (mentor, learner) response pairs for pattern detection
+
+    Returns:
+        True if conversation appears to have naturally concluded
+    """
+    mentor_lower = mentor_response.lower()
+    learner_lower = learner_response.lower()
+
+    # Check if mentor delivered exit ticket (signals intentional session close)
+    if "exit ticket" in mentor_lower:
+        # Only end if learner has also responded (not immediately after exit ticket)
+        if len(recent_exchanges) >= 1:
+            return True
+
+    # Farewell patterns
+    farewell_patterns = [
+        "goodbye", "bye!", "bye.", "take care", "good luck",
+        "great work today", "feel free to reach out"
+    ]
+
+    mentor_farewell = any(p in mentor_lower for p in farewell_patterns)
+    learner_farewell = any(p in learner_lower for p in farewell_patterns)
+
+    # If both parties have said farewell-type things, conversation is done
+    if mentor_farewell and learner_farewell:
+        return True
+
+    # Check for repetitive short exchanges (like repeated goodbyes)
+    if len(recent_exchanges) >= 2:
+        recent_learner = [exc[1].lower().strip() for exc in recent_exchanges[-2:]]
+        # If learner's last 2 responses are very short and similar, likely stuck in loop
+        if all(len(r) < 20 for r in recent_learner):
+            if any(p in recent_learner[0] and p in recent_learner[1]
+                   for p in ["bye", "thanks", "goodbye"]):
+                return True
+
+    return False
+
+
+# =============================================================================
 # CONVERSATION FUNCTIONS
 # =============================================================================
 
@@ -165,34 +221,38 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
     mentor_messages = []
     learner_messages = []
     transcript = []
-    
+    recent_exchanges = []  # Track recent (mentor, learner) pairs for end detection
+
     print(f"\n{'='*60}")
     print(f"Starting conversation: MentorAI <-> {persona_name.upper()}")
     print(f"{'='*60}\n")
-    
+
     # MentorAI opens the conversation
     mentor_response = call_llm(mentor_prompt, mentor_messages, "MentorAI")
     mentor_messages.append({"role": "assistant", "content": mentor_response})
     learner_messages.append({"role": "user", "content": mentor_response})
     transcript.append({
-        "role": "MentorAI", 
+        "role": "MentorAI",
         "content": mentor_response
     })
     print(f"MentorAI: {mentor_response}\n")
-    
-    # Run the conversation for specified number of turns
+
+    # Run the conversation for specified number of turns (or until natural end)
+    actual_turns = 0
     for turn in range(num_turns):
+        actual_turns = turn + 1
+
         # Learner responds
         learner_response_full = call_llm(learner_prompt, learner_messages, persona_name)
         visible_response = extract_visible_response(learner_response_full)
         inner_thought = extract_inner_thought(learner_response_full)
-        
+
         # Learner sees their own full output (maintains reasoning continuity)
         learner_messages.append({"role": "assistant", "content": learner_response_full})
-        
+
         # Mentor sees ONLY the visible response (simulates real tutoring)
         mentor_messages.append({"role": "user", "content": visible_response})
-        
+
         # Transcript preserves everything for evaluation
         transcript.append({
             "role": persona_name,
@@ -200,27 +260,39 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
             "visible_to_mentor": visible_response,  # What mentor actually saw
             "inner_thought": inner_thought          # Extracted for analysis
         })
-        
+
         # Console shows what mentor sees (the realistic view)
         print(f"{persona_name.upper()}: {visible_response}\n")
-        
+
         # MentorAI responds (based only on visible responses)
         mentor_response = call_llm(mentor_prompt, mentor_messages, "MentorAI")
         mentor_messages.append({"role": "assistant", "content": mentor_response})
         learner_messages.append({"role": "user", "content": mentor_response})
         transcript.append({
-            "role": "MentorAI", 
+            "role": "MentorAI",
             "content": mentor_response
         })
         print(f"MentorAI: {mentor_response}\n")
-    
+
+        # Track this exchange for end detection
+        recent_exchanges.append((mentor_response, visible_response))
+        if len(recent_exchanges) > 3:
+            recent_exchanges.pop(0)  # Keep only last 3 exchanges
+
+        # Check for natural conversation end
+        if detect_conversation_end(mentor_response, visible_response, recent_exchanges):
+            print(f"[Conversation reached natural end point]")
+            break
+
     print(f"\n{'='*60}")
-    print(f"Conversation complete: {num_turns} turns")
+    print(f"Conversation complete: {actual_turns} turns" +
+          (f" (of {num_turns} max)" if actual_turns < num_turns else ""))
     print(f"{'='*60}\n")
     
     return {
         "persona": persona_name,
-        "num_turns": num_turns,
+        "num_turns": actual_turns,
+        "max_turns": num_turns,
         "transcript": transcript
     }
 

@@ -7,14 +7,20 @@ Prompts are loaded from markdown files for easy editing:
   - prompts/mentor.md           # MentorAI system prompt
   - prompts/personas/<name>.md  # Synthetic learner personas
 
+The script maintains three views of learner responses:
+  - Full output (with [INNER THOUGHT]): logged for evaluation/diagnostics
+  - Visible response only: what the mentor agent sees
+  - Learner's own history: includes inner thoughts for continuity
+
 Usage:
-    python run_eval.py --persona mo --turns 10
-    python run_eval.py --persona nell --turns 12
-    python run_eval.py --persona chris --turns 10
+    python run_eval.py --persona amara --turns 10
+    python run_eval.py --persona carlos --turns 12
+    python run_eval.py --persona daniel --turns 10
     python run_eval.py --list-personas  # Show available personas
 """
 
 import argparse
+import re
 from pathlib import Path
 from openai import OpenAI
 from langsmith import traceable
@@ -58,6 +64,67 @@ def get_available_personas() -> list[str]:
 
 
 # =============================================================================
+# RESPONSE PROCESSING
+# =============================================================================
+
+def extract_visible_response(learner_output: str) -> str:
+    """
+    Strip inner thought block, returning only the visible response.
+    
+    The mentor should only see what a human tutor would see—the learner's
+    actual spoken response, not their internal reasoning process.
+    
+    Args:
+        learner_output: Full learner output including [INNER THOUGHT] block
+        
+    Returns:
+        Only the [RESPONSE] portion, or cleaned output if tags are malformed
+    """
+    # Primary: Look for [RESPONSE] block and extract everything after it
+    response_match = re.search(
+        r'\[RESPONSE\]\s*\n?(.*)', 
+        learner_output, 
+        re.DOTALL | re.IGNORECASE
+    )
+    if response_match:
+        return response_match.group(1).strip()
+    
+    # Fallback: Strip [INNER THOUGHT] block if [RESPONSE] tag is missing
+    # This handles cases where the model omits the [RESPONSE] label
+    cleaned = re.sub(
+        r'\[INNER THOUGHT\].*?(?=\[RESPONSE\]|\Z)', 
+        '', 
+        learner_output, 
+        flags=re.DOTALL | re.IGNORECASE
+    )
+    cleaned = cleaned.strip()
+    
+    # If we still have content, return it; otherwise return original
+    # (prevents returning empty string if format is completely unexpected)
+    return cleaned if cleaned else learner_output.strip()
+
+
+def extract_inner_thought(learner_output: str) -> str | None:
+    """
+    Extract the inner thought block for diagnostic purposes.
+    
+    Args:
+        learner_output: Full learner output including [INNER THOUGHT] block
+        
+    Returns:
+        The inner thought content, or None if not found
+    """
+    thought_match = re.search(
+        r'\[INNER THOUGHT\]\s*\n?(.*?)(?=\[RESPONSE\]|\Z)',
+        learner_output,
+        re.DOTALL | re.IGNORECASE
+    )
+    if thought_match:
+        return thought_match.group(1).strip()
+    return None
+
+
+# =============================================================================
 # CONVERSATION FUNCTIONS
 # =============================================================================
 
@@ -76,12 +143,17 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
     """
     Run a conversation between MentorAI and a synthetic learner.
     
+    Maintains three separate views of the conversation:
+    - mentor_messages: What mentor sees (visible responses only)
+    - learner_messages: What learner sees (includes own inner thoughts)
+    - transcript: Full record for evaluation (both views preserved)
+    
     Args:
         persona_name: Name of the persona (matches filename in prompts/personas/)
         num_turns: Number of back-and-forth exchanges
     
     Returns:
-        Dictionary containing the full conversation transcript
+        Dictionary containing the full conversation transcript with diagnostic data
     """
     
     # Load prompts from files
@@ -89,6 +161,7 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
     learner_prompt = load_persona_prompt(persona_name)
     
     # Track conversation from both perspectives
+    # Key insight: these diverge because mentor shouldn't see inner thoughts
     mentor_messages = []
     learner_messages = []
     transcript = []
@@ -101,23 +174,44 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
     mentor_response = call_llm(mentor_prompt, mentor_messages, "MentorAI")
     mentor_messages.append({"role": "assistant", "content": mentor_response})
     learner_messages.append({"role": "user", "content": mentor_response})
-    transcript.append({"role": "MentorAI", "content": mentor_response})
+    transcript.append({
+        "role": "MentorAI", 
+        "content": mentor_response
+    })
     print(f"MentorAI: {mentor_response}\n")
     
     # Run the conversation for specified number of turns
     for turn in range(num_turns):
         # Learner responds
-        learner_response = call_llm(learner_prompt, learner_messages, persona_name)
-        learner_messages.append({"role": "assistant", "content": learner_response})
-        mentor_messages.append({"role": "user", "content": learner_response})
-        transcript.append({"role": persona_name, "content": learner_response})
-        print(f"{persona_name.upper()}: {learner_response}\n")
+        learner_response_full = call_llm(learner_prompt, learner_messages, persona_name)
+        visible_response = extract_visible_response(learner_response_full)
+        inner_thought = extract_inner_thought(learner_response_full)
         
-        # MentorAI responds
+        # Learner sees their own full output (maintains reasoning continuity)
+        learner_messages.append({"role": "assistant", "content": learner_response_full})
+        
+        # Mentor sees ONLY the visible response (simulates real tutoring)
+        mentor_messages.append({"role": "user", "content": visible_response})
+        
+        # Transcript preserves everything for evaluation
+        transcript.append({
+            "role": persona_name,
+            "content": learner_response_full,      # Full output for LLM-as-Judge
+            "visible_to_mentor": visible_response,  # What mentor actually saw
+            "inner_thought": inner_thought          # Extracted for analysis
+        })
+        
+        # Console shows what mentor sees (the realistic view)
+        print(f"{persona_name.upper()}: {visible_response}\n")
+        
+        # MentorAI responds (based only on visible responses)
         mentor_response = call_llm(mentor_prompt, mentor_messages, "MentorAI")
         mentor_messages.append({"role": "assistant", "content": mentor_response})
         learner_messages.append({"role": "user", "content": mentor_response})
-        transcript.append({"role": "MentorAI", "content": mentor_response})
+        transcript.append({
+            "role": "MentorAI", 
+            "content": mentor_response
+        })
         print(f"MentorAI: {mentor_response}\n")
     
     print(f"\n{'='*60}")
@@ -141,8 +235,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-    python run_eval.py --persona mo --turns 10
-    python run_eval.py --persona nell --turns 12
+    python run_eval.py --persona amara --turns 10
+    python run_eval.py --persona carlos --turns 12
     python run_eval.py --list-personas
         """
     )

@@ -29,7 +29,10 @@ mentor_eval/
 │   └── personas/
 │       ├── amara_CER.md     # Baseline novice (medium motivation, straightforward)
 │       ├── bailey_CER.md    # Anxious striver (high motivation, low confidence)
-│       └── carlos_CER.md    # Skeptical practitioner (medium motivation, pushes back)
+│       ├── carlos_CER.md    # Skeptical practitioner (low motivation, resistant)
+│       └── REVISION_NOTES.md # Changelog for persona updates
+├── docs/
+│   └── prompt-engineering-notes.md  # Lessons on making personas fail authentically
 └── README.md
 ```
 
@@ -151,6 +154,14 @@ To add a new synthetic learner:
 ## Important
 [Key reminders for staying in character]
 ```
+
+## Design Notes: Why Personas Make Mistakes
+
+Synthetic learners are designed to **make authentic mistakes** that require tutor correction. This is intentional—without learner errors, we can't evaluate whether MentorAI identifies and addresses them.
+
+Each persona has a "CRITICAL PERFORMANCE REQUIREMENT" section at the top of their prompt specifying exactly what mistakes to make (vague claims, mismatched evidence, circular reasoning, etc.). This positioning is deliberate: language models default to being helpful and correct, so mistake instructions must come *before* the role description to override that tendency.
+
+For a detailed explanation of this prompt engineering approach, see [docs/prompt-engineering-notes.md](docs/prompt-engineering-notes.md).
 
 ## Reviewing Results in LangSmith
 

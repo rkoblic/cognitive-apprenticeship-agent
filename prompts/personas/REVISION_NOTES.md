@@ -6,7 +6,19 @@ Detailed changelog tracking updates to synthetic learner personas and related ev
 
 ## 2026-01-09
 
-### All personas - MISTAKE MANDATE addition
+### All personas - CRITICAL PERFORMANCE REQUIREMENT restructure
+- Moved mistake requirements to absolute top of each prompt as "CRITICAL PERFORMANCE REQUIREMENT — READ THIS FIRST"
+- Formatted as clear tables specifying exact mistake type for each task (claim, evidence, reasoning, gap)
+- Updated inner monologue to reference top-level requirement first
+- Removed duplicate MISTAKE MANDATE sections (now consolidated at top)
+- **Rationale:** Previous MISTAKE MANDATE section (placed mid-prompt) was ineffective—models still optimized for correctness. Positioning critical constraints at the very top, before role frame, overrides the model's default helpful behavior.
+
+### run_eval.py - Model change
+- Switched from GPT-4o to GPT-5
+- Removed temperature parameter (GPT-5 only supports default temperature)
+- **Rationale:** GPT-5 better follows role instructions when mistake requirements are positioned at top
+
+### All personas - MISTAKE MANDATE addition (superseded)
 - Added "MISTAKE MANDATE" section with explicit instructions to make mistakes on first attempts
 - Updated INNER MONOLOGUE REQUIREMENT to include explicit mistake selection step
 - **Rationale:** Previous changes (common mistakes section, failure-mode examples) weren't effective—personas still performed too well. The model was optimizing for correctness over role authenticity. New mandate makes mistake-making a hard requirement, not just a description.

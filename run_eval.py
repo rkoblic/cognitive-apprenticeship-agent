@@ -187,8 +187,7 @@ def detect_conversation_end(mentor_response: str, learner_response: str,
 def call_llm(system_prompt: str, messages: list, role_name: str) -> str:
     """Call OpenAI API and return the response."""
     response = client.chat.completions.create(
-        model="gpt-4o",
-        temperature=0.8,
+        model="gpt-5",
         messages=[{"role": "system", "content": system_prompt}] + messages
     )
     return response.choices[0].message.content

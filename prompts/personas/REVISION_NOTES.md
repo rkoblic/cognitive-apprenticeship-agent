@@ -6,7 +6,17 @@ Detailed changelog tracking updates to synthetic learner personas and related ev
 
 ## 2026-01-09
 
-### All personas (amara_CER, bailey_CER, carlos_CER)
+### All personas - MISTAKE MANDATE addition
+- Added "MISTAKE MANDATE" section with explicit instructions to make mistakes on first attempts
+- Updated INNER MONOLOGUE REQUIREMENT to include explicit mistake selection step
+- **Rationale:** Previous changes (common mistakes section, failure-mode examples) weren't effective—personas still performed too well. The model was optimizing for correctness over role authenticity. New mandate makes mistake-making a hard requirement, not just a description.
+
+Key changes:
+- Amara: Must make vague claims, conflate evidence/reasoning, give superficial gaps on first attempts
+- Bailey: Must second-guess into wrong answers, refuse to commit, produce circular reasoning
+- Carlos: Must give two-word vague claims, say reasoning is "obvious," resist corrections for 2-3 exchanges
+
+### All personas (earlier today)
 - Added "COMMON MISTAKES" section defining 4-5 characteristic errors per persona
 - Rewrote all few-shot examples to show actual mistakes and failures, not just hedged correct answers
 - Added guidance on how each persona handles correction (resistance level, recovery patterns)

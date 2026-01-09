@@ -311,15 +311,15 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-    python run_eval.py --persona amara --turns 10
-    python run_eval.py --persona carlos --turns 12
+    python run_eval.py --persona amara_CER
+    python run_eval.py --persona carlos_CER --turns 30
     python run_eval.py --list-personas
         """
     )
-    parser.add_argument("--persona", type=str, 
+    parser.add_argument("--persona", type=str,
                         help="Which synthetic learner to use (see --list-personas)")
-    parser.add_argument("--turns", type=int, default=10,
-                        help="Number of conversation turns (default: 10)")
+    parser.add_argument("--turns", type=int, default=25,
+                        help="Number of conversation turns (default: 25)")
     parser.add_argument("--list-personas", action="store_true",
                         help="List available personas and exit")
     

@@ -150,7 +150,12 @@ def detect_conversation_end(mentor_response: str, learner_response: str,
     learner_lower = learner_response.lower()
 
     # Check if mentor delivered exit ticket (signals intentional session close)
-    if "exit ticket" in mentor_lower:
+    # Look for patterns indicating the mentor is GIVING an exit ticket, not just mentioning one
+    exit_ticket_patterns = [
+        "exit ticket:", "here's your exit ticket", "your exit ticket",
+        "exit ticket for you", "final exit ticket"
+    ]
+    if any(p in mentor_lower for p in exit_ticket_patterns):
         # Only end if learner has also responded (not immediately after exit ticket)
         if len(recent_exchanges) >= 1:
             return True

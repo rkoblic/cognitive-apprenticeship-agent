@@ -18,6 +18,12 @@ Detailed changelog tracking updates to synthetic learner personas and related ev
 - Removed temperature parameter (GPT-5 only supports default temperature)
 - **Rationale:** GPT-5 better follows role instructions when mistake requirements are positioned at top
 
+### run_eval.py - Early termination fix
+- Fixed false positive in `detect_conversation_end()` that triggered when mentor mentioned "exit tickets" in scenario descriptions
+- Previous check (`"exit ticket" in mentor_lower`) matched any occurrence, including "digital exit tickets" in program descriptions
+- Now uses specific patterns: "exit ticket:", "your exit ticket", "here's your exit ticket", etc.
+- **Rationale:** Conversations were terminating after 1 turn when the mentor's scenario included programs that use exit tickets as a practice
+
 ### All personas - MISTAKE MANDATE addition (superseded)
 - Added "MISTAKE MANDATE" section with explicit instructions to make mistakes on first attempts
 - Updated INNER MONOLOGUE REQUIREMENT to include explicit mistake selection step

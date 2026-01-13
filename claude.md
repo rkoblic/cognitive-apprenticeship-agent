@@ -37,6 +37,14 @@ python run_judge_eval.py --tag <tag> --limit 10   # Filter by tag
 python run_judge_eval.py --stage critical         # Critical criteria only
 ```
 
+### Generate Reports
+```bash
+python generate_report.py                         # From most recent run
+python generate_report.py --run <path>            # From specific run
+```
+
+Outputs `report.html` (visual) and `results.csv` (data) for sharing.
+
 See `docs/llm-as-judge-notes.md` for full documentation.
 
 ## Documentation Conventions

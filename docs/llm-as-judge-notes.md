@@ -193,16 +193,40 @@ The judge script disables LangSmith tracing (`LANGCHAIN_TRACING_V2=false`) so ju
 4. Note disagreements for prompt refinement
 5. Scale up once judge is trusted on validation set
 
+## Generating Reports
+
+Generate HTML and CSV reports for easy sharing with colleagues:
+
+```bash
+# Generate from most recent run
+python generate_report.py
+
+# Generate from specific run
+python generate_report.py --run eval_results/validation/20260113_v3
+
+# Output to custom location
+python generate_report.py --output reports/
+```
+
+**Output files:**
+- `report.html` - Visual report with summary stats, progress bars, expandable details
+- `results.csv` - Spreadsheet with all criteria verdicts and evidence
+
+The HTML report includes:
+- Summary statistics (conversations evaluated, pass rates)
+- Per-judge breakdown with progress bars
+- Expandable conversation details with full evidence
+
 ## Next Steps
 
 - [x] Create multi-judge architecture
 - [x] Implement critical criteria judge
-- [x] Implement all 6 quality judges (session_setup, modeling_quality, coaching_quality, sbi_content, adaptive_pacing, conversational_quality)
+- [x] Implement all 6 quality judges
 - [x] Add JSON output alongside markdown
 - [x] Add tag filtering for selective evaluation
 - [x] Disable LangSmith tracing for judge calls
+- [x] Add aggregate reporting (HTML + CSV)
 - [ ] Document disagreements with judge verdicts
-- [ ] Add aggregate reporting across runs
 - [ ] Validate judges on larger sample
 
 ---

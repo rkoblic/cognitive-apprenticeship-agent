@@ -10,19 +10,34 @@ prompts/
   personas/
     *.md                    # Synthetic learner personas
     REVISION_NOTES.md       # Changelog for persona/eval updates
+  judges/
+    *.md                    # LLM-as-judge evaluation prompts
 docs/
   prompt-engineering-notes.md  # Lessons learned, patterns
-run_eval.py                 # Main evaluation script
+  llm-as-judge-notes.md     # Judge evaluation setup and notes
+run_eval.py                 # Generate tutor-learner conversations
+run_judge_eval.py           # Run LLM judges on conversations
+eval_results/               # Judge evaluation outputs
 ```
 
 ## Running Evaluations
 
+### Generate Conversations
 ```bash
 python run_eval.py --persona <name> --turns <n>
 python run_eval.py --list-personas  # Show available personas
 ```
 
 Conversations are logged to LangSmith for review and scoring.
+
+### Run LLM-as-Judge Evaluation
+```bash
+python run_judge_eval.py --validation --limit 3   # Validation mode
+python run_judge_eval.py --tag <tag> --limit 10   # Filter by tag
+python run_judge_eval.py --stage critical         # Critical criteria only
+```
+
+See `docs/llm-as-judge-notes.md` for full documentation.
 
 ## Documentation Conventions
 

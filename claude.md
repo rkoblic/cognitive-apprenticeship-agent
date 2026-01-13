@@ -17,6 +17,8 @@ docs/
   llm-as-judge-notes.md     # Judge evaluation setup and notes
 run_eval.py                 # Generate tutor-learner conversations
 run_judge_eval.py           # Run LLM judges on conversations
+create_dataset.py           # Create datasets from LangSmith runs
+generate_report.py          # Generate HTML/CSV reports
 eval_results/               # Judge evaluation outputs
 ```
 
@@ -33,8 +35,14 @@ Conversations are logged to LangSmith for review and scoring.
 ### Run LLM-as-Judge Evaluation
 ```bash
 python run_judge_eval.py --validation --limit 3   # Validation mode
-python run_judge_eval.py --tag <tag> --limit 10   # Filter by tag
+python run_judge_eval.py --dataset <name>         # Evaluate from dataset
 python run_judge_eval.py --stage critical         # Critical criteria only
+```
+
+### Create Evaluation Datasets
+```bash
+python create_dataset.py --name <name> --limit 10  # Create from recent runs
+python create_dataset.py --list                    # List existing datasets
 ```
 
 ### Generate Reports

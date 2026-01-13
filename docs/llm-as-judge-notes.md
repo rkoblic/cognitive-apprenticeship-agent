@@ -75,12 +75,37 @@ python run_judge_eval.py --stage quality --judge session_setup
 python run_judge_eval.py --model claude-sonnet-4-20250514 --limit 5
 ```
 
-### Filtering by Tag
+### Using Datasets (Recommended)
 
-To evaluate a specific set of conversations:
+Datasets let you curate a specific set of conversations for evaluation. This is better than tag filtering because you can select examples after they're created.
+
+```bash
+# Step 1: Create a dataset from runs
+python create_dataset.py --name eval-batch-jan13 --limit 10
+
+# Step 2: Run evaluation on the dataset
+python run_judge_eval.py --dataset eval-batch-jan13
+
+# Other dataset commands
+python create_dataset.py --list                           # List existing datasets
+python create_dataset.py --name my-dataset --append       # Add more runs to existing
+python create_dataset.py --name my-dataset --tag my-tag   # Only runs with tag
+```
+
+**Benefits of datasets:**
+- Curate examples after conversations are generated
+- Reproducible evaluation sets
+- Version your test data
+- Can add examples from LangSmith Playground (as of April 2025)
+
+### Filtering by Tag (Alternative)
+
+If you prefer to tag runs directly:
 1. In LangSmith UI, select the runs you want to evaluate
 2. Click "Add tags" and enter a tag name (e.g., `eval-batch-1`)
 3. Run with `--tag eval-batch-1`
+
+**Note:** Tags must be added at trace time or via code—the LangSmith UI doesn't support adding tags to existing traces retroactively.
 
 ## Two-Stage Pipeline
 
@@ -226,6 +251,7 @@ The HTML report includes:
 - [x] Add tag filtering for selective evaluation
 - [x] Disable LangSmith tracing for judge calls
 - [x] Add aggregate reporting (HTML + CSV)
+- [x] Add dataset-based evaluation workflow
 - [ ] Document disagreements with judge verdicts
 - [ ] Validate judges on larger sample
 

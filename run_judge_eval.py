@@ -9,6 +9,7 @@ Supports:
 - Validation mode for manual review
 - Both JSON and markdown output
 - Selective judge execution
+- Dataset-based evaluation (curate examples, then evaluate)
 
 Usage:
     # Full pipeline (critical + quality for passing conversations)
@@ -22,6 +23,9 @@ Usage:
 
     # Run specific quality judge
     python run_judge_eval.py --project MentorAI-Eval --stage quality --judge session_setup
+
+    # Evaluate from a curated dataset
+    python run_judge_eval.py --dataset eval-batch-jan13 --limit 10
 """
 
 import argparse
@@ -152,6 +156,27 @@ def format_run_as_transcript(run) -> str:
                 return transcript
 
     return str(run.outputs) if run.outputs else "No transcript found"
+
+
+def format_example_as_transcript(example) -> str:
+    """
+    Convert a LangSmith dataset example into a readable transcript.
+    Examples store the transcript in outputs (same format as runs).
+    """
+    outputs = example.outputs or {}
+    if 'transcript' in outputs:
+        transcript = outputs['transcript']
+        if isinstance(transcript, list):
+            messages = []
+            for msg in transcript:
+                role = msg.get('role', 'Unknown')
+                content = msg.get('content', '')
+                messages.append(f"{role}: {content}")
+            return '\n\n'.join(messages)
+        elif isinstance(transcript, str):
+            return transcript
+
+    return str(outputs) if outputs else "No transcript found"
 
 
 # =============================================================================
@@ -349,28 +374,50 @@ def run_evaluation(args):
     print("Connecting to LangSmith...")
     ls_client = Client()
 
-    # Fetch runs
-    print(f"Fetching runs from project: {args.project}")
-    if args.tag:
-        print(f"Filtering by tag: {args.tag}")
+    # Fetch conversations - either from dataset or from runs
+    use_dataset = args.dataset is not None
+    conversations = []  # List of (id, transcript_func, source_obj) tuples
 
-    filter_kwargs = {
-        "project_name": args.project,
-        "limit": args.limit,
-    }
-    if args.run_filter:
-        filter_kwargs["filter"] = f'eq(name, "{args.run_filter}")'
+    if use_dataset:
+        # Fetch from dataset
+        print(f"Fetching examples from dataset: {args.dataset}")
+        try:
+            examples = list(ls_client.list_examples(dataset_name=args.dataset, limit=args.limit))
+            conversations = [
+                (str(ex.id)[:8], lambda e=ex: format_example_as_transcript(e), ex)
+                for ex in examples
+            ]
+            print(f"Found {len(conversations)} examples in dataset")
+        except Exception as e:
+            print(f"ERROR: Could not fetch dataset '{args.dataset}': {e}")
+            return
+    else:
+        # Fetch from runs
+        print(f"Fetching runs from project: {args.project}")
+        if args.tag:
+            print(f"Filtering by tag: {args.tag}")
 
-    runs = list(ls_client.list_runs(**filter_kwargs))
+        filter_kwargs = {
+            "project_name": args.project,
+            "limit": args.limit,
+        }
+        if args.run_filter:
+            filter_kwargs["filter"] = f'eq(name, "{args.run_filter}")'
 
-    # Filter by tag if specified (done client-side since LangSmith API tag filtering is limited)
-    if args.tag:
-        runs = [r for r in runs if args.tag in (r.tags or [])]
+        runs = list(ls_client.list_runs(**filter_kwargs))
 
-    print(f"Found {len(runs)} conversations to evaluate")
+        # Filter by tag if specified (done client-side since LangSmith API tag filtering is limited)
+        if args.tag:
+            runs = [r for r in runs if args.tag in (r.tags or [])]
 
-    if not runs:
-        print("No runs found. Check your project name and filters.")
+        conversations = [
+            (str(run.id)[:8], lambda r=run: format_run_as_transcript(r), run)
+            for run in runs
+        ]
+        print(f"Found {len(conversations)} conversations to evaluate")
+
+    if not conversations:
+        print("No conversations found. Check your project/dataset name and filters.")
         return
 
     # Determine which judges to run
@@ -387,19 +434,20 @@ def run_evaluation(args):
     # Process each conversation
     results = []
 
-    for i, run in enumerate(runs, 1):
-        short_id = str(run.id)[:8]
-        print(f"\n[{i}/{len(runs)}] Processing conversation: {short_id}")
+    for i, (short_id, get_transcript, source_obj) in enumerate(conversations, 1):
+        print(f"\n[{i}/{len(conversations)}] Processing conversation: {short_id}")
 
         # Format and clean transcript
-        raw_transcript = format_run_as_transcript(run)
+        raw_transcript = get_transcript()
         transcript = strip_inner_monologue(raw_transcript)
 
         result = {
-            "langsmith_id": str(run.id),
+            "langsmith_id": str(source_obj.id),
             "short_id": short_id,
-            "run_name": run.name,
+            "source_type": "dataset" if use_dataset else "run",
         }
+        if not use_dataset:
+            result["run_name"] = source_obj.name
 
         # Stage 1: Critical Criteria
         critical_passed = True
@@ -475,6 +523,7 @@ def run_evaluation(args):
     # Save manifest
     config = {
         "project": args.project,
+        "dataset": args.dataset,
         "run_filter": args.run_filter,
         "tag": args.tag,
         "model": args.model,
@@ -559,6 +608,11 @@ def main():
     parser.add_argument(
         "--tag",
         help="Filter runs by tag (e.g., 'eval-batch-1')"
+    )
+
+    parser.add_argument(
+        "--dataset",
+        help="Use a LangSmith dataset instead of fetching runs (e.g., 'eval-batch-jan13')"
     )
 
     args = parser.parse_args()

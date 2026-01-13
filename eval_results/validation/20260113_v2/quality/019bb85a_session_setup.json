@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework in a professional context. Success looks like anchoring a specific time/place, describing observable behavior, using owned impact language, and spotting where judgment creeps in.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate first, then you'll try\u2014ready to begin?' and later 'Your turn when ready.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenario involves a specific workplace situation\u2014a weekly product stand-up in Room B where a colleague arrived late and interrupted Jenna's presentation, with plausible interpersonal dynamics around meeting disruption and lost action items."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "019bb85a",
+    "evaluated_at": "2026-01-13T14:39:56.071638"
+  }
+}

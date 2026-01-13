@@ -1,0 +1,42 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure: long demonstration turn with full SBI model, short acknowledgments ('Great\u2014', 'Good\u2014'), diagnostic questions ('Which letters would you pick?'), self-check prompts, and brief wrap-up turns ('Nice work. Keep one cue in mind...')"
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'What do you notice in that?' after the model, and 'What was the hardest part of making the behavior section truly camera-testable without judgment?'\u2014both show genuine interest in learner's thinking beyond comprehension checks"
+    },
+    "F-03": {
+      "verdict": "FAIL",
+      "evidence": "After learner's strong final SBI draft, mentor immediately pivots to 'What was the hardest part...' without pausing to appreciate the accomplishment. Each good response leads directly to the next task or question."
+    },
+    "F-04": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with 'dismissive' and 'condescending tone' as judgments, mentor lingers across multiple turns\u2014first asking for two specific behaviors, then pushing back on 'condescending tone' specifically, then asking for timestampable cues. Doesn't rush past the difficulty."
+    },
+    "F-05": {
+      "verdict": "FAIL",
+      "evidence": "Mentor remains procedurally neutral throughout. Uses functional acknowledgments ('Great\u2014', 'Good\u2014', 'Nice work') but shows no personality, humor, opinions, or human reactions. Could be any interchangeable tutor."
+    },
+    "F-06": {
+      "verdict": "PASS",
+      "evidence": "When learner incorrectly includes B ('dismissive') as camera-testable, mentor responds with inquiry: 'For option B...what two specific, observable behaviors would make that camera-testable?' rather than directly correcting."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 2,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "F-03",
+      "F-05"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:31:39.636806"
+  }
+}

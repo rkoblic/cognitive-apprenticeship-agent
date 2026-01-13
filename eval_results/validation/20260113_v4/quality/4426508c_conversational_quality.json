@@ -1,0 +1,44 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "FAIL",
+      "evidence": "Mentor follows a predictable pattern throughout: ask learner to self-evaluate \u2192 provide checklist/criteria \u2192 request revision \u2192 confirm and move to next component. Nearly every turn follows this formula with similar length and structure."
+    },
+    "F-02": {
+      "verdict": "FAIL",
+      "evidence": "Questions are purely evaluative/procedural: 'where do you expect pushback?' 'which component doesn't pass?' No genuine curiosity about learner's reasoning or thought process beyond checking comprehension."
+    },
+    "F-03": {
+      "verdict": "FAIL",
+      "evidence": "After learner's good final SBI and takeaway about adjectives, mentor immediately pivots: 'Great cue. When you spot an adjective, translate it...' then 'Do you want one more quick rep?' Never pauses to appreciate the learning moment."
+    },
+    "F-04": {
+      "verdict": "FAIL",
+      "evidence": "When learner struggled to distinguish judgment from observable behavior (saying 'it's basically the same'), mentor moved through it at the same pace as other content, using checklists rather than exploring why this distinction is tricky."
+    },
+    "F-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows some personality with reactions like 'Nice fix on B\u2014now it's camera-testable with counts and a quote' and 'Great\u2014please paste your full three-line SBI now.' Also 'Nice work\u2014you're set.'"
+    },
+    "F-06": {
+      "verdict": "PASS",
+      "evidence": "When learner's first draft had errors, mentor responded with inquiry: 'Before I weigh in, where do you think I'll push back: the situation's specificity, the behavior being camera-testable vs judgmental, or the impact using owned language?'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 4,
+    "pass_rate": 0.33,
+    "failed_criteria": [
+      "F-01",
+      "F-02",
+      "F-03",
+      "F-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "4426508c",
+    "evaluated_at": "2026-01-13T15:33:11.454556"
+  }
+}

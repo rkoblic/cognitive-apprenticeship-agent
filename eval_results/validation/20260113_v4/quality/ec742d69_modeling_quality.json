@@ -1,0 +1,34 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: 'I deliberately avoided judgment words like \"disrespectful\" or \"careless\" and chose camera-testable verbs\u2014that's the main decision point to watch.' Also explains why anchoring to precise time/place: 'I anchor to a precise time/place to avoid vagueness.'"
+    },
+    "B-03": {
+      "verdict": "FAIL",
+      "evidence": "Mentor mentions 'that's the main decision point to watch' but doesn't show active deliberation between alternatives. No moment of 'I could say X but instead chose Y because...' The model is presented as a finished product without showing the consideration of alternatives."
+    },
+    "B-04": {
+      "verdict": "FAIL",
+      "evidence": "Mentor does not model checking their own SBI example against criteria. While they later ask the learner to self-check ('Run this quick SBI self-check on your draft'), the mentor never demonstrates this verification process on their own model."
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: 'camera-testable means something you could point to on a recording at a specific timestamp,' and later '60-second camera pass\u2014write 2\u20133 lines that each start with a timestamp and a concrete verb plus the exact words/gesture; if you can't point to a timestamped quote or action, it's a judgment and you rewrite.'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 2,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "B-03",
+      "B-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:21:33.115561"
+  }
+}

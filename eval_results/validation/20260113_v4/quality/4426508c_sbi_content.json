@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'Looking at your B line, which exact words would a camera capture, and which are your interpretations?' - directly probing the observable vs. interpretive distinction."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with behavior line, mentor provided targeted scaffolding: 'swap it for camera-testable details: who you talked over, how many times, and any exact words you recall. Please rewrite only B with those specifics.' This gave specific elements to include rather than generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides reusable tools: (1) 'camera-testable' as a test/heuristic, (2) the self-check checklist with S/B/I criteria, and (3) the explicit takeaway: 'when you catch an adjective, translate it into a verb plus a count or a quote' - a generalizable technique for future SBI drafting."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "4426508c",
+    "evaluated_at": "2026-01-13T15:32:42.006160"
+  }
+}

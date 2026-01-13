@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction: 'Let's tighten just the Behavior line first. \"Dismissive\" is a judgment\u2014swap it for camera-testable details: who you talked over, how many times, and any exact words you recall.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor specifically evaluates revisions: 'Nice fix on B\u2014now it's camera-testable with counts and a quote.' Also later: 'This meets the SBI success criteria\u2014well done.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'Before I weigh in, where do you think I'll push back: the situation's specificity, the behavior being camera-testable vs judgmental, or the impact using owned language?' and 'Looking at your B line, which exact words would a camera capture, and which are your interpretations?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'On this draft, where do you expect pushback first\u2014S specificity, B judgment vs observable, or I owned language\u2014and why?' The 'and why' prompts articulation of reasoning."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection at end: 'For next time, what's one cue you'll watch for to keep judgment from creeping into the Behavior line?' This asks learner to identify a takeaway from the session."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "4426508c",
+    "evaluated_at": "2026-01-13T15:32:31.084065"
+  }
+}

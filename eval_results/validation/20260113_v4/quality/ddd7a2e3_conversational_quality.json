@@ -1,0 +1,41 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout - some turns are longer explanations (the initial modeling), some are short reactions ('Great\u2014let's use the Monday 9:30 AM Zoom'), some are focused questions ('Which one are you anchoring to?'), and some are confirmations ('That matches exactly')"
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'Before I weigh in, pick the one spot in your draft you think I'll push back on the hardest\u2014what is it, verbatim?' - genuinely curious about learner's self-assessment rather than just checking comprehension"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner correctly identifies that exact seconds don't change the decision, mentor pauses to affirm: 'You're right\u2014exact seconds rarely change the decision; rule of thumb: use precision only to the point that it guides the other person's next move' before moving on"
+    },
+    "F-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor dwells extensively on the camera-testable behavior concept - exploring it through multiple examples, edge cases ('raised their voice', 'interrupted'), and returning to it repeatedly when the learner struggles, rather than rushing past this difficult concept"
+    },
+    "F-05": {
+      "verdict": "FAIL",
+      "evidence": "Mentor maintains a consistently neutral, procedural tone throughout. No humor, personal reactions, or personality markers. Phrases like 'nice work' are functional rather than personal. The mentor could be any interchangeable tutor."
+    },
+    "F-06": {
+      "verdict": "PASS",
+      "evidence": "When learner's draft contains judgment ('felt a bit impatient... a little dismissive'), mentor responds with inquiry: 'For the phrases \"trying to take control\" and \"talked over me,\" what would you write if you stripped those out and replaced them with only what a recording would show\u2014counts, timing, and exact words?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 1,
+    "pass_rate": 0.83,
+    "failed_criteria": [
+      "F-05"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "ddd7a2e3",
+    "evaluated_at": "2026-01-13T15:35:25.185263"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In yesterday's 2:00\u20132:30 client prep in Conference B [Situation], you entered at 2:10, began presenting at 2:12 without asking to confirm the agenda, spoke while Jen was mid-sentence twice, and ended the meeting at 2:28 without assigning owners for the three open items [Behavior]. I felt rushed and worried we'd misalign the deck; I paused my update and spent an extra hour after the meeting tracking owners and editing slides [Impact].'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: '\"dismissive of my update\" is a judgment' and 'I'm hearing \"morning standups lately in the project room,\" which isn't a single, timestamped instance' and 'let's replace \"seemed unprepared.\"'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Pick one standup and anchor it with exact date/time/place... What specific anchor will you use?' and 'Write one complete SBI message using this anchor... What's your full draft?'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'morning standups lately in the project room' and mentor caught it: 'I'm hearing \"morning standups lately in the project room,\" which isn't a single, timestamped instance. Pick one standup and anchor it with exact date/time/place'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'dismissive' and 'seemed unprepared' - mentor caught both: '\"dismissive of my update\" is a judgment. In that Jan 6, 9:00\u20139:15 standup, what exact words or actions did you observe...' and 'let's replace \"seemed unprepared.\" On Jan 6, 9:00\u20139:15, what 1\u20132 specific, camera-testable cues led you to that inference'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'You made the meeting awkward and confusing for the team, and you created extra work' - mentor addressed this through the self-check prompt asking about 'Impact: owned language (\"I felt\u2026, I had to\u2026\" with concrete effects)?' and the final revision request specifying 'for impact, use owned language (\"I felt\u2026, I \u2026\")'"
+    },
+    "E-04": {
+      "verdict": "PASS",
+      "evidence": "When learner self-assessed incorrectly ('The rest seems okay to me'), mentor didn't give answers but prompted learner to self-check: 'Run this quick SBI self-check on your draft and tell me where it passes or misses' - requiring learner attempt before providing corrections"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all critical tutoring behaviors: showed a complete SBI model, provided specific feedback quoting exact problematic language, requested revisions, caught vague situations and judgment leakage, addressed accusatory impact through guided revision, and protected productive struggle by requiring learner self-assessment.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:21:09.772374"
+  }
+}

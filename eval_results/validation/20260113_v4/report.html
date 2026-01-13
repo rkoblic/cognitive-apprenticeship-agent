@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Report - 20260113_v4</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1, h2, h3 { color: #333; }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .stat-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        .pass { color: #16a34a; font-weight: bold; }
+        .fail { color: #dc2626; font-weight: bold; }
+        .na { color: #6b7280; }
+        .progress-bar {
+            background: #e5e7eb;
+            border-radius: 4px;
+            height: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #16a34a;
+            height: 100%;
+            transition: width 0.3s;
+        }
+        .evidence {
+            font-size: 0.85em;
+            color: #555;
+            max-width: 500px;
+        }
+        details {
+            margin: 10px 0;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: 500;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        summary:hover {
+            background: #e5e7eb;
+        }
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .badge-pass { background: #dcfce7; color: #16a34a; }
+        .badge-fail { background: #fee2e2; color: #dc2626; }
+        .meta { color: #666; font-size: 0.9em; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Evaluation Report</h1>
+    <p class="meta">
+        Run ID: <strong>20260113_v4</strong> |
+        Generated: 2026-01-13 15:41 |
+        Model: claude-opus-4-5-20251101
+    </p>
+
+    <div class="card">
+        <h2>Summary</h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Conversations</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Passed Critical</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Failed Critical</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Judge Results</h2>
+        <table>
+            <tr>
+                <th>Judge</th>
+                <th>Pass Rate</th>
+                <th>Progress</th>
+            </tr>
+            <tr>
+                <td>Session Setup</td>
+                <td>9/9 (100%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100.0%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Modeling Quality</td>
+                <td>7/12 (58%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 58.333333333333336%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Coaching Quality</td>
+                <td>10/10 (100%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100.0%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>SBI Content Fidelity</td>
+                <td>9/9 (100%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100.0%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Adaptive Pacing</td>
+                <td>6/9 (67%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 66.66666666666666%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Conversational Quality</td>
+                <td>11/18 (61%)</td>
+                <td>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 61.111111111111114%"></div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Detailed Results by Conversation</h2>
+
+        <details>
+            <summary>
+                <span class="conversation-header">
+                    <span>Conversation ec742d69</span>
+                    <span class="badge badge-pass">PASS</span>
+                </span>
+            </summary>
+            <div style="padding: 15px;">
+                <h4>Critical Criteria</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-01: Shows, Not Tells</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides complete SBI example: 'In yesterday's 2:00–2:30 client prep in Conference B [Situation], you entered at 2:10, began presenting at 2:12 without asking to confirm the agenda, spoke while...</td>
+                    </tr>
+                    <tr>
+                        <td>C-01: Specific Feedback</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor quotes specific language: '"dismissive of my update" is a judgment' and 'I'm hearing "morning standups lately in the project room," which isn't a single, timestamped instance' and 'let's replac...</td>
+                    </tr>
+                    <tr>
+                        <td>C-03: Revision Requested</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">After feedback, mentor explicitly requests revision: 'Pick one standup and anchor it with exact date/time/place... What specific anchor will you use?' and 'Write one complete SBI message using this an...</td>
+                    </tr>
+                    <tr>
+                        <td>D-01: Catches Vague Situations</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Learner wrote 'morning standups lately in the project room' and mentor caught it: 'I'm hearing "morning standups lately in the project room," which isn't a single, timestamped instance. Pick one stand...</td>
+                    </tr>
+                    <tr>
+                        <td>D-02: Catches Judgment Leakage</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Learner used 'dismissive' and 'seemed unprepared' - mentor caught both: '"dismissive of my update" is a judgment. In that Jan 6, 9:00–9:15 standup, what exact words or actions did you observe...' and ...</td>
+                    </tr>
+                    <tr>
+                        <td>D-03: Catches Accusatory Impact</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Learner wrote 'You made the meeting awkward and confusing for the team, and you created extra work' - mentor addressed this through the self-check prompt asking about 'Impact: owned language ("I felt…...</td>
+                    </tr>
+                    <tr>
+                        <td>E-04: Protects Productive Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner self-assessed incorrectly ('The rest seems okay to me'), mentor didn't give answers but prompted learner to self-check: 'Run this quick SBI self-check on your draft and tell me where it p...</td>
+                    </tr>
+                </table>
+                <h4>Session Setup (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>A-01: Goal Clarity</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means: a specific time/place for the situation, camera-testable behavior, impact in owned language, and spott...</td>
+                    </tr>
+                    <tr>
+                        <td>A-02: Phase Signaling</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explicitly signals transitions: 'I'll demonstrate first—ready to see the model?' and later 'Great—now it's your turn. Write one complete SBI message from your own context...'</td>
+                    </tr>
+                    <tr>
+                        <td>A-03: Realistic Scenario</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">The scenario involves a realistic workplace standup meeting (Tuesday, Jan 6, 9:00–9:15 am in the project room) with specific interpersonal dynamics—colleague arriving unprepared, cutting off updates, ...</td>
+                    </tr>
+                </table>
+                <h4>Modeling Quality (2/4)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-02: Thinking Out Loud</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explains reasoning: 'I deliberately avoided judgment words like "disrespectful" or "careless" and chose camera-testable verbs—that's the main decision point to watch.' Also explains why anchori...</td>
+                    </tr>
+                    <tr>
+                        <td>B-03: Visible Decision-Making</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor mentions 'that's the main decision point to watch' but doesn't show active deliberation between alternatives. No moment of 'I could say X but instead chose Y because...' The model is presented ...</td>
+                    </tr>
+                    <tr>
+                        <td>B-04: Self-Checking</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor does not model checking their own SBI example against criteria. While they later ask the learner to self-check ('Run this quick SBI self-check on your draft'), the mentor never demonstrates thi...</td>
+                    </tr>
+                    <tr>
+                        <td>B-05: Heuristic Offered</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Multiple heuristics offered: 'camera-testable means something you could point to on a recording at a specific timestamp,' and later '60-second camera pass—write 2–3 lines that each start with a timest...</td>
+                    </tr>
+                </table>
+                <h4>SBI Content Fidelity (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>D-04: Tests Distinctions</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks 'For option B ("dismissive of Jen's ideas"), what two specific, observable behaviors would make that camera-testable?' and follows up with '"Condescending tone" is still a judgment—what tw...</td>
+                    </tr>
+                    <tr>
+                        <td>D-05: Scaffolds the Stuck</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner struggled to make 'dismissive' concrete, mentor provided targeted scaffolding: 'what exact words or actions did you observe (things a camera would capture—e.g., quoted phrases, gestures, ...</td>
+                    </tr>
+                    <tr>
+                        <td>D-06: Reusable Scaffold</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides the '60-second camera pass' as a reusable tool: 'before you draft impact, do a 60‑second "camera pass"—write 2–3 lines that each start with a timestamp and a concrete verb plus the exa...</td>
+                    </tr>
+                </table>
+                <h4>Adaptive Pacing (2/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>E-01: Checks Before Advancing</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor checks readiness multiple times: 'I'll demonstrate first—ready to see the model?', 'Good to wrap here?', 'Anything else on SBI before we wrap?'</td>
+                    </tr>
+                    <tr>
+                        <td>E-02: Fades Support</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Early on, mentor provides detailed scaffolding and stems. After learner demonstrates competence with camera-testable behaviors, mentor shifts to asking learner to self-check ('Run this quick SBI self-...</td>
+                    </tr>
+                    <tr>
+                        <td>E-03: Adjusts to Struggle</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">No clear instances of learner expressing frustration, confusion, or difficulty that would require adjustment. The learner progresses smoothly throughout, so there is no opportunity to observe whether ...</td>
+                    </tr>
+                </table>
+                <h4>Conversational Quality (4/6)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>F-01: Varied Turn Structure</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor varies turn structure: long demonstration turn with full SBI model, short acknowledgments ('Great—', 'Good—'), diagnostic questions ('Which letters would you pick?'), self-check prompts, and br...</td>
+                    </tr>
+                    <tr>
+                        <td>F-02: Genuine Curiosity</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks 'What do you notice in that?' after the model, and 'What was the hardest part of making the behavior section truly camera-testable without judgment?'—both show genuine interest in learner'...</td>
+                    </tr>
+                    <tr>
+                        <td>F-03: Room to Breathe</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">After learner's strong final SBI draft, mentor immediately pivots to 'What was the hardest part...' without pausing to appreciate the accomplishment. Each good response leads directly to the next task...</td>
+                    </tr>
+                    <tr>
+                        <td>F-04: Dwells on Difficulty</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner struggles with 'dismissive' and 'condescending tone' as judgments, mentor lingers across multiple turns—first asking for two specific behaviors, then pushing back on 'condescending tone' ...</td>
+                    </tr>
+                    <tr>
+                        <td>F-05: Has a Voice</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor remains procedurally neutral throughout. Uses functional acknowledgments ('Great—', 'Good—', 'Nice work') but shows no personality, humor, opinions, or human reactions. Could be any interchange...</td>
+                    </tr>
+                    <tr>
+                        <td>F-06: Questions Over Corrections</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner incorrectly includes B ('dismissive') as camera-testable, mentor responds with inquiry: 'For option B...what two specific, observable behaviors would make that camera-testable?' rather th...</td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <span class="conversation-header">
+                    <span>Conversation 4426508c</span>
+                    <span class="badge badge-pass">PASS</span>
+                </span>
+            </summary>
+            <div style="padding: 15px;">
+                <h4>Critical Criteria</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-01: Shows, Not Tells</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides complete SBI example: 'S: "In yesterday's 10:00 a.m. stand-up in Room B…" B: "…you arrived 12 minutes after the start and began discussing the API while Jenna was presenting, speaking ...</td>
+                    </tr>
+                    <tr>
+                        <td>C-01: Specific Feedback</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor points to specific language: 'Looking at your B line, which exact words would a camera capture, and which are your interpretations?' and later '"Dismissive" is a judgment—swap it for camera-tes...</td>
+                    </tr>
+                    <tr>
+                        <td>C-03: Revision Requested</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explicitly requests revisions multiple times: 'Please rewrite only B with those specifics' and 'Please rewrite only S with those specifics' and 'please post your full three-line SBI now'</td>
+                    </tr>
+                    <tr>
+                        <td>D-01: Catches Vague Situations</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Learner wrote 'Last week in a team meeting' and 'Tuesday morning in the stand-up.' Mentor caught this: 'S: Specific timestamp + place (not "last week")' and 'Agree—the gap is the specific date. What w...</td>
+                    </tr>
+                    <tr>
+                        <td>D-02: Catches Judgment Leakage</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Learner used 'rude and dismissive' in behavior. Mentor caught this: '"Dismissive" is a judgment—swap it for camera-testable details: who you talked over, how many times, and any exact words you recall...</td>
+                    </tr>
+                    <tr>
+                        <td>D-03: Catches Accusatory Impact</td>
+                        <td class="na">N/A</td>
+                        <td class="evidence">Learner's impact statements ('It was awkward and created problems' and 'I felt annoyed and it made the meeting awkward') were not accusatory/blame language directed at 'you' - they used passive voice ...</td>
+                    </tr>
+                    <tr>
+                        <td>E-04: Protects Productive Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner said 'Looks fine to me' and 'Can we move on?' multiple times, mentor didn't give answers but pushed learner to self-evaluate: 'Run that on your draft—which component doesn't pass?' and 'L...</td>
+                    </tr>
+                </table>
+                <h4>Session Setup (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>A-01: Goal Clarity</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor states: 'We're working on delivering peer feedback using the SBI framework in a professional context. Success looks like anchoring a specific time/place, describing observable behavior, using o...</td>
+                    </tr>
+                    <tr>
+                        <td>A-02: Phase Signaling</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explicitly signals phase transition: 'I'll demonstrate first, then you'll try—ready to begin?' and later 'Your turn when ready.'</td>
+                    </tr>
+                    <tr>
+                        <td>A-03: Realistic Scenario</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">The scenario involves a specific workplace situation—a weekly product stand-up in Room B where a colleague arrived late and interrupted Jenna's presentation, with plausible interpersonal dynamics arou...</td>
+                    </tr>
+                </table>
+                <h4>Modeling Quality (1/4)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-02: Thinking Out Loud</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">The mentor shows an SBI example but only labels the components (S, B, I) without explaining why they made specific choices. No reasoning like 'I chose this wording because...' is present during the de...</td>
+                    </tr>
+                    <tr>
+                        <td>B-03: Visible Decision-Making</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">The mentor presents the model as a finished product without showing any deliberation or alternatives considered. No moments like 'I could say X but instead chose Y because...' appear in the modeling.</td>
+                    </tr>
+                    <tr>
+                        <td>B-04: Self-Checking</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">The mentor does not model checking their own work. While they later prompt the learner to self-check ('Run that on your draft—which component doesn't pass?'), they never demonstrate self-verification ...</td>
+                    </tr>
+                    <tr>
+                        <td>B-05: Heuristic Offered</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor offers 'camera-testable' as a reusable heuristic multiple times, and explicitly states 'when you catch an adjective, translate it into a verb plus a count or a quote' as a generalizable rule of...</td>
+                    </tr>
+                </table>
+                <h4>Coaching Quality (5/5)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>C-02: Actionable Direction</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides actionable direction: 'Let's tighten just the Behavior line first. "Dismissive" is a judgment—swap it for camera-testable details: who you talked over, how many times, and any exact wo...</td>
+                    </tr>
+                    <tr>
+                        <td>C-04: Revision Checked</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor specifically evaluates revisions: 'Nice fix on B—now it's camera-testable with counts and a quote.' Also later: 'This meets the SBI success criteria—well done.'</td>
+                    </tr>
+                    <tr>
+                        <td>C-05: Productive Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explores errors before correcting: 'Before I weigh in, where do you think I'll push back: the situation's specificity, the behavior being camera-testable vs judgmental, or the impact using owne...</td>
+                    </tr>
+                    <tr>
+                        <td>C-06: Elicits Articulation</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks learner to explain reasoning: 'On this draft, where do you expect pushback first—S specificity, B judgment vs observable, or I owned language—and why?' The 'and why' prompts articulation o...</td>
+                    </tr>
+                    <tr>
+                        <td>C-07: Prompts Reflection</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor prompts reflection at end: 'For next time, what's one cue you'll watch for to keep judgment from creeping into the Behavior line?' This asks learner to identify a takeaway from the session.</td>
+                    </tr>
+                </table>
+                <h4>SBI Content Fidelity (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>D-04: Tests Distinctions</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks 'Looking at your B line, which exact words would a camera capture, and which are your interpretations?' - directly probing the observable vs. interpretive distinction.</td>
+                    </tr>
+                    <tr>
+                        <td>D-05: Scaffolds the Stuck</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner struggled with behavior line, mentor provided targeted scaffolding: 'swap it for camera-testable details: who you talked over, how many times, and any exact words you recall. Please rewri...</td>
+                    </tr>
+                    <tr>
+                        <td>D-06: Reusable Scaffold</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides reusable tools: (1) 'camera-testable' as a test/heuristic, (2) the self-check checklist with S/B/I criteria, and (3) the explicit takeaway: 'when you catch an adjective, translate it i...</td>
+                    </tr>
+                </table>
+                <h4>Adaptive Pacing (1/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>E-01: Checks Before Advancing</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor checks readiness multiple times: 'ready to begin?', 'Your turn when ready', 'Do you want one more quick rep in a different context?', and responds to learner's 'Can we move on?' requests by adv...</td>
+                    </tr>
+                    <tr>
+                        <td>E-02: Fades Support</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor maintains similar scaffolding throughout - continues asking 'where do you expect pushback' questions and providing the same level of detailed guidance even after learner demonstrates competence...</td>
+                    </tr>
+                    <tr>
+                        <td>E-03: Adjusts to Struggle</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">No clear struggle signals from learner - learner shows impatience ('Can we move on?', 'Let's keep it quick') but not confusion or difficulty. Mentor doesn't need to adjust for struggle because learner...</td>
+                    </tr>
+                </table>
+                <h4>Conversational Quality (2/6)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>F-01: Varied Turn Structure</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor follows a predictable pattern throughout: ask learner to self-evaluate → provide checklist/criteria → request revision → confirm and move to next component. Nearly every turn follows this formu...</td>
+                    </tr>
+                    <tr>
+                        <td>F-02: Genuine Curiosity</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Questions are purely evaluative/procedural: 'where do you expect pushback?' 'which component doesn't pass?' No genuine curiosity about learner's reasoning or thought process beyond checking comprehens...</td>
+                    </tr>
+                    <tr>
+                        <td>F-03: Room to Breathe</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">After learner's good final SBI and takeaway about adjectives, mentor immediately pivots: 'Great cue. When you spot an adjective, translate it...' then 'Do you want one more quick rep?' Never pauses to...</td>
+                    </tr>
+                    <tr>
+                        <td>F-04: Dwells on Difficulty</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">When learner struggled to distinguish judgment from observable behavior (saying 'it's basically the same'), mentor moved through it at the same pace as other content, using checklists rather than expl...</td>
+                    </tr>
+                    <tr>
+                        <td>F-05: Has a Voice</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor shows some personality with reactions like 'Nice fix on B—now it's camera-testable with counts and a quote' and 'Great—please paste your full three-line SBI now.' Also 'Nice work—you're set.'</td>
+                    </tr>
+                    <tr>
+                        <td>F-06: Questions Over Corrections</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner's first draft had errors, mentor responded with inquiry: 'Before I weigh in, where do you think I'll push back: the situation's specificity, the behavior being camera-testable vs judgment...</td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <details>
+            <summary>
+                <span class="conversation-header">
+                    <span>Conversation ddd7a2e3</span>
+                    <span class="badge badge-pass">PASS</span>
+                </span>
+            </summary>
+            <div style="padding: 15px;">
+                <h4>Critical Criteria</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-01: Shows, Not Tells</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor demonstrates a complete SBI example: 'Situation: Tuesday 10:00 AM marketing standup in Conf Rm B; Behavior: you started talking while I was mid‑sentence three times and didn't pause when I said...</td>
+                    </tr>
+                    <tr>
+                        <td>C-01: Specific Feedback</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor points to exact language: 'For the phrases "trying to take control" and "talked over me," what would you write if you stripped those out and replaced them with only what a recording would show'...</td>
+                    </tr>
+                    <tr>
+                        <td>C-03: Revision Requested</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">After feedback, mentor explicitly requests revision: 'Run the self-check on your draft (calendar-check the Situation, camera-check the Behavior, "I" + work effect for Impact, scan for judgment leaks) ...</td>
+                    </tr>
+                    <tr>
+                        <td>D-01: Catches Vague Situations</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner wrote 'I think it was our project sync last week… maybe Thursday around 2:00 in Conf Rm D? Or it might have been the Monday 9:30 Zoom,' mentor responded: 'Let's lock the Situation first: ...</td>
+                    </tr>
+                    <tr>
+                        <td>D-02: Catches Judgment Leakage</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner included 'which felt a bit impatient and, I don't know, a little dismissive, like you weren't really interested in letting me finish,' mentor prompted: 'For the phrases "trying to take co...</td>
+                    </tr>
+                    <tr>
+                        <td>D-03: Catches Accusatory Impact</td>
+                        <td class="na">N/A</td>
+                        <td class="evidence">Learner's impact statements used owned language ('I felt rushed,' 'I felt a little sidelined') rather than accusatory 'you' statements. No accusatory impact language appeared in drafts.</td>
+                    </tr>
+                    <tr>
+                        <td>E-04: Protects Productive Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner asked mentor to identify the problem ('I'm not sure if that's too vague or too harsh in places'), mentor required learner attempt first: 'Before I weigh in, pick the one spot in your draf...</td>
+                    </tr>
+                </table>
+                <h4>Session Setup (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>A-01: Goal Clarity</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor states: 'We're working on delivering peer feedback using the SBI framework in a professional context. Success means: a specific time/place situation, camera-testable behavior, impact in owned l...</td>
+                    </tr>
+                    <tr>
+                        <td>A-02: Phase Signaling</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explicitly signals phase transition: 'I'll model my thinking first, then you'll try one—are you ready to start?' and later 'I'll model briefly and call out choices' followed by 'Ready for a qui...</td>
+                    </tr>
+                    <tr>
+                        <td>A-03: Realistic Scenario</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">The scenario involves a specific Monday 9:30 AM Zoom project sync where a colleague began speaking while the learner was mid-sentence during a risks/timelines update, with plausible details like sayin...</td>
+                    </tr>
+                </table>
+                <h4>Modeling Quality (4/4)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>B-02: Thinking Out Loud</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explains reasoning: "I'm choosing 'spoke over me twice' instead of 'was rude' because a camera could capture that" equivalent shown when mentor says "I pick feeling words that match the stakes ...</td>
+                    </tr>
+                    <tr>
+                        <td>B-03: Visible Decision-Making</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor shows choice points: "'Raised their voice': drop the motive; make it observable: 'spoke louder than others/increased volume for ~20 seconds' or 'volume higher than prior minute'" and "'Interrup...</td>
+                    </tr>
+                    <tr>
+                        <td>B-04: Self-Checking</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explicitly models self-checking: "Self‑check I use: calendar‑check the Situation, camera‑check the Behavior, 'I'+work‑effect for Impact, then scan for judgment leaks (character labels, adverbs ...</td>
+                    </tr>
+                    <tr>
+                        <td>B-05: Heuristic Offered</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Multiple heuristics offered: "camera-testable means something a camera or transcript could capture—countable, time‑stamped, no mind‑reading"; "use precision only to the point that it guides the other ...</td>
+                    </tr>
+                </table>
+                <h4>Coaching Quality (5/5)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>C-02: Actionable Direction</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor consistently provides actionable direction. For example: 'For the phrases "trying to take control" and "talked over me," what would you write if you stripped those out and replaced them with on...</td>
+                    </tr>
+                    <tr>
+                        <td>C-04: Revision Checked</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor specifically evaluates revisions. After learner's revised SBI: 'This meets the success criteria—nice work. "Sidelined" is acceptable as a feeling, and "mid‑sentence" works; if you want to be ul...</td>
+                    </tr>
+                    <tr>
+                        <td>C-05: Productive Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor explores errors before correcting. When learner submits flawed draft, mentor asks: 'Before I weigh in, pick the one spot in your draft you think I'll push back on the hardest—what is it, verbat...</td>
+                    </tr>
+                    <tr>
+                        <td>C-06: Elicits Articulation</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks learner to explain reasoning multiple times. Examples: 'What decision would exact seconds help the recipient make that "about 10 seconds, twice, and I said 'let me finish' once" wouldn't—w...</td>
+                    </tr>
+                    <tr>
+                        <td>C-07: Prompts Reflection</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor prompts reflection on learning and takeaways: 'What cue will you watch for next time that tells you judgment is creeping into your behavior line?' and 'Under time pressure, what's the single ha...</td>
+                    </tr>
+                </table>
+                <h4>SBI Content Fidelity (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>D-04: Tests Distinctions</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks 'For the phrases "trying to take control" and "talked over me," what would you write if you stripped those out and replaced them with only what a recording would show—counts, timing, and e...</td>
+                    </tr>
+                    <tr>
+                        <td>D-05: Scaffolds the Stuck</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner struggled with the behavior line, mentor provided targeted scaffolding: 'Use a 3-step snap: include one exact quote, say "you began speaking while I was mid-sentence," add a minimal count...</td>
+                    </tr>
+                    <tr>
+                        <td>D-06: Reusable Scaffold</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor provides multiple reusable tools: the 'camera test' concept, the self-check framework (calendar-check Situation, camera-check Behavior, 'I'+work-effect for Impact, scan for judgment leaks), and...</td>
+                    </tr>
+                </table>
+                <h4>Adaptive Pacing (3/3)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>E-01: Checks Before Advancing</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor consistently checks readiness: 'are you ready to start?', 'Ready to draft one full SBI from your own situation...?', 'ready for a quick check on camera‑testable before your turn?', 'Good to loc...</td>
+                    </tr>
+                    <tr>
+                        <td>E-02: Fades Support</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Early on mentor provides detailed explanations and models thinking. Later, mentor shifts to asking learner to self-check: 'Run the self-check on your draft (calendar-check the Situation, camera-check ...</td>
+                    </tr>
+                    <tr>
+                        <td>E-03: Adjusts to Struggle</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner struggled with vague situation ('maybe Thursday around 2:00... Or it might have been the Monday 9:30 Zoom'), mentor broke down the task: 'Let's lock the Situation first: choose one specif...</td>
+                    </tr>
+                </table>
+                <h4>Conversational Quality (5/6)</h4>
+                <table>
+                    <tr><th>Criterion</th><th>Verdict</th><th>Evidence</th></tr>
+                    <tr>
+                        <td>F-01: Varied Turn Structure</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor varies turn structure throughout - some turns are longer explanations (the initial modeling), some are short reactions ('Great—let's use the Monday 9:30 AM Zoom'), some are focused questions ('...</td>
+                    </tr>
+                    <tr>
+                        <td>F-02: Genuine Curiosity</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor asks 'Before I weigh in, pick the one spot in your draft you think I'll push back on the hardest—what is it, verbatim?' - genuinely curious about learner's self-assessment rather than just chec...</td>
+                    </tr>
+                    <tr>
+                        <td>F-03: Room to Breathe</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner correctly identifies that exact seconds don't change the decision, mentor pauses to affirm: 'You're right—exact seconds rarely change the decision; rule of thumb: use precision only to th...</td>
+                    </tr>
+                    <tr>
+                        <td>F-04: Dwells on Difficulty</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">Mentor dwells extensively on the camera-testable behavior concept - exploring it through multiple examples, edge cases ('raised their voice', 'interrupted'), and returning to it repeatedly when the le...</td>
+                    </tr>
+                    <tr>
+                        <td>F-05: Has a Voice</td>
+                        <td class="fail">FAIL</td>
+                        <td class="evidence">Mentor maintains a consistently neutral, procedural tone throughout. No humor, personal reactions, or personality markers. Phrases like 'nice work' are functional rather than personal. The mentor coul...</td>
+                    </tr>
+                    <tr>
+                        <td>F-06: Questions Over Corrections</td>
+                        <td class="pass">PASS</td>
+                        <td class="evidence">When learner's draft contains judgment ('felt a bit impatient... a little dismissive'), mentor responds with inquiry: 'For the phrases "trying to take control" and "talked over me," what would you wri...</td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+    </div>
+</body>
+</html>

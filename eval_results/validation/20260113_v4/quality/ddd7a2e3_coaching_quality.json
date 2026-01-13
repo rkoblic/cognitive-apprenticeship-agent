@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently provides actionable direction. For example: 'For the phrases \"trying to take control\" and \"talked over me,\" what would you write if you stripped those out and replaced them with only what a recording would show\u2014counts, timing, and exact words?' and 'Use a 3-step snap: include one exact quote, say \"you began speaking while I was mid-sentence,\" add a minimal count (\"once\" or \"at least twice\"), then stop.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor specifically evaluates revisions. After learner's revised SBI: 'This meets the success criteria\u2014nice work. \"Sidelined\" is acceptable as a feeling, and \"mid\u2011sentence\" works; if you want to be ultra\u2011observable, you could say \"overlapping speech.\" One small polish: replace \"during the timeline section\" with a brief quote from that moment to make the second instance equally verifiable.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting. When learner submits flawed draft, mentor asks: 'Before I weigh in, pick the one spot in your draft you think I'll push back on the hardest\u2014what is it, verbatim?' Also asks learner to self-diagnose: 'Run the self-check on your draft (calendar-check the Situation, camera-check the Behavior, \"I\" + work effect for Impact, scan for judgment leaks) and share your revised SBI.'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning multiple times. Examples: 'What decision would exact seconds help the recipient make that \"about 10 seconds, twice, and I said 'let me finish' once\" wouldn't\u2014would it change what you'll ask them to do differently next time?' and 'What cue will you watch for next time that tells you judgment is creeping into your behavior line?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning and takeaways: 'What cue will you watch for next time that tells you judgment is creeping into your behavior line?' and 'Under time pressure, what's the single hardest part of your SBI for you to keep clean?' These questions ask learner to step back and consider their process and challenges."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "ddd7a2e3",
+    "evaluated_at": "2026-01-13T15:34:29.350379"
+  }
+}

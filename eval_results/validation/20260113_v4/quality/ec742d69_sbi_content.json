@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'For option B (\"dismissive of Jen's ideas\"), what two specific, observable behaviors would make that camera-testable?' and follows up with '\"Condescending tone\" is still a judgment\u2014what two specific, timestampable cues would the recording capture to make it concrete?' These questions directly probe whether the learner can distinguish observation from interpretation."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled to make 'dismissive' concrete, mentor provided targeted scaffolding: 'what exact words or actions did you observe (things a camera would capture\u2014e.g., quoted phrases, gestures, interruptions) that show what happened instead? Give 1\u20132 specifics, with approximate timestamps if you remember.' The mentor offered specific examples of what would count (quoted phrases, gestures, interruptions) and a structure (1-2 specifics with timestamps)."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides the '60-second camera pass' as a reusable tool: 'before you draft impact, do a 60\u2011second \"camera pass\"\u2014write 2\u20133 lines that each start with a timestamp and a concrete verb plus the exact words/gesture; if you can't point to a timestamped quote or action, it's a judgment and you rewrite.' Also provides the SBI self-check checklist (Situation anchored? Behavior camera-testable? Impact owned? Judgment leak?) as another generalizable tool."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:31:05.624831"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "FAIL",
+      "evidence": "The mentor shows an SBI example but only labels the components (S, B, I) without explaining why they made specific choices. No reasoning like 'I chose this wording because...' is present during the demonstration."
+    },
+    "B-03": {
+      "verdict": "FAIL",
+      "evidence": "The mentor presents the model as a finished product without showing any deliberation or alternatives considered. No moments like 'I could say X but instead chose Y because...' appear in the modeling."
+    },
+    "B-04": {
+      "verdict": "FAIL",
+      "evidence": "The mentor does not model checking their own work. While they later prompt the learner to self-check ('Run that on your draft\u2014which component doesn't pass?'), they never demonstrate self-verification on their own example."
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers 'camera-testable' as a reusable heuristic multiple times, and explicitly states 'when you catch an adjective, translate it into a verb plus a count or a quote' as a generalizable rule of thumb."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 3,
+    "pass_rate": 0.25,
+    "failed_criteria": [
+      "B-02",
+      "B-03",
+      "B-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "4426508c",
+    "evaluated_at": "2026-01-13T15:32:18.208901"
+  }
+}

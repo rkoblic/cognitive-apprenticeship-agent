@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently checks readiness: 'are you ready to start?', 'Ready to draft one full SBI from your own situation...?', 'ready for a quick check on camera\u2011testable before your turn?', 'Good to lock that in?', 'Want to lock these in as your defaults or tweak any wording?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor fades support as learner demonstrates competence. Early on, mentor provides detailed explanations and models. Later, mentor asks learner to self-check: 'Run the self-check on your draft (calendar-check the Situation, camera-check the Behavior...)' and shifts to brief confirmations like 'That matches exactly' and 'Your wording tweak works great' rather than detailed guidance."
+    },
+    "E-03": {
+      "verdict": "FAIL",
+      "evidence": "The learner does not express significant frustration, confusion, or struggle during the session. The learner shows uncertainty ('I'm not sure if that's too vague or too harsh') but the mentor responds appropriately. However, there is no clear instance where the learner signals genuine struggle requiring the mentor to slow down, simplify, or break tasks into smaller pieces. Cannot evaluate adjustment to struggle without struggle occurring."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "E-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "019bb85b",
+    "evaluated_at": "2026-01-13T14:51:59.792723"
+  }
+}

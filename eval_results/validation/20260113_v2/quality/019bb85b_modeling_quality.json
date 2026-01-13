@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I'm choosing 'spoke over me twice' instead of 'was rude' because a camera could capture that\" equivalent shown when mentor says \"I pick feeling words that match the stakes and tie them to work impact\u2014'concerned' or 'stressed' unless harm was severe\" and explains why precision matters: \"exact seconds rarely change the decision; rule of thumb: use precision only to the point that it guides the other person's next move\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice points: \"'Raised their voice': drop the motive; make it observable: 'spoke louder than others/increased volume for ~20 seconds' or 'volume higher than prior minute'\" and \"'Interrupted' is fine only when anchored\" - demonstrating alternatives considered"
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Self\u2011check I use: calendar\u2011check the Situation, camera\u2011check the Behavior, 'I'+work\u2011effect for Impact, then scan for judgment leaks (character labels, adverbs like 'always/just') and replace them with what the camera shows\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: \"camera-testable means something a camera or transcript could capture\u2014countable, time\u2011stamped, no mind\u2011reading\"; \"use precision only to the point that it guides the other person's next move\"; \"Camera or quote?\" as in-the-moment check; \"If you couldn't video-record it, it's not behavior\" equivalent throughout"
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "019bb85b",
+    "evaluated_at": "2026-01-13T14:39:29.742870"
+  }
+}

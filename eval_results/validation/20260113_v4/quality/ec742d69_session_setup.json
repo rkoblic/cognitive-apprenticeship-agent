@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means: a specific time/place for the situation, camera-testable behavior, impact in owned language, and spotting when judgment sneaks into the behavior description.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transitions: 'I'll demonstrate first\u2014ready to see the model?' and later 'Great\u2014now it's your turn. Write one complete SBI message from your own context...'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenario involves a realistic workplace standup meeting (Tuesday, Jan 6, 9:00\u20139:15 am in the project room) with specific interpersonal dynamics\u2014colleague arriving unprepared, cutting off updates, and creating confusion about sprint boards and task ownership."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:21:19.602584"
+  }
+}

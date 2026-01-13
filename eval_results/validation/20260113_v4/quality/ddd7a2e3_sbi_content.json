@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'For the phrases \"trying to take control\" and \"talked over me,\" what would you write if you stripped those out and replaced them with only what a recording would show\u2014counts, timing, and exact words?' This directly probes the observable vs. interpretive distinction."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with the behavior line, mentor provided targeted scaffolding: 'Use a 3-step snap: include one exact quote, say \"you began speaking while I was mid-sentence,\" add a minimal count (\"once\" or \"at least twice\"), then stop.' Also provided sentence stems for openers and specific techniques throughout."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: the 'camera test' concept, the self-check framework (calendar-check Situation, camera-check Behavior, 'I'+work-effect for Impact, scan for judgment leaks), and the learner-adopted 'Camera or quote?' prompt as an in-the-moment check they can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "ddd7a2e3",
+    "evaluated_at": "2026-01-13T15:34:45.046165"
+  }
+}

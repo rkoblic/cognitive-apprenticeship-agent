@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'I'll demonstrate first\u2014ready to see the model?', 'Good to wrap here?', 'Anything else on SBI before we wrap?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed scaffolding and stems. After learner demonstrates competence with camera-testable behaviors, mentor shifts to asking learner to self-check ('Run this quick SBI self-check on your draft') and later simply says 'pull it together now' without detailed guidance. Final exchanges are brief confirmations rather than detailed instruction."
+    },
+    "E-03": {
+      "verdict": "FAIL",
+      "evidence": "No clear instances of learner expressing frustration, confusion, or difficulty that would require adjustment. The learner progresses smoothly throughout, so there is no opportunity to observe whether mentor would adjust to struggle. Cannot pass without evidence of the behavior."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "E-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "ec742d69",
+    "evaluated_at": "2026-01-13T15:31:19.641717"
+  }
+}

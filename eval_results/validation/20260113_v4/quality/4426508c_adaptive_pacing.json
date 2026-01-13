@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready to begin?', 'Your turn when ready', 'Do you want one more quick rep in a different context?', and responds to learner's 'Can we move on?' requests by advancing."
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor maintains similar scaffolding throughout - continues asking 'where do you expect pushback' questions and providing the same level of detailed guidance even after learner demonstrates competence on behavior and situation components. No visible reduction in support level."
+    },
+    "E-03": {
+      "verdict": "FAIL",
+      "evidence": "No clear struggle signals from learner - learner shows impatience ('Can we move on?', 'Let's keep it quick') but not confusion or difficulty. Mentor doesn't need to adjust for struggle because learner doesn't exhibit it. Cannot pass without evidence of adjustment to actual struggle."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 2,
+    "pass_rate": 0.33,
+    "failed_criteria": [
+      "E-02",
+      "E-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "4426508c",
+    "evaluated_at": "2026-01-13T15:32:55.069749"
+  }
+}

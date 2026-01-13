@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently checks readiness: 'are you ready to start?', 'Ready to draft one full SBI from your own situation...?', 'ready for a quick check on camera\u2011testable before your turn?', 'Good to lock that in?', 'Want to lock these in as your defaults or tweak any wording?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on mentor provides detailed explanations and models thinking. Later, mentor shifts to asking learner to self-check: 'Run the self-check on your draft (calendar-check the Situation, camera-check the Behavior...) and share your revised SBI.' Also asks learner to identify their own weak spots: 'pick the one spot in your draft you think I'll push back on the hardest' and 'Under time pressure, what's the single hardest part of your SBI for you to keep clean?'"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with vague situation ('maybe Thursday around 2:00... Or it might have been the Monday 9:30 Zoom'), mentor broke down the task: 'Let's lock the Situation first: choose one specific instance you can calendar-verify... Which one are you anchoring to?' Then worked through behavior separately before asking for full SBI again."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "ddd7a2e3",
+    "evaluated_at": "2026-01-13T15:35:03.074507"
+  }
+}

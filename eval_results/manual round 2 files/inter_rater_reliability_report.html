@@ -935,6 +935,7 @@
                         <th>Rachel</th>
                         <th>Janine</th>
                         <th>Nthato</th>
+                        <th>Anna</th>
                         <th>LLM</th>
                     </tr>
                 </thead>
@@ -944,6 +945,7 @@
                         <td>—</td>
                         <td class="pass">89%</td>
                         <td style="color: var(--highlight)">74%</td>
+                        <td class="pass">82%</td>
                         <td style="color: var(--highlight)">76%</td>
                     </tr>
                     <tr>
@@ -951,6 +953,7 @@
                         <td class="pass">89%</td>
                         <td>—</td>
                         <td style="color: var(--highlight)">71%</td>
+                        <td style="color: var(--highlight)">76%</td>
                         <td style="color: var(--highlight)">73%</td>
                     </tr>
                     <tr>
@@ -958,13 +961,23 @@
                         <td style="color: var(--highlight)">74%</td>
                         <td style="color: var(--highlight)">71%</td>
                         <td>—</td>
+                        <td style="color: var(--highlight)">65%</td>
                         <td class="pass">85%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anna</strong></td>
+                        <td class="pass">82%</td>
+                        <td style="color: var(--highlight)">76%</td>
+                        <td style="color: var(--highlight)">65%</td>
+                        <td>—</td>
+                        <td style="color: var(--highlight)">68%</td>
                     </tr>
                     <tr>
                         <td><strong>LLM</strong></td>
                         <td style="color: var(--highlight)">76%</td>
                         <td style="color: var(--highlight)">73%</td>
                         <td class="pass">85%</td>
+                        <td style="color: var(--highlight)">68%</td>
                         <td>—</td>
                     </tr>
                 </tbody>
@@ -974,7 +987,7 @@
                 <h4>Key Insight: Two Rater Clusters</h4>
                 <p>The data suggests two alignment clusters:</p>
                 <ul>
-                    <li><strong>Rachel + Janine (89% agreement):</strong> Stricter interpretation, especially on conversational quality and articulation</li>
+                    <li><strong>Rachel + Janine + Anna (76-89% agreement):</strong> Stricter interpretation, especially on conversational quality and articulation. Anna aligns most closely with Rachel (82%).</li>
                     <li><strong>Nthato + LLM (85% agreement):</strong> More lenient interpretation, accepts lower threshold for articulation criteria</li>
                 </ul>
                 <p style="margin-top: 0.5rem;">This suggests the team should calibrate on which interpretation should be the standard before tuning the LLM judge.</p>

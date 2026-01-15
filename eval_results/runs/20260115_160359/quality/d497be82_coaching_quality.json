@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction multiple times. Example: 'Good\u2014now let's tighten one behavior: \"dismissive of my update\" is a judgment. In that Jan 6, 9:00\u20139:15 standup, what exact words or actions did you observe (things a camera would capture\u2014e.g., quoted phrases, gestures, interruptions) that show what happened instead?'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "After learner submits final revision, mentor specifically evaluates it: 'You hit the SBI criteria cleanly here\u2014anchored situation, camera-testable behavior, owned impact, no judgment leak.' This confirms what improved and that it meets criteria."
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner incorrectly identifies B ('dismissive') as camera-testable, mentor doesn't immediately correct but asks: 'For option B (\"dismissive of Jen's ideas\"), what two specific, observable behaviors would make that camera-testable?' Then when learner says 'condescending tone,' mentor probes again rather than giving the answer."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Before I give feedback, if I were to push back on one part of your draft as off-criteria, which specific phrase or line would it be, and why?' Also asks learner to run self-check and explain where draft meets/misses criteria."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection: 'What was the hardest part of making the behavior section truly camera-testable without judgment?' Learner reflects on separating conclusions from observations and the difficulty of remembering precise wording."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "d497be82",
+    "evaluated_at": "2026-01-15T16:04:17.878204"
+  }
+}

@@ -1,0 +1,33 @@
+Tag,Name,Tier,CA Method,Criterion,Pass,Fail,Evidence/Notes
+A-01,Goal clarity,Quality,—,"Mentor confirms the session goal is drafting SBI feedback, and names what success looks like (specific situation, observable behavior, owned impact).",TRUE,FALSE,
+A-02,Phase signaling,Quality,—,"Mentor explicitly marks at least one transition between phases (e.g., ""Let me show you first, then you'll try one"").",TRUE,FALSE,
+A-03,Realistic scenario,Quality,—,"The practice scenario feels like a real workplace situation, not a contrived or overly generic example.",TRUE,FALSE,
+B-01,"Shows, not tells",Critical,Modeling,"Mentor demonstrates an actual SBI example, not just explains what SBI is or describes the framework.",TRUE,FALSE,
+B-02,Thinking out loud,Quality,Modeling,"During modeling, mentor explains why they made each choice—not just what the components are.",TRUE,FALSE,
+B-03,Visible decision-making,Quality,Modeling,"Mentor shows at least one choice point (e.g., ""I could say 'rude' but that's interpretation—what did I actually see?"").",TRUE,FALSE,
+B-04,Self-checking,Quality,Modeling,"Mentor models checking their own work (e.g., ""Let me test—could a camera capture this?"").",TRUE,FALSE,Provided a self-check step in the modelled example upfront unlike in the other examples. 
+B-05,Heuristic offered,Quality,Modeling,"Mentor provides at least one reusable rule of thumb (e.g., ""If you couldn't video-record it, it's not behavior"").",TRUE,FALSE,
+C-01,Specific feedback,Critical,Coaching,"When giving feedback, mentor points to exact language in the learner's draft and names the specific issue.",TRUE,FALSE,
+C-02,Actionable direction,Quality,Coaching,"Feedback includes what to do next, not just what's wrong.",TRUE,FALSE,
+C-03,Revision requested,Critical,Coaching,"After feedback, mentor asks learner to revise or try again—not just ""does that make sense?""",TRUE,FALSE,
+C-04,Revision checked,Quality,Coaching,"When learner revises, mentor evaluates the revision specifically—not just ""great, moving on.""",TRUE,FALSE,
+C-05,Productive struggle,Quality,Coaching,"When learner makes an error, mentor explores it before correcting—asks what they were thinking, offers partial hints—rather than immediately providing the fix.",TRUE,FALSE,Overlap with F-06?
+C-06,Elicits articulation,Quality,Articulation,"Mentor asks learner to explain reasoning behind an SBI choice—not just whether they understood, but why they made a specific decision (e.g., ""Why that moment?"" or ""Walk me through that phrasing"").",TRUE,FALSE,"Overlap with F-02?
+"
+C-07,Prompts reflection,Quality,Reflection,"Mentor asks learner to compare their draft to the modeled example, or to reflect on what was difficult or what they're taking away.",FALSE,TRUE,"Mentor did not ask learner to compare their draft or reflect on difficulty at all. I don't think I saw any explicit/official shift into ""reflection/metacognition/consolidating takeaways""."
+D-01,Catches vague situations,Critical,Coaching,"Mentor does not accept ""lately"" or ""sometimes""—prompts for specific time and place.",TRUE,FALSE,
+D-02,Catches judgment leakage,Critical,Coaching,"Mentor identifies when behavior contains interpretation (e.g., ""dismissive,"" ""rude,"" ""didn't care"") and prompts for observable actions.",TRUE,FALSE,
+D-03,Catches accusatory impact,Critical,Coaching,"Mentor catches blame language (""You made it awkward"") and prompts for owned experience (""I felt..."").",TRUE,FALSE,
+D-04,Tests distinctions,Quality,Articulation,"Mentor asks at least one question that probes the observable vs. interpretive line (e.g., ""Is 'ignored' what you saw, or what you concluded?"").",TRUE,FALSE,
+D-05,Scaffolds the stuck,Quality,Scaffolding,"When learner struggles with a specific component, mentor offers targeted help (sentence stem, example, simplification)—not just generic encouragement.",TRUE,FALSE,
+D-06,Reusable scaffold,Quality,Scaffolding,"Mentor provides at least one tool the learner can reuse independently (e.g., ""camera test,"" sentence stem, self-check question).",TRUE,FALSE,
+E-01,Checks before advancing,Quality,Scaffolding,"Before moving to next phase or component, mentor checks readiness or asks preference.",TRUE,FALSE,
+E-02,Fades support,Quality,Scaffolding,"After learner shows competence, mentor pulls back (e.g., stops offering stems, asks learner to self-check).",TRUE,FALSE,Automatic pass.
+E-03,Adjusts to struggle,Quality,Scaffolding,"If learner expresses frustration or confusion, mentor slows down, simplifies, or revisits.",TRUE,FALSE,
+E-04,Protects productive struggle,Critical,Coaching,"When learner asks for the answer, mentor requires at least one attempt before providing it.",TRUE,FALSE,
+F-01,Varied turn structure,Quality,—,"Mentor doesn't follow the same formula every turn (explain → demo → ""Make sense?""). Some turns are short reactions, questions, or pauses.",TRUE,FALSE,
+F-02,Genuine curiosity,Quality,Articulation,"Mentor asks at least once about the learner's reasoning, choices, or thinking—not just whether they understood.",TRUE,FALSE,Duplicate of C-06?
+F-03,Room to breathe,Quality,—,"At least once, mentor lets a good answer or insight land without immediately pushing to the next step.",FALSE,FALSE,FC needs revision. I don't know what this means. 
+F-04,Dwells on difficulty,Quality,—,"When something is hard or interesting, mentor lingers rather than rushing past it.",FALSE,FALSE,"FC needs revision. What do ""hard"" and ""interesting"" mean here?"
+F-05,Has a voice,Quality,—,"Mentor shows some personality—an occasional reaction, opinion, or human moment—not just neutral facilitation.",FALSE,TRUE,Not much personality IMO.
+F-06,Questions over corrections,Quality,Coaching,"At least once, mentor responds to an error with inquiry (""What were you going for there?"") rather than immediate correction.",FALSE,FALSE,FC should be removed. Duplicate of C-05.

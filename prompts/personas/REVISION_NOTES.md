@@ -4,6 +4,37 @@ Detailed changelog tracking updates to synthetic learner personas and related ev
 
 ---
 
+## 2026-01-15
+
+### Inter-rater reliability analysis
+- Aggregated manual scoring from 3 human raters (Rachel, Janine, Nthato) across 3 conversations (Amara, Bailey, Carlos)
+- Created consolidated CSV files combining human scores with LLM judge verdicts
+- Generated HTML report (`eval_results/manual round 2 files/inter_rater_reliability_report.html`) for team review
+
+### Key findings
+- **Overall agreement: 76%** between humans and LLM judge
+- **Two rater clusters identified:**
+  - Rachel + Janine (89% agreement): Stricter interpretation, especially on articulation criteria
+  - Nthato + LLM (85% agreement): More lenient interpretation
+- **Domain F (Conversational Quality)** has lowest agreement (58%) - criteria need revision
+- **Critical criteria** have 95%+ agreement - well-calibrated
+
+### Criteria flagged for revision
+- **C-06 (Elicits articulation):** LLM passes when Rachel/Janine fail. LLM credits "and why?" suffixes; humans want deeper probing like "walk me through your thinking"
+- **F-02 (Genuine curiosity):** Duplicate of C-06? Both measure reasoning elicitation
+- **F-03 (Room to breathe):** Unclear definition - "letting an answer land" needs concrete criteria
+- **F-04 (Dwells on difficulty):** "Hard" and "interesting" are subjective
+- **F-06 (Questions over corrections):** Duplicate of C-05 (Productive struggle)
+- **B-04 (Self-checking):** Disagreement on whether sharing strategy counts vs. modeling its application
+
+### Coaching judge run on Amara
+- Ran `coaching_quality` judge on Amara conversation (dataset: "Amara rerun Coaching Judge")
+- Result: 5/5 passed (C-02, C-04, C-05, C-06, C-07)
+- C-06 evidence: "Before I give feedback, if I were to push back on one part of your draft as off-criteria, which specific phrase or line would it be, and why?"
+- **Rationale:** Need calibration data to tune LLM judge against human consensus
+
+---
+
 ## 2026-01-12
 
 ### mentor.md - Learner provides their own practice scenario

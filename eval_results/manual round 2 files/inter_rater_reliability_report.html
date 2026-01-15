@@ -432,7 +432,7 @@
     <div class="container">
         <header>
             <h1>MentorAI Inter-Rater Reliability Report</h1>
-            <p class="subtitle">Comparing human raters (Rachel, Janine, Nthato) with LLM Judge across 3 conversations</p>
+            <p class="subtitle">Comparing human raters (Rachel, Janine, Nthato, Anna) with LLM Judge across 3 conversations</p>
             <div class="meta">
                 <div class="meta-item">
                     <span class="meta-label">Generated:</span>
@@ -488,7 +488,7 @@
                 <h4>Areas Needing Attention</h4>
                 <ul>
                     <li><strong>Domain F (Conversational Quality):</strong> Highest disagreement; criteria need clearer definitions</li>
-                    <li><strong>LLM tends to be more lenient</strong> on articulation criteria (C-06, F-02) than human raters</li>
+                    <li><strong>LLM tends to be more lenient</strong> on articulation criteria (C-06, F-02) than human raters (all 4 humans stricter)</li>
                     <li><strong>Context-dependent criteria</strong> (E-03, E-04) are hard to score when conditions aren't met</li>
                 </ul>
             </div>
@@ -512,8 +512,8 @@
                         <span class="convo-id">ID: ec742d69</span>
                     </div>
                     <div class="stats-row">
-                        <span class="stat"><span class="stat-value pass">21</span> Full Agreement (4/4)</span>
-                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">4</span> Partial (3/4)</span>
+                        <span class="stat"><span class="stat-value pass">18</span> Full Agreement (5/5)</span>
+                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">7</span> Partial (4/5)</span>
                         <span class="stat"><span class="stat-value fail">6</span> Split or Mixed</span>
                     </div>
                 </div>
@@ -535,53 +535,54 @@
                             <th>Rachel</th>
                             <th>Janine</th>
                             <th>Nthato</th>
+                            <th>Anna</th>
                             <th>LLM</th>
                             <th>Agreement</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="domain-header"><td colspan="7">Domain A: Session Setup</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain A: Session Setup</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>4/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain B: Modeling Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td>3/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain B: Modeling Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td>4/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>5/5 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain C: Coaching Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain C: Coaching Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>4/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain D: SBI Content Fidelity</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain D: SBI Content Fidelity</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain E: Adaptive Pacing</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td>3/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="pass">Pass</td><td class="na">N/A</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/3</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain E: Adaptive Pacing</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="pass">Pass</td><td class="na">N/A</td><td class="pass">Pass</td><td class="na">N/A</td><td class="pass">Pass</td><td>3/3</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain F: Conversational Quality</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td>3/3 Fail</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="no-score">—</td><td class="pass">Pass</td><td>2/3 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain F: Conversational Quality</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="no-score">—</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/4</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td>2/5 Split</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -595,9 +596,9 @@
                         <span class="convo-id">ID: ddd7a2e3</span>
                     </div>
                     <div class="stats-row">
-                        <span class="stat"><span class="stat-value pass">21</span> Full Agreement (4/4)</span>
-                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">5</span> Partial (3/4)</span>
-                        <span class="stat"><span class="stat-value fail">5</span> Split or Lower</span>
+                        <span class="stat"><span class="stat-value pass">17</span> Full Agreement (5/5)</span>
+                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">8</span> Partial (4/5)</span>
+                        <span class="stat"><span class="stat-value fail">6</span> Split or Lower</span>
                     </div>
                 </div>
 
@@ -618,53 +619,54 @@
                             <th>Rachel</th>
                             <th>Janine</th>
                             <th>Nthato</th>
+                            <th>Anna</th>
                             <th>LLM</th>
                             <th>Agreement</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="domain-header"><td colspan="7">Domain A: Session Setup</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain A: Session Setup</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain B: Modeling Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain B: Modeling Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain C: Coaching Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain C: Coaching Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>4/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain D: SBI Content Fidelity</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="na">N/A</td><td>3/3</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain D: SBI Content Fidelity</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="na">N/A</td><td>4/4</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain E: Adaptive Pacing</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="pass">Pass</td><td class="na">N/A</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/3</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>3/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain E: Adaptive Pacing</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="pass">Pass</td><td class="na">N/A</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="pass">Pass</td><td class="no-score">—</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain F: Conversational Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td>2/3 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="na">N/A</td><td class="no-score">—</td><td class="pass">Pass</td><td>1/2 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="no-score">—</td><td class="pass">Pass</td><td>3/3</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain F: Conversational Quality</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>4/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="no-score">—</td><td class="no-score">—</td><td class="fail">Fail</td><td class="pass">Pass</td><td>1/3 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="na">N/A</td><td class="no-score">—</td><td class="fail">Fail</td><td class="pass">Pass</td><td>1/3 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/5 Fail</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="no-score">—</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -678,9 +680,9 @@
                         <span class="convo-id">ID: 4426508c</span>
                     </div>
                     <div class="stats-row">
-                        <span class="stat"><span class="stat-value pass">17</span> Full Agreement (4/4)</span>
-                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">4</span> Partial (3/4)</span>
-                        <span class="stat"><span class="stat-value fail">10</span> Split or Lower</span>
+                        <span class="stat"><span class="stat-value pass">14</span> Full Agreement (5/5)</span>
+                        <span class="stat"><span class="stat-value" style="color: var(--highlight)">5</span> Partial (4/5)</span>
+                        <span class="stat"><span class="stat-value fail">12</span> Split or Lower</span>
                     </div>
                 </div>
 
@@ -705,53 +707,54 @@
                             <th>Rachel</th>
                             <th>Janine</th>
                             <th>Nthato</th>
+                            <th>Anna</th>
                             <th>LLM</th>
                             <th>Agreement</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="domain-header"><td colspan="7">Domain A: Session Setup</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain A: Session Setup</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-01</span></td><td>Goal clarity</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">A-02</span></td><td>Phase signaling</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">A-03</span></td><td>Realistic scenario</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain B: Modeling Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain B: Modeling Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">B-01</span></td><td>Shows, not tells</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-02</span></td><td>Thinking out loud</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-03</span></td><td>Visible decision-making</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-04</span></td><td>Self-checking</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td>4/4 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">B-05</span></td><td>Heuristic offered</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain C: Coaching Quality</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain C: Coaching Quality</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-01</span></td><td>Specific feedback</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-02</span></td><td>Actionable direction</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">C-03</span></td><td>Revision requested</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">C-04</span></td><td>Revision checked</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-05</span></td><td>Productive struggle</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-06</span></td><td>Elicits articulation</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">C-07</span></td><td>Prompts reflection</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain D: SBI Content Fidelity</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="na">N/A</td><td>2/3 Split</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain D: SBI Content Fidelity</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-01</span></td><td>Catches vague situations</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag critical">D-02</span></td><td>Catches judgment leakage</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag critical">D-03</span></td><td>Catches accusatory impact</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="na">N/A</td><td>1/4 Split</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-04</span></td><td>Tests distinctions</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-05</span></td><td>Scaffolds the stuck</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">D-06</span></td><td>Reusable scaffold</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain E: Adaptive Pacing</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="fail">Fail</td><td class="na">N/A</td><td class="pass">Pass</td><td class="fail">Fail</td><td>2/3 Split</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="fail">Fail</td><td class="na">N/A</td><td class="pass">Pass</td><td class="pass">Pass</td><td>2/3 Split</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain E: Adaptive Pacing</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-01</span></td><td>Checks before advancing</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/5 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-02</span></td><td>Fades support</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">E-03</span></td><td>Adjusts to struggle</td><td class="fail">Fail</td><td class="na">N/A</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>2/4 Split</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag critical">E-04</span></td><td>Protects productive struggle</td><td class="fail">Fail</td><td class="na">N/A</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="pass">Pass</td><td>2/4 Split</td></tr>
 
-                        <tr class="domain-header"><td colspan="7">Domain F: Conversational Quality</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td>3/3 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td>3/3 Fail</td></tr>
-                        <tr class="disagreement-row"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4 Fail</td></tr>
-                        <tr class="strong-agreement"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>4/4</td></tr>
+                        <tr class="domain-header"><td colspan="8">Domain F: Conversational Quality</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-01</span></td><td>Varied turn structure</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-02</span></td><td>Genuine curiosity</td><td class="fail">Fail</td><td class="no-score">—</td><td class="pass">Pass</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/4 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">F-03</span></td><td>Room to breathe</td><td class="fail">Fail</td><td class="no-score">—</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/3 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">F-04</span></td><td>Dwells on difficulty</td><td class="fail">Fail</td><td class="no-score">—</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td>3/3 Fail</td></tr>
+                        <tr class="disagreement-row"><td><span class="tag">F-05</span></td><td>Has a voice</td><td class="fail">Fail</td><td class="no-score">—</td><td class="fail">Fail</td><td class="fail">Fail</td><td class="pass">Pass</td><td>3/4 Fail</td></tr>
+                        <tr class="strong-agreement"><td><span class="tag">F-06</span></td><td>Questions over corrections</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td class="pass">Pass</td><td>5/5</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -903,7 +906,7 @@
             <div class="summary-grid">
                 <div class="summary-card">
                     <h4>Rachel</h4>
-                    <div class="detail">Most strict overall, especially on Domain F. Consistently fails F-02, F-03, F-04, F-05. Provides "automatic pass" notes when conditions aren't met. Strong alignment with Janine.</div>
+                    <div class="detail">Most strict overall, especially on Domain F. Consistently fails F-02, F-03, F-04, F-05. Provides "automatic pass" notes when conditions aren't met. Strong alignment with Janine and Anna.</div>
                 </div>
                 <div class="summary-card">
                     <h4>Janine</h4>
@@ -912,6 +915,10 @@
                 <div class="summary-card">
                     <h4>Nthato</h4>
                     <div class="detail">Most lenient of human raters. Flags criteria for revision. Notes duplicates (C-05/F-06, C-06/F-02). Uses "automatic pass" for context-dependent criteria. Often aligns with LLM.</div>
+                </div>
+                <div class="summary-card">
+                    <h4>Anna</h4>
+                    <div class="detail">Strict on conversational quality (F-01 through F-05). Consistently fails articulation criteria (C-06, F-02). Notes mentor rigidity and lack of exploration. Often aligns with Rachel/Janine.</div>
                 </div>
                 <div class="summary-card">
                     <h4>LLM Judge</h4>
@@ -1032,7 +1039,7 @@
 
         <!-- Footer -->
         <footer style="text-align: center; padding: 2rem; color: var(--text-muted); font-size: 0.875rem;">
-            <p>Generated from manual scoring by Rachel, Janine, and Nthato compared against LLM Judge (validation run 20260113_v4)</p>
+            <p>Generated from manual scoring by Rachel, Janine, Nthato, and Anna compared against LLM Judge (validation run 20260113_v4)</p>
             <p>CSV source files available in <code>eval_results/manual round 2 files/</code></p>
         </footer>
     </div>

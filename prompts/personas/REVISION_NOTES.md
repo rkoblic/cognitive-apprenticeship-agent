@@ -4,6 +4,24 @@ Detailed changelog tracking updates to synthetic learner personas and related ev
 
 ---
 
+## 2026-01-16
+
+### New SBI personas created
+- Created `daniel_SBI.md` - Know-It-All Novice (Dunning-Kruger pattern): Overconfident, states judgments as observable facts, resists correction
+- Created `elise_SBI.md` - Hesitant Expert (Imposter phenomenon): Knows correct answers but refuses to commit, chronic self-doubt
+- Created `fatou_SBI.md` - Defeated Learner (Learned helplessness): Disengaged and resigned, requires tutor to find re-engagement pathways
+- **Rationale:** Expand coverage of learner archetypes for SBI framework evaluation. These three complement existing personas (Amara, Bailey, Carlos) by testing mentor's ability to handle overconfidence, hidden competence, and disengagement.
+
+### Archived CER personas
+- Moved `amara_CER.md`, `bailey_CER.md`, `carlos_CER.md` to `0. Archive/` folder
+- **Rationale:** CER (Claim-Evidence-Reasoning) task superseded by SBI framework focus
+
+### Initial evaluation runs completed
+- Ran 20-turn conversations with all three new personas against MentorAI
+- Conversations logged to LangSmith for review and scoring
+
+---
+
 ## 2026-01-15
 
 ### Inter-rater reliability analysis

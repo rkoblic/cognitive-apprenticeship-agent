@@ -312,71 +312,10 @@
         }
         .criteria-details-row {
             display: none;
+            background: #f9fafb;
         }
         .criteria-details-row.open {
             display: table-row;
-        }
-        .criteria-details-content {
-            padding: 0.75rem 1rem 0.75rem 2rem;
-            background: #f9fafb;
-        }
-        .individual-criteria {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.25rem;
-            overflow: hidden;
-        }
-        .individual-criterion {
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 0.75rem;
-            background: white;
-            font-size: 0.8125rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .individual-criterion:last-child {
-            border-bottom: none;
-        }
-        .individual-criterion.all-pass {
-            background: #f0fdf4;
-        }
-        .individual-criterion.has-fail {
-            background: #fef2f2;
-        }
-        .individual-criterion .code {
-            font-weight: 600;
-            color: #374151;
-            width: 60px;
-        }
-        .individual-criterion .stats {
-            color: #6b7280;
-            width: 50px;
-        }
-        .individual-criterion .bar-container {
-            flex: 1;
-            margin-left: 1rem;
-        }
-        .individual-criterion .mini-bar {
-            height: 6px;
-            background: #e5e7eb;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        .individual-criterion .mini-fill {
-            height: 100%;
-            border-radius: 3px;
-        }
-        .individual-criterion.all-pass .mini-fill {
-            background: #10b981;
-        }
-        .individual-criterion.has-fail .mini-fill {
-            background: #f59e0b;
-        }
-        .individual-criterion .persona-stats {
-            margin-left: auto;
-            white-space: nowrap;
         }
         .persona-tag {
             font-size: 0.75rem;
@@ -445,7 +384,7 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:49:30.388585
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:50:31.378024
         </footer>
     </div>
 
@@ -1303,45 +1242,49 @@
                 const individual = data.individual || {};
                 const sortedCriteria = Object.entries(individual).sort((a, b) => a[0].localeCompare(b[0]));
 
-                let detailsHtml = `<td colspan="${totalCols}"><div class="criteria-details-content"><div class="individual-criteria">`;
+                // Add individual criteria as sub-rows (same format as main rows)
                 sortedCriteria.forEach(([code, stats]) => {
                     const total = stats.passed + stats.failed;
                     const hasFail = stats.failed > 0;
                     const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
+                    const progressClass = pct >= 80 ? 'high' : pct >= 50 ? 'medium' : 'low';
                     const cByPersona = stats.by_persona || {};
 
-                    // Build persona mini-stats
-                    let personaStats = '';
+                    const subRow = document.createElement('tr');
+                    subRow.className = 'criteria-details-row';
+                    subRow.id = `criteria-details-${index}-${code}`;
+
+                    let subRowHtml = `
+                        <td style="padding-left: 2rem; color: #6b7280;">${code}</td>
+                        <td>${stats.passed}/${total}</td>
+                        <td>${pct}%</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill ${progressClass}" style="width: ${pct}%"></div>
+                            </div>
+                        </td>
+                    `;
+                    // Add persona columns
                     personasSeen.forEach(p => {
                         const ps = cByPersona[p] || {passed: 0, failed: 0};
                         const pTotal = ps.passed + ps.failed;
-                        if (pTotal > 0) {
-                            const pPct = Math.round(ps.passed / pTotal * 100);
-                            const color = pPct >= 80 ? '#10b981' : '#f59e0b';
-                            personaStats += `<span style="margin-left: 0.5rem; color: ${color}; font-size: 0.75rem;" title="${p}">${personaLetters[p]}:${pPct}%</span>`;
-                        }
+                        const pPct = pTotal > 0 ? Math.round(ps.passed / pTotal * 100) : '-';
+                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                        subRowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
                     });
-
-                    detailsHtml += `<div class="individual-criterion ${hasFail ? 'has-fail' : 'all-pass'}">
-                        <span class="code">${code}</span>
-                        <span class="stats">${stats.passed}/${total}</span>
-                        <div class="bar-container">
-                            <div class="mini-bar"><div class="mini-fill" style="width: ${pct}%"></div></div>
-                        </div>
-                        <span class="persona-stats">${personaStats}</span>
-                    </div>`;
+                    subRow.innerHTML = subRowHtml;
+                    tbody.appendChild(subRow);
                 });
-                detailsHtml += '</div></div></td>';
-                detailsRow.innerHTML = detailsHtml;
-                tbody.appendChild(detailsRow);
             });
         }
 
         function toggleCriteriaDetails(index) {
             const row = document.querySelectorAll('.criteria-expand-row')[index];
-            const details = document.getElementById(`criteria-details-${index}`);
             row.classList.toggle('open');
-            details.classList.toggle('open');
+            // Toggle all sub-rows for this index
+            document.querySelectorAll(`[id^="criteria-details-${index}-"]`).forEach(el => {
+                el.classList.toggle('open');
+            });
         }
 
         function renderCriteriaEvidence(criteria, showAll = false) {

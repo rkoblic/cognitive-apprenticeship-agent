@@ -125,6 +125,49 @@ def extract_inner_thought(learner_output: str) -> str | None:
 
 
 # =============================================================================
+# CONVERSATION SAVING
+# =============================================================================
+
+def save_conversation_markdown(result: dict, output_dir: Path) -> Path:
+    """
+    Save conversation as markdown (visible responses only).
+
+    Strips [INNER THOUGHT] blocks so the saved transcript shows only
+    what would be visible in a real tutoring session.
+
+    Args:
+        result: Conversation result dict from run_conversation()
+        output_dir: Directory to save markdown files
+
+    Returns:
+        Path to the saved markdown file
+    """
+    from datetime import datetime
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"{timestamp}_{result['persona']}.md"
+    filepath = output_dir / filename
+
+    lines = [
+        f"# Conversation: {result['persona']}",
+        f"**Turns:** {result['num_turns']} | **Generated:** {datetime.now().isoformat()}",
+        "",
+        "---",
+        ""
+    ]
+
+    for msg in result['transcript']:
+        role = msg['role']
+        # Use visible_to_mentor for learner (no inner thoughts), content for MentorAI
+        content = msg.get('visible_to_mentor', msg['content'])
+        lines.append(f"**{role}:**\n\n{content}\n")
+
+    filepath.write_text('\n'.join(lines))
+    return filepath
+
+
+# =============================================================================
 # CONVERSATION TERMINATION DETECTION
 # =============================================================================
 
@@ -322,7 +365,11 @@ Examples:
                         help="Number of conversation turns (default: 25)")
     parser.add_argument("--list-personas", action="store_true",
                         help="List available personas and exit")
-    
+    parser.add_argument("--save-conversations", "-s", action="store_true",
+                        help="Save conversations to markdown files")
+    parser.add_argument("--output-dir", type=str, default="conversations",
+                        help="Directory for conversation files (default: conversations/)")
+
     args = parser.parse_args()
     
     # Handle --list-personas
@@ -348,6 +395,12 @@ Examples:
         exit(1)
     
     result = run_conversation(args.persona, args.turns)
-    
+
+    # Save conversation to markdown if requested
+    if args.save_conversations:
+        output_dir = SCRIPT_DIR / args.output_dir
+        filepath = save_conversation_markdown(result, output_dir)
+        print(f"\nConversation saved to: {filepath}")
+
     print("\nConversation logged to LangSmith!")
     print("Go to smith.langchain.com to review and score the trace.")

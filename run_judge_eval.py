@@ -282,29 +282,62 @@ def save_results(
     return md_path
 
 
-def save_manifest(run_dir: Path, config: dict, results: list):
-    """
-    Save manifest.json with run metadata and summary.
-    """
-    # Calculate summary stats
+def calculate_summary(results: list) -> dict:
+    """Calculate summary statistics from results."""
     critical_passed = sum(1 for r in results if r.get("critical_verdict") == "PASS")
     critical_failed = sum(1 for r in results if r.get("critical_verdict") == "FAIL")
 
+    # Quality stats
+    total_quality_passed = 0
+    total_quality_criteria = 0
+    for r in results:
+        for judge_id, result in r.get("quality_results", {}).items():
+            total_quality_passed += result.get("passed", 0)
+            total_quality_criteria += result.get("total", 0)
+
+    return {
+        "total_evaluated": len(results),
+        "critical_passed": critical_passed,
+        "critical_failed": critical_failed,
+        "quality_passed": total_quality_passed,
+        "quality_total": total_quality_criteria,
+    }
+
+
+def update_manifest(run_dir: Path, config: dict, results: list, status: str = "in_progress"):
+    """
+    Write manifest.json incrementally with atomic write.
+
+    Args:
+        run_dir: Directory containing evaluation results
+        config: Evaluation configuration
+        results: List of conversation results so far
+        status: "in_progress" or "complete"
+    """
     manifest = {
         "run_id": run_dir.name,
         "timestamp": datetime.now().isoformat(),
+        "status": status,
         "config": config,
         "conversations": results,
-        "summary": {
-            "total_evaluated": len(results),
-            "critical_passed": critical_passed,
-            "critical_failed": critical_failed,
-        }
+        "summary": calculate_summary(results)
     }
 
+    # Atomic write via temp file
+    temp_path = run_dir / "manifest.json.tmp"
     manifest_path = run_dir / "manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2))
+    temp_path.write_text(json.dumps(manifest, indent=2))
+    temp_path.rename(manifest_path)
+
     return manifest_path
+
+
+def save_manifest(run_dir: Path, config: dict, results: list):
+    """
+    Save manifest.json with run metadata and summary.
+    Legacy wrapper for update_manifest with status="complete".
+    """
+    return update_manifest(run_dir, config, results, status="complete")
 
 
 # =============================================================================
@@ -431,6 +464,20 @@ def run_evaluation(args):
     else:
         quality_judges = QUALITY_JUDGES
 
+    # Define config early for incremental manifest updates
+    config = {
+        "project": args.project,
+        "dataset": args.dataset,
+        "run_filter": args.run_filter,
+        "tag": args.tag,
+        "model": args.model,
+        "limit": args.limit,
+        "stage": args.stage,
+        "validation": args.validation,
+        "quality_judges": quality_judges if run_quality else [],
+        "total_conversations": len(conversations),
+    }
+
     # Process each conversation
     results = []
 
@@ -520,19 +567,29 @@ def run_evaluation(args):
 
         results.append(result)
 
-    # Save manifest
-    config = {
-        "project": args.project,
-        "dataset": args.dataset,
-        "run_filter": args.run_filter,
-        "tag": args.tag,
-        "model": args.model,
-        "limit": args.limit,
-        "stage": args.stage,
-        "validation": args.validation,
-        "quality_judges": quality_judges if run_quality else [],
-    }
-    manifest_path = save_manifest(run_dir, config, results)
+        # Incremental manifest update after each conversation
+        update_manifest(run_dir, config, results, status="in_progress")
+
+        # Regenerate dashboard if enabled
+        if args.dashboard:
+            try:
+                from generate_dashboard import generate_dashboard
+                generate_dashboard(run_dir)
+                print("  Dashboard updated")
+            except Exception as e:
+                print(f"  WARNING: Dashboard generation failed: {e}")
+
+    # Final manifest with complete status
+    manifest_path = update_manifest(run_dir, config, results, status="complete")
+
+    # Final dashboard generation
+    if args.dashboard:
+        try:
+            from generate_dashboard import generate_dashboard
+            generate_dashboard(run_dir)
+            print(f"\nFinal dashboard: {run_dir / 'dashboard.html'}")
+        except Exception as e:
+            print(f"WARNING: Final dashboard generation failed: {e}")
 
     # Print summary
     print("\n" + "=" * 60)
@@ -613,6 +670,12 @@ def main():
     parser.add_argument(
         "--dataset",
         help="Use a LangSmith dataset instead of fetching runs (e.g., 'eval-batch-jan13')"
+    )
+
+    parser.add_argument(
+        "--dashboard",
+        action="store_true",
+        help="Generate live dashboard after each conversation evaluation"
     )
 
     args = parser.parse_args()

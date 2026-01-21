@@ -19,7 +19,10 @@ run_eval.py                 # Generate tutor-learner conversations
 run_judge_eval.py           # Run LLM judges on conversations
 create_dataset.py           # Create datasets from LangSmith runs
 generate_report.py          # Generate HTML/CSV reports
+generate_dashboard.py       # Generate live HTML dashboard
+deploy_dashboard.py         # Deploy dashboard to GitHub Pages
 eval_results/               # Judge evaluation outputs
+docs/                       # GitHub Pages dashboard (index.html)
 ```
 
 ## Running Evaluations
@@ -52,6 +55,14 @@ python generate_report.py --run <path>            # From specific run
 ```
 
 Outputs `report.html` (visual) and `results.csv` (data) for sharing.
+
+### Live Dashboard
+```bash
+python generate_dashboard.py --run <path>         # Generate dashboard HTML
+python deploy_dashboard.py --run <path>           # Deploy to GitHub Pages
+```
+
+The dashboard shows per-persona pass rates and is automatically regenerated after each evaluation. View at: https://rkoblic.github.io/cognitive-apprenticeship-agent/
 
 See `docs/llm-as-judge-notes.md` for full documentation.
 

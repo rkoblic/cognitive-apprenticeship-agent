@@ -308,6 +308,101 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             color: #9ca3af;
             font-size: 0.75rem;
         }}
+        /* Evidence display styles */
+        .evidence-section {{
+            margin-top: 1rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }}
+        .evidence-section h4 {{
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #374151;
+        }}
+        .criterion-item {{
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            border-left: 3px solid;
+        }}
+        .criterion-item.pass {{
+            background: #f0fdf4;
+            border-left-color: #10b981;
+        }}
+        .criterion-item.fail {{
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }}
+        .criterion-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }}
+        .criterion-code {{
+            font-weight: 600;
+            font-size: 0.875rem;
+        }}
+        .criterion-item.pass .criterion-code {{
+            color: #065f46;
+        }}
+        .criterion-item.fail .criterion-code {{
+            color: #991b1b;
+        }}
+        .evidence-text {{
+            font-size: 0.8125rem;
+            color: #4b5563;
+            line-height: 1.6;
+            font-style: italic;
+        }}
+        .evidence-text::before {{
+            content: '"';
+        }}
+        .evidence-text::after {{
+            content: '"';
+        }}
+        .judge-section {{
+            margin-top: 1.5rem;
+        }}
+        .judge-section h5 {{
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }}
+        .failed-summary {{
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+        }}
+        .failed-summary-title {{
+            font-weight: 600;
+            color: #991b1b;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }}
+        .toggle-evidence {{
+            font-size: 0.75rem;
+            color: #6b7280;
+            cursor: pointer;
+            text-decoration: underline;
+        }}
+        .toggle-evidence:hover {{
+            color: #374151;
+        }}
+        .criteria-list {{
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }}
+        .criteria-list.expanded {{
+            max-height: 2000px;
+        }}
     </style>
 </head>
 <body>
@@ -391,12 +486,84 @@ def generate_html(manifest: dict, metrics: dict) -> str:
     <script>
         const manifest = {manifest_json};
 
+        function escapeHtml(text) {{
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }}
+
+        function renderCriteriaEvidence(criteria, showAll = false) {{
+            if (!criteria || Object.keys(criteria).length === 0) {{
+                return '<em>No criteria data available</em>';
+            }}
+
+            // Separate failed and passed criteria
+            const failed = [];
+            const passed = [];
+            for (const [code, data] of Object.entries(criteria)) {{
+                if (data.verdict === 'FAIL') {{
+                    failed.push({{ code, ...data }});
+                }} else if (data.verdict === 'PASS') {{
+                    passed.push({{ code, ...data }});
+                }}
+            }}
+
+            let html = '';
+
+            // Always show failed criteria first and prominently
+            if (failed.length > 0) {{
+                html += '<div class="failed-summary"><div class="failed-summary-title">Failed Criteria (' + failed.length + ')</div>';
+                failed.forEach(item => {{
+                    html += `<div class="criterion-item fail">
+                        <div class="criterion-header">
+                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="verdict fail">FAIL</span>
+                        </div>
+                        <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
+                    </div>`;
+                }});
+                html += '</div>';
+            }}
+
+            // Show passed criteria (collapsed by default if there are many)
+            if (passed.length > 0 && showAll) {{
+                html += '<div class="passed-criteria">';
+                passed.forEach(item => {{
+                    html += `<div class="criterion-item pass">
+                        <div class="criterion-header">
+                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="verdict pass">PASS</span>
+                        </div>
+                        <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
+                    </div>`;
+                }});
+                html += '</div>';
+            }} else if (passed.length > 0) {{
+                html += `<div class="toggle-evidence" onclick="this.nextElementSibling.classList.toggle('expanded'); this.textContent = this.nextElementSibling.classList.contains('expanded') ? 'Hide ${{passed.length}} passed criteria' : 'Show ${{passed.length}} passed criteria'">Show ${{passed.length}} passed criteria</div>`;
+                html += '<div class="criteria-list">';
+                passed.forEach(item => {{
+                    html += `<div class="criterion-item pass">
+                        <div class="criterion-header">
+                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="verdict pass">PASS</span>
+                        </div>
+                        <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
+                    </div>`;
+                }});
+                html += '</div>';
+            }}
+
+            return html;
+        }}
+
         function renderConversations() {{
             const tbody = document.getElementById('conversations');
             const conversations = manifest.conversations || [];
 
             conversations.forEach((conv, index) => {{
                 const criticalVerdict = conv.critical_verdict || 'PENDING';
+                const criticalJson = conv.critical_json || {{}};
                 const qualityResults = conv.quality_results || {{}};
 
                 // Calculate quality score
@@ -422,14 +589,16 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 `;
                 tbody.appendChild(row);
 
-                // Details row
+                // Details row with full evidence
                 const detailsRow = document.createElement('tr');
                 detailsRow.className = 'details';
                 detailsRow.id = `details-${{index}}`;
 
                 let detailsHtml = '<td colspan="4"><div class="details-content">';
+
+                // Quality summary grid
                 if (Object.keys(qualityResults).length > 0) {{
-                    detailsHtml += '<div class="quality-grid">';
+                    detailsHtml += '<div class="quality-grid" style="margin-bottom: 1rem;">';
                     for (const [judge, result] of Object.entries(qualityResults)) {{
                         const passed = result.passed || 0;
                         const total = result.total || 0;
@@ -437,9 +606,30 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                         detailsHtml += `<div class="quality-item"><span>${{judge.replace(/_/g, ' ')}}</span><span>${{passed}}/${{total}} (${{pct}}%)</span></div>`;
                     }}
                     detailsHtml += '</div>';
-                }} else {{
-                    detailsHtml += '<em>No quality evaluation data yet</em>';
                 }}
+
+                // Critical criteria evidence
+                if (criticalJson.criteria) {{
+                    detailsHtml += '<div class="evidence-section">';
+                    detailsHtml += '<h4>Critical Criteria Evidence</h4>';
+                    detailsHtml += renderCriteriaEvidence(criticalJson.criteria);
+                    detailsHtml += '</div>';
+                }}
+
+                // Quality judges evidence
+                for (const [judgeName, result] of Object.entries(qualityResults)) {{
+                    if (result.json && result.json.criteria) {{
+                        detailsHtml += '<div class="judge-section">';
+                        detailsHtml += `<h5>${{judgeName.replace(/_/g, ' ')}}</h5>`;
+                        detailsHtml += renderCriteriaEvidence(result.json.criteria);
+                        detailsHtml += '</div>';
+                    }}
+                }}
+
+                if (!criticalJson.criteria && Object.keys(qualityResults).length === 0) {{
+                    detailsHtml += '<em>No evaluation data yet</em>';
+                }}
+
                 detailsHtml += '</div></td>';
                 detailsRow.innerHTML = detailsHtml;
                 tbody.appendChild(detailsRow);

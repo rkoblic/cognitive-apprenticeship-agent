@@ -374,6 +374,10 @@
         .individual-criterion.has-fail .mini-fill {
             background: #f59e0b;
         }
+        .individual-criterion .persona-stats {
+            margin-left: auto;
+            white-space: nowrap;
+        }
         .persona-tag {
             font-size: 0.75rem;
             background: #e0e7ff;
@@ -416,13 +420,7 @@
         <div class="section">
             <div class="section-header">Per-Criteria Results</div>
             <table>
-                <thead>
-                    <tr>
-                        <th>Criterion</th>
-                        <th>Passed</th>
-                        <th>Pass Rate</th>
-                        <th style="width: 40%">Progress</th>
-                    </tr>
+                <thead id="criteria-header">
                 </thead>
                 <tbody id="criteria-table">
                 </tbody>
@@ -447,7 +445,7 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:47:40.700046
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:49:30.388585
         </footer>
     </div>
 
@@ -1232,7 +1230,7 @@
     "quality_total": 57
   }
 };
-        const metrics = {"total": 3, "completed": 3, "critical_passed": 3, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 57, "quality_total_criteria": 57, "quality_average": 100.0, "per_criteria": {"session_setup": {"passed": 9, "total": 9, "individual": {"A-01": {"passed": 3, "failed": 0}, "A-02": {"passed": 3, "failed": 0}, "A-03": {"passed": 3, "failed": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 12, "total": 12, "individual": {"B-02": {"passed": 3, "failed": 0}, "B-03": {"passed": 3, "failed": 0}, "B-04": {"passed": 3, "failed": 0}, "B-05": {"passed": 3, "failed": 0}}, "percentage": 100.0}, "coaching_quality": {"passed": 15, "total": 15, "individual": {"C-02": {"passed": 3, "failed": 0}, "C-04": {"passed": 3, "failed": 0}, "C-05": {"passed": 3, "failed": 0}, "C-06": {"passed": 3, "failed": 0}, "C-07": {"passed": 3, "failed": 0}}, "percentage": 100.0}, "sbi_content": {"passed": 9, "total": 9, "individual": {"D-04": {"passed": 3, "failed": 0}, "D-05": {"passed": 3, "failed": 0}, "D-06": {"passed": 3, "failed": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 6, "total": 6, "individual": {"E-01": {"passed": 3, "failed": 0}, "E-02": {"passed": 3, "failed": 0}}, "percentage": 100.0}, "conversational_quality": {"passed": 6, "total": 6, "individual": {"F-01": {"passed": 3, "failed": 0}, "F-02": {"passed": 3, "failed": 0}, "F-03": {"passed": 0, "failed": 0}}, "percentage": 100.0}}};
+        const metrics = {"total": 3, "completed": 3, "critical_passed": 3, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 57, "quality_total_criteria": 57, "quality_average": 100.0, "per_criteria": {"session_setup": {"passed": 9, "total": 9, "individual": {"A-01": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 9, "total": 9}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 12, "total": 12, "individual": {"B-02": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 12, "total": 12}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "coaching_quality": {"passed": 15, "total": 15, "individual": {"C-02": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 15, "total": 15}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "sbi_content": {"passed": 9, "total": 9, "individual": {"D-04": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 9, "total": 9}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 6, "total": 6, "individual": {"E-01": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 6, "total": 6}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "conversational_quality": {"passed": 6, "total": 6, "individual": {"F-01": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 3, "failed": 0, "by_persona": {"amara_SBI": {"passed": 3, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 0, "failed": 0, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 6, "total": 6}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}}, "personas_seen": ["amara_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
 
         function escapeHtml(text) {
             if (!text) return '';
@@ -1252,18 +1250,32 @@
         }
 
         function renderCriteriaTable() {
+            const thead = document.getElementById('criteria-header');
             const tbody = document.getElementById('criteria-table');
             const perCriteria = metrics.per_criteria || {};
+            const personasSeen = metrics.personas_seen || [];
+            const personaLetters = metrics.persona_letters || {};
+            const numPersonaCols = personasSeen.length;
+            const totalCols = 4 + numPersonaCols;
+
+            // Render header
+            let headerHtml = '<tr><th>Criterion</th><th>Passed</th><th>Pass Rate</th><th style="width: 30%">Progress</th>';
+            personasSeen.forEach(p => {
+                headerHtml += `<th style="width: 40px; text-align: center" title="${p}">${personaLetters[p] || p[0].toUpperCase()}</th>`;
+            });
+            headerHtml += '</tr>';
+            thead.innerHTML = headerHtml;
 
             Object.entries(perCriteria).forEach(([judgeId, data], index) => {
                 const percentage = data.percentage || 0;
                 const progressClass = percentage >= 80 ? 'high' : percentage >= 50 ? 'medium' : 'low';
+                const byPersona = data.by_persona || {};
 
                 // Main row
                 const row = document.createElement('tr');
                 row.className = 'criteria-expand-row';
                 row.onclick = () => toggleCriteriaDetails(index);
-                row.innerHTML = `
+                let rowHtml = `
                     <td>${judgeId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</td>
                     <td>${data.passed}/${data.total}</td>
                     <td>${percentage}%</td>
@@ -1273,6 +1285,14 @@
                         </div>
                     </td>
                 `;
+                // Add persona columns
+                personasSeen.forEach(p => {
+                    const pData = byPersona[p] || {passed: 0, total: 0};
+                    const pPct = pData.total > 0 ? Math.round(pData.passed / pData.total * 100) : '-';
+                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                    rowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
+                });
+                row.innerHTML = rowHtml;
                 tbody.appendChild(row);
 
                 // Details row with individual criteria
@@ -1283,17 +1303,32 @@
                 const individual = data.individual || {};
                 const sortedCriteria = Object.entries(individual).sort((a, b) => a[0].localeCompare(b[0]));
 
-                let detailsHtml = '<td colspan="4"><div class="criteria-details-content"><div class="individual-criteria">';
+                let detailsHtml = `<td colspan="${totalCols}"><div class="criteria-details-content"><div class="individual-criteria">`;
                 sortedCriteria.forEach(([code, stats]) => {
                     const total = stats.passed + stats.failed;
                     const hasFail = stats.failed > 0;
                     const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
+                    const cByPersona = stats.by_persona || {};
+
+                    // Build persona mini-stats
+                    let personaStats = '';
+                    personasSeen.forEach(p => {
+                        const ps = cByPersona[p] || {passed: 0, failed: 0};
+                        const pTotal = ps.passed + ps.failed;
+                        if (pTotal > 0) {
+                            const pPct = Math.round(ps.passed / pTotal * 100);
+                            const color = pPct >= 80 ? '#10b981' : '#f59e0b';
+                            personaStats += `<span style="margin-left: 0.5rem; color: ${color}; font-size: 0.75rem;" title="${p}">${personaLetters[p]}:${pPct}%</span>`;
+                        }
+                    });
+
                     detailsHtml += `<div class="individual-criterion ${hasFail ? 'has-fail' : 'all-pass'}">
                         <span class="code">${code}</span>
                         <span class="stats">${stats.passed}/${total}</span>
                         <div class="bar-container">
                             <div class="mini-bar"><div class="mini-fill" style="width: ${pct}%"></div></div>
                         </div>
+                        <span class="persona-stats">${personaStats}</span>
                     </div>`;
                 });
                 detailsHtml += '</div></div></td>';

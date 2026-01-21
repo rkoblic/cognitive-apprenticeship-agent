@@ -384,7 +384,7 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:50:31.378024
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:52:10.825630
         </footer>
     </div>
 
@@ -1198,11 +1198,11 @@
             const totalCols = 4 + numPersonaCols;
 
             // Render header
-            let headerHtml = '<tr><th>Criterion</th><th>Passed</th><th>Pass Rate</th><th style="width: 30%">Progress</th>';
+            let headerHtml = '<tr><th>Criterion</th><th>Passed</th><th>Pass Rate</th>';
             personasSeen.forEach(p => {
                 headerHtml += `<th style="width: 40px; text-align: center" title="${p}">${personaLetters[p] || p[0].toUpperCase()}</th>`;
             });
-            headerHtml += '</tr>';
+            headerHtml += '<th style="width: 25%">Progress</th></tr>';
             thead.innerHTML = headerHtml;
 
             Object.entries(perCriteria).forEach(([judgeId, data], index) => {
@@ -1218,11 +1218,6 @@
                     <td>${judgeId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</td>
                     <td>${data.passed}/${data.total}</td>
                     <td>${percentage}%</td>
-                    <td>
-                        <div class="progress-bar">
-                            <div class="progress-fill ${progressClass}" style="width: ${percentage}%"></div>
-                        </div>
-                    </td>
                 `;
                 // Add persona columns
                 personasSeen.forEach(p => {
@@ -1231,6 +1226,12 @@
                     const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
                     rowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
                 });
+                // Progress bar at end
+                rowHtml += `<td>
+                    <div class="progress-bar">
+                        <div class="progress-fill ${progressClass}" style="width: ${percentage}%"></div>
+                    </div>
+                </td>`;
                 row.innerHTML = rowHtml;
                 tbody.appendChild(row);
 
@@ -1258,11 +1259,6 @@
                         <td style="padding-left: 2rem; color: #6b7280;">${code}</td>
                         <td>${stats.passed}/${total}</td>
                         <td>${pct}%</td>
-                        <td>
-                            <div class="progress-bar">
-                                <div class="progress-fill ${progressClass}" style="width: ${pct}%"></div>
-                            </div>
-                        </td>
                     `;
                     // Add persona columns
                     personasSeen.forEach(p => {
@@ -1272,6 +1268,12 @@
                         const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
                         subRowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
                     });
+                    // Progress bar at end
+                    subRowHtml += `<td>
+                        <div class="progress-bar">
+                            <div class="progress-fill ${progressClass}" style="width: ${pct}%"></div>
+                        </div>
+                    </td>`;
                     subRow.innerHTML = subRowHtml;
                     tbody.appendChild(subRow);
                 });

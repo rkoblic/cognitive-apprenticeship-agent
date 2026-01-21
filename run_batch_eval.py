@@ -4,9 +4,12 @@ Batch Evaluation Orchestrator
 
 Single command that handles the full evaluation workflow:
 1. Generates N conversations per persona (saves to markdown)
-2. Creates LangSmith dataset from runs
+2. Adds conversations to master-eval dataset (accumulates over time)
 3. Runs judge evaluation with dashboard updates after each conversation
 4. Deploys dashboard to GitHub Pages (optional)
+
+The master-eval dataset accumulates all conversations across runs, so
+the dashboard shows aggregated scores across all personas and sessions.
 
 Usage:
     # Run 10 conversations for 2 personas (20 turns each), deploy dashboard
@@ -18,9 +21,11 @@ Usage:
     # Single persona with custom turns
     python run_batch_eval.py --personas amara_SBI --count 3 --turns 15
 
-    # Skip conversation generation, evaluate existing dataset
-    python run_batch_eval.py --dataset my-dataset --skip-generation
+    # Evaluate full master dataset without generating new conversations
+    python run_batch_eval.py --eval-only --deploy
 """
+
+MASTER_DATASET = "master-eval"
 
 import argparse
 import subprocess
@@ -85,19 +90,20 @@ def generate_conversations(
     return True
 
 
-def create_dataset(dataset_name: str, limit: int) -> bool:
-    """Create a LangSmith dataset from recent runs."""
+def add_to_master_dataset(limit: int) -> bool:
+    """Add recent runs to the master-eval dataset."""
     cmd = [
         sys.executable, "create_dataset.py",
-        "--name", dataset_name,
-        "--limit", str(limit)
+        "--name", MASTER_DATASET,
+        "--limit", str(limit),
+        "--append"
     ]
-    return run_command(cmd, f"Creating dataset: {dataset_name}")
+    return run_command(cmd, f"Adding {limit} conversations to {MASTER_DATASET}")
 
 
 def run_judge_evaluation(
     dataset: str | None = None,
-    limit: int = 10,
+    limit: int | None = None,
     dashboard: bool = True
 ) -> Path | None:
     """
@@ -105,7 +111,7 @@ def run_judge_evaluation(
 
     Args:
         dataset: Optional dataset name (if None, uses recent runs)
-        limit: Max conversations to evaluate
+        limit: Max conversations to evaluate (None = all in dataset)
         dashboard: Whether to generate dashboard updates
 
     Returns:
@@ -114,13 +120,14 @@ def run_judge_evaluation(
     # Create timestamped output directory
     runs_dir = EVAL_RESULTS_DIR / "runs"
     runs_dir.mkdir(parents=True, exist_ok=True)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = runs_dir / timestamp
 
-    cmd = [
-        sys.executable, "run_judge_eval.py",
-        "--limit", str(limit)
-    ]
+    cmd = [sys.executable, "run_judge_eval.py"]
+
+    if limit:
+        cmd.extend(["--limit", str(limit)])
+    else:
+        # Use a high limit to get all examples
+        cmd.extend(["--limit", "1000"])
 
     if dataset:
         cmd.extend(["--dataset", dataset])
@@ -128,7 +135,7 @@ def run_judge_evaluation(
     if dashboard:
         cmd.append("--dashboard")
 
-    success = run_command(cmd, "Running judge evaluation")
+    success = run_command(cmd, f"Running judge evaluation on {dataset or 'recent runs'}")
 
     if success:
         # Find the most recent run directory
@@ -151,13 +158,16 @@ def main():
     parser = argparse.ArgumentParser(
         description="Run full evaluation workflow: generate conversations, evaluate, and deploy dashboard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
+        epilog=f"""
+All conversations are added to the '{MASTER_DATASET}' dataset, which accumulates
+over time. The dashboard shows aggregated scores across all personas and sessions.
+
 Examples:
     # Generate and evaluate 10 conversations for 2 personas
     python run_batch_eval.py --personas amara_SBI,carlos_SBI --count 10 --deploy
 
-    # Evaluate existing dataset (skip generation)
-    python run_batch_eval.py --dataset my-dataset --skip-generation
+    # Re-evaluate full master dataset and deploy (no new conversations)
+    python run_batch_eval.py --eval-only --deploy
 
     # Quick test with 2 conversations
     python run_batch_eval.py --personas amara_SBI --count 2
@@ -182,14 +192,9 @@ Examples:
         help="Number of turns per conversation (default: 20)"
     )
     parser.add_argument(
-        "--dataset",
-        type=str,
-        help="Use existing LangSmith dataset instead of generating conversations"
-    )
-    parser.add_argument(
-        "--skip-generation",
+        "--eval-only",
         action="store_true",
-        help="Skip conversation generation (requires --dataset)"
+        help="Only run evaluation on existing master dataset (no new conversations)"
     )
     parser.add_argument(
         "--skip-evaluation",
@@ -210,31 +215,26 @@ Examples:
     args = parser.parse_args()
 
     # Validate arguments
-    if args.skip_generation and not args.dataset:
-        parser.error("--skip-generation requires --dataset")
-
-    if not args.skip_generation and not args.personas:
-        parser.error("--personas is required unless using --skip-generation with --dataset")
+    if not args.eval_only and not args.personas:
+        parser.error("--personas is required unless using --eval-only")
 
     print("\n" + "="*60)
     print("  MentorAI Batch Evaluation")
     print("="*60)
+    print(f"  Master dataset: {MASTER_DATASET}")
 
     # Parse personas
     personas = []
     if args.personas:
         personas = [p.strip() for p in args.personas.split(",")]
-        print(f"Personas: {', '.join(personas)}")
-        print(f"Conversations per persona: {args.count}")
-        print(f"Turns per conversation: {args.turns}")
-        print(f"Total conversations: {len(personas) * args.count}")
+        print(f"  Personas: {', '.join(personas)}")
+        print(f"  Conversations per persona: {args.count}")
+        print(f"  Turns per conversation: {args.turns}")
+        print(f"  New conversations: {len(personas) * args.count}")
 
-    if args.dataset:
-        print(f"Dataset: {args.dataset}")
-
-    # Step 1: Generate conversations
+    # Step 1: Generate conversations and add to master dataset
     conversations_dir = None
-    if not args.skip_generation and personas:
+    if not args.eval_only and personas:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         conversations_dir = SCRIPT_DIR / "conversations" / timestamp
 
@@ -252,27 +252,21 @@ Examples:
 
         print(f"\nConversations saved to: {conversations_dir}")
 
-        # Create dataset from recent runs
+        # Add to master dataset
         total_conversations = len(personas) * args.count
-        dataset_name = f"batch-{timestamp}"
-
-        print(f"\nCreating dataset '{dataset_name}' from recent runs...")
-        if not create_dataset(dataset_name, total_conversations):
-            print("WARNING: Dataset creation failed, evaluation will use recent runs")
-            dataset_name = None
-        else:
-            args.dataset = dataset_name
+        print(f"\nAdding to {MASTER_DATASET}...")
+        if not add_to_master_dataset(total_conversations):
+            print("WARNING: Failed to add to master dataset")
     else:
-        print("\n[Step 1/3] Skipping conversation generation")
+        print("\n[Step 1/3] Skipping conversation generation (--eval-only)")
 
-    # Step 2: Run judge evaluation
+    # Step 2: Run judge evaluation on full master dataset
     run_dir = None
     if not args.skip_evaluation:
-        print(f"\n[Step 2/3] Running judge evaluation...")
-        total_to_evaluate = len(personas) * args.count if personas else args.count
+        print(f"\n[Step 2/3] Running judge evaluation on {MASTER_DATASET}...")
         run_dir = run_judge_evaluation(
-            dataset=args.dataset,
-            limit=total_to_evaluate,
+            dataset=MASTER_DATASET,
+            limit=None,  # Evaluate all
             dashboard=not args.no_dashboard
         )
 

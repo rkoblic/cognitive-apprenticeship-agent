@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
-    <title>MentorAI Evaluation Dashboard - 20260121_104804</title>
+    <title>MentorAI Evaluation Dashboard - 20260121_110141</title>
     <style>
         * {
             margin: 0;
@@ -332,9 +332,9 @@
         <header>
             <h1>MentorAI Evaluation Dashboard</h1>
             <div class="meta">
-                <span>Run: <strong>20260121_104804</strong></span>
+                <span>Run: <strong>20260121_110141</strong></span>
                 <span class="badge" style="background: #10b981">Complete</span>
-                <span class="timestamp">Updated: 2026-01-21T10:56:58.213370</span>
+                <span class="timestamp">Updated: 2026-01-21T11:11:56.890705</span>
             </div>
         </header>
 
@@ -342,16 +342,16 @@
             <div class="card">
                 <div class="card-label">Critical Pass Rate</div>
                 <div class="card-value pass">100.0%</div>
-                <div class="card-label">6/6 passed</div>
+                <div class="card-label">7/7 passed</div>
             </div>
             <div class="card">
                 <div class="card-label">Quality Average</div>
-                <div class="card-value">95.6%</div>
-                <div class="card-label">109/114 criteria</div>
+                <div class="card-value">96.2%</div>
+                <div class="card-label">128/133 criteria</div>
             </div>
             <div class="card">
                 <div class="card-label">Progress</div>
-                <div class="card-value">6/6</div>
+                <div class="card-value">7/7</div>
                 <div class="card-label">conversations evaluated</div>
             </div>
         </div>
@@ -384,14 +384,14 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T10:57:16.146561
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T11:12:06.913110
         </footer>
     </div>
 
     <script>
         const manifest = {
-  "run_id": "20260121_104804",
-  "timestamp": "2026-01-21T10:56:58.213370",
+  "run_id": "20260121_110141",
+  "timestamp": "2026-01-21T11:11:56.890705",
   "status": "complete",
   "config": {
     "project": "MentorAI-Eval",
@@ -399,7 +399,7 @@
     "run_filter": "MentorAI Evaluation Conversation",
     "tag": null,
     "model": "claude-opus-4-5-20251101",
-    "limit": 1000,
+    "limit": 10,
     "stage": "all",
     "validation": false,
     "quality_judges": [
@@ -410,9 +410,258 @@
       "adaptive_pacing",
       "conversational_quality"
     ],
-    "total_conversations": 6
+    "total_conversations": 7
   },
   "conversations": [
+    {
+      "langsmith_id": "ff7bb46f-fe17-4faf-ab1c-c8d20a02a32e",
+      "short_id": "ff7bb46f",
+      "source_type": "dataset",
+      "critical_verdict": "PASS",
+      "critical_json": {
+        "criteria": {
+          "B-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor demonstrates complete SBI: 'In Tuesday's standup right after Nora's update\u2026you began talking while I was mid\u2011sentence twice and suggested switching the deployment plan\u2026I felt flustered, lost my place, and we ran about four minutes over.'"
+          },
+          "C-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor quotes specific language: 'First place to tighten is the moment: \"lately\" spans multiple meetings, but SBI needs one identifiable instance' and 'the behavior, translate \"dismissive/pushing back\" into what a camera would catch'"
+          },
+          "C-03": {
+            "verdict": "PASS",
+            "evidence": "Mentor explicitly requests revisions multiple times: 'which specific planning meeting and moment inside it would you anchor to instead, and can you rewrite your opening line to name that?' and 'Can you rewrite it to own the impact\u2014drop \"you made\"...'"
+          },
+          "D-01": {
+            "verdict": "PASS",
+            "evidence": "When learner wrote 'In our weekly planning meetings lately,' mentor caught it: 'First place to tighten is the moment: \"lately\" spans multiple meetings, but SBI needs one identifiable instance\u2014which specific planning meeting and moment inside it would you anchor to instead'"
+          },
+          "D-02": {
+            "verdict": "PASS",
+            "evidence": "When learner used 'dismissive' and 'pushing back,' mentor addressed it: 'for the behavior, translate \"dismissive/pushing back\" into what a camera would catch in that moment: what exact words or actions did you see/hear'"
+          },
+          "D-03": {
+            "verdict": "PASS",
+            "evidence": "When learner wrote 'You made the meeting awkward and threw the team off track' and later 'I felt you made the meeting awkward,' mentor caught it: 'Can you rewrite it to own the impact\u2014drop \"you made\" and state what you personally felt plus the concrete effect on your work'"
+          },
+          "E-03": {
+            "verdict": "N/A",
+            "evidence": "Learner never asked mentor to provide answers or do the work for them; learner consistently attempted drafts when asked."
+          }
+        },
+        "overall": {
+          "verdict": "PASS",
+          "summary": "The mentor demonstrated all required tutoring behaviors: modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, and catching vague situations, judgment leakage, and accusatory impact language.",
+          "passed_count": 6,
+          "failed_count": 0,
+          "na_count": 1,
+          "failed_criteria": []
+        },
+        "_metadata": {
+          "judge_id": "critical_criteria",
+          "conversation_id": "ff7bb46f",
+          "evaluated_at": "2026-01-21T11:01:59.049256"
+        }
+      },
+      "quality_results": {
+        "session_setup": {
+          "passed": 3,
+          "total": 3,
+          "json": {
+            "criteria": {
+              "A-01": {
+                "verdict": "PASS",
+                "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means naming a specific moment, describing camera-testable behavior, and using owned impact language; you'll do two full attempts.'"
+              },
+              "A-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor explicitly signals transitions: 'I'll model first to show my thinking\u2014ready to start?' and later 'Let's move to your first full attempt' and 'Let's raise the stakes for round two'"
+              },
+              "A-03": {
+                "verdict": "PASS",
+                "evidence": "Practice scenarios include realistic workplace situations: Tuesday's standup with interruptions, Monday's planning meeting about timeline pushback, and Thursday's external client kickoff where manager spoke over learner during risk overview\u2014all with plausible interpersonal dynamics"
+              }
+            },
+            "overall": {
+              "passed_count": 3,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "session_setup",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:02:11.685257"
+            }
+          }
+        },
+        "modeling_quality": {
+          "passed": 4,
+          "total": 4,
+          "json": {
+            "criteria": {
+              "B-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor explains: \"I'm deliberately avoiding intent or labels like 'dismissive' or 'unprofessional'\u2014that's where judgment creeps in.\" Also explains why choosing specific language: \"I anchor to one moment\" and \"I stick to what a camera could capture.\""
+              },
+              "B-03": {
+                "verdict": "PASS",
+                "evidence": "Mentor shows deliberation: \"I'm deliberately avoiding intent or labels like 'dismissive' or 'unprofessional'\u2014that's where judgment creeps in.\" This shows a choice point between using labels vs. observable behavior."
+              },
+              "B-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor explicitly models self-checking: \"Here's the quick self-check I use: 1) Is the moment pinned to one recognizable instance? 2) Is the behavior camera-testable (what was said/done, not why)? 3) Is the impact owned...? 4) Quick leak sweep: did any intent labels or judgments sneak in?\""
+              },
+              "B-05": {
+                "verdict": "PASS",
+                "evidence": "Multiple heuristics offered: \"camera-testable\" as a test for behavior, the \"4-step SBI self-check\" (moment, behavior, impact, leak sweep), and \"the one-instance rule.\" These are reusable rules the learner can apply independently."
+              }
+            },
+            "overall": {
+              "passed_count": 4,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "modeling_quality",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:02:23.400854"
+            }
+          }
+        },
+        "coaching_quality": {
+          "passed": 5,
+          "total": 5,
+          "json": {
+            "criteria": {
+              "C-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor consistently provides actionable direction. Example: 'Anchor it to a single meeting by naming the day (e.g., \"Monday's planning\") and keep your \"when we were talking about the timeline\" trigger. Share that one revised opening line.' Also: 'translate \"dismissive/pushing back\" into what a camera would catch in that moment: what exact words or actions did you see/hear (e.g., quotes, interruptions, gestures)?'"
+              },
+              "C-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor evaluates revisions specifically. After learner's first full SBI attempt revision: 'That meets the SBI bar\u2014clear moment, camera-testable behavior, owned impact.' After second attempt revision: 'That meets the SBI bar: one clear moment (Thursday's kickoff), camera\u2011testable behavior (spoke over you + exact quote), and owned impact with a concrete consequence to your work\u2014well done.' Mentor names exactly what improved."
+              },
+              "C-05": {
+                "verdict": "PASS",
+                "evidence": "Mentor explores errors before correcting. When learner's draft had issues: 'Before I weigh in, where do you think this draft misses the SBI bar\u2014pick the one part that feels weakest to you and say why.' Also: 'Let's run your draft through the 4-step SBI self-check... Briefly note what passes and what fails for each part\u2014and why. Your turn.' Mentor lets learner work through difficulties before providing corrections."
+              },
+              "C-06": {
+                "verdict": "PASS",
+                "evidence": "Mentor asks learner to explain reasoning behind choices. Examples: 'Before I share my own self-check, what would you look for to tell if this follows SBI well?' and 'Using the checklist, what passes and what fails\u2014and why?' and 'where do you think this draft misses the SBI bar\u2014pick the one part that feels weakest to you and say why.'"
+              },
+              "C-07": {
+                "verdict": "PASS",
+                "evidence": "Mentor prompts reflection on learning at session end: 'Looking back, what principle from this will you carry forward into future feedback?' Learner responds with insight about the one-instance rule as a guardrail. This is a genuine reflective moment about learning, not just justifying a draft choice."
+              }
+            },
+            "overall": {
+              "passed_count": 5,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "coaching_quality",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:02:38.701984"
+            }
+          }
+        },
+        "sbi_content": {
+          "passed": 3,
+          "total": 3,
+          "json": {
+            "criteria": {
+              "D-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor probes the observable vs. interpretive line when learner says 'dismissive' passes: 'translate \"dismissive/pushing back\" into what a camera would catch in that moment: what exact words or actions did you see/hear (e.g., quotes, interruptions, gestures)?'"
+              },
+              "D-05": {
+                "verdict": "PASS",
+                "evidence": "When learner struggles with owned impact ('I felt you made the meeting awkward'), mentor provides targeted scaffolding: 'Can you rewrite it to own the impact\u2014drop \"you made\" and state what you personally felt plus the concrete effect on your work in that moment, as one \"I \u2026\" sentence?'"
+              },
+              "D-06": {
+                "verdict": "PASS",
+                "evidence": "Mentor provides a reusable 4-step self-check tool: '1) Is the moment pinned to one recognizable instance? 2) Is the behavior camera-testable (what was said/done, not why)? 3) Is the impact owned and about my state or a direct consequence to me/my work? 4) Quick leak sweep: did any intent labels or judgments sneak in'"
+              }
+            },
+            "overall": {
+              "passed_count": 3,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "sbi_content",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:02:49.542624"
+            }
+          }
+        },
+        "adaptive_pacing": {
+          "passed": 2,
+          "total": 2,
+          "json": {
+            "criteria": {
+              "E-01": {
+                "verdict": "PASS",
+                "evidence": "Mentor checks readiness multiple times: 'ready to start?', 'Want to try that on a quick example before we move to your first attempt?', 'Before I weigh in, where do you think this draft misses the SBI bar\u2014pick the one part that feels weakest to you'"
+              },
+              "E-02": {
+                "verdict": "PASS",
+                "evidence": "In round 1, mentor provided extensive step-by-step guidance (moment, then behavior, then impact separately). In round 2, mentor gave the scenario and asked for 'full 2\u20134 sentence SBI message' without breaking it into parts, only correcting the one-instance issue. Final reflection was learner-led without scaffolding."
+              }
+            },
+            "overall": {
+              "passed_count": 2,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "adaptive_pacing",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:03:00.492030"
+            }
+          }
+        },
+        "conversational_quality": {
+          "passed": 2,
+          "total": 2,
+          "json": {
+            "criteria": {
+              "F-01": {
+                "verdict": "PASS",
+                "evidence": "Turns vary from longer explanations (the 4-step checklist introduction) to short reactions ('That lands\u2014owned impact with a concrete consequence to your work \ud83d\udc4d'), to focused questions ('what exact words or actions did you see/hear?'), to brief closings ('Sounds good\u2014I'll be here.')"
+              },
+              "F-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor shows personality with reactions like 'Nice catch,' 'That lands\u2014owned impact with a concrete consequence to your work \ud83d\udc4d,' 'Nice work today,' and casual phrasing like 'Keep that self-check handy; it travels well.'"
+              },
+              "F-03": {
+                "verdict": "N/A",
+                "evidence": "Learner never expresses anxiety, frustration, or confusion throughout the transcript. They remain cooperative and engaged ('Yep, I'm ready,' 'Sure, I can try that,' 'Got it')."
+              }
+            },
+            "overall": {
+              "passed_count": 2,
+              "failed_count": 0,
+              "na_count": 1,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "conversational_quality",
+              "conversation_id": "ff7bb46f",
+              "evaluated_at": "2026-01-21T11:03:11.411834"
+            }
+          }
+        }
+      },
+      "persona": "amara_SBI"
+    },
     {
       "langsmith_id": "e2206591-e8e0-4eac-a481-e66f8b60feba",
       "short_id": "e2206591",
@@ -438,20 +687,20 @@
           },
           "D-02": {
             "verdict": "PASS",
-            "evidence": "Mentor catches judgment words multiple times: 'If you couldn't use the label \"dismissive,\" what exact words or actions from that moment would you name instead?' and 'swap the labels (\"dismissive,\" \"brushing off\") for the exact words you heard'"
+            "evidence": "Mentor catches judgment words multiple times: 'swap the labels (\"dismissive,\" \"brushing off\") for the exact words you heard in that moment' when learner used interpretive language like 'dismissive' and 'brushing off my points'"
           },
           "D-03": {
             "verdict": "PASS",
-            "evidence": "When learner wrote 'made me look unprepared and undermined my role...caused confusion', mentor identified: 'the impact isn't owned\u2014\"made me look unprepared,\" \"undermined my role,\" and \"caused confusion\" are judgments or about others' perceptions, not your felt experience'"
+            "evidence": "Mentor catches accusatory impact: 'the impact isn't owned\u2014\"made me look unprepared,\" \"undermined my role,\" and \"caused confusion\" are judgments or about others' perceptions, not your felt experience'"
           },
           "E-03": {
             "verdict": "N/A",
-            "evidence": "Learner never asked mentor to provide answers or do the work for them; learner engaged with all revision requests independently."
+            "evidence": "Learner never asks mentor to provide answers or do the work for them; learner consistently attempts drafts when asked"
           }
         },
         "overall": {
           "verdict": "PASS",
-          "summary": "The mentor demonstrated strong cognitive apprenticeship tutoring by modeling SBI, providing specific feedback with quoted language, requesting revisions, and catching all error types (vague situations, judgment leakage, and accusatory impact).",
+          "summary": "The mentor demonstrates all applicable critical criteria including modeling SBI, providing specific feedback with quoted language, requesting revisions, and catching vague situations, judgment leakage, and accusatory impact.",
           "passed_count": 6,
           "failed_count": 0,
           "na_count": 1,
@@ -460,7 +709,7 @@
         "_metadata": {
           "judge_id": "critical_criteria",
           "conversation_id": "e2206591",
-          "evaluated_at": "2026-01-21T10:48:25.146797"
+          "evaluated_at": "2026-01-21T11:03:28.772693"
         }
       },
       "quality_results": {
@@ -491,7 +740,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:48:34.422808"
+              "evaluated_at": "2026-01-21T11:03:37.991738"
             }
           }
         },
@@ -514,7 +763,7 @@
               },
               "B-05": {
                 "verdict": "PASS",
-                "evidence": "Mentor offers multiple reusable heuristics: 'the camera test' (referenced throughout), 'If you hear yourself saying \"made me look\u2026\" or \"they were\u2026,\" swap to \"I felt X, and I couldn't Y\"' and the three-part self-check (moment, camera, owned)."
+                "evidence": "Mentor offers multiple reusable heuristics: 'the camera test' (would a camera capture it), 'moment, camera, owned' self-check, and later 'if you hear yourself saying \"made me look...\" swap to \"I felt X, and I couldn't Y\"'"
               }
             },
             "overall": {
@@ -529,7 +778,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:48:47.122983"
+              "evaluated_at": "2026-01-21T11:03:49.961624"
             }
           }
         },
@@ -544,11 +793,11 @@
               },
               "C-04": {
                 "verdict": "PASS",
-                "evidence": "Mentor evaluates revisions specifically. Example: 'That's camera-testable\u2014nice.' After full revision: 'That lands\u2014the moment is concrete, the behavior's camera-testable, and the impact is owned.' Also: 'What works: your behavior line is concrete and camera-testable. Where it misses: the impact isn't owned...'"
+                "evidence": "Mentor evaluates revisions specifically. Example: 'That's camera-testable\u2014nice.' After the full revision: 'That lands\u2014the moment is concrete, the behavior's camera-testable, and the impact is owned.' Also: 'What works: your behavior line is concrete and camera-testable. Where it misses: the impact isn't owned...'"
               },
               "C-05": {
                 "verdict": "PASS",
-                "evidence": "Mentor explores errors before correcting. When learner says 'dismissive' is camera-testable, mentor asks: 'If you couldn't use the label \"dismissive,\" what exact words or actions from that moment would you name instead?' Also asks 'Before I weigh in, where do you think I'll push back on your draft?' and 'Run the self-check on your draft\u2014moment, camera, owned\u2014and tell me which parts pass and which need revision.'"
+                "evidence": "Mentor explores errors before correcting. When learner says 'dismissive' would be camera-testable, mentor asks: 'If you couldn't use the label \"dismissive,\" what exact words or actions from that moment would you name instead?' Also asks 'Before I weigh in, where do you think I'll push back on your draft?' and 'Run the self-check on your draft\u2014moment, camera, owned\u2014and tell me which parts pass and which need revision.'"
               },
               "C-06": {
                 "verdict": "PASS",
@@ -568,7 +817,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:49:01.844538"
+              "evaluated_at": "2026-01-21T11:04:04.187045"
             }
           }
         },
@@ -599,7 +848,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:49:15.309819"
+              "evaluated_at": "2026-01-21T11:04:16.828985"
             }
           }
         },
@@ -614,7 +863,7 @@
               },
               "E-02": {
                 "verdict": "PASS",
-                "evidence": "Early on, mentor provides detailed scaffolding and stems. After learner demonstrates competence with first full SBI, mentor gives second scenario with minimal guidance ('Write the full message...Share your complete draft') and shifts to asking learner to self-identify issues ('Before I weigh in, where do you think I'll push back?'). By end, mentor simply confirms learner's self-generated rule rather than providing structure."
+                "evidence": "Early on, mentor provides detailed scaffolding and stems. After learner demonstrates competence with first full SBI, mentor gives less guidance for second attempt ('Write the full message...Share your complete draft') and shifts to asking learner to self-check ('Before I weigh in, where do you think I'll push back?', 'Run the self-check on your draft'). By end, mentor simply confirms learner's self-generated rule rather than providing new instruction."
               }
             },
             "overall": {
@@ -626,7 +875,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:49:27.196442"
+              "evaluated_at": "2026-01-21T11:04:28.194072"
             }
           }
         },
@@ -637,15 +886,15 @@
             "criteria": {
               "F-01": {
                 "verdict": "PASS",
-                "evidence": "Turn structure varies: short reactions ('Nice catch', 'That's camera-testable\u2014nice', 'Good anchor'), longer explanations with examples, focused questions ('what exact words did they say'), and reflective prompts ('what was the hardest part for you'). Some turns are single sentences, others are multi-part instructions."
+                "evidence": "Turn structure varies: short reactions ('That's camera-testable\u2014nice.', 'Good anchor.'), longer explanations with examples, direct questions ('what exact words did they say'), reflective prompts ('What was the hardest part for you to pin down here?'), and brief closings ('You're set to use this in the wild \ud83d\udc4d')"
               },
               "F-02": {
                 "verdict": "PASS",
-                "evidence": "Mentor shows personality through casual affirmations ('Nice catch', 'That lands', 'You've got it'), emoji use ('\ud83d\udc4d' appears multiple times), and conversational phrases like 'Go put it to work' and 'Keep that self-check in your pocket.' Not purely neutral facilitation."
+                "evidence": "Mentor shows personality through reactions like 'Nice catch', 'That lands\u2014the moment is concrete... \ud83d\udc4d', 'Go put it to work \ud83d\udc4d', and conversational phrases like 'Quick check' and 'Almost\u2014'. Uses emoji and casual tone ('you'll stay owned and specific')"
               },
               "F-03": {
                 "verdict": "N/A",
-                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. They respond cooperatively and confidently, even when corrected. No negative affect to respond to."
+                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. They remain engaged and responsive, saying things like 'Yep, ready' and 'Got it\u2014I'll use the self-check'."
               }
             },
             "overall": {
@@ -658,7 +907,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "e2206591",
-              "evaluated_at": "2026-01-21T10:49:39.732182"
+              "evaluated_at": "2026-01-21T11:04:40.789391"
             }
           }
         }
@@ -687,7 +936,7 @@
               },
               "A-03": {
                 "verdict": "PASS",
-                "evidence": "Multiple realistic workplace scenarios used: Tuesday's standup with interruption during update, last Thursday's 9:30 a.m. standup with vendor issue, and Tuesday's sprint review with Director on call where PM talks over test coverage update\u2014all feature specific meetings, plausible interpersonal dynamics, and believable workplace tensions."
+                "evidence": "Multiple realistic workplace scenarios used: Tuesday's standup with a colleague talking over during an update, last Thursday's 9:30 a.m. standup with vendor issue interruption, and Tuesday's sprint review with Director present where PM unmuted and talked over test coverage update\u2014all feature specific meetings, plausible interpersonal dynamics, and believable workplace tensions."
               }
             },
             "overall": {
@@ -699,7 +948,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:50:07.488176"
+              "evaluated_at": "2026-01-21T11:05:08.987996"
             }
           }
         },
@@ -736,7 +985,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:50:18.849726"
+              "evaluated_at": "2026-01-21T11:05:20.296249"
             }
           }
         },
@@ -751,19 +1000,19 @@
               },
               "C-04": {
                 "verdict": "PASS",
-                "evidence": "Mentor evaluates revisions specifically. Example: After learner revises to 'You said, \"This proposal isn't realistic,\" while keeping your eyes on your laptop and continuing to type,' mentor moves forward implicitly accepting. More explicitly, after the final revision: 'That lands\u2014clear moment, camera-test behavior, and fully owned impact. You're meeting the bar.'"
+                "evidence": "Mentor evaluates revisions specifically. Example: After learner revised to 'You said, \"This proposal isn't realistic,\" while keeping your eyes on your laptop and continuing to type,' mentor later evaluates full draft: 'Your anchor and behavior land cleanly. One phrase I'm curious about is \"made the meeting awkward\"\u2014what were you trying to convey with that wording?' Also: 'That lands\u2014your first attempt meets the bar \ud83d\udc4d' after confirming specific improvements."
               },
               "C-05": {
                 "verdict": "PASS",
-                "evidence": "Mentor explores errors before correcting. Example: 'Before I weigh in, where do you expect me to push back on this?' and 'Run the 3-check on your draft\u2014specific moment, camera-test behavior, owned impact\u2014what, if anything, doesn't meet those?' Also: 'One phrase I'm curious about is \"made the meeting awkward\"\u2014what were you trying to convey with that wording?'"
+                "evidence": "Mentor explores errors before correcting. Example: 'Before I weigh in, where do you expect me to push back on this?' and 'Run the 3-check on your draft\u2014specific moment, camera-test behavior, owned impact\u2014what, if anything, doesn't meet those?' Also: 'One phrase I'm curious about is \"made the meeting awkward\"\u2014what were you trying to convey with that wording?' rather than immediately correcting."
               },
               "C-06": {
                 "verdict": "PASS",
-                "evidence": "Mentor asks learner to explain reasoning behind choices. Example: 'One phrase I'm curious about is \"made the meeting awkward\"\u2014what were you trying to convey with that wording?' This asks the learner to articulate their thinking behind a specific word choice."
+                "evidence": "Mentor asks learner to explain reasoning behind choices. Example: 'One phrase I'm curious about is \"made the meeting awkward\"\u2014what were you trying to convey with that wording?' Learner responds with their reasoning about feeling uncomfortable and the room going tense."
               },
               "C-07": {
                 "verdict": "PASS",
-                "evidence": "Mentor prompts reflection at the end: 'What's one principle you'll carry forward to keep your next SBI this tight?' This asks the learner to step back and identify a transferable learning principle."
+                "evidence": "Mentor prompts reflection at end of session: 'What's one principle you'll carry forward to keep your next SBI this tight?' Learner reflects: 'Use the camera test for behavior\u2014stick to exact words/actions, not labels.'"
               }
             },
             "overall": {
@@ -775,7 +1024,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:50:34.775076"
+              "evaluated_at": "2026-01-21T11:05:35.082973"
             }
           }
         },
@@ -794,7 +1043,7 @@
               },
               "D-06": {
                 "verdict": "PASS",
-                "evidence": "Mentor provides the 'camera test' as a reusable tool multiple times ('what a camera would catch,' 'camera-test behavior'). Also gives the '3-check' framework: 'Run the 3-check on your draft\u2014specific moment, camera-test behavior, owned impact.' Learner explicitly takes away: 'Use the camera test for behavior\u2014stick to exact words/actions, not labels.'"
+                "evidence": "Mentor provides multiple reusable tools: the 'camera test' for behavior ('what a camera would catch'), the '3-check' framework ('specific moment, camera-test behavior, owned impact'), and sentence stem guidance ('I felt\u2026/so I\u2026'). Final summary reinforces: 'if a word judges or blames (e.g., \"dismissive,\" \"hijacked,\" \"made me\"), rewrite it into exact words/actions or \"I felt\u2026/so I\u2026\"'"
               }
             },
             "overall": {
@@ -806,7 +1055,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:50:47.167059"
+              "evaluated_at": "2026-01-21T11:05:47.456066"
             }
           }
         },
@@ -817,11 +1066,11 @@
             "criteria": {
               "E-01": {
                 "verdict": "PASS",
-                "evidence": "Mentor checks readiness multiple times: 'What stood out or feels unclear before we do a quick check?', 'Does that clear it up enough to do a quick check before you try your own?', 'Before I weigh in, where do you expect me to push back on this?'"
+                "evidence": "Mentor checks readiness multiple times: 'What stood out or feels unclear before we do a quick check?', 'Does that clear it up enough to do a quick check before you try your own?', 'Ready to dive in?' at the start"
               },
               "E-02": {
                 "verdict": "FAIL",
-                "evidence": "Mentor provides consistent scaffolding throughout - continues offering detailed guidance, specific corrections, and checking work even after learner demonstrates competence (e.g., still providing detailed feedback on the final scenario after learner successfully completed earlier SBI). No visible reduction in support level."
+                "evidence": "Mentor provides consistent scaffolding throughout - continues offering detailed guidance, prompts, and corrections even after learner demonstrates competence. After learner's successful SBI ('That lands\u2014your first attempt meets the bar'), mentor still provides same level of detailed feedback on next attempt rather than pulling back."
               }
             },
             "overall": {
@@ -835,7 +1084,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:50:57.600424"
+              "evaluated_at": "2026-01-21T11:05:57.430982"
             }
           }
         },
@@ -867,7 +1116,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "79a3706b",
-              "evaluated_at": "2026-01-21T10:51:09.759985"
+              "evaluated_at": "2026-01-21T11:06:09.091556"
             }
           }
         }
@@ -891,37 +1140,37 @@
           },
           "C-03": {
             "verdict": "PASS",
-            "evidence": "Mentor repeatedly requests revisions: 'Replace those with only what you saw/heard... Keep the situation the same and resend your full 2\u20133 sentences with that behavior tightened.' and 'Revise the impact to name your felt state or a direct consequence you personally dealt with, then resend your full 2\u20133 sentences.'"
+            "evidence": "Mentor repeatedly requests revisions: 'Keep the situation the same and resend your full 2\u20133 sentences with that behavior tightened' and 'Revise the impact to name your felt state or a direct consequence you personally dealt with, then resend your full 2\u20133 sentences.'"
           },
           "D-01": {
             "verdict": "PASS",
-            "evidence": "When learner wrote 'In our standups lately,' mentor caught it: 'Got it\u2014patterns happen, but for SBI we need one concrete instance. Can you pick one specific standup (say yesterday's or Tuesday's)' and later 'First gap: it's not anchored to one identifiable moment\u2014\"Lately\u2026 including the Acme one\" diffuses it.'"
+            "evidence": "When learner wrote 'In our standups lately,' mentor caught it: 'for SBI we need one concrete instance. Can you pick one specific standup (say yesterday's or Tuesday's)' and later 'it's not anchored to one identifiable moment\u2014\"Lately\u2026 including the Acme one\" diffuses it. Pin it to Thursday's Acme kickoff'"
           },
           "D-02": {
             "verdict": "PASS",
-            "evidence": "Mentor catches judgment words multiple times: 'Are the behaviors camera-testable (no motives like \"dismissive,\" just what was said/done)?' and 'The behavior line still carries judgment/inference: \"dismissive,\" \"didn't seem to respect my role,\" and \"took over the conversation\" aren't camera\u2011testable.'"
+            "evidence": "Mentor catches judgment words multiple times: identifies 'dismissive' and 'didn't seem to care' as not observable, and later '\"dismissive,\" \"didn't seem to respect my role,\" and \"took over the conversation\" aren't camera\u2011testable. Replace those with only what you saw/heard'"
           },
           "D-03": {
             "verdict": "PASS",
-            "evidence": "When learner wrote 'You made the meeting awkward and caused confusion for the team' and 'you made the client uncomfortable,' mentor caught it: 'This is the spot that trips people up\u2014your line talks about the meeting and the team, not you' and '\"you made the client uncomfortable\" is mind\u2011reading.'"
+            "evidence": "When learner wrote 'It made the meeting awkward and you created tension for the team' and 'you made the client uncomfortable,' mentor caught it: 'your line talks about the meeting and the team, not you' and '\"you made the client uncomfortable\" is mind\u2011reading. Revise the impact to name your felt state'"
           },
           "E-03": {
-            "verdict": "PASS",
-            "evidence": "When learner said 'I think it's mostly fine,' mentor didn't give the answer but prompted self-evaluation: 'Let's run a quick self-check\u2014answer yes/no for each: 1) Is it anchored to one identifiable standup... What do you get for each, and where's the first \"no\"?' Also asked 'Before I weigh in, predict where I'll push back.'"
+            "verdict": "N/A",
+            "evidence": "Learner never asked mentor to provide the answer or do it for them; learner consistently attempted drafts when prompted."
           }
         },
         "overall": {
           "verdict": "PASS",
-          "summary": "The mentor demonstrates all critical tutoring behaviors: modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, catching vague situations and judgment leakage and accusatory impact, and protecting productive struggle by requiring learner self-evaluation before providing answers.",
-          "passed_count": 7,
+          "summary": "The mentor demonstrated all critical tutoring behaviors: modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, and catching all three error types (vague situations, judgment leakage, and accusatory impact).",
+          "passed_count": 6,
           "failed_count": 0,
-          "na_count": 0,
+          "na_count": 1,
           "failed_criteria": []
         },
         "_metadata": {
           "judge_id": "critical_criteria",
           "conversation_id": "df150be8",
-          "evaluated_at": "2026-01-21T10:51:28.513987"
+          "evaluated_at": "2026-01-21T11:06:26.163917"
         }
       },
       "quality_results": {
@@ -952,7 +1201,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:51:37.859224"
+              "evaluated_at": "2026-01-21T11:06:35.966126"
             }
           }
         },
@@ -967,15 +1216,15 @@
               },
               "B-03": {
                 "verdict": "PASS",
-                "evidence": "Mentor shows a choice point with alternatives: \"name only what a camera would catch\u2014'you jumped in with questions and spoke over me twice while I was still answering,' not 'you dismissed me.'\" This explicitly contrasts what they chose vs. what they rejected."
+                "evidence": "Mentor shows choice point: \"name only what a camera would catch\u2014'you jumped in with questions and spoke over me twice while I was still answering,' not 'you dismissed me.'\" This explicitly contrasts the chosen phrasing against a rejected alternative."
               },
               "B-04": {
                 "verdict": "FAIL",
-                "evidence": "During the initial modeling, the mentor does not demonstrate checking their own work against criteria. They present the model without saying something like 'Let me test this...' The self-checking prompts later are directed at the learner's work, not the mentor's own demonstration."
+                "evidence": "During the initial modeling, mentor does not demonstrate checking their own work against criteria. They present the model without saying something like 'Let me test\u2014could a camera capture this?' The self-checking prompts appear later but are directed at the learner's work, not the mentor's own demonstration."
               },
               "B-05": {
                 "verdict": "PASS",
-                "evidence": "Mentor offers reusable heuristics: \"name only what a camera would catch\" (camera test), \"pick one recognizable moment, strip out motives/adjectives, and keep the impact in my body or workload.\" Later reinforced with \"if a neutral observer could verify the behavior and you can start the impact with 'I\u2026,' you're in bounds.\""
+                "evidence": "Mentor offers reusable heuristics: \"name only what a camera would catch\" (camera test) and \"keep the impact in my body or workload\u2014not a judgment.\" Later reinforced with learner's synthesis: \"if a camera/mic wouldn't capture it\u2014or I can't start the impact with 'I\u2026'\u2014it doesn't go in.\""
               }
             },
             "overall": {
@@ -989,7 +1238,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:51:50.356815"
+              "evaluated_at": "2026-01-21T11:06:48.822110"
             }
           }
         },
@@ -1000,23 +1249,23 @@
             "criteria": {
               "C-02": {
                 "verdict": "PASS",
-                "evidence": "Mentor provides actionable direction multiple times, e.g., 'Swap \"dismissive\"/\"took over\" for concrete actions: you cut in while I was mid\u2011sentence, spoke over me twice, then presented your plan for a few minutes, and I didn't finish my update.'"
+                "evidence": "Mentor provides actionable direction multiple times. Example: 'Swap \"dismissive\"/\"took over\" for concrete actions: you cut in while I was mid\u2011sentence, spoke over me twice, then presented your plan for a few minutes, and I didn't finish my update.'"
               },
               "C-04": {
                 "verdict": "PASS",
-                "evidence": "Mentor evaluates revisions specifically, e.g., 'Anchor and behavior are on target. Impact misses: \"It felt unprofessional\" is a judgment, and \"you made the client uncomfortable\" is mind\u2011reading.' Also: 'That meets the bar\u2014anchored to a specific kickoff, observable behavior only, and owned impact.'"
+                "evidence": "Mentor evaluates revisions specifically. Example: 'Anchor and behavior are on target. Impact misses: \"It felt unprofessional\" is a judgment, and \"you made the client uncomfortable\" is mind\u2011reading.' Also: 'That meets the bar\u2014anchored to a specific kickoff, observable behavior only, and owned impact.'"
               },
               "C-05": {
                 "verdict": "PASS",
-                "evidence": "Mentor explores errors before correcting, e.g., 'Before I give feedback, where do you think this misses our criteria\u2014specific moment, camera-test behavior, or owned impact?' and 'Let's run a quick self-check\u2014answer yes/no for each...'"
+                "evidence": "Mentor explores errors before correcting. Example: 'Before I give feedback, where do you think this misses our criteria\u2014specific moment, camera-test behavior, or owned impact?' and 'Let's run a quick self-check\u2014answer yes/no for each...' allowing learner to identify issues themselves."
               },
               "C-06": {
                 "verdict": "PASS",
-                "evidence": "Mentor asks learner to explain reasoning: 'Walk me through \"took over the conversation\"\u2014what concrete action are you trying to capture there that a camera would show?'"
+                "evidence": "Mentor asks learner to explain reasoning behind choices. Example: 'Walk me through \"took over the conversation\"\u2014what concrete action are you trying to capture there that a camera would show?'"
               },
               "C-07": {
                 "verdict": "PASS",
-                "evidence": "Mentor prompts reflection on learning: 'What, if anything, was the hardest part to write here?' and 'What's the one principle you'll carry forward to keep judgment and mind\u2011reading out of your behavior and impact lines, especially when the stakes are high?'"
+                "evidence": "Mentor prompts reflection on learning process. Example: 'What, if anything, was the hardest part to write here?' and 'What's the one principle you'll carry forward to keep judgment and mind\u2011reading out of your behavior and impact lines, especially when the stakes are high?'"
               }
             },
             "overall": {
@@ -1028,7 +1277,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:52:02.355002"
+              "evaluated_at": "2026-01-21T11:07:00.882865"
             }
           }
         },
@@ -1039,11 +1288,11 @@
             "criteria": {
               "D-04": {
                 "verdict": "PASS",
-                "evidence": "Mentor asks 'which exact words in your draft aren't camera-testable or aren't owned impact\u2014call them out explicitly' and later 'Walk me through \"took over the conversation\"\u2014what concrete action are you trying to capture there that a camera would show?' These probe whether learner understands the observable vs. interpretive distinction."
+                "evidence": "Mentor asks 'which exact words in your draft aren't camera-testable or aren't owned impact\u2014call them out explicitly' and later probes 'Walk me through \"took over the conversation\"\u2014what concrete action are you trying to capture there that a camera would show?' These questions test whether the learner can distinguish observable from interpretive."
               },
               "D-05": {
                 "verdict": "PASS",
-                "evidence": "When learner struggled with impact line, mentor provided targeted scaffolding: 'put it in one sentence that starts with \"I \u2026\"?' Also provided specific sentence stems and partial answers: 'Swap \"dismissive\"/\"took over\" for concrete actions: you cut in while I was mid\u2011sentence, spoke over me twice, then presented your plan for a few minutes...'"
+                "evidence": "When learner struggles with behavior line, mentor provides targeted scaffolding: 'Swap \"dismissive\"/\"took over\" for concrete actions: you cut in while I was mid\u2011sentence, spoke over me twice, then presented your plan for a few minutes, and I didn't finish my update.' Also provides sentence stem 'put it in one sentence that starts with \"I \u2026\"' for impact."
               },
               "D-06": {
                 "verdict": "PASS",
@@ -1059,7 +1308,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:52:14.532167"
+              "evaluated_at": "2026-01-21T11:07:11.803984"
             }
           }
         },
@@ -1070,11 +1319,11 @@
             "criteria": {
               "E-01": {
                 "verdict": "PASS",
-                "evidence": "Mentor checks readiness multiple times: 'ready to begin?', 'ready to take a swing with a real moment from your world?', 'Want one last lightning rep to lock it in, or wrap here?'"
+                "evidence": "Mentor checks readiness multiple times: 'ready to begin?' at start, 'ready to take a swing with a real moment from your world?' before learner practice, 'Want one last lightning rep to lock it in, or wrap here?' before final exercise"
               },
               "E-02": {
                 "verdict": "PASS",
-                "evidence": "Early on, mentor provides detailed self-check questions (yes/no for each criterion) and explicit stems. By the second scenario, mentor gives briefer feedback ('Anchor's solid... Impact misses') without re-explaining the full framework. By lightning rep, mentor simply says 'Draft your 2\u20133 sentence SBI' with no scaffolding stems or guided questions."
+                "evidence": "In first attempt, mentor provided detailed stems and walked through each component step-by-step. By second rep (Priya scenario), mentor gave less scaffolding and expected learner to self-correct. By lightning rep, mentor simply said 'Draft your 2\u20133 sentence SBI' with no stems or step-by-step guidance, trusting learner's demonstrated competence."
               }
             },
             "overall": {
@@ -1086,7 +1335,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:52:24.384004"
+              "evaluated_at": "2026-01-21T11:07:21.990243"
             }
           }
         },
@@ -1097,15 +1346,15 @@
             "criteria": {
               "F-01": {
                 "verdict": "PASS",
-                "evidence": "Turns vary from longer explanations (initial modeling), to short affirmations ('Good catch on all three', 'Nice\u2014', 'That lands'), to focused questions ('Which one is it?'), to structured self-check prompts (yes/no checklist), to brief wrap-ups ('You've got it\u2014carry that forward \ud83d\udc4d')"
+                "evidence": "Turns vary from longer explanations (initial modeling with Jordan example) to short reactions ('Good catch on all three', 'Nice\u2014', 'That lands\u2014'), to focused questions ('Which one is it?'), to direct instructions ('Keep the situation the same and resend'). Some turns are single sentences, others are multi-paragraph."
               },
               "F-02": {
                 "verdict": "PASS",
-                "evidence": "Shows personality through reactions like 'Good eye on those two', 'Nice\u2014', 'That lands\u2014you're ready to use it in the wild', thumbs up emoji '\ud83d\udc4d', and casual phrasing like 'take a swing with a real moment from your world'"
+                "evidence": "Shows personality with reactions like 'Good eye on those two', 'Nice\u2014now let's replace...', 'That lands\u2014you're ready to use it in the wild', and ends with '\ud83d\udc4d' emoji. Uses casual phrasing like 'take a swing' and 'Lightning rep'."
               },
               "F-03": {
                 "verdict": "N/A",
-                "evidence": "Learner never displays anxiety, frustration, or confusion\u2014they engage cooperatively throughout, acknowledge gaps when prompted, and express readiness ('Yep, I'm ready', 'Got it', 'One last lightning rep works')"
+                "evidence": "Learner never displays anxiety, frustration, or confusion. They engage cooperatively throughout, saying things like 'Yep, I'm ready' and 'Got it' without emotional distress signals."
               }
             },
             "overall": {
@@ -1118,7 +1367,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "df150be8",
-              "evaluated_at": "2026-01-21T10:52:36.419317"
+              "evaluated_at": "2026-01-21T11:07:33.847685"
             }
           }
         }
@@ -1130,7 +1379,51 @@
       "short_id": "de804a3e",
       "source_type": "dataset",
       "critical_verdict": "PASS",
-      "critical_json": null,
+      "critical_json": {
+        "criteria": {
+          "B-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor demonstrates a complete SBI example: 'In Tuesday's standup, when I started sharing the incident summary, you began speaking while I was mid-sentence\u2014twice\u2014and redirected the conversation to sprint goals; I lost my train of thought, felt frustrated, and my update got cut short.'"
+          },
+          "C-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor points to specific language: 'The gap is impact\u2014\"undermined me\" and \"made the room uncomfortable\" are judgments/guesses, not owned language.' Also: '\"asking the team to move on\" reads like interpretation unless those were the exact words'"
+          },
+          "C-03": {
+            "verdict": "PASS",
+            "evidence": "Mentor explicitly requests revision multiple times: 'Can you revise it into 2\u20133 sentences anchored to that Monday sync...' and 'Make that micro-edit and share your tweaked 2\u20133 sentences.'"
+          },
+          "D-01": {
+            "verdict": "PASS",
+            "evidence": "When learner says 'It's been happening lately in our team meetings\u2014like over the past few weeks,' mentor catches this: 'What's one specific meeting on your calendar where this happened\u2014the last time is fine; what was it called?'"
+          },
+          "D-02": {
+            "verdict": "PASS",
+            "evidence": "Mentor catches judgment words: 'behaviors a camera/mic would capture (no labels like \"dismissive,\" \"derailing,\" \"undermined\")' and guides learner to identify these in their own draft."
+          },
+          "D-03": {
+            "verdict": "PASS",
+            "evidence": "When learner writes 'You made the meeting awkward and undermined my update,' mentor addresses this through the self-check prompt, and learner identifies '#3 fails: \"You made the meeting awkward\" isn't in \"I\" language.' Later mentor explicitly catches 'made the room uncomfortable' as 'judgments/guesses, not owned language.'"
+          },
+          "E-03": {
+            "verdict": "PASS",
+            "evidence": "When learner says 'I think it's mostly fine\u2014maybe just soften the tone a bit,' mentor doesn't give the answer but redirects: 'Tone tweaks can wait; first we need a solid anchor. Pick one real moment to ground it\u2014what specific meeting would you name?'"
+          }
+        },
+        "overall": {
+          "verdict": "PASS",
+          "summary": "The mentor demonstrates all critical tutoring behaviors: modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, catching vague situations and judgment language, addressing accusatory impact, and protecting productive struggle by requiring learner attempts.",
+          "passed_count": 7,
+          "failed_count": 0,
+          "na_count": 0,
+          "failed_criteria": []
+        },
+        "_metadata": {
+          "judge_id": "critical_criteria",
+          "conversation_id": "de804a3e",
+          "evaluated_at": "2026-01-21T11:07:49.231171"
+        }
+      },
       "quality_results": {
         "session_setup": {
           "passed": 3,
@@ -1147,7 +1440,7 @@
               },
               "A-03": {
                 "verdict": "PASS",
-                "evidence": "The scenarios involve specific workplace situations: 'Weekly Team Sync on Monday at 2pm' with details about being interrupted during updates, and 'last Thursday's quarterly planning review with the VP' involving Jordan from Sales\u2014both include plausible interpersonal dynamics around meeting interruptions and topic derailing."
+                "evidence": "The scenarios involve specific workplace situations: 'Weekly Team Sync on Monday at 2pm' with details about being interrupted during updates, and 'last Thursday's quarterly planning review with the VP' involving Jordan from Sales\u2014both with plausible interpersonal dynamics around meeting interruptions and topic derailing."
               }
             },
             "overall": {
@@ -1159,7 +1452,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:53:03.230408"
+              "evaluated_at": "2026-01-21T11:08:00.373880"
             }
           }
         },
@@ -1194,7 +1487,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:53:13.794480"
+              "evaluated_at": "2026-01-21T11:08:11.596332"
             }
           }
         },
@@ -1233,7 +1526,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:53:27.171109"
+              "evaluated_at": "2026-01-21T11:08:24.980760"
             }
           }
         },
@@ -1264,7 +1557,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:53:39.818299"
+              "evaluated_at": "2026-01-21T11:08:37.126338"
             }
           }
         },
@@ -1275,11 +1568,11 @@
             "criteria": {
               "E-01": {
                 "verdict": "PASS",
-                "evidence": "Mentor checks readiness multiple times: 'ready to see a quick example?', 'What did you notice in that example before we shift to your turn?', 'Quick check before we shift to your draft', 'Anything else you want to lock in before you try it?'"
+                "evidence": "Mentor checks readiness multiple times: 'ready to see a quick example?', 'What did you notice in that example before we shift to your turn?', 'Quick check before we shift to your draft', 'Want to try a one\u2011sentence pattern add\u2011on you'd use after your anchored SBI?'"
               },
               "E-02": {
                 "verdict": "PASS",
-                "evidence": "Early on, mentor provides detailed self-check criteria and walks through each component. By round two, mentor gives minimal guidance ('The gap is impact...Replace that with how it hit you'). By the pattern add-on, mentor only offers 'micro-tighten if you want it' and asks 'Keep yours or swap in that tweak\u2014what feels more natural in your voice?' showing reduced scaffolding as learner demonstrates competence."
+                "evidence": "Early on, mentor provides detailed scaffolding with explicit self-check criteria and step-by-step guidance. After learner demonstrates competence on second scenario, mentor gives briefer feedback ('That lands\u2014you met all three criteria') and later asks 'Keep yours or swap in that tweak\u2014what feels more natural in your voice?' showing trust in learner's judgment rather than prescribing corrections."
               }
             },
             "overall": {
@@ -1291,7 +1584,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:53:50.039813"
+              "evaluated_at": "2026-01-21T11:08:47.579650"
             }
           }
         },
@@ -1306,11 +1599,11 @@
               },
               "F-02": {
                 "verdict": "PASS",
-                "evidence": "Mentor shows personality through casual reactions ('Good questions'), thumbs up emoji usage ('\ud83d\udc4d'), phrases like 'go make it happen,' 'You've got a reliable \"camera + I\" muscle now,' and the conversational closing 'I'll be here when you want a quick check'"
+                "evidence": "Mentor shows personality through reactions like '\ud83d\udc4d' emoji usage, phrases like 'Nice catch' style affirmations ('That lands'), casual language ('Your move'), and the personalized closing 'go make it happen.' Also uses memorable coined terms like 'camera + I check' and 'judgment-creep words.'"
               },
               "F-03": {
                 "verdict": "N/A",
-                "evidence": "Learner does not display anxiety, frustration, or confusion throughout the transcript. They engage cooperatively, ask clarifying questions, and respond positively to corrections without emotional distress."
+                "evidence": "Learner never displays anxiety, frustration, or confusion. Learner engages cooperatively throughout, asks clarifying questions at the end, and responds positively to corrections without emotional distress."
               }
             },
             "overall": {
@@ -1323,7 +1616,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "de804a3e",
-              "evaluated_at": "2026-01-21T10:54:02.684883"
+              "evaluated_at": "2026-01-21T11:09:01.297533"
             }
           }
         }
@@ -1347,19 +1640,19 @@
           },
           "C-03": {
             "verdict": "PASS",
-            "evidence": "After feedback on second draft, mentor explicitly requests revision: 'Keep the concrete chat quote, but anchor to last Thursday's 4 p.m. go/no\u2011go and resend your full draft\u2014can you revise with that specific moment?'"
+            "evidence": "After feedback, mentor explicitly requests revision: 'Keep the concrete chat quote, but anchor to last Thursday's 4 p.m. go/no\u2011go and resend your full draft\u2014can you revise with that specific moment?'"
           },
           "D-01": {
             "verdict": "PASS",
-            "evidence": "When learner wrote 'in our standups lately' and 'in our recent go/no-go meetings,' mentor caught both: 'If it's a pattern, what's one specific standup that captures it that you could name so it stays concrete?' and 'The situation is too vague\u2014\"in our recent go/no\u2011go meetings\" misses the single\u2011moment test.'"
+            "evidence": "When learner used 'in our standups lately' and 'over the past couple of weeks,' mentor caught it: 'If it's a pattern, what's one specific standup that captures it that you could name so it stays concrete?' and 'picking one concrete instance won't erase that\u2014it just makes it easier for them to recognize.'"
           },
           "D-02": {
             "verdict": "PASS",
-            "evidence": "When learner used 'pretty dismissive' in behavior, mentor guided learner to self-identify via the self-check tool. Learner recognized: '\"Pretty dismissive\" isn't camera-capturable. Tweak: \"you interrupted me twice...\"' Mentor validated this correction."
+            "evidence": "When learner used 'pretty dismissive' in behavior, mentor guided learner through self-check to identify it: learner recognized 'Pretty dismissive isn't camera-capturable' and mentor validated the revision to 'interrupted me twice\u2014once right after I shared the open bug count...'"
           },
           "D-03": {
             "verdict": "PASS",
-            "evidence": "When learner wrote 'It made the meeting awkward and created tension for the team,' mentor guided learner through self-check. Learner identified: '\"Made the meeting awkward\"/\"tension for the team\" isn't owned. Tweak: \"I felt flustered and lost my place...\"' Mentor validated this correction."
+            "evidence": "When learner wrote 'It made the meeting awkward and created tension for the team,' mentor guided learner to self-identify through the self-check tool. Learner recognized: '\"Made the meeting awkward\"/\"tension for the team\" isn't owned. Tweak: \"I felt flustered and lost my place...\"'"
           },
           "E-03": {
             "verdict": "PASS",
@@ -1368,7 +1661,7 @@
         },
         "overall": {
           "verdict": "PASS",
-          "summary": "The mentor demonstrated a complete SBI example, provided specific feedback referencing exact language, requested revisions, caught all error types (vague situations, judgment leakage, accusatory impact), and protected productive struggle by requiring learner attempts.",
+          "summary": "The mentor demonstrated all critical tutoring behaviors: showed a complete SBI example, provided specific feedback with exact quotes, requested revisions, and caught all error types (vague situations, judgment leakage, accusatory impact) while protecting productive struggle.",
           "passed_count": 7,
           "failed_count": 0,
           "na_count": 0,
@@ -1377,7 +1670,7 @@
         "_metadata": {
           "judge_id": "critical_criteria",
           "conversation_id": "91f1f846",
-          "evaluated_at": "2026-01-21T10:54:21.538680"
+          "evaluated_at": "2026-01-21T11:09:19.783257"
         }
       },
       "quality_results": {
@@ -1392,11 +1685,11 @@
               },
               "A-02": {
                 "verdict": "PASS",
-                "evidence": "Mentor explicitly signals phase transition: 'I'll demo my process first, then we'll move to yours\u2014ready to begin?' and later 'Second rep\u2014higher stakes, different peer...'"
+                "evidence": "Mentor explicitly signals phase transition: 'I'll demo my process first, then we'll move to yours\u2014ready to begin?' and later 'Here's how I'd approach it\u2014thinking out loud' for modeling, then 'Draft your feedback in one go... Send your full draft when you're ready' for practice phase."
               },
               "A-03": {
                 "verdict": "PASS",
-                "evidence": "The scenarios involve realistic workplace situations: a standup meeting about UAT bug backlog with a colleague interrupting, and a cross-functional release go/no-go meeting with a Payments PM (Maya) cutting in during a rollback plan presentation to leadership\u2014both with specific, plausible interpersonal dynamics."
+                "evidence": "The scenario involves a specific workplace situation: 'yesterday's 10 a.m. standup' discussing 'UAT bug backlog' with a colleague interrupting during updates. The second scenario is equally realistic: 'last Thursday's 4 p.m. cross-functional release go/no-go' with Maya (Payments PM) cutting in and typing in Zoom chat\u2014plausible interpersonal dynamics in a real meeting context."
               }
             },
             "overall": {
@@ -1408,7 +1701,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:54:31.777814"
+              "evaluated_at": "2026-01-21T11:09:31.077745"
             }
           }
         },
@@ -1443,7 +1736,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:54:42.019425"
+              "evaluated_at": "2026-01-21T11:09:41.576047"
             }
           }
         },
@@ -1454,7 +1747,7 @@
             "criteria": {
               "C-02": {
                 "verdict": "PASS",
-                "evidence": "When learner's draft had issues, mentor provided actionable direction: 'Not there yet. The situation is too vague\u2014\"in our recent go/no\u2011go meetings\" misses the single\u2011moment test. Keep the concrete chat quote, but anchor to last Thursday's 4 p.m. go/no\u2011go and resend your full draft'"
+                "evidence": "When learner's draft had issues, mentor provided actionable direction: 'Not there yet. The situation is too vague\u2014\"in our recent go/no\u2011go meetings\" misses the single\u2011moment test. Keep the concrete chat quote, but anchor to last Thursday's 4 p.m. go/no\u2011go and resend your full draft\u2014can you revise with that specific moment?'"
               },
               "C-04": {
                 "verdict": "PASS",
@@ -1462,7 +1755,7 @@
               },
               "C-05": {
                 "verdict": "PASS",
-                "evidence": "When learner said draft was 'mostly fine,' mentor didn't correct immediately but guided exploration: 'Let's stress-test it with the S-B-I self-check. Ask yourself: does your situation name a single meeting, could a camera capture every behavior phrase as written...' allowing learner to discover issues themselves."
+                "evidence": "When learner said draft was 'mostly fine,' mentor didn't immediately correct but guided exploration: 'Let's stress-test it with the S-B-I self-check. Ask yourself: does your situation name a single meeting, could a camera capture every behavior phrase as written, and is the impact your felt state or a direct consequence for your work? Tell me what (if anything) doesn't pass and how you'd tweak those bits.'"
               },
               "C-06": {
                 "verdict": "PASS",
@@ -1470,7 +1763,7 @@
               },
               "C-07": {
                 "verdict": "PASS",
-                "evidence": "Mentor prompted reflection on learning process: 'Stepping back for a moment: what clicked for you in that revision?' and later 'what's the single phrasing habit you're most likely to slip back into that you'll watch for first?'"
+                "evidence": "Mentor prompted reflection on learning: 'Stepping back for a moment: what clicked for you in that revision?' and later 'What's one principle you'll carry forward the next time you draft SBI feedback?'"
               }
             },
             "overall": {
@@ -1482,7 +1775,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:54:55.164491"
+              "evaluated_at": "2026-01-21T11:09:54.248115"
             }
           }
         },
@@ -1501,7 +1794,7 @@
               },
               "D-06": {
                 "verdict": "PASS",
-                "evidence": "Mentor provides multiple reusable tools: (1) 'S = calendar moment; B = camera could see/hear it; I = inside-my-skin feeling or direct consequence for me/my work. Strip judgment words.' (2) The 'camera test' heuristic referenced multiple times. (3) 'Your trigger\u2013action plan: the moment you spot a label, swap to camera\u2011visible with counts, then add one owned impact.' These are generalizable tools for future SBI drafting."
+                "evidence": "Mentor provides multiple reusable tools: (1) 'S = calendar moment; B = camera could see/hear it; I = inside-my-skin feeling or direct consequence for me/my work. Strip judgment words.' (2) The 'camera test' heuristic referenced multiple times. (3) 'Your guardrail: the instant you spot a label like \"dismissive,\" swap it for camera language\u2014what you saw/heard and how many times\u2014and then add one owned impact.' (4) 'trigger\u2013action plan: the moment you spot a label, swap to camera\u2011visible with counts, then add one owned impact.'"
               }
             },
             "overall": {
@@ -1513,7 +1806,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:55:08.644717"
+              "evaluated_at": "2026-01-21T11:10:07.526897"
             }
           }
         },
@@ -1528,7 +1821,7 @@
               },
               "E-02": {
                 "verdict": "PASS",
-                "evidence": "Early on, mentor provides detailed demo with explicit S-B-I breakdown and self-check tool. By second rep, mentor gives scenario but no stems/scaffolds. After learner succeeds, mentor shifts to reflection questions ('what clicked for you?', 'what's one principle you'll carry forward?') and asks learner to self-identify pitfalls rather than providing them."
+                "evidence": "Early on, mentor provides detailed demo with explicit S-B-I breakdown and self-check tool. After learner shows competence with first revision, mentor pulls back - for second rep says only 'Draft your feedback to Maya in one pass using SBI and send it' without stems or scaffolds. Later asks learner to self-identify habits to watch for rather than telling them."
               }
             },
             "overall": {
@@ -1540,7 +1833,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:55:19.750975"
+              "evaluated_at": "2026-01-21T11:10:18.697557"
             }
           }
         },
@@ -1551,15 +1844,15 @@
             "criteria": {
               "F-01": {
                 "verdict": "PASS",
-                "evidence": "Mentor varies turn structure throughout: longer explanations with numbered lists (demo turn), short reactions ('That lands \ud83d\udc4d'), probing questions ('what were you trying to capture with that wording?'), brief affirmations ('Perfect'), and wrap-up checks ('good to wrap?'). Rhythm shifts between teaching, questioning, and acknowledging."
+                "evidence": "Turns vary from longer explanations (demo with 5 numbered points) to short reactions ('That lands \ud83d\udc4d'), to single questions ('what were you trying to capture with that wording?'), to brief wrap-ups ('See you then.'). Some turns pause for reflection ('Stepping back for a moment: what clicked for you in that revision?')"
               },
               "F-02": {
                 "verdict": "PASS",
-                "evidence": "Mentor shows personality with reactions like 'That lands \ud83d\udc4d', 'Love it\u2014you're ready to put this in play', 'Nice catch' style affirmations, and casual phrasing like 'your trigger\u2013action plan is dialed in.' Uses emoji (\ud83d\udc4d) and conversational tone rather than purely neutral facilitation."
+                "evidence": "Mentor shows personality with reactions like 'That lands \ud83d\udc4d', 'Love it\u2014you're ready to put this in play', 'Nice catch' style affirmations, and casual phrasing like 'your trigger\u2013action plan is dialed in.' Uses emoji (\ud83d\udc4d) and conversational tone throughout."
               },
               "F-03": {
                 "verdict": "N/A",
-                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. Learner is cooperative and engaged, responding positively to corrections without emotional distress."
+                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. They engage cooperatively, accept feedback readily, and show confidence ('I think it's mostly fine as is')."
               }
             },
             "overall": {
@@ -1572,7 +1865,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "91f1f846",
-              "evaluated_at": "2026-01-21T10:55:31.879544"
+              "evaluated_at": "2026-01-21T11:10:31.568817"
             }
           }
         }
@@ -1604,29 +1897,29 @@
           },
           "D-02": {
             "verdict": "PASS",
-            "evidence": "Mentor catches judgment words 'disengaged' and 'dismissive': 'How does \"disengaged\" fare on the camera test\u2014would audio/video capture that word, or would you need something more concrete?' Also catches 'dismissive' and 'unprofessional' in later draft by asking learner to rewrite anchored to specific moment."
+            "evidence": "When learner uses 'disengaged and kind of dismissive,' mentor catches it via guided questioning: 'How does \"disengaged\" fare on the camera test\u2014would audio/video capture that word, or would you need something more concrete?' Also catches 'dismissive' in later draft: 'Can you anchor this to last Thursday's... instead of \"Lately\u2026,\" and rewrite it'"
           },
           "D-03": {
             "verdict": "PASS",
-            "evidence": "When learner writes 'made the Director and the group uncomfortable,' mentor prompts revision to anchor to specific moment and rewrite, resulting in learner using owned 'I' statements: 'I felt thrown off and skipped the context slide'"
+            "evidence": "When learner writes 'made the Director and the group uncomfortable,' mentor prompts revision to owned impact. The subsequent revision shows learner changed to 'I felt thrown off and skipped the context slide I'd planned'"
           },
           "E-03": {
-            "verdict": "PASS",
-            "evidence": "When mentor could have given answers, they instead prompt learner to self-check first: 'Before I weigh in, what's the one phrase you think I'll push back on, and why?' and 'Run the self-check on your draft\u2014moment, behavior, impact, and a leak scan\u2014and tell me what passes and what doesn't.'"
+            "verdict": "N/A",
+            "evidence": "Learner never explicitly asks mentor to provide the answer or do it for them"
           }
         },
         "overall": {
           "verdict": "PASS",
-          "summary": "The mentor demonstrates all critical tutoring behaviors: modeling SBI, providing specific feedback with quoted language, requesting revisions, catching vague situations and judgment leakage, addressing accusatory impact, and protecting productive struggle.",
-          "passed_count": 7,
+          "summary": "The mentor demonstrates SBI with a complete example, provides specific feedback referencing exact language, requests revisions, and catches all error types (vague situations, judgment leakage, and accusatory impact).",
+          "passed_count": 6,
           "failed_count": 0,
-          "na_count": 0,
+          "na_count": 1,
           "failed_criteria": []
         },
         "_metadata": {
           "judge_id": "critical_criteria",
           "conversation_id": "4fb1ebe1",
-          "evaluated_at": "2026-01-21T10:55:47.746705"
+          "evaluated_at": "2026-01-21T11:10:48.813869"
         }
       },
       "quality_results": {
@@ -1645,7 +1938,7 @@
               },
               "A-03": {
                 "verdict": "PASS",
-                "evidence": "Scenarios include specific workplace situations: 'Tuesday's standup' with speaking over during updates, 'Monday's 9am team standup,' and 'last Thursday's cross-functional design review with our Director on the call' with a senior PM cutting in\u2014all with plausible interpersonal dynamics"
+                "evidence": "Scenarios include specific workplace situations: 'Tuesday's standup' with speaking over during updates, 'Monday's 9am standup,' and 'last Thursday's cross-functional design review with our Director on the call' involving a senior PM cutting in during a presentation\u2014all with plausible interpersonal dynamics."
               }
             },
             "overall": {
@@ -1657,7 +1950,7 @@
             "_metadata": {
               "judge_id": "session_setup",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:55:57.427304"
+              "evaluated_at": "2026-01-21T11:10:58.442939"
             }
           }
         },
@@ -1668,19 +1961,19 @@
             "criteria": {
               "B-02": {
                 "verdict": "PASS",
-                "evidence": "\"I chose observable verbs over labels (not 'you dominated'), and I owned the impact with my feeling and the direct consequence, not 'it was unprofessional.'\" - Mentor explains WHY they made specific word choices during the demonstration."
+                "evidence": "Mentor explains: 'I chose observable verbs over labels (not \"you dominated\"), and I owned the impact with my feeling and the direct consequence, not \"it was unprofessional.\"' This explains WHY choices were made, not just what the components are."
               },
               "B-03": {
                 "verdict": "PASS",
-                "evidence": "\"I chose observable verbs over labels (not 'you dominated')\" - Mentor explicitly shows an alternative they rejected ('you dominated') and explains why they chose different phrasing, demonstrating a choice point."
+                "evidence": "Mentor shows a choice point: 'I chose observable verbs over labels (not \"you dominated\")' - explicitly showing an alternative that was considered and rejected, demonstrating the deliberation process."
               },
               "B-04": {
                 "verdict": "PASS",
-                "evidence": "\"My self-check: - Moment: can someone who wasn't there picture the exact meeting/point? - Behavior: would a camera/mic capture what I wrote (verbs, not labels or motives)? - Impact: starts with 'I,' names my feeling and/or a direct consequence I experienced. - Leak scan: replace judgment words...\" - Mentor explicitly models a verification checklist."
+                "evidence": "Mentor explicitly models self-checking: 'My self-check: Moment: can someone who wasn't there picture the exact meeting/point? Behavior: would a camera/mic capture what I wrote (verbs, not labels or motives)? Impact: starts with \"I,\" names my feeling and/or a direct consequence I experienced. Leak scan: replace judgment words...'"
               },
               "B-05": {
                 "verdict": "PASS",
-                "evidence": "\"would a camera/mic capture what I wrote\" (the camera test) and \"Pick one moment, describe what a camera would capture (no labels), and name my 'I' impact\" - Multiple reusable heuristics offered that learner can apply independently."
+                "evidence": "Multiple heuristics offered: 'would a camera/mic capture what I wrote' (the camera test), 'Leak scan: replace judgment words (\"rude,\" \"unprofessional,\" \"always\") with what was seen/heard', and the final cue: 'Pick one moment, describe what a camera would capture (no labels), and name my \"I\" impact.'"
               }
             },
             "overall": {
@@ -1692,7 +1985,7 @@
             "_metadata": {
               "judge_id": "modeling_quality",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:56:08.418057"
+              "evaluated_at": "2026-01-21T11:11:09.559960"
             }
           }
         },
@@ -1719,7 +2012,7 @@
               },
               "C-07": {
                 "verdict": "PASS",
-                "evidence": "Mentor prompts reflection on learning: 'What principle from this will you carry forward when you're giving SBI feedback under higher stakes?' Learner responds with synthesized principle, and mentor affirms: 'That's the core\u2014you locked onto the control move...'"
+                "evidence": "Mentor prompts reflection on learning: 'What principle from this will you carry forward when you're giving SBI feedback under higher stakes?' Learner responds with synthesized principle, and mentor affirms the meta-learning."
               }
             },
             "overall": {
@@ -1731,7 +2024,7 @@
             "_metadata": {
               "judge_id": "coaching_quality",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:56:22.795980"
+              "evaluated_at": "2026-01-21T11:11:22.039811"
             }
           }
         },
@@ -1762,7 +2055,7 @@
             "_metadata": {
               "judge_id": "sbi_content",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:56:35.683072"
+              "evaluated_at": "2026-01-21T11:11:33.934610"
             }
           }
         },
@@ -1777,7 +2070,7 @@
               },
               "E-02": {
                 "verdict": "PASS",
-                "evidence": "Early on, mentor provides detailed self-check framework and walks through each criterion. Later, after learner demonstrates competence with 'In Monday's 9am standup...' draft, mentor simply says 'That meets the bar' and moves to variation without detailed scaffolding. Final drafts receive brief confirmation ('That lands') rather than step-by-step guidance."
+                "evidence": "Early on, mentor provides detailed self-check framework and walks through each criterion. Later, after learner demonstrates competence with 'In Monday's 9am standup...' draft, mentor simply says 'That meets the bar' and moves to variation without detailed scaffolding. Final drafts get brief confirmation ('That lands') rather than step-by-step guidance."
               }
             },
             "overall": {
@@ -1789,7 +2082,7 @@
             "_metadata": {
               "judge_id": "adaptive_pacing",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:56:47.130202"
+              "evaluated_at": "2026-01-21T11:11:45.746610"
             }
           }
         },
@@ -1804,11 +2097,11 @@
               },
               "F-02": {
                 "verdict": "PASS",
-                "evidence": "Shows personality with 'That's it \ud83d\udc4d', 'Thanks for taking a swing', 'Nicely done today', and 'Glad to hear it.' These add warmth beyond neutral facilitation."
+                "evidence": "Shows personality with 'That's it \ud83d\udc4d', 'Nicely done today', 'Thanks for taking a swing', and casual phrasing like 'judgment sneaking into the behavior' and 'the judgment drains out.' Has a distinct coaching voice rather than neutral facilitation."
               },
               "F-03": {
                 "verdict": "N/A",
-                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. They respond cooperatively and confidently throughout."
+                "evidence": "Learner never displays anxiety, frustration, or confusion throughout the transcript. Responses are cooperative and engaged ('Yep, ready', 'Makes sense', 'Yes\u2014clear and memorable'). No negative affect to respond to."
               }
             },
             "overall": {
@@ -1821,7 +2114,7 @@
             "_metadata": {
               "judge_id": "conversational_quality",
               "conversation_id": "4fb1ebe1",
-              "evaluated_at": "2026-01-21T10:56:58.211064"
+              "evaluated_at": "2026-01-21T11:11:56.888582"
             }
           }
         }
@@ -1830,14 +2123,14 @@
     }
   ],
   "summary": {
-    "total_evaluated": 6,
-    "critical_passed": 6,
+    "total_evaluated": 7,
+    "critical_passed": 7,
     "critical_failed": 0,
-    "quality_passed": 109,
-    "quality_total": 114
+    "quality_passed": 128,
+    "quality_total": 133
   }
 };
-        const metrics = {"total": 6, "completed": 6, "critical_passed": 6, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 109, "quality_total_criteria": 114, "quality_average": 95.6, "per_criteria": {"session_setup": {"passed": 18, "total": 18, "individual": {"A-01": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 18}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 20, "total": 24, "individual": {"B-02": {"passed": 5, "failed": 1, "by_persona": {"amara_SBI": {"passed": 5, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 5, "failed": 1, "by_persona": {"amara_SBI": {"passed": 5, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 4, "failed": 2, "by_persona": {"amara_SBI": {"passed": 4, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 24}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 83.3}, "coaching_quality": {"passed": 30, "total": 30, "individual": {"C-02": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "sbi_content": {"passed": 18, "total": 18, "individual": {"D-04": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 18}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 11, "total": 12, "individual": {"E-01": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 5, "failed": 1, "by_persona": {"amara_SBI": {"passed": 5, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 11, "total": 12}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 91.7}, "conversational_quality": {"passed": 12, "total": 12, "individual": {"F-01": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 6, "failed": 0, "by_persona": {"amara_SBI": {"passed": 6, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 0, "failed": 0, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 12, "total": 12}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}}, "personas_seen": ["amara_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
+        const metrics = {"total": 7, "completed": 7, "critical_passed": 7, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 128, "quality_total_criteria": 133, "quality_average": 96.2, "per_criteria": {"session_setup": {"passed": 21, "total": 21, "individual": {"A-01": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 21, "total": 21}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 24, "total": 28, "individual": {"B-02": {"passed": 6, "failed": 1, "by_persona": {"amara_SBI": {"passed": 6, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 6, "failed": 1, "by_persona": {"amara_SBI": {"passed": 6, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 5, "failed": 2, "by_persona": {"amara_SBI": {"passed": 5, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 24, "total": 28}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 85.7}, "coaching_quality": {"passed": 35, "total": 35, "individual": {"C-02": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 35, "total": 35}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "sbi_content": {"passed": 21, "total": 21, "individual": {"D-04": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 21, "total": 21}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 13, "total": 14, "individual": {"E-01": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 6, "failed": 1, "by_persona": {"amara_SBI": {"passed": 6, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 13, "total": 14}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 92.9}, "conversational_quality": {"passed": 14, "total": 14, "individual": {"F-01": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 7, "failed": 0, "by_persona": {"amara_SBI": {"passed": 7, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 0, "failed": 0, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 0, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 14, "total": 14}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 0, "total": 0}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}}, "personas_seen": ["amara_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
 
         function escapeHtml(text) {
             if (!text) return '';

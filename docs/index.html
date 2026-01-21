@@ -341,15 +341,15 @@
             <div class="meta">
                 <span>Run: <strong>aggregated-20260121</strong></span>
                 <span class="badge" style="background: #10b981">Complete</span>
-                <span class="timestamp">Updated: 2026-01-21T14:46:21.826753</span>
+                <span class="timestamp">Updated: 2026-01-21T15:31:41.488476</span>
             </div>
         </header>
 
         <div class="cards">
             <div class="card">
                 <div class="card-label">Critical Pass Rate</div>
-                <div class="card-value pass">100.0%</div>
-                <div class="card-label">15/15 passed</div>
+                <div class="card-value pass">88.2%</div>
+                <div class="card-label">15/17 passed</div>
             </div>
             <div class="card">
                 <div class="card-label">Quality Average</div>
@@ -358,7 +358,7 @@
             </div>
             <div class="card">
                 <div class="card-label">Progress</div>
-                <div class="card-value">15/15</div>
+                <div class="card-value">17/17</div>
                 <div class="card-label">conversations evaluated</div>
             </div>
         </div>
@@ -391,14 +391,14 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T14:46:21.827654
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T15:31:41.490086
         </footer>
     </div>
 
     <script>
         const manifest = {
   "run_id": "aggregated-20260121",
-  "timestamp": "2026-01-21T14:46:21.826753",
+  "timestamp": "2026-01-21T15:31:41.488476",
   "status": "complete",
   "conversations": [
     {
@@ -4127,6 +4127,118 @@
           }
         }
       }
+    },
+    {
+      "langsmith_id": "019be23b-085e-7600-9fd0-0f09ec0cf79a",
+      "short_id": "019be23b",
+      "source_type": "run",
+      "run_name": "MentorAI Evaluation Conversation",
+      "persona": "carlos_SBI",
+      "critical_verdict": "FAIL",
+      "critical_json": {
+        "criteria": {
+          "B-01": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "C-01": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "C-03": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "D-01": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "D-02": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "D-03": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          },
+          "E-03": {
+            "verdict": "N/A",
+            "evidence": "No transcript provided to evaluate"
+          }
+        },
+        "overall": {
+          "verdict": "FAIL",
+          "summary": "No transcript was provided for evaluation, making it impossible to assess any criteria.",
+          "passed_count": 0,
+          "failed_count": 0,
+          "na_count": 7,
+          "failed_criteria": [
+            "No transcript provided"
+          ]
+        },
+        "_metadata": {
+          "judge_id": "critical_criteria",
+          "conversation_id": "019be23b",
+          "evaluated_at": "2026-01-21T15:31:28.067203"
+        }
+      }
+    },
+    {
+      "langsmith_id": "019be233-9223-73c1-8a41-cf81db40d0c3",
+      "short_id": "019be233",
+      "source_type": "run",
+      "run_name": "MentorAI Evaluation Conversation",
+      "persona": "carlos_SBI",
+      "critical_verdict": "FAIL",
+      "critical_json": {
+        "criteria": {
+          "B-01": {
+            "verdict": "FAIL",
+            "evidence": "No transcript content provided - output is None"
+          },
+          "C-01": {
+            "verdict": "FAIL",
+            "evidence": "No transcript content provided - output is None"
+          },
+          "C-03": {
+            "verdict": "FAIL",
+            "evidence": "No transcript content provided - output is None"
+          },
+          "D-01": {
+            "verdict": "N/A",
+            "evidence": "No transcript content to evaluate - cannot determine if error type appeared"
+          },
+          "D-02": {
+            "verdict": "N/A",
+            "evidence": "No transcript content to evaluate - cannot determine if error type appeared"
+          },
+          "D-03": {
+            "verdict": "N/A",
+            "evidence": "No transcript content to evaluate - cannot determine if error type appeared"
+          },
+          "E-03": {
+            "verdict": "N/A",
+            "evidence": "No transcript content to evaluate - cannot determine if learner asked for answers"
+          }
+        },
+        "overall": {
+          "verdict": "FAIL",
+          "summary": "The transcript contains no content (output is None), so no tutoring behaviors can be evaluated.",
+          "passed_count": 0,
+          "failed_count": 3,
+          "na_count": 4,
+          "failed_criteria": [
+            "B-01",
+            "C-01",
+            "C-03"
+          ]
+        },
+        "_metadata": {
+          "judge_id": "critical_criteria",
+          "conversation_id": "019be233",
+          "evaluated_at": "2026-01-21T15:31:37.310347"
+        }
+      }
     }
   ],
   "aggregated_from": [
@@ -4135,15 +4247,16 @@
     "20260121_110141",
     "20260121_114046",
     "20260121_115648",
-    "20260121_135615"
+    "20260121_135615",
+    "20260121_153119"
   ],
   "config": {
     "source": "aggregated",
-    "total_runs": 6,
+    "total_runs": 7,
     "date_filter": "today"
   }
 };
-        const metrics = {"total": 15, "completed": 15, "critical_passed": 15, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 267, "quality_total_criteria": 289, "quality_average": 92.4, "per_criteria": {"session_setup": {"passed": 45, "total": 45, "individual": {"A-01": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 15}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 48, "total": 60, "individual": {"B-02": {"passed": 14, "failed": 1, "by_persona": {"amara_SBI": {"passed": 9, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 11, "failed": 4, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 8, "failed": 7, "by_persona": {"amara_SBI": {"passed": 6, "failed": 4}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 2, "failed": 3}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 33, "total": 40}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 20}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 80.0}, "coaching_quality": {"passed": 74, "total": 75, "individual": {"C-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 14, "failed": 1, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 4, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 50, "total": 50}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 24, "total": 25}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 98.7}, "sbi_content": {"passed": 45, "total": 45, "individual": {"D-04": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 15}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 24, "total": 30, "individual": {"E-01": {"passed": 13, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 11, "failed": 4, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 20}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 6, "total": 10}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 80.0}, "conversational_quality": {"passed": 31, "total": 34, "individual": {"F-01": {"passed": 13, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 3, "failed": 1, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 20}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 11, "total": 14}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 91.2}}, "personas_seen": ["amara_SBI", "carlos_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
+        const metrics = {"total": 17, "completed": 17, "critical_passed": 15, "critical_failed": 2, "critical_pass_rate": 88.2, "quality_total_passed": 267, "quality_total_criteria": 289, "quality_average": 92.4, "per_criteria": {"session_setup": {"passed": 45, "total": 45, "individual": {"A-01": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 15}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 48, "total": 60, "individual": {"B-02": {"passed": 14, "failed": 1, "by_persona": {"amara_SBI": {"passed": 9, "failed": 1}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 11, "failed": 4, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 8, "failed": 7, "by_persona": {"amara_SBI": {"passed": 6, "failed": 4}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 2, "failed": 3}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 33, "total": 40}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 20}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 80.0}, "coaching_quality": {"passed": 74, "total": 75, "individual": {"C-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 14, "failed": 1, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 4, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 50, "total": 50}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 24, "total": 25}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 98.7}, "sbi_content": {"passed": 45, "total": 45, "individual": {"D-04": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 15, "total": 15}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 24, "total": 30, "individual": {"E-01": {"passed": 13, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 11, "failed": 4, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 20}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 6, "total": 10}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 80.0}, "conversational_quality": {"passed": 31, "total": 34, "individual": {"F-01": {"passed": 13, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 15, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 5, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 3, "failed": 1, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 0, "failed": 0}, "carlos_SBI": {"passed": 3, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 20}, "bailey_SBI": {"passed": 0, "total": 0}, "carlos_SBI": {"passed": 11, "total": 14}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 91.2}}, "personas_seen": ["amara_SBI", "carlos_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
 
         function escapeHtml(text) {
             if (!text) return '';

@@ -2,6 +2,29 @@
 
 Automated evaluation framework for testing MentorAI (a tutoring agent) against synthetic learner personas.
 
+## Quick Start
+
+```bash
+# Run 5 conversations with a persona and deploy dashboard
+python run_batch_eval.py --personas carlos_SBI --count 5 --deploy
+
+# Run multiple personas
+python run_batch_eval.py --personas amara_SBI,carlos_SBI --count 5 --deploy
+```
+
+Dashboard: https://rkoblic.github.io/cognitive-apprenticeship-agent/
+
+## Available Personas
+
+| Persona | Letter | Characteristics |
+|---------|--------|-----------------|
+| amara_SBI | A | Cooperative learner, no negative affect |
+| bailey_SBI | B | — |
+| carlos_SBI | C | Impatient/curt, shows negative affect |
+| daniel_SBI | D | — |
+| elise_SBI | E | — |
+| fatou_SBI | F | — |
+
 ## Project Structure
 
 ```
@@ -21,13 +44,33 @@ create_dataset.py           # Create datasets from LangSmith runs
 generate_report.py          # Generate HTML/CSV reports
 generate_dashboard.py       # Generate live HTML dashboard
 deploy_dashboard.py         # Deploy dashboard to GitHub Pages
-eval_results/               # Judge evaluation outputs
+run_batch_eval.py           # Full pipeline script (recommended)
+eval_results/               # Judge evaluation outputs (local)
 docs/                       # GitHub Pages dashboard (index.html)
+conversations/              # Saved conversation transcripts
 ```
 
 ## Running Evaluations
 
-### Generate Conversations
+### Batch Evaluation (Recommended)
+```bash
+# Full pipeline: generate conversations, run judges, deploy dashboard
+python run_batch_eval.py --personas carlos_SBI --count 5 --deploy
+
+# Multiple personas
+python run_batch_eval.py --personas amara_SBI,carlos_SBI --count 5 --deploy
+
+# Custom turns per conversation (default: 20)
+python run_batch_eval.py --personas carlos_SBI --count 5 --turns 15 --deploy
+
+# Regenerate dashboard from existing local results (no new conversations)
+python run_batch_eval.py --eval-only --deploy
+```
+
+Each batch creates a separate LangSmith dataset (e.g., `batch-20260121_143000`).
+The dashboard aggregates results from all runs created **today** (by date prefix).
+
+### Generate Single Conversation
 ```bash
 python run_eval.py --persona <name> --turns <n>
 python run_eval.py --list-personas  # Show available personas
@@ -88,3 +131,36 @@ See `docs/prompt-engineering-notes.md` for why this works.
 Learner personas use a two-part output format:
 - `[INNER THOUGHT]` — Internal reasoning (logged for evaluation, hidden from mentor)
 - `[RESPONSE]` — Visible response (what mentor sees)
+
+## Dashboard Details
+
+### Quality Scores
+- **20 total criteria** across 6 judges: session_setup (3), modeling_quality (4), coaching_quality (5), sbi_content (3), adaptive_pacing (2), conversational_quality (3)
+- **N/A criteria**: Some criteria can be N/A if the learner doesn't trigger the condition (e.g., F-03 "responding to learner frustration" is N/A for amara since she's cooperative)
+- **Score display**: Shows `passed/total (X N/A)` when criteria are N/A, and ⚠️ when parsing failed
+
+### Aggregation
+- Dashboard aggregates all runs from **today** (by date prefix YYYYMMDD)
+- Deduplicates by LangSmith conversation ID, preferring entries with valid persona data
+- Results stored in `eval_results/runs/<timestamp>/manifest.json`
+
+### Maintenance
+
+```bash
+# Regenerate dashboard from current local results
+python generate_dashboard.py
+
+# Deploy to GitHub Pages
+python deploy_dashboard.py --run eval_results/runs/<latest_run>
+
+# Clean up old runs (if needed)
+rm -rf eval_results/runs/YYYYMMDD_*
+
+# List available LangSmith datasets
+python create_dataset.py --list
+```
+
+### Troubleshooting
+- **Unknown personas**: Check that the batch dataset captured `persona_name` in inputs
+- **Duplicate conversations**: Same LangSmith ID evaluated in multiple runs; delete old run directories
+- **Missing N/A counts**: Stored in `quality_results.<judge>.json.overall.na_count`

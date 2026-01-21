@@ -5,7 +5,11 @@ Live Dashboard Generator for MentorAI Evaluations
 Generates a self-contained HTML dashboard with all evaluation data embedded.
 The dashboard can be opened locally or deployed to GitHub Pages for team sharing.
 
+By default, aggregates results from ALL runs in eval_results/runs/ for a
+comprehensive view. Use --no-aggregate for single-run mode.
+
 Features:
+- Aggregates results from all evaluation runs (deduplicates by conversation ID)
 - All data embedded as JSON (no external fetch needed)
 - Summary cards: Critical pass rate, Quality average, Progress
 - Per-criteria table with pass rates
@@ -13,8 +17,9 @@ Features:
 - Auto-refresh support when hosted
 
 Usage:
-    python generate_dashboard.py --run eval_results/runs/YYYYMMDD_HHMMSS
-    python generate_dashboard.py  # Uses most recent run
+    python generate_dashboard.py                    # Aggregate all runs (default)
+    python generate_dashboard.py --no-aggregate     # Single run only
+    python generate_dashboard.py --run <path>       # Specify output location
 """
 
 import argparse
@@ -43,6 +48,85 @@ def load_manifest(run_dir: Path) -> dict:
         raise FileNotFoundError(f"No manifest.json found in {run_dir}")
 
     return json.loads(manifest_path.read_text())
+
+
+def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "today") -> dict:
+    """
+    Load and merge all manifest.json files from runs directory.
+
+    Args:
+        runs_dir: Path to runs directory (defaults to eval_results/runs/)
+        date_filter: Filter runs by date prefix:
+            - "today" (default): Only runs from today (YYYYMMDD)
+            - "YYYYMMDD": Only runs from that specific date
+            - None: Include all runs (no filter)
+
+    Returns:
+        Merged manifest with all conversations, deduplicated by langsmith_id
+    """
+    if runs_dir is None:
+        runs_dir = EVAL_RESULTS_DIR / "runs"
+
+    if not runs_dir.exists():
+        return {"conversations": [], "status": "no_runs"}
+
+    # Resolve date filter
+    if date_filter == "today":
+        date_prefix = datetime.now().strftime("%Y%m%d")
+    elif date_filter:
+        date_prefix = date_filter
+    else:
+        date_prefix = None
+
+    all_conversations = []
+    run_ids = []
+
+    for manifest_path in sorted(runs_dir.glob("*/manifest.json")):
+        run_id = manifest_path.parent.name
+
+        # Apply date filter if specified
+        if date_prefix and not run_id.startswith(date_prefix):
+            continue
+
+        try:
+            manifest = json.loads(manifest_path.read_text())
+            conversations = manifest.get("conversations", [])
+            all_conversations.extend(conversations)
+            run_ids.append(run_id)
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"Warning: Could not load {manifest_path}: {e}")
+
+    # Deduplicate by langsmith_id (prefer entries with valid persona)
+    seen = {}
+    for conv in all_conversations:
+        langsmith_id = conv.get("langsmith_id")
+        if langsmith_id:
+            existing = seen.get(langsmith_id)
+            new_persona = conv.get("persona")
+            # Prefer entry with valid persona over Unknown/None
+            if not existing:
+                seen[langsmith_id] = conv
+            elif existing.get("persona") in [None, "Unknown", "unknown"] and new_persona not in [None, "Unknown", "unknown"]:
+                seen[langsmith_id] = conv
+            # Otherwise keep existing (don't overwrite good data with bad)
+        else:
+            # No ID, just append (shouldn't happen but be safe)
+            seen[id(conv)] = conv
+
+    deduped_conversations = list(seen.values())
+
+    return {
+        "run_id": f"aggregated-{date_prefix}" if date_prefix else "aggregated-all",
+        "timestamp": datetime.now().isoformat(),
+        "status": "complete",
+        "conversations": deduped_conversations,
+        "aggregated_from": run_ids,
+        "config": {
+            "source": "aggregated",
+            "total_runs": len(run_ids),
+            "date_filter": date_filter,
+        }
+    }
 
 
 # Persona name to letter mapping
@@ -323,6 +407,13 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             background: #e5e7eb;
             color: #4b5563;
         }}
+        .na-badge {{
+            color: #6b7280;
+            font-size: 0.85em;
+        }}
+        .warning-badge {{
+            cursor: help;
+        }}
         .expandable {{
             cursor: pointer;
         }}
@@ -577,13 +668,21 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         }}
 
         function extractPersona(conv) {{
-            // Try to extract persona from run_name or transcript
-            if (conv.run_name) {{
-                const match = conv.run_name.match(/([a-z]+_[A-Z]+)/i);
-                if (match) return match[1];
+            // Try persona field first (if valid)
+            if (conv.persona && conv.persona !== 'Unknown' && conv.persona !== 'unknown') {{
+                return conv.persona;
             }}
-            // Fallback: check transcript for persona mentions
-            return conv.persona || 'Unknown';
+            // Try run_name pattern
+            if (conv.run_name) {{
+                const match = conv.run_name.match(/([a-z]+_SBI)/i);
+                if (match) return match[1].toLowerCase().replace('_sbi', '_SBI');
+            }}
+            // Try dataset_name (batch datasets include persona)
+            if (conv.dataset_name) {{
+                const match = conv.dataset_name.match(/([a-z]+_SBI)/i);
+                if (match) return match[1].toLowerCase().replace('_sbi', '_SBI');
+            }}
+            return 'Unknown';
         }}
 
         function renderCriteriaTable() {{
@@ -763,11 +862,34 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 // Calculate quality score
                 let qualityPassed = 0;
                 let qualityTotal = 0;
+                let qualityNA = 0;
+                let hasParseIssue = false;
+                const EXPECTED_TOTAL = 20;  // 3+4+5+3+2+3 = 20 max criteria
+
                 for (const [judge, result] of Object.entries(qualityResults)) {{
                     qualityPassed += result.passed || 0;
                     qualityTotal += result.total || 0;
+                    // Check na_count at top level (new format) or nested in json.overall (existing data)
+                    qualityNA += result.na_count || (result.json && result.json.overall && result.json.overall.na_count) || 0;
                 }}
-                const qualityScore = qualityTotal > 0 ? `${{qualityPassed}}/${{qualityTotal}}` : '-';
+
+                // Flag if total + NA < expected (indicates parsing failure, not just N/A)
+                const actualTotal = qualityTotal + qualityNA;
+                if (qualityTotal > 0 && actualTotal < EXPECTED_TOTAL) {{
+                    hasParseIssue = true;
+                }}
+
+                // Build score string
+                let qualityScore = '-';
+                if (qualityTotal > 0) {{
+                    qualityScore = `${{qualityPassed}}/${{qualityTotal}}`;
+                    if (qualityNA > 0) {{
+                        qualityScore += ` <span class="na-badge" title="${{qualityNA}} criteria N/A">(${{qualityNA}} N/A)</span>`;
+                    }}
+                    if (hasParseIssue) {{
+                        qualityScore += ` <span class="warning-badge" title="Some criteria failed to parse">⚠️</span>`;
+                    }}
+                }}
 
                 // Extract persona
                 const persona = extractPersona(conv);
@@ -848,18 +970,25 @@ def generate_html(manifest: dict, metrics: dict) -> str:
     return html
 
 
-def generate_dashboard(run_dir: Path, output_path: Path | None = None) -> Path:
+def generate_dashboard(run_dir: Path, output_path: Path | None = None, aggregate: bool = True) -> Path:
     """
     Generate dashboard HTML for a run directory.
 
     Args:
-        run_dir: Path to the evaluation run directory
+        run_dir: Path to the evaluation run directory (used for output location)
         output_path: Optional output path (defaults to run_dir/dashboard.html)
+        aggregate: If True, aggregate results from ALL runs (default: True)
 
     Returns:
         Path to the generated dashboard file
     """
-    manifest = load_manifest(run_dir)
+    if aggregate:
+        # Aggregate all runs for a complete view
+        manifest = aggregate_all_runs()
+    else:
+        # Single run mode
+        manifest = load_manifest(run_dir)
+
     metrics = calculate_dashboard_metrics(manifest)
     html = generate_html(manifest, metrics)
 
@@ -884,6 +1013,11 @@ def main():
         type=str,
         help="Output path for dashboard.html (default: <run_dir>/dashboard.html)"
     )
+    parser.add_argument(
+        "--no-aggregate",
+        action="store_true",
+        help="Only show results from the specified run (default: aggregate all runs)"
+    )
 
     args = parser.parse_args()
 
@@ -901,10 +1035,14 @@ def main():
         return
 
     output_path = Path(args.output) if args.output else None
+    aggregate = not args.no_aggregate
 
     try:
-        dashboard_path = generate_dashboard(run_dir, output_path)
-        print(f"Dashboard generated: {dashboard_path}")
+        dashboard_path = generate_dashboard(run_dir, output_path, aggregate=aggregate)
+        if aggregate:
+            print(f"Dashboard generated (aggregated from all runs): {dashboard_path}")
+        else:
+            print(f"Dashboard generated (single run): {dashboard_path}")
         print(f"Open in browser: file://{dashboard_path.absolute()}")
     except FileNotFoundError as e:
         print(f"ERROR: {e}")

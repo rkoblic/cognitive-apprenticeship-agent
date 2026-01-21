@@ -560,12 +560,15 @@ def run_evaluation(args):
                     # Extract pass rate from JSON if available
                     if json_data and "overall" in json_data:
                         overall = json_data["overall"]
+                        na_count = overall.get("na_count", 0)
                         result["quality_results"][judge_id] = {
                             "passed": overall.get("passed_count", 0),
                             "total": overall.get("passed_count", 0) + overall.get("failed_count", 0),
+                            "na_count": na_count,
                             "json": json_data
                         }
-                        print(f"    {judge_id}: {overall.get('passed_count', '?')}/{overall.get('passed_count', 0) + overall.get('failed_count', 0)} passed")
+                        na_str = f" ({na_count} N/A)" if na_count else ""
+                        print(f"    {judge_id}: {overall.get('passed_count', '?')}/{overall.get('passed_count', 0) + overall.get('failed_count', 0)} passed{na_str}")
                     else:
                         result["quality_results"][judge_id] = {"raw_response": True}
                         print(f"    {judge_id}: completed (no JSON parsed)")

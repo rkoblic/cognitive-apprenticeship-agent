@@ -321,34 +321,58 @@
             background: #f9fafb;
         }
         .individual-criteria {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            gap: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+            overflow: hidden;
         }
         .individual-criterion {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0.375rem 0.5rem;
+            padding: 0.5rem 0.75rem;
             background: white;
-            border-radius: 0.25rem;
-            border: 1px solid #e5e7eb;
             font-size: 0.8125rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .individual-criterion:last-child {
+            border-bottom: none;
         }
         .individual-criterion.all-pass {
-            border-color: #d1fae5;
             background: #f0fdf4;
         }
         .individual-criterion.has-fail {
-            border-color: #fecaca;
             background: #fef2f2;
         }
         .individual-criterion .code {
             font-weight: 600;
             color: #374151;
+            width: 60px;
         }
         .individual-criterion .stats {
             color: #6b7280;
+            width: 50px;
+        }
+        .individual-criterion .bar-container {
+            flex: 1;
+            margin-left: 1rem;
+        }
+        .individual-criterion .mini-bar {
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .individual-criterion .mini-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        .individual-criterion.all-pass .mini-fill {
+            background: #10b981;
+        }
+        .individual-criterion.has-fail .mini-fill {
+            background: #f59e0b;
         }
         .persona-tag {
             font-size: 0.75rem;
@@ -423,7 +447,7 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:44:40.286068
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-21T09:47:40.700046
         </footer>
     </div>
 
@@ -698,7 +722,8 @@
             }
           }
         }
-      }
+      },
+      "persona": "amara_SBI"
     },
     {
       "langsmith_id": "91f1f846-6b17-4ca0-a258-d5892fc44b2d",
@@ -946,7 +971,8 @@
             }
           }
         }
-      }
+      },
+      "persona": "amara_SBI"
     },
     {
       "langsmith_id": "4fb1ebe1-04e1-432f-a85d-b5828df92139",
@@ -1194,7 +1220,8 @@
             }
           }
         }
-      }
+      },
+      "persona": "amara_SBI"
     }
   ],
   "summary": {
@@ -1260,9 +1287,13 @@
                 sortedCriteria.forEach(([code, stats]) => {
                     const total = stats.passed + stats.failed;
                     const hasFail = stats.failed > 0;
+                    const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
                     detailsHtml += `<div class="individual-criterion ${hasFail ? 'has-fail' : 'all-pass'}">
                         <span class="code">${code}</span>
                         <span class="stats">${stats.passed}/${total}</span>
+                        <div class="bar-container">
+                            <div class="mini-bar"><div class="mini-fill" style="width: ${pct}%"></div></div>
+                        </div>
                     </div>`;
                 });
                 detailsHtml += '</div></div></td>';

@@ -7,7 +7,7 @@ This document tracks our process for setting up automated evaluation of MentorAI
 We use LLM judges (Claude) to evaluate tutoring conversations between MentorAI and synthetic learner personas. The evaluation uses a two-stage pipeline:
 
 1. **Stage 1: Critical Criteria** - Fast-fail gate (7 criteria, must pass all)
-2. **Stage 2: Quality Criteria** - Detailed assessment (24 criteria across 6 domains)
+2. **Stage 2: Quality Criteria** - Detailed assessment (20 criteria across 6 domains)
 
 ## Architecture
 
@@ -119,9 +119,9 @@ If you prefer to tag runs directly:
 | D-01 | Catches Vague Situations | Mentor catches "lately," "sometimes," etc. |
 | D-02 | Catches Judgment Leakage | Mentor catches "dismissive," "rude," etc. |
 | D-03 | Catches Accusatory Impact | Mentor catches "You made everyone..." |
-| E-04 | Protects Productive Struggle | Mentor requires attempt before giving answers |
+| E-03 | Protects Productive Struggle | Mentor requires attempt before giving answers |
 
-**N/A Handling:** D-01, D-02, D-03, and E-04 can be marked N/A if the learner never produces the error type that would trigger them.
+**N/A Handling:** D-01, D-02, D-03, and E-03 can be marked N/A if the learner never produces the error type that would trigger them.
 
 ### Stage 2: Quality Criteria
 
@@ -133,8 +133,37 @@ Only conversations that PASS critical criteria proceed to quality evaluation.
 | modeling_quality | B-02, B-03, B-04, B-05 | Implemented |
 | coaching_quality | C-02, C-04, C-05, C-06, C-07 | Implemented |
 | sbi_content | D-04, D-05, D-06 | Implemented |
-| adaptive_pacing | E-01, E-02, E-03 | Implemented |
-| conversational_quality | F-01 through F-06 | Implemented |
+| adaptive_pacing | E-01, E-02 | Implemented |
+| conversational_quality | F-01, F-02, F-03 | Implemented |
+
+## Pass Thresholds
+
+For a conversation to pass evaluation, it must meet the following thresholds:
+
+### Critical Criteria: 100%
+
+All applicable critical criteria must pass. These represent fundamental SBI coaching behaviors—a mentor that misses these isn't doing SBI coaching.
+
+- **7 critical criteria** total (B-01, C-01, C-03, D-01, D-02, D-03, E-03)
+- Some criteria can be **N/A** if the learner never triggers the condition (e.g., D-01 is N/A if learner never uses vague situation language)
+- Threshold applies to **scorable criteria only** (PASS or FAIL verdicts, excluding N/A)
+
+### Quality Criteria: 85%
+
+At least 85% of applicable quality criteria must pass per conversation. This allows for minor imperfections while maintaining a high bar.
+
+- **20 quality criteria** total across 6 domains
+- 85% = at most **3 failures** out of 20 (or proportionally fewer if some are N/A)
+- Evaluated **per conversation**, not aggregated across a batch
+
+### Summary
+
+| Criteria Type | Count | Threshold | Interpretation |
+|---------------|-------|-----------|----------------|
+| Critical | 7 | 100% | Must pass all (N/A excluded) |
+| Quality | 20 | 85% | Allow up to 3 misses per conversation |
+
+**Note:** These thresholds are starting points. Adjust based on data from initial eval runs if needed.
 
 ## Output Format
 
@@ -257,4 +286,35 @@ The HTML report includes:
 
 ---
 
-*Last updated: 2026-01-13*
+## Changelog
+
+### 2026-01-19: SBI Fidelity Criteria V2 Update
+
+Updated judge prompts to align with SBI Fidelity Criteria V2. Key changes:
+
+**Critical Criteria (critical_criteria.md)**
+- Renamed E-04 → E-03 (Protects Productive Struggle)
+- Criteria list now: B-01, C-01, C-03, D-01, D-02, D-03, E-03
+
+**Adaptive Pacing (adaptive_pacing.md)**
+- Removed E-03 "Adjusts to Struggle" (criterion removed from V2)
+- Reduced from 3 criteria to 2 (E-01, E-02)
+- E-03 "Protects Productive Struggle" moved to critical criteria
+
+**Coaching Quality (coaching_quality.md)**
+- Updated C-07 "Prompts Reflection" description
+- Old: focused on comparing draft to modeled example
+- New: emphasizes stepping back from task to reflect on learning process (what was difficult, what clicked, how thinking changed) rather than justifying specific draft choices
+
+**Conversational Quality (conversational_quality.md)**
+- Major reduction from 6 criteria to 3
+- Kept F-01 "Varied Turn Structure" (unchanged)
+- Moved F-05 "Has a Voice" → F-02 (same content)
+- Added new F-03 "Responds to Negative Affect" (from V2)
+- Removed: F-02 "Genuine Curiosity", F-03 "Room to Breathe", F-04 "Dwells on Difficulty", F-06 "Questions Over Corrections"
+
+**Total criteria count**: 27 (7 critical + 20 quality)
+
+---
+
+*Last updated: 2026-01-20*

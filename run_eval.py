@@ -22,8 +22,12 @@ Usage:
 import argparse
 import re
 from pathlib import Path
+from dotenv import load_dotenv
 from openai import OpenAI
 from langsmith import traceable
+
+# Load environment variables from .env file (override existing)
+load_dotenv(override=True)
 
 # Initialize OpenAI client
 client = OpenAI()

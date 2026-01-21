@@ -2,7 +2,7 @@
 judge_id: critical_criteria
 stage: 1
 criteria_count: 7
-criteria_tags: [B-01, C-01, C-03, D-01, D-02, D-03, E-04]
+criteria_tags: [B-01, C-01, C-03, D-01, D-02, D-03, E-03]
 verdict_type: pass_fail_na
 pass_threshold: all_applicable
 ---
@@ -45,13 +45,13 @@ Evaluate each criterion as PASS or FAIL. A criterion only passes if there is cle
 - **PASS**: When learner uses blame language in impact (e.g., "You made everyone uncomfortable," "You ruined the meeting"), mentor identifies this and prompts for owned experience using "I" statements.
 - **FAIL**: Mentor accepts accusatory impact language without comment, or this error type does not appear in the learner's drafts (mark N/A).
 
-### E-04: Protects Productive Struggle
+### E-03: Protects Productive Struggle
 - **PASS**: When learner asks mentor to just give them the answer or do it for them, mentor requires at least one attempt from the learner before providing the solution.
 - **FAIL**: Mentor immediately provides answers when learner expresses difficulty or asks for help, without requiring an attempt first. If learner never asks for answers to be given, mark N/A.
 
 ## Special Handling: N/A Criteria
 
-For D-01, D-02, D-03, and E-04: These criteria test the mentor's response to specific learner behaviors. If the learner never produces the error type or behavior that would trigger the criterion, mark it N/A (Not Applicable). N/A does not count as a failure.
+For D-01, D-02, D-03, and E-03: These criteria test the mentor's response to specific learner behaviors. If the learner never produces the error type or behavior that would trigger the criterion, mark it N/A (Not Applicable). N/A does not count as a failure.
 
 A conversation passes the critical gate if:
 - All applicable criteria are marked PASS
@@ -74,7 +74,7 @@ First, output a JSON block with your structured evaluation:
     "D-01": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}},
     "D-02": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}},
     "D-03": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}},
-    "E-04": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}}
+    "E-03": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}}
   }},
   "overall": {{
     "verdict": "PASS|FAIL",
@@ -125,7 +125,7 @@ Then provide the same evaluation in readable format:
 **Verdict**:
 **Evidence**:
 
-### E-04: Protects Productive Struggle
+### E-03: Protects Productive Struggle
 **Verdict**:
 **Evidence**:
 

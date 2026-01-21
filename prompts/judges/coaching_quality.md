@@ -40,8 +40,8 @@ Evaluate each criterion as PASS or FAIL. A criterion only passes if there is cle
 - **FAIL**: Mentor only asks comprehension checks ("Does that make sense?" "Got it?") without asking learner to articulate their thinking process.
 
 ### C-07: Prompts Reflection
-- **PASS**: Mentor asks learner to compare their draft to the modeled example, reflect on what was difficult, or identify what they're taking away from the session.
-- **FAIL**: Session ends without any reflective moment—mentor doesn't ask learner to step back and consider their learning or process.
+- **PASS**: Mentor asks learner to step back from the task and reflect on their learning—what was difficult, what clicked, how their thinking changed, or what principles they'll carry forward—rather than asking them to justify specific choices within their draft.
+- **FAIL**: Session ends without any reflective moment, or mentor only asks learner to justify specific choices within their draft rather than stepping back to reflect on their learning process.
 
 ## Output Format
 

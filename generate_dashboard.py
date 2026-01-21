@@ -45,6 +45,18 @@ def load_manifest(run_dir: Path) -> dict:
     return json.loads(manifest_path.read_text())
 
 
+# Persona name to letter mapping
+PERSONA_LETTERS = {
+    "amara_SBI": "A",
+    "bailey_SBI": "B",
+    "carlos_SBI": "C",
+    "daniel_SBI": "D",
+    "elise_SBI": "E",
+    "fatou_SBI": "F",
+}
+PERSONA_ORDER = ["amara_SBI", "bailey_SBI", "carlos_SBI", "daniel_SBI", "elise_SBI", "fatou_SBI"]
+
+
 def calculate_dashboard_metrics(manifest: dict) -> dict:
     """Calculate metrics for dashboard display."""
     conversations = manifest.get("conversations", [])
@@ -61,6 +73,7 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
             "quality_total_criteria": 0,
             "quality_average": 0,
             "per_criteria": {},
+            "personas_seen": [],
         }
 
     # Critical stats
@@ -68,16 +81,27 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
     critical_failed = sum(1 for c in conversations if c.get("critical_verdict") == "FAIL")
     completed = critical_passed + critical_failed
 
-    # Quality stats - aggregate across all judges
+    # Track which personas we've seen
+    personas_seen = set()
+
+    # Quality stats - aggregate across all judges AND individual criteria
     per_criteria = {}
     total_quality_passed = 0
     total_quality_criteria = 0
 
     for conv in conversations:
+        persona = conv.get("persona", "unknown")
+        personas_seen.add(persona)
+
         quality_results = conv.get("quality_results", {})
         for judge_id, result in quality_results.items():
             if judge_id not in per_criteria:
-                per_criteria[judge_id] = {"passed": 0, "total": 0}
+                per_criteria[judge_id] = {
+                    "passed": 0,
+                    "total": 0,
+                    "individual": {},
+                    "by_persona": {p: {"passed": 0, "total": 0} for p in PERSONA_ORDER}
+                }
 
             passed = result.get("passed", 0)
             judge_total = result.get("total", 0)
@@ -87,10 +111,36 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
             total_quality_passed += passed
             total_quality_criteria += judge_total
 
+            # Track per-persona stats for this judge
+            if persona in PERSONA_ORDER:
+                per_criteria[judge_id]["by_persona"][persona]["passed"] += passed
+                per_criteria[judge_id]["by_persona"][persona]["total"] += judge_total
+
+            # Track individual criteria codes (e.g., A-01, B-02)
+            if result.get("json") and result["json"].get("criteria"):
+                for code, data in result["json"]["criteria"].items():
+                    if code not in per_criteria[judge_id]["individual"]:
+                        per_criteria[judge_id]["individual"][code] = {
+                            "passed": 0,
+                            "failed": 0,
+                            "by_persona": {p: {"passed": 0, "failed": 0} for p in PERSONA_ORDER}
+                        }
+                    if data.get("verdict") == "PASS":
+                        per_criteria[judge_id]["individual"][code]["passed"] += 1
+                        if persona in PERSONA_ORDER:
+                            per_criteria[judge_id]["individual"][code]["by_persona"][persona]["passed"] += 1
+                    elif data.get("verdict") == "FAIL":
+                        per_criteria[judge_id]["individual"][code]["failed"] += 1
+                        if persona in PERSONA_ORDER:
+                            per_criteria[judge_id]["individual"][code]["by_persona"][persona]["failed"] += 1
+
     # Calculate percentages
     for judge_id in per_criteria:
         p = per_criteria[judge_id]
         p["percentage"] = round(p["passed"] / p["total"] * 100, 1) if p["total"] > 0 else 0
+
+    # Sort personas seen by defined order
+    sorted_personas = [p for p in PERSONA_ORDER if p in personas_seen]
 
     return {
         "total": total,
@@ -102,6 +152,8 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
         "quality_total_criteria": total_quality_criteria,
         "quality_average": round(total_quality_passed / total_quality_criteria * 100, 1) if total_quality_criteria > 0 else 0,
         "per_criteria": per_criteria,
+        "personas_seen": sorted_personas,
+        "persona_letters": PERSONA_LETTERS,
     }
 
 
@@ -290,13 +342,27 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         }}
         .quality-grid {{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 0.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem 1.5rem;
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e5e7eb;
         }}
         .quality-item {{
             display: flex;
-            justify-content: space-between;
-            padding: 0.25rem 0;
+            flex-direction: column;
+            gap: 0.25rem;
+        }}
+        .quality-item span:first-child {{
+            font-weight: 500;
+            color: #374151;
+            text-transform: capitalize;
+        }}
+        .quality-item span:last-child {{
+            font-size: 0.875rem;
+            color: #10b981;
+            font-weight: 600;
         }}
         .timestamp {{
             font-size: 0.75rem;
@@ -403,6 +469,39 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         .criteria-list.expanded {{
             max-height: 2000px;
         }}
+        /* Expandable criteria rows */
+        .criteria-expand-row {{
+            cursor: pointer;
+        }}
+        .criteria-expand-row:hover {{
+            background: #f9fafb;
+        }}
+        .criteria-expand-row td:first-child::before {{
+            content: '\u25B6';
+            display: inline-block;
+            margin-right: 0.5rem;
+            font-size: 0.625rem;
+            transition: transform 0.2s ease;
+            color: #9ca3af;
+        }}
+        .criteria-expand-row.open td:first-child::before {{
+            transform: rotate(90deg);
+        }}
+        .criteria-details-row {{
+            display: none;
+            background: #f9fafb;
+        }}
+        .criteria-details-row.open {{
+            display: table-row;
+        }}
+        .persona-tag {{
+            font-size: 0.75rem;
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 0.125rem 0.5rem;
+            border-radius: 0.25rem;
+            font-weight: 500;
+        }}
     </style>
 </head>
 <body>
@@ -437,27 +536,9 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         <div class="section">
             <div class="section-header">Per-Criteria Results</div>
             <table>
-                <thead>
-                    <tr>
-                        <th>Criterion</th>
-                        <th>Passed</th>
-                        <th>Pass Rate</th>
-                        <th style="width: 40%">Progress</th>
-                    </tr>
+                <thead id="criteria-header">
                 </thead>
-                <tbody>
-                    {"".join(f'''
-                    <tr>
-                        <td>{judge_id.replace("_", " ").title()}</td>
-                        <td>{data["passed"]}/{data["total"]}</td>
-                        <td>{data["percentage"]}%</td>
-                        <td>
-                            <div class="progress-bar">
-                                <div class="progress-fill {"high" if data["percentage"] >= 80 else "medium" if data["percentage"] >= 50 else "low"}" style="width: {data["percentage"]}%"></div>
-                            </div>
-                        </td>
-                    </tr>
-                    ''' for judge_id, data in metrics["per_criteria"].items())}
+                <tbody id="criteria-table">
                 </tbody>
             </table>
         </div>
@@ -468,6 +549,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Persona</th>
                         <th>Critical</th>
                         <th>Quality Score</th>
                         <th>Status</th>
@@ -485,12 +567,124 @@ def generate_html(manifest: dict, metrics: dict) -> str:
 
     <script>
         const manifest = {manifest_json};
+        const metrics = {json.dumps(metrics)};
 
         function escapeHtml(text) {{
             if (!text) return '';
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
+        }}
+
+        function extractPersona(conv) {{
+            // Try to extract persona from run_name or transcript
+            if (conv.run_name) {{
+                const match = conv.run_name.match(/([a-z]+_[A-Z]+)/i);
+                if (match) return match[1];
+            }}
+            // Fallback: check transcript for persona mentions
+            return conv.persona || 'Unknown';
+        }}
+
+        function renderCriteriaTable() {{
+            const thead = document.getElementById('criteria-header');
+            const tbody = document.getElementById('criteria-table');
+            const perCriteria = metrics.per_criteria || {{}};
+            const personasSeen = metrics.personas_seen || [];
+            const personaLetters = metrics.persona_letters || {{}};
+            const numPersonaCols = personasSeen.length;
+            const totalCols = 4 + numPersonaCols;
+
+            // Render header
+            let headerHtml = '<tr><th>Criterion</th><th>Passed</th><th>Pass Rate</th>';
+            personasSeen.forEach(p => {{
+                headerHtml += `<th style="width: 40px; text-align: center" title="${{p}}">${{personaLetters[p] || p[0].toUpperCase()}}</th>`;
+            }});
+            headerHtml += '<th style="width: 25%">Progress</th></tr>';
+            thead.innerHTML = headerHtml;
+
+            Object.entries(perCriteria).forEach(([judgeId, data], index) => {{
+                const percentage = data.percentage || 0;
+                const progressClass = percentage >= 80 ? 'high' : percentage >= 50 ? 'medium' : 'low';
+                const byPersona = data.by_persona || {{}};
+
+                // Main row
+                const row = document.createElement('tr');
+                row.className = 'criteria-expand-row';
+                row.onclick = () => toggleCriteriaDetails(index);
+                let rowHtml = `
+                    <td>${{judgeId.replace(/_/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase())}}</td>
+                    <td>${{data.passed}}/${{data.total}}</td>
+                    <td>${{percentage}}%</td>
+                `;
+                // Add persona columns
+                personasSeen.forEach(p => {{
+                    const pData = byPersona[p] || {{passed: 0, total: 0}};
+                    const pPct = pData.total > 0 ? Math.round(pData.passed / pData.total * 100) : '-';
+                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                    rowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
+                }});
+                // Progress bar at end
+                rowHtml += `<td>
+                    <div class="progress-bar">
+                        <div class="progress-fill ${{progressClass}}" style="width: ${{percentage}}%"></div>
+                    </div>
+                </td>`;
+                row.innerHTML = rowHtml;
+                tbody.appendChild(row);
+
+                // Details row with individual criteria
+                const detailsRow = document.createElement('tr');
+                detailsRow.className = 'criteria-details-row';
+                detailsRow.id = `criteria-details-${{index}}`;
+
+                const individual = data.individual || {{}};
+                const sortedCriteria = Object.entries(individual).sort((a, b) => a[0].localeCompare(b[0]));
+
+                // Add individual criteria as sub-rows (same format as main rows)
+                sortedCriteria.forEach(([code, stats]) => {{
+                    const total = stats.passed + stats.failed;
+                    const hasFail = stats.failed > 0;
+                    const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
+                    const progressClass = pct >= 80 ? 'high' : pct >= 50 ? 'medium' : 'low';
+                    const cByPersona = stats.by_persona || {{}};
+
+                    const subRow = document.createElement('tr');
+                    subRow.className = 'criteria-details-row';
+                    subRow.id = `criteria-details-${{index}}-${{code}}`;
+
+                    let subRowHtml = `
+                        <td style="padding-left: 2rem; color: #6b7280;">${{code}}</td>
+                        <td>${{stats.passed}}/${{total}}</td>
+                        <td>${{pct}}%</td>
+                    `;
+                    // Add persona columns
+                    personasSeen.forEach(p => {{
+                        const ps = cByPersona[p] || {{passed: 0, failed: 0}};
+                        const pTotal = ps.passed + ps.failed;
+                        const pPct = pTotal > 0 ? Math.round(ps.passed / pTotal * 100) : '-';
+                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                        subRowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
+                    }});
+                    // Progress bar at end
+                    subRowHtml += `<td>
+                        <div class="progress-bar">
+                            <div class="progress-fill ${{progressClass}}" style="width: ${{pct}}%"></div>
+                        </div>
+                    </td>`;
+                    subRow.innerHTML = subRowHtml;
+                    tbody.appendChild(subRow);
+                }});
+            }});
+        }}
+
+        function toggleCriteriaDetails(index) {{
+            const row = document.querySelectorAll('.criteria-expand-row')[index];
+            row.classList.toggle('open');
+            // Toggle all sub-rows for this index
+            document.querySelectorAll(`[id^="criteria-details-${{index}}-"]`).forEach(el => {{
+                el.classList.toggle('open');
+            }});
         }}
 
         function renderCriteriaEvidence(criteria, showAll = false) {{
@@ -575,12 +769,16 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 }}
                 const qualityScore = qualityTotal > 0 ? `${{qualityPassed}}/${{qualityTotal}}` : '-';
 
+                // Extract persona
+                const persona = extractPersona(conv);
+
                 // Main row
                 const row = document.createElement('tr');
                 row.className = 'expandable';
                 row.onclick = () => toggleDetails(index);
                 row.innerHTML = `
                     <td>${{conv.short_id}}</td>
+                    <td><span class="persona-tag">${{persona}}</span></td>
                     <td><span class="verdict ${{criticalVerdict.toLowerCase()}}">${{criticalVerdict}}</span></td>
                     <td>${{qualityScore}}</td>
                     <td><span class="verdict ${{criticalVerdict === 'PENDING' ? 'pending' : 'pass'}}">
@@ -594,7 +792,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 detailsRow.className = 'details';
                 detailsRow.id = `details-${{index}}`;
 
-                let detailsHtml = '<td colspan="4"><div class="details-content">';
+                let detailsHtml = '<td colspan="5"><div class="details-content">';
 
                 // Quality summary grid
                 if (Object.keys(qualityResults).length > 0) {{
@@ -641,6 +839,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             details.classList.toggle('open');
         }}
 
+        renderCriteriaTable();
         renderConversations();
     </script>
 </body>

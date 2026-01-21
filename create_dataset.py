@@ -20,6 +20,10 @@ Usage:
 
 import argparse
 import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file (override existing)
+load_dotenv(override=True)
 
 from langsmith import Client
 

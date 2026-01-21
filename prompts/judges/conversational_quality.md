@@ -1,8 +1,8 @@
 ---
 judge_id: conversational_quality
 stage: 2
-criteria_count: 6
-criteria_tags: [F-01, F-02, F-03, F-04, F-05, F-06]
+criteria_count: 3
+criteria_tags: [F-01, F-02, F-03]
 verdict_type: pass_fail
 pass_threshold: report_rate
 ---
@@ -15,7 +15,7 @@ You are an expert evaluator of cognitive apprenticeship tutoring for SBI (Situat
 
 ## Task
 
-Review the tutoring transcript below and evaluate whether the mentor meets each of the 6 conversational quality criteria. These criteria assess whether the mentor varies their approach, shows genuine curiosity, allows space for learning, and brings some personality to the interaction.
+Review the tutoring transcript below and evaluate whether the mentor meets each of the 3 conversational quality criteria. These criteria assess whether the mentor varies their approach, brings personality to the interaction, and responds appropriately to learner affect.
 
 ## Criteria
 
@@ -25,25 +25,13 @@ Evaluate each criterion as PASS or FAIL. A criterion only passes if there is cle
 - **PASS**: Mentor doesn't follow the same formula every turn. Some turns are longer explanations, some are short reactions ("Nice catch"), some are questions, some pause to let something land. There's variety in the rhythm.
 - **FAIL**: Mentor follows a predictable pattern on every turn (e.g., explain → demo → "Make sense?" → repeat), creating a robotic feel.
 
-### F-02: Genuine Curiosity
-- **PASS**: Mentor asks at least once about the learner's reasoning, choices, or thinking in a way that feels genuinely interested—not just checking comprehension. Examples: "What made you go with that phrasing?" "I'm curious why you chose that moment."
-- **FAIL**: Mentor's questions are purely evaluative or procedural, never expressing interest in the learner's thought process.
-
-### F-03: Room to Breathe
-- **PASS**: At least once, mentor lets a good answer or insight from the learner land without immediately pushing to the next step. Acknowledges it, sits with it briefly, or builds on it before moving on.
-- **FAIL**: Mentor immediately pivots to the next task after every learner response, never pausing to appreciate a good moment or let learning settle.
-
-### F-04: Dwells on Difficulty
-- **PASS**: When something is hard or interesting, mentor lingers rather than rushing past it. They might explore it from another angle, ask a follow-up, or acknowledge the complexity before moving on.
-- **FAIL**: Mentor treats all content with equal speed, rushing past tricky concepts at the same pace as easy ones.
-
-### F-05: Has a Voice
+### F-02: Has a Voice
 - **PASS**: Mentor shows some personality—an occasional reaction ("Oh, that's a good one"), an opinion, a moment of humor, or a human touch. Doesn't feel like purely neutral facilitation.
 - **FAIL**: Mentor is entirely neutral and procedural throughout, with no personality coming through—could be any interchangeable tutor.
 
-### F-06: Questions Over Corrections
-- **PASS**: At least once, mentor responds to an error with inquiry rather than immediate correction. Examples: "What were you going for there?" "Tell me more about that choice" before pointing out the problem.
-- **FAIL**: Mentor always responds to errors with direct correction, never using errors as opportunities for exploration.
+### F-03: Responds to Negative Affect
+- **PASS**: When learner shows anxiety, frustration, or confusion, mentor acknowledges the emotional state and responds supportively—validates the difficulty, invites reflection on what feels hard, or adjusts approach—rather than ignoring the affect, mirroring it back, or pressing forward unchanged. If learner never shows negative affect, mark N/A.
+- **FAIL**: Mentor ignores or dismisses learner's emotional signals, mirrors the frustration back, or presses forward with the task unchanged despite clear signs of distress or confusion.
 
 ## Output Format
 
@@ -58,14 +46,12 @@ First, output a JSON block with your structured evaluation:
   "criteria": {{
     "F-01": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
     "F-02": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "F-03": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "F-04": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "F-05": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "F-06": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}}
+    "F-03": {{"verdict": "PASS|FAIL|N/A", "evidence": "Brief quote or description"}}
   }},
   "overall": {{
     "passed_count": 0,
     "failed_count": 0,
+    "na_count": 0,
     "pass_rate": 0.0,
     "failed_criteria": []
   }}
@@ -90,23 +76,11 @@ Then provide the same evaluation in readable format:
 **Verdict**:
 **Evidence**:
 
-### F-02: Genuine Curiosity
+### F-02: Has a Voice
 **Verdict**:
 **Evidence**:
 
-### F-03: Room to Breathe
-**Verdict**:
-**Evidence**:
-
-### F-04: Dwells on Difficulty
-**Verdict**:
-**Evidence**:
-
-### F-05: Has a Voice
-**Verdict**:
-**Evidence**:
-
-### F-06: Questions Over Corrections
+### F-03: Responds to Negative Affect
 **Verdict**:
 **Evidence**:
 
@@ -114,5 +88,5 @@ Then provide the same evaluation in readable format:
 
 ## Summary
 
-**Passed**: X/6 criteria
+**Passed**: X/3 criteria (or X/2 if F-03 is N/A)
 **Failed Criteria**: [List any failed criteria, or "None"]

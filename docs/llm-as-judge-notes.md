@@ -317,4 +317,25 @@ Updated judge prompts to align with SBI Fidelity Criteria V2. Key changes:
 
 ---
 
-*Last updated: 2026-01-20*
+### 2026-01-21: Dashboard Enhancements & Persona Tracking
+
+**Dashboard Improvements (generate_dashboard.py)**
+- Added per-persona columns (A, B, C, D, E, F) to Per-Criteria Results table
+- Shows pass rates broken down by persona (Amara, Bailey, Carlos, Daniel, Elise, Fatou)
+- Changed individual criteria display from card grid to table rows matching category format
+- Reordered columns: Criterion | Passed | Pass Rate | Persona Columns | Progress
+- Expandable criteria rows now show individual criterion results
+
+**Persona Tracking Fix (run_judge_eval.py)**
+- Added automatic persona extraction from LangSmith dataset examples
+- Extracts `persona_name` from `example.inputs` and stores in manifest
+- Dashboard now correctly displays persona instead of "Unknown"
+
+**Environment Variable Fix**
+- Added `load_dotenv(override=True)` to all scripts (run_eval.py, run_judge_eval.py, create_dataset.py)
+- Ensures `.env` file values take precedence over shell environment variables
+- Fixes API key authentication issues when env vars are set differently in shell
+
+---
+
+*Last updated: 2026-01-21*

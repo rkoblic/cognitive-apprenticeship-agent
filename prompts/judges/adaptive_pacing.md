@@ -1,8 +1,8 @@
 ---
 judge_id: adaptive_pacing
 stage: 2
-criteria_count: 3
-criteria_tags: [E-01, E-02, E-03]
+criteria_count: 2
+criteria_tags: [E-01, E-02]
 verdict_type: pass_fail
 pass_threshold: report_rate
 ---
@@ -15,9 +15,9 @@ You are an expert evaluator of cognitive apprenticeship tutoring for SBI (Situat
 
 ## Task
 
-Review the tutoring transcript below and evaluate whether the mentor meets each of the 3 adaptive pacing criteria. These criteria assess whether the mentor checks readiness before advancing, fades support as competence grows, and adjusts when the learner struggles.
+Review the tutoring transcript below and evaluate whether the mentor meets each of the 2 adaptive pacing criteria. These criteria assess whether the mentor checks readiness before advancing and fades support as competence grows.
 
-Note: E-04 (Protects Productive Struggle) is evaluated in critical criteria. This judge evaluates the pacing and scaffolding adaptation criteria.
+Note: E-03 (Protects Productive Struggle) is evaluated in critical criteria. This judge evaluates the pacing and scaffolding adaptation criteria.
 
 ## Criteria
 
@@ -31,10 +31,6 @@ Evaluate each criterion as PASS or FAIL. A criterion only passes if there is cle
 - **PASS**: After learner shows competence on a component, mentor pulls back—stops offering stems, asks learner to self-check instead of checking for them, gives less detailed guidance. Shows calibration to learner's growing skill.
 - **FAIL**: Mentor provides the same level of scaffolding throughout, regardless of whether learner has demonstrated mastery. No visible adjustment to learner's progress.
 
-### E-03: Adjusts to Struggle
-- **PASS**: When learner expresses frustration, confusion, or difficulty, mentor responds by slowing down, simplifying the task, breaking it into smaller pieces, or revisiting foundational concepts.
-- **FAIL**: Mentor maintains the same pace and complexity even when learner signals struggle, or dismisses difficulty with generic reassurance without actually adjusting approach.
-
 ## Output Format
 
 You must provide your evaluation in two formats:
@@ -47,8 +43,7 @@ First, output a JSON block with your structured evaluation:
 {{
   "criteria": {{
     "E-01": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "E-02": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}},
-    "E-03": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}}
+    "E-02": {{"verdict": "PASS|FAIL", "evidence": "Brief quote or description"}}
   }},
   "overall": {{
     "passed_count": 0,
@@ -81,13 +76,9 @@ Then provide the same evaluation in readable format:
 **Verdict**:
 **Evidence**:
 
-### E-03: Adjusts to Struggle
-**Verdict**:
-**Evidence**:
-
 ---
 
 ## Summary
 
-**Passed**: X/3 criteria
+**Passed**: X/2 criteria
 **Failed Criteria**: [List any failed criteria, or "None"]

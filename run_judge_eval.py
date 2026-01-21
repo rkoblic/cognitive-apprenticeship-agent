@@ -34,6 +34,10 @@ import os
 import re
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file (override existing)
+load_dotenv(override=True)
 
 # Disable LangSmith tracing for judge calls (we only want to trace tutor conversations)
 os.environ["LANGCHAIN_TRACING_V2"] = "false"
@@ -495,6 +499,14 @@ def run_evaluation(args):
         }
         if not use_dataset:
             result["run_name"] = source_obj.name
+
+        # Extract persona from dataset example or run
+        if use_dataset and hasattr(source_obj, 'inputs') and source_obj.inputs:
+            result["persona"] = source_obj.inputs.get("persona_name", "Unknown")
+        elif hasattr(source_obj, 'inputs') and source_obj.inputs:
+            result["persona"] = source_obj.inputs.get("persona_name", "Unknown")
+        else:
+            result["persona"] = "Unknown"
 
         # Stage 1: Critical Criteria
         critical_passed = True

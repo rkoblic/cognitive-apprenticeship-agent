@@ -106,26 +106,18 @@
         tr:last-child td {
             border-bottom: none;
         }
-        .progress-bar {
-            width: 100%;
-            height: 0.5rem;
-            background: #e5e7eb;
-            border-radius: 9999px;
-            overflow: hidden;
+        /* Rate color classes */
+        .rate-high {
+            color: #059669;
+            font-weight: 600;
         }
-        .progress-fill {
-            height: 100%;
-            border-radius: 9999px;
-            transition: width 0.3s ease;
+        .rate-medium {
+            color: #d97706;
+            font-weight: 600;
         }
-        .progress-fill.high {
-            background: #10b981;
-        }
-        .progress-fill.medium {
-            background: #f59e0b;
-        }
-        .progress-fill.low {
-            background: #ef4444;
+        .rate-low {
+            color: #dc2626;
+            font-weight: 600;
         }
         .verdict {
             display: inline-block;
@@ -437,7 +429,7 @@
             <div class="meta">
                 <span>Run: <strong>aggregated-from-20260121</strong></span>
                 <span class="badge" style="background: #10b981">Complete</span>
-                <span class="timestamp">Updated: 2026-01-22T12:25:39.920753</span>
+                <span class="timestamp">Updated: 2026-01-22T12:29:37.887232</span>
             </div>
         </header>
 
@@ -497,14 +489,14 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-22T12:25:39.922695
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-22T12:29:37.889196
         </footer>
     </div>
 
     <script>
         const manifest = {
   "run_id": "aggregated-from-20260121",
-  "timestamp": "2026-01-22T12:25:39.920753",
+  "timestamp": "2026-01-22T12:29:37.887232",
   "status": "complete",
   "conversations": [
     {
@@ -8671,7 +8663,7 @@
             personasSeen.forEach(p => {
                 headerHtml += `<th style="width: 40px; text-align: center" title="${p}">${personaLetters[p] || p[0].toUpperCase()}</th>`;
             });
-            headerHtml += '<th style="width: 25%">Progress</th></tr>';
+            headerHtml += '</tr>';
             thead.innerHTML = headerHtml;
 
             Object.entries(perCriteria).forEach(([judgeId, data], index) => {
@@ -8683,24 +8675,19 @@
                 const row = document.createElement('tr');
                 row.className = 'criteria-expand-row';
                 row.onclick = () => toggleCriteriaDetails(index);
+                const rateClass = percentage >= 80 ? 'rate-high' : percentage >= 50 ? 'rate-medium' : 'rate-low';
                 let rowHtml = `
                     <td>${judgeId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</td>
                     <td>${data.passed}/${data.total}</td>
-                    <td>${percentage}%</td>
+                    <td class="${rateClass}">${percentage}%</td>
                 `;
                 // Add persona columns
                 personasSeen.forEach(p => {
                     const pData = byPersona[p] || {passed: 0, total: 0};
                     const pPct = pData.total > 0 ? Math.round(pData.passed / pData.total * 100) : '-';
-                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
                     rowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
                 });
-                // Progress bar at end
-                rowHtml += `<td>
-                    <div class="progress-bar">
-                        <div class="progress-fill ${progressClass}" style="width: ${percentage}%"></div>
-                    </div>
-                </td>`;
                 row.innerHTML = rowHtml;
                 tbody.appendChild(row);
 
@@ -8715,9 +8702,8 @@
                 // Add individual criteria as sub-rows (same format as main rows)
                 sortedCriteria.forEach(([code, stats]) => {
                     const total = stats.passed + stats.failed;
-                    const hasFail = stats.failed > 0;
                     const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
-                    const progressClass = pct >= 80 ? 'high' : pct >= 50 ? 'medium' : 'low';
+                    const rateClass = pct >= 80 ? 'rate-high' : pct >= 50 ? 'rate-medium' : 'rate-low';
                     const cByPersona = stats.by_persona || {};
                     const tooltip = CRITERION_DESCRIPTIONS[code] || code;
 
@@ -8728,22 +8714,16 @@
                     let subRowHtml = `
                         <td style="padding-left: 2rem;"><span class="criterion-code-tooltip" data-tooltip="${escapeHtml(tooltip)}">${code}</span></td>
                         <td>${stats.passed}/${total}</td>
-                        <td>${pct}%</td>
+                        <td class="${rateClass}">${pct}%</td>
                     `;
                     // Add persona columns
                     personasSeen.forEach(p => {
                         const ps = cByPersona[p] || {passed: 0, failed: 0};
                         const pTotal = ps.passed + ps.failed;
                         const pPct = pTotal > 0 ? Math.round(ps.passed / pTotal * 100) : '-';
-                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
                         subRowHtml += `<td style="text-align: center" class="${pClass}">${pPct}${pPct !== '-' ? '%' : ''}</td>`;
                     });
-                    // Progress bar at end
-                    subRowHtml += `<td>
-                        <div class="progress-bar">
-                            <div class="progress-fill ${progressClass}" style="width: ${pct}%"></div>
-                        </div>
-                    </td>`;
                     subRow.innerHTML = subRowHtml;
                     tbody.appendChild(subRow);
                 });

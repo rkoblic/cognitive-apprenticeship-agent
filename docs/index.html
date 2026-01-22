@@ -341,7 +341,7 @@
             <div class="meta">
                 <span>Run: <strong>aggregated-from-20260121</strong></span>
                 <span class="badge" style="background: #10b981">Complete</span>
-                <span class="timestamp">Updated: 2026-01-22T10:53:45.876605</span>
+                <span class="timestamp">Updated: 2026-01-22T11:20:23.058981</span>
             </div>
         </header>
 
@@ -349,16 +349,16 @@
             <div class="card">
                 <div class="card-label">Critical Pass Rate</div>
                 <div class="card-value pass">100.0%</div>
-                <div class="card-label">29/29 passed</div>
+                <div class="card-label">30/30 passed</div>
             </div>
             <div class="card">
                 <div class="card-label">Quality Average</div>
-                <div class="card-value">91.7%</div>
-                <div class="card-label">521/568 criteria</div>
+                <div class="card-value">92.0%</div>
+                <div class="card-label">541/588 criteria</div>
             </div>
             <div class="card">
                 <div class="card-label">Progress</div>
-                <div class="card-value">29/29</div>
+                <div class="card-value">30/30</div>
                 <div class="card-label">conversations evaluated</div>
             </div>
         </div>
@@ -391,14 +391,14 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-22T10:53:45.878368
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-22T11:20:23.060859
         </footer>
     </div>
 
     <script>
         const manifest = {
   "run_id": "aggregated-from-20260121",
-  "timestamp": "2026-01-22T10:53:45.876605",
+  "timestamp": "2026-01-22T11:20:23.058981",
   "status": "complete",
   "conversations": [
     {
@@ -7694,6 +7694,261 @@
           }
         }
       }
+    },
+    {
+      "langsmith_id": "f2f8d49e-4097-42cf-bab8-d044f5d480e8",
+      "short_id": "f2f8d49e",
+      "source_type": "dataset",
+      "persona": "bailey_SBI",
+      "critical_verdict": "PASS",
+      "critical_json": {
+        "criteria": {
+          "B-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup when we got to ticket 1842, you started responding while Priya was still presenting\u2014you spoke over her twice and kept going after she said \"one sec.\" I felt my shoulders tense and lost the thread of her update; afterward I spent about 10 minutes Slacking her to confirm the blockers.'"
+          },
+          "C-01": {
+            "verdict": "PASS",
+            "evidence": "Mentor points to specific language: 'One thing misses the mark: the impact is vague and hedged; \"made things feel rushed and a bit off\" and \"I maybe didn't track everything\" aren't owned or concrete.'"
+          },
+          "C-03": {
+            "verdict": "PASS",
+            "evidence": "Mentor explicitly requests revision: 'Replace that with what happened for you\u2014your emotion or a direct consequence you experienced (what you did/didn't do, or time you spent)\u2014stated plainly, no hedging. Can you revise and share the full 2\u20133 sentence draft with that fix?'"
+          },
+          "D-01": {
+            "verdict": "PASS",
+            "evidence": "When learner says 'this week\u2014Thursday afternoon, I think' and 'kind of last-minute,' mentor addresses vagueness: 'Go with the moment you can replay like a short clip' and later guides to anchor specifically 'as the call started.'"
+          },
+          "D-02": {
+            "verdict": "PASS",
+            "evidence": "When learner writes 'It felt like the prep wasn't really done and maybe like my time wasn't being respected,' mentor prompts learner to identify judgment: 'point to the exact words in your draft where you think judgment leaked in\u2014what phrase would you flag?'"
+          },
+          "D-03": {
+            "verdict": "N/A",
+            "evidence": "Learner never uses accusatory 'you made...' or blame language in impact statements. Impact statements were hedged/vague but not accusatory toward the recipient."
+          },
+          "E-03": {
+            "verdict": "PASS",
+            "evidence": "When learner asks 'could you jump in if I start drifting?' and later asks for validation, mentor consistently requires learner attempts first: 'Before I weigh in, point to the exact words in your draft where you think judgment leaked in' and 'Before I weigh in, pick the one phrase you think most needs tightening.'"
+          }
+        },
+        "overall": {
+          "verdict": "PASS",
+          "summary": "The mentor demonstrates SBI with a complete example, provides specific feedback quoting learner's exact language, requests revisions, catches vague situations and judgment leakage, and protects productive struggle by requiring learner attempts before providing answers.",
+          "passed_count": 6,
+          "failed_count": 0,
+          "na_count": 1,
+          "failed_criteria": []
+        },
+        "_metadata": {
+          "judge_id": "critical_criteria",
+          "conversation_id": "f2f8d49e",
+          "evaluated_at": "2026-01-22T11:18:53.331469"
+        }
+      },
+      "quality_results": {
+        "session_setup": {
+          "passed": 3,
+          "total": 3,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "A-01": {
+                "verdict": "PASS",
+                "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means: a real moment, camera-testable behavior, owned impact, and spotting when judgment sneaks into behavior.'"
+              },
+              "A-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate first, then we'll practice with your situation\u2014ready to jump in?' and later 'Here's a quick demo with my thinking out loud' followed by 'are you ready to try your own moment from this week?'"
+              },
+              "A-03": {
+                "verdict": "PASS",
+                "evidence": "The learner's scenario involves a design review where a Figma link was posted late, causing them to miss context and spend extra time following up\u2014a specific, believable workplace situation with plausible interpersonal dynamics around meeting prep and collaboration."
+              }
+            },
+            "overall": {
+              "passed_count": 3,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "session_setup",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:19:05.670617"
+            }
+          }
+        },
+        "modeling_quality": {
+          "passed": 4,
+          "total": 4,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "B-02": {
+                "verdict": "PASS",
+                "evidence": "During the demo, mentor explains: 'Notice: I anchored to a specific moment (Tuesday's standup, ticket 1842); the behavior is camera-visible (spoke over twice, continued after a clear cue)\u2014no labels like \"dismissive\"; the impact is owned (\"I felt\u2026,\" \"I spent\u2026\"), not a judgment.'"
+              },
+              "B-03": {
+                "verdict": "PASS",
+                "evidence": "Mentor shows a choice point in the demo: 'the behavior is camera-visible (spoke over twice, continued after a clear cue)\u2014no labels like \"dismissive\"' - explicitly contrasting what they chose vs. what they avoided (labeling as 'dismissive')."
+              },
+              "B-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor explicitly models self-checking: 'Quick self-check I use: could a camera see the behavior, and does the impact start with \"I\u2026\" describing my emotion or direct consequence?'"
+              },
+              "B-05": {
+                "verdict": "PASS",
+                "evidence": "Mentor offers multiple reusable heuristics: 'could a camera see the behavior, and does the impact start with \"I\u2026\"' and later reinforces 'could a camera see the behavior, and does the impact start with \"I\u2026\" naming my feeling or concrete consequence? Keep those two checks in your pocket.'"
+              }
+            },
+            "overall": {
+              "passed_count": 4,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "modeling_quality",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:19:20.698832"
+            }
+          }
+        },
+        "coaching_quality": {
+          "passed": 5,
+          "total": 5,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "C-02": {
+                "verdict": "PASS",
+                "evidence": "When identifying vague impact, mentor provides actionable direction: 'swap the motive inferences for a concrete consequence you experienced in the meeting. What specific thing happened for you because the link came at the start (e.g., what you ended up doing/not doing or time you spent)?'"
+              },
+              "C-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor evaluates revisions specifically: 'This meets the bar \ud83d\udc4d: anchored moment, camera\u2011visible behavior, and owned, concrete impact. If you want a tiny polish, drop \"I think\" before \"missed pieces of the rationale\" (or name the specific bit you missed) to fully own it.'"
+              },
+              "C-05": {
+                "verdict": "PASS",
+                "evidence": "When learner submits first draft, mentor explores before correcting: 'Before I weigh in, point to the exact words in your draft where you think judgment leaked in\u2014what phrase would you flag?' Also later: 'Before I weigh in, pick the one phrase you think most needs tightening for camera-visibility... and rewrite just that clause.'"
+              },
+              "C-06": {
+                "verdict": "PASS",
+                "evidence": "Mentor asks learner to explain reasoning: 'Walk me through why you'd include both the in\u2011meeting consequence and the after\u2011meeting follow\u2011up (and the time estimates)\u2014what are you trying to signal to the recipient by keeping each?'"
+              },
+              "C-07": {
+                "verdict": "PASS",
+                "evidence": "Mentor prompts reflection on learning: 'What's one principle from this you'll carry into real conversations?' Learner responds with insight about camera-testable behavior being the key takeaway."
+              }
+            },
+            "overall": {
+              "passed_count": 5,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "coaching_quality",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:19:34.181259"
+            }
+          }
+        },
+        "sbi_content": {
+          "passed": 3,
+          "total": 3,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "D-04": {
+                "verdict": "PASS",
+                "evidence": "Mentor asks 'Before I weigh in, point to the exact words in your draft where you think judgment leaked in\u2014what phrase would you flag?' This probes whether the learner can distinguish observable behavior from interpretation/judgment."
+              },
+              "D-05": {
+                "verdict": "PASS",
+                "evidence": "When learner struggled with impact, mentor provided targeted scaffolding: 'swap the motive inferences for a concrete consequence you experienced in the meeting. What specific thing happened for you because the link came at the start (e.g., what you ended up doing/not doing or time you spent)?'"
+              },
+              "D-06": {
+                "verdict": "PASS",
+                "evidence": "Mentor provides reusable self-check tool: 'could a camera see the behavior, and does the impact start with \"I\u2026\" naming my feeling or concrete consequence? Keep those two checks in your pocket and you'll stay out of motive and judgment reliably.'"
+              }
+            },
+            "overall": {
+              "passed_count": 3,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "sbi_content",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:19:49.370724"
+            }
+          }
+        },
+        "adaptive_pacing": {
+          "passed": 2,
+          "total": 2,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "E-01": {
+                "verdict": "PASS",
+                "evidence": "Multiple readiness checks throughout: 'want me to run that once more, or are you ready to try your own moment from this week?' 'Which of those two can you see more clearly right now?' 'Can you write your full draft now?' 'Want to do one last out-loud run with those tweaks?'"
+              },
+              "E-02": {
+                "verdict": "PASS",
+                "evidence": "Early on, mentor provides detailed demos and explicit scaffolding. Later, after learner shows competence, mentor pulls back: 'You're right at the level where tiny wording tweaks matter... which single phrase in your draft would you tighten next?' and 'your full draft meets the criteria\u2014nice and tight' before moving to a new scenario without re-explaining the framework."
+              }
+            },
+            "overall": {
+              "passed_count": 2,
+              "failed_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "adaptive_pacing",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:20:02.728559"
+            }
+          }
+        },
+        "conversational_quality": {
+          "passed": 3,
+          "total": 3,
+          "na_count": 0,
+          "json": {
+            "criteria": {
+              "F-01": {
+                "verdict": "PASS",
+                "evidence": "Mentor varies turn structure throughout: short validations ('Yes\u2014that's exactly the kind of concrete, owned impact'), longer explanations with demos, questions ('What's your tweak?'), crisp bullet-point answers, and coaching sequences. Some turns are 2-3 sentences, others are detailed multi-paragraph explanations."
+              },
+              "F-02": {
+                "verdict": "PASS",
+                "evidence": "Mentor shows personality with reactions like 'Good eye\u2014you flagged the right spots,' 'You're dialed in,' emoji use ('\ud83d\udc4d'), warm phrases like 'Totally hear the second-guessing,' and casual language like 'this part trips a lot of people up.'"
+              },
+              "F-03": {
+                "verdict": "PASS",
+                "evidence": "When learner expresses nervousness ('I'm a little nervous'), mentor responds 'Totally normal to feel a bit nervous\u2014this part trips a lot of people up and you're not missing something obvious.' When learner apologizes for overthinking, mentor validates: 'Totally okay to be unsure\u2014this choice trips people up.'"
+              }
+            },
+            "overall": {
+              "passed_count": 3,
+              "failed_count": 0,
+              "na_count": 0,
+              "pass_rate": 1.0,
+              "failed_criteria": []
+            },
+            "_metadata": {
+              "judge_id": "conversational_quality",
+              "conversation_id": "f2f8d49e",
+              "evaluated_at": "2026-01-22T11:20:18.395489"
+            }
+          }
+        }
+      }
     }
   ],
   "aggregated_from": [
@@ -7712,15 +7967,16 @@
     "20260122_081841",
     "20260122_090648",
     "20260122_100500",
-    "20260122_105149"
+    "20260122_105149",
+    "20260122_111830"
   ],
   "config": {
     "source": "aggregated",
-    "total_runs": 16,
+    "total_runs": 17,
     "date_filter": "20260121"
   }
 };
-        const metrics = {"total": 29, "completed": 29, "critical_passed": 29, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 521, "quality_total_criteria": 568, "quality_average": 91.7, "per_criteria": {"session_setup": {"passed": 87, "total": 87, "individual": {"A-01": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 27, "total": 27}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 95, "total": 116, "individual": {"B-02": {"passed": 27, "failed": 2, "by_persona": {"amara_SBI": {"passed": 9, "failed": 1}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 22, "failed": 7, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 8, "failed": 1}, "carlos_SBI": {"passed": 6, "failed": 4}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 17, "failed": 12, "by_persona": {"amara_SBI": {"passed": 6, "failed": 4}, "bailey_SBI": {"passed": 7, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 33, "total": 40}, "bailey_SBI": {"passed": 33, "total": 36}, "carlos_SBI": {"passed": 29, "total": 40}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 81.9}, "coaching_quality": {"passed": 143, "total": 145, "individual": {"C-02": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 27, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 8, "failed": 1}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 50, "total": 50}, "bailey_SBI": {"passed": 44, "total": 45}, "carlos_SBI": {"passed": 49, "total": 50}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 98.6}, "sbi_content": {"passed": 87, "total": 87, "individual": {"D-04": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 27, "total": 27}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 46, "total": 58, "individual": {"E-01": {"passed": 27, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 8, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 19, "failed": 10, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 6, "failed": 3}, "carlos_SBI": {"passed": 5, "failed": 5}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 20}, "bailey_SBI": {"passed": 15, "total": 18}, "carlos_SBI": {"passed": 13, "total": 20}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 79.3}, "conversational_quality": {"passed": 63, "total": 75, "individual": {"F-01": {"passed": 21, "failed": 8, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 7, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 29, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 13, "failed": 4, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 0}, "carlos_SBI": {"passed": 4, "failed": 4}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 20}, "bailey_SBI": {"passed": 25, "total": 27}, "carlos_SBI": {"passed": 18, "total": 28}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 84.0}}, "personas_seen": ["amara_SBI", "bailey_SBI", "carlos_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
+        const metrics = {"total": 30, "completed": 30, "critical_passed": 30, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 541, "quality_total_criteria": 588, "quality_average": 92.0, "per_criteria": {"session_setup": {"passed": 90, "total": 90, "individual": {"A-01": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-02": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "A-03": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 30, "total": 30}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "modeling_quality": {"passed": 99, "total": 120, "individual": {"B-02": {"passed": 28, "failed": 2, "by_persona": {"amara_SBI": {"passed": 9, "failed": 1}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-03": {"passed": 23, "failed": 7, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 9, "failed": 1}, "carlos_SBI": {"passed": 6, "failed": 4}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-04": {"passed": 18, "failed": 12, "by_persona": {"amara_SBI": {"passed": 6, "failed": 4}, "bailey_SBI": {"passed": 8, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "B-05": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 33, "total": 40}, "bailey_SBI": {"passed": 37, "total": 40}, "carlos_SBI": {"passed": 29, "total": 40}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 82.5}, "coaching_quality": {"passed": 148, "total": 150, "individual": {"C-02": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-04": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-05": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-06": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "C-07": {"passed": 28, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 1}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 50, "total": 50}, "bailey_SBI": {"passed": 49, "total": 50}, "carlos_SBI": {"passed": 49, "total": 50}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 98.7}, "sbi_content": {"passed": 90, "total": 90, "individual": {"D-04": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-05": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "D-06": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 30, "total": 30}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 100.0}, "adaptive_pacing": {"passed": 48, "total": 60, "individual": {"E-01": {"passed": 28, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 8, "failed": 2}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "E-02": {"passed": 20, "failed": 10, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 7, "failed": 3}, "carlos_SBI": {"passed": 5, "failed": 5}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 20}, "bailey_SBI": {"passed": 17, "total": 20}, "carlos_SBI": {"passed": 13, "total": 20}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 80.0}, "conversational_quality": {"passed": 66, "total": 78, "individual": {"F-01": {"passed": 22, "failed": 8, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 8, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-02": {"passed": 30, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}, "F-03": {"passed": 14, "failed": 4, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 4, "failed": 4}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 0, "failed": 0}, "fatou_SBI": {"passed": 0, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 20}, "bailey_SBI": {"passed": 28, "total": 30}, "carlos_SBI": {"passed": 18, "total": 28}, "daniel_SBI": {"passed": 0, "total": 0}, "elise_SBI": {"passed": 0, "total": 0}, "fatou_SBI": {"passed": 0, "total": 0}}, "percentage": 84.6}}, "personas_seen": ["amara_SBI", "bailey_SBI", "carlos_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}};
 
         function escapeHtml(text) {
             if (!text) return '';

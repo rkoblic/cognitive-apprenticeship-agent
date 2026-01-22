@@ -96,19 +96,35 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
         except (json.JSONDecodeError, IOError) as e:
             print(f"Warning: Could not load {manifest_path}: {e}")
 
-    # Deduplicate by langsmith_id (prefer entries with valid persona)
+    # Helper to count valid (non-error) quality results
+    def count_valid_quality_results(conv):
+        quality_results = conv.get("quality_results", {})
+        count = 0
+        for judge_id, result in quality_results.items():
+            # Count if it has 'passed' field (not an error)
+            if isinstance(result, dict) and "passed" in result:
+                count += 1
+        return count
+
+    # Deduplicate by langsmith_id (prefer entries with more complete data)
     seen = {}
     for conv in all_conversations:
         langsmith_id = conv.get("langsmith_id")
         if langsmith_id:
             existing = seen.get(langsmith_id)
-            new_persona = conv.get("persona")
-            # Prefer entry with valid persona over Unknown/None
             if not existing:
                 seen[langsmith_id] = conv
-            elif existing.get("persona") in [None, "Unknown", "unknown"] and new_persona not in [None, "Unknown", "unknown"]:
-                seen[langsmith_id] = conv
-            # Otherwise keep existing (don't overwrite good data with bad)
+            else:
+                # Prefer entry with more complete quality data
+                existing_valid = count_valid_quality_results(existing)
+                new_valid = count_valid_quality_results(conv)
+                if new_valid > existing_valid:
+                    seen[langsmith_id] = conv
+                # If same completeness, prefer valid persona over Unknown
+                elif new_valid == existing_valid:
+                    new_persona = conv.get("persona")
+                    if existing.get("persona") in [None, "Unknown", "unknown"] and new_persona not in [None, "Unknown", "unknown"]:
+                        seen[langsmith_id] = conv
         else:
             # No ID, just append (shouldn't happen but be safe)
             seen[id(conv)] = conv

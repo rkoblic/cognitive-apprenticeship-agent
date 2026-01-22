@@ -338,4 +338,19 @@ Updated judge prompts to align with SBI Fidelity Criteria V2. Key changes:
 
 ---
 
-*Last updated: 2026-01-21*
+### 2026-01-22: Dashboard Deduplication Fix
+
+**Bug Fix (generate_dashboard.py)**
+- Fixed deduplication logic to prefer entries with more complete quality data
+- Previously, when the same conversation appeared in multiple runs, the dashboard would keep the first entry regardless of data completeness
+- This caused issues when an earlier run had API errors (500s) but a later run succeeded—the incomplete data was shown
+- New logic counts valid (non-error) quality results and prefers entries with more complete data
+- If completeness is equal, falls back to preferring entries with valid persona over "Unknown"
+
+**Impact:**
+- Conversations that were re-evaluated after API errors now correctly show the complete data
+- Example: Conversation 85a5a7e2 was showing 9/9 (only 2 judges had data due to API errors) instead of the correct 19/20 from a successful re-evaluation
+
+---
+
+*Last updated: 2026-01-22*

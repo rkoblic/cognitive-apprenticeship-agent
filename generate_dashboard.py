@@ -367,26 +367,18 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         tr:last-child td {{
             border-bottom: none;
         }}
-        .progress-bar {{
-            width: 100%;
-            height: 0.5rem;
-            background: #e5e7eb;
-            border-radius: 9999px;
-            overflow: hidden;
+        /* Rate color classes */
+        .rate-high {{
+            color: #059669;
+            font-weight: 600;
         }}
-        .progress-fill {{
-            height: 100%;
-            border-radius: 9999px;
-            transition: width 0.3s ease;
+        .rate-medium {{
+            color: #d97706;
+            font-weight: 600;
         }}
-        .progress-fill.high {{
-            background: #10b981;
-        }}
-        .progress-fill.medium {{
-            background: #f59e0b;
-        }}
-        .progress-fill.low {{
-            background: #ef4444;
+        .rate-low {{
+            color: #dc2626;
+            font-weight: 600;
         }}
         .verdict {{
             display: inline-block;
@@ -593,6 +585,102 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             border-radius: 0.25rem;
             font-weight: 500;
         }}
+        /* Tooltip styles */
+        .criterion-code-tooltip {{
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted #9ca3af;
+        }}
+        .criterion-code-tooltip:hover::after {{
+            content: attr(data-tooltip);
+            position: absolute;
+            left: 0;
+            top: 100%;
+            margin-top: 0.25rem;
+            padding: 0.5rem 0.75rem;
+            background: #1f2937;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: normal;
+            border-radius: 0.375rem;
+            white-space: normal;
+            width: max-content;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            line-height: 1.4;
+        }}
+        /* Persona filter styles */
+        .filter-bar {{
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }}
+        .filter-bar label {{
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-right: 0.5rem;
+        }}
+        .filter-btn {{
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background: white;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }}
+        .filter-btn:hover {{
+            border-color: #4338ca;
+            color: #4338ca;
+        }}
+        .filter-btn.active {{
+            background: #4338ca;
+            color: white;
+            border-color: #4338ca;
+        }}
+        .persona-group {{
+            margin-bottom: 1.5rem;
+        }}
+        .persona-group-header {{
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #f3f4f6;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+            user-select: none;
+        }}
+        .persona-group-header:hover {{
+            background: #e5e7eb;
+        }}
+        .persona-group-header h3 {{
+            font-size: 0.9375rem;
+            font-weight: 600;
+            margin: 0;
+            flex: 1;
+        }}
+        .persona-group-header .toggle-icon {{
+            font-size: 0.75rem;
+            color: #6b7280;
+            transition: transform 0.2s ease;
+        }}
+        .persona-group-header.collapsed .toggle-icon {{
+            transform: rotate(-90deg);
+        }}
+        .persona-group-content {{
+            display: block;
+        }}
+        .persona-group-content.collapsed {{
+            display: none;
+        }}
+        .persona-stats {{
+            font-size: 0.8125rem;
+            color: #6b7280;
+            margin-left: 1rem;
+        }}
     </style>
 </head>
 <body>
@@ -636,19 +724,29 @@ def generate_html(manifest: dict, metrics: dict) -> str:
 
         <div class="section">
             <div class="section-header">Per-Conversation Results</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Persona</th>
-                        <th>Critical</th>
-                        <th>Quality Score</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="conversations">
-                </tbody>
-            </table>
+            <div class="filter-bar" style="padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb;">
+                <label>Filter by persona:</label>
+                <button class="filter-btn active" data-persona="all">All</button>
+                <span id="persona-filters"></span>
+                <span style="margin-left: auto; font-size: 0.8125rem; color: #6b7280;">
+                    <label><input type="checkbox" id="group-by-persona" style="margin-right: 0.25rem;"> Group by persona</label>
+                </span>
+            </div>
+            <div id="conversations-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Persona</th>
+                            <th>Critical</th>
+                            <th>Quality Score</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="conversations">
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <footer>
@@ -659,6 +757,37 @@ def generate_html(manifest: dict, metrics: dict) -> str:
     <script>
         const manifest = {manifest_json};
         const metrics = {json.dumps(metrics)};
+
+        // Criterion descriptions for tooltips
+        const CRITERION_DESCRIPTIONS = {{
+            "A-01": "Goal Clarity: Mentor confirms the session goal is drafting SBI feedback and names what success looks like.",
+            "A-02": "Phase Signaling: Mentor explicitly marks transitions between phases (modeling, practice, coaching).",
+            "A-03": "Realistic Scenario: The practice scenario feels like a real workplace situation with plausible dynamics.",
+            "B-01": "Shows, Not Tells: Mentor demonstrates an actual complete SBI example as a model.",
+            "B-02": "Thinking Out Loud: During modeling, mentor explains why they made each choice, not just what the components are.",
+            "B-03": "Visible Decision-Making: Mentor shows at least one choice point where they consider alternatives.",
+            "B-04": "Self-Checking: Mentor models checking their own work against criteria.",
+            "B-05": "Heuristic Offered: Mentor provides at least one reusable rule of thumb the learner can apply independently.",
+            "C-01": "Specific Feedback: Mentor points to exact language and names the specific issue with that language.",
+            "C-02": "Actionable Direction: When giving feedback, mentor includes what to do next, not just what's wrong.",
+            "C-03": "Revision Requested: After giving feedback, mentor explicitly asks the learner to revise or try again.",
+            "C-04": "Revision Checked: When learner revises, mentor evaluates the revision specifically.",
+            "C-05": "Productive Struggle: When learner errs, mentor explores it before correcting rather than immediately providing the fix.",
+            "C-06": "Elicits Articulation: Mentor asks learner to explain reasoning behind an SBI choice.",
+            "C-07": "Prompts Reflection: Mentor asks learner to reflect on their learning process.",
+            "D-01": "Catches Vague Situations: When learner uses vague time references, mentor prompts for specific time and place.",
+            "D-02": "Catches Judgment Leakage: When behavior contains interpretation, mentor prompts for observable actions.",
+            "D-03": "Catches Accusatory Impact: When learner uses blame language, mentor prompts for owned 'I' statements.",
+            "D-04": "Tests Distinctions: Mentor probes the observable vs. interpretive line to test learner understanding.",
+            "D-05": "Scaffolds the Stuck: When learner struggles, mentor offers targeted help rather than full answer or generic encouragement.",
+            "D-06": "Reusable Scaffold: Mentor provides tools the learner can reuse independently (camera test, self-check, etc.).",
+            "E-01": "Checks Before Advancing: Before moving to next phase, mentor checks learner's readiness.",
+            "E-02": "Fades Support: After learner shows competence, mentor pulls back and gives less detailed guidance.",
+            "E-03": "Protects Productive Struggle: When learner asks for answer, mentor requires at least one attempt first.",
+            "F-01": "Varied Turn Structure: Mentor doesn't follow the same formula every turn; there's variety in rhythm.",
+            "F-02": "Has a Voice: Mentor shows some personality—reactions, opinions, humor, or human touch.",
+            "F-03": "Responds to Negative Affect: When learner shows anxiety/frustration, mentor acknowledges and responds supportively."
+        }};
 
         function escapeHtml(text) {{
             if (!text) return '';
@@ -699,7 +828,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             personasSeen.forEach(p => {{
                 headerHtml += `<th style="width: 40px; text-align: center" title="${{p}}">${{personaLetters[p] || p[0].toUpperCase()}}</th>`;
             }});
-            headerHtml += '<th style="width: 25%">Progress</th></tr>';
+            headerHtml += '</tr>';
             thead.innerHTML = headerHtml;
 
             Object.entries(perCriteria).forEach(([judgeId, data], index) => {{
@@ -711,24 +840,19 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 const row = document.createElement('tr');
                 row.className = 'criteria-expand-row';
                 row.onclick = () => toggleCriteriaDetails(index);
+                const rateClass = percentage >= 80 ? 'rate-high' : percentage >= 50 ? 'rate-medium' : 'rate-low';
                 let rowHtml = `
                     <td>${{judgeId.replace(/_/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase())}}</td>
                     <td>${{data.passed}}/${{data.total}}</td>
-                    <td>${{percentage}}%</td>
+                    <td class="${{rateClass}}">${{percentage}}%</td>
                 `;
                 // Add persona columns
                 personasSeen.forEach(p => {{
                     const pData = byPersona[p] || {{passed: 0, total: 0}};
                     const pPct = pData.total > 0 ? Math.round(pData.passed / pData.total * 100) : '-';
-                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
                     rowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
                 }});
-                // Progress bar at end
-                rowHtml += `<td>
-                    <div class="progress-bar">
-                        <div class="progress-fill ${{progressClass}}" style="width: ${{percentage}}%"></div>
-                    </div>
-                </td>`;
                 row.innerHTML = rowHtml;
                 tbody.appendChild(row);
 
@@ -743,34 +867,28 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 // Add individual criteria as sub-rows (same format as main rows)
                 sortedCriteria.forEach(([code, stats]) => {{
                     const total = stats.passed + stats.failed;
-                    const hasFail = stats.failed > 0;
                     const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
-                    const progressClass = pct >= 80 ? 'high' : pct >= 50 ? 'medium' : 'low';
+                    const rateClass = pct >= 80 ? 'rate-high' : pct >= 50 ? 'rate-medium' : 'rate-low';
                     const cByPersona = stats.by_persona || {{}};
+                    const tooltip = CRITERION_DESCRIPTIONS[code] || code;
 
                     const subRow = document.createElement('tr');
                     subRow.className = 'criteria-details-row';
                     subRow.id = `criteria-details-${{index}}-${{code}}`;
 
                     let subRowHtml = `
-                        <td style="padding-left: 2rem; color: #6b7280;">${{code}}</td>
+                        <td style="padding-left: 2rem;"><span class="criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{code}}</span></td>
                         <td>${{stats.passed}}/${{total}}</td>
-                        <td>${{pct}}%</td>
+                        <td class="${{rateClass}}">${{pct}}%</td>
                     `;
                     // Add persona columns
                     personasSeen.forEach(p => {{
                         const ps = cByPersona[p] || {{passed: 0, failed: 0}};
                         const pTotal = ps.passed + ps.failed;
                         const pPct = pTotal > 0 ? Math.round(ps.passed / pTotal * 100) : '-';
-                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'pass' : 'fail');
+                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
                         subRowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
                     }});
-                    // Progress bar at end
-                    subRowHtml += `<td>
-                        <div class="progress-bar">
-                            <div class="progress-fill ${{progressClass}}" style="width: ${{pct}}%"></div>
-                        </div>
-                    </td>`;
                     subRow.innerHTML = subRowHtml;
                     tbody.appendChild(subRow);
                 }});
@@ -808,9 +926,10 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             if (failed.length > 0) {{
                 html += '<div class="failed-summary"><div class="failed-summary-title">Failed Criteria (' + failed.length + ')</div>';
                 failed.forEach(item => {{
+                    const tooltip = CRITERION_DESCRIPTIONS[item.code] || item.code;
                     html += `<div class="criterion-item fail">
                         <div class="criterion-header">
-                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="criterion-code criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{item.code}}</span>
                             <span class="verdict fail">FAIL</span>
                         </div>
                         <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
@@ -823,9 +942,10 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             if (passed.length > 0 && showAll) {{
                 html += '<div class="passed-criteria">';
                 passed.forEach(item => {{
+                    const tooltip = CRITERION_DESCRIPTIONS[item.code] || item.code;
                     html += `<div class="criterion-item pass">
                         <div class="criterion-header">
-                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="criterion-code criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{item.code}}</span>
                             <span class="verdict pass">PASS</span>
                         </div>
                         <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
@@ -836,9 +956,10 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 html += `<div class="toggle-evidence" onclick="this.nextElementSibling.classList.toggle('expanded'); this.textContent = this.nextElementSibling.classList.contains('expanded') ? 'Hide ${{passed.length}} passed criteria' : 'Show ${{passed.length}} passed criteria'">Show ${{passed.length}} passed criteria</div>`;
                 html += '<div class="criteria-list">';
                 passed.forEach(item => {{
+                    const tooltip = CRITERION_DESCRIPTIONS[item.code] || item.code;
                     html += `<div class="criterion-item pass">
                         <div class="criterion-header">
-                            <span class="criterion-code">${{item.code}}</span>
+                            <span class="criterion-code criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{item.code}}</span>
                             <span class="verdict pass">PASS</span>
                         </div>
                         <div class="evidence-text">${{escapeHtml(item.evidence)}}</div>
@@ -850,118 +971,235 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             return html;
         }}
 
+        // Current filter state
+        let currentPersonaFilter = 'all';
+        let groupByPersona = false;
+
+        function initFilters() {{
+            const personaFiltersContainer = document.getElementById('persona-filters');
+            const personasSeen = metrics.personas_seen || [];
+            const personaLetters = metrics.persona_letters || {{}};
+
+            // Add filter buttons for each persona
+            personasSeen.forEach(persona => {{
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.dataset.persona = persona;
+                btn.textContent = personaLetters[persona] || persona;
+                btn.title = persona;
+                btn.onclick = () => setPersonaFilter(persona);
+                personaFiltersContainer.appendChild(btn);
+            }});
+
+            // "All" button handler
+            document.querySelector('.filter-btn[data-persona="all"]').onclick = () => setPersonaFilter('all');
+
+            // Group by persona checkbox
+            document.getElementById('group-by-persona').onchange = (e) => {{
+                groupByPersona = e.target.checked;
+                renderConversations();
+            }};
+        }}
+
+        function setPersonaFilter(persona) {{
+            currentPersonaFilter = persona;
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => {{
+                btn.classList.toggle('active', btn.dataset.persona === persona);
+            }});
+            renderConversations();
+        }}
+
         function renderConversations() {{
-            const tbody = document.getElementById('conversations');
+            const container = document.getElementById('conversations-container');
             const conversations = manifest.conversations || [];
+            const personasSeen = metrics.personas_seen || [];
+            const personaLetters = metrics.persona_letters || {{}};
 
-            conversations.forEach((conv, index) => {{
-                const criticalVerdict = conv.critical_verdict || 'PENDING';
-                const criticalJson = conv.critical_json || {{}};
-                const qualityResults = conv.quality_results || {{}};
+            // Filter conversations
+            const filtered = conversations.filter(conv => {{
+                if (currentPersonaFilter === 'all') return true;
+                return extractPersona(conv) === currentPersonaFilter;
+            }});
 
-                // Calculate quality score
-                let qualityPassed = 0;
-                let qualityTotal = 0;
-                let qualityNA = 0;
-                let hasParseIssue = false;
-                const EXPECTED_TOTAL = 20;  // 3+4+5+3+2+3 = 20 max criteria
+            if (groupByPersona) {{
+                // Group by persona
+                const groups = {{}};
+                filtered.forEach(conv => {{
+                    const persona = extractPersona(conv);
+                    if (!groups[persona]) groups[persona] = [];
+                    groups[persona].push(conv);
+                }});
 
-                for (const [judge, result] of Object.entries(qualityResults)) {{
-                    qualityPassed += result.passed || 0;
-                    qualityTotal += result.total || 0;
-                    // Check na_count at top level (new format) or nested in json.overall (existing data)
-                    qualityNA += result.na_count || (result.json && result.json.overall && result.json.overall.na_count) || 0;
+                let html = '';
+                // Sort groups by persona order
+                const sortedPersonas = [...personasSeen, ...Object.keys(groups).filter(p => !personasSeen.includes(p))];
+                sortedPersonas.forEach(persona => {{
+                    const convs = groups[persona];
+                    if (!convs || convs.length === 0) return;
+
+                    const letter = personaLetters[persona] || persona[0].toUpperCase();
+                    const critPassed = convs.filter(c => c.critical_verdict === 'PASS').length;
+                    const critTotal = convs.filter(c => c.critical_verdict === 'PASS' || c.critical_verdict === 'FAIL').length;
+
+                    html += `
+                        <div class="persona-group">
+                            <div class="persona-group-header" onclick="togglePersonaGroup(this)">
+                                <span class="toggle-icon">▼</span>
+                                <h3 style="margin-left: 0.5rem;"><span class="persona-tag">${{letter}}</span> ${{persona}}</h3>
+                                <span class="persona-stats">${{convs.length}} conversation${{convs.length !== 1 ? 's' : ''}} · Critical: ${{critPassed}}/${{critTotal}}</span>
+                            </div>
+                            <div class="persona-group-content">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Critical</th>
+                                            <th>Quality Score</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                    `;
+                    convs.forEach((conv, idx) => {{
+                        html += renderConversationRow(conv, `${{persona}}-${{idx}}`, false);
+                    }});
+                    html += `
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+                }});
+                container.innerHTML = html;
+            }} else {{
+                // Flat table view
+                let html = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Persona</th>
+                                <th>Critical</th>
+                                <th>Quality Score</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                filtered.forEach((conv, idx) => {{
+                    html += renderConversationRow(conv, idx, true);
+                }});
+                html += '</tbody></table>';
+                container.innerHTML = html;
+            }}
+        }}
+
+        function renderConversationRow(conv, index, showPersona) {{
+            const criticalVerdict = conv.critical_verdict || 'PENDING';
+            const criticalJson = conv.critical_json || {{}};
+            const qualityResults = conv.quality_results || {{}};
+
+            // Calculate quality score
+            let qualityPassed = 0;
+            let qualityTotal = 0;
+            let qualityNA = 0;
+            let hasParseIssue = false;
+            const EXPECTED_TOTAL = 20;
+
+            for (const [judge, result] of Object.entries(qualityResults)) {{
+                qualityPassed += result.passed || 0;
+                qualityTotal += result.total || 0;
+                qualityNA += result.na_count || (result.json && result.json.overall && result.json.overall.na_count) || 0;
+            }}
+
+            const actualTotal = qualityTotal + qualityNA;
+            if (qualityTotal > 0 && actualTotal < EXPECTED_TOTAL) {{
+                hasParseIssue = true;
+            }}
+
+            let qualityScore = '-';
+            if (qualityTotal > 0) {{
+                qualityScore = `${{qualityPassed}}/${{qualityTotal}}`;
+                if (qualityNA > 0) {{
+                    qualityScore += ` <span class="na-badge" title="${{qualityNA}} criteria N/A">(${{qualityNA}} N/A)</span>`;
                 }}
-
-                // Flag if total + NA < expected (indicates parsing failure, not just N/A)
-                const actualTotal = qualityTotal + qualityNA;
-                if (qualityTotal > 0 && actualTotal < EXPECTED_TOTAL) {{
-                    hasParseIssue = true;
+                if (hasParseIssue) {{
+                    qualityScore += ` <span class="warning-badge" title="Some criteria failed to parse">⚠️</span>`;
                 }}
+            }}
 
-                // Build score string
-                let qualityScore = '-';
-                if (qualityTotal > 0) {{
-                    qualityScore = `${{qualityPassed}}/${{qualityTotal}}`;
-                    if (qualityNA > 0) {{
-                        qualityScore += ` <span class="na-badge" title="${{qualityNA}} criteria N/A">(${{qualityNA}} N/A)</span>`;
-                    }}
-                    if (hasParseIssue) {{
-                        qualityScore += ` <span class="warning-badge" title="Some criteria failed to parse">⚠️</span>`;
-                    }}
-                }}
+            const persona = extractPersona(conv);
+            const personaCol = showPersona ? `<td><span class="persona-tag">${{persona}}</span></td>` : '';
 
-                // Extract persona
-                const persona = extractPersona(conv);
-
-                // Main row
-                const row = document.createElement('tr');
-                row.className = 'expandable';
-                row.onclick = () => toggleDetails(index);
-                row.innerHTML = `
+            let html = `
+                <tr class="expandable" onclick="toggleDetails('${{index}}')">
                     <td>${{conv.short_id}}</td>
-                    <td><span class="persona-tag">${{persona}}</span></td>
+                    ${{personaCol}}
                     <td><span class="verdict ${{criticalVerdict.toLowerCase()}}">${{criticalVerdict}}</span></td>
                     <td>${{qualityScore}}</td>
                     <td><span class="verdict ${{criticalVerdict === 'PENDING' ? 'pending' : 'pass'}}">
                         ${{criticalVerdict === 'PENDING' ? 'Pending' : 'Complete'}}
                     </span></td>
-                `;
-                tbody.appendChild(row);
+                </tr>
+            `;
 
-                // Details row with full evidence
-                const detailsRow = document.createElement('tr');
-                detailsRow.className = 'details';
-                detailsRow.id = `details-${{index}}`;
+            // Details row
+            const colspan = showPersona ? 5 : 4;
+            let detailsHtml = `<tr class="details" id="details-${{index}}"><td colspan="${{colspan}}"><div class="details-content">`;
 
-                let detailsHtml = '<td colspan="5"><div class="details-content">';
+            // Quality summary grid
+            if (Object.keys(qualityResults).length > 0) {{
+                detailsHtml += '<div class="quality-grid" style="margin-bottom: 1rem;">';
+                for (const [judge, result] of Object.entries(qualityResults)) {{
+                    const passed = result.passed || 0;
+                    const total = result.total || 0;
+                    const pct = total > 0 ? Math.round(passed / total * 100) : 0;
+                    detailsHtml += `<div class="quality-item"><span>${{judge.replace(/_/g, ' ')}}</span><span>${{passed}}/${{total}} (${{pct}}%)</span></div>`;
+                }}
+                detailsHtml += '</div>';
+            }}
 
-                // Quality summary grid
-                if (Object.keys(qualityResults).length > 0) {{
-                    detailsHtml += '<div class="quality-grid" style="margin-bottom: 1rem;">';
-                    for (const [judge, result] of Object.entries(qualityResults)) {{
-                        const passed = result.passed || 0;
-                        const total = result.total || 0;
-                        const pct = total > 0 ? Math.round(passed / total * 100) : 0;
-                        detailsHtml += `<div class="quality-item"><span>${{judge.replace(/_/g, ' ')}}</span><span>${{passed}}/${{total}} (${{pct}}%)</span></div>`;
-                    }}
+            // Critical criteria evidence
+            if (criticalJson.criteria) {{
+                detailsHtml += '<div class="evidence-section">';
+                detailsHtml += '<h4>Critical Criteria Evidence</h4>';
+                detailsHtml += renderCriteriaEvidence(criticalJson.criteria);
+                detailsHtml += '</div>';
+            }}
+
+            // Quality judges evidence
+            for (const [judgeName, result] of Object.entries(qualityResults)) {{
+                if (result.json && result.json.criteria) {{
+                    detailsHtml += '<div class="judge-section">';
+                    detailsHtml += `<h5>${{judgeName.replace(/_/g, ' ')}}</h5>`;
+                    detailsHtml += renderCriteriaEvidence(result.json.criteria);
                     detailsHtml += '</div>';
                 }}
+            }}
 
-                // Critical criteria evidence
-                if (criticalJson.criteria) {{
-                    detailsHtml += '<div class="evidence-section">';
-                    detailsHtml += '<h4>Critical Criteria Evidence</h4>';
-                    detailsHtml += renderCriteriaEvidence(criticalJson.criteria);
-                    detailsHtml += '</div>';
-                }}
+            if (!criticalJson.criteria && Object.keys(qualityResults).length === 0) {{
+                detailsHtml += '<em>No evaluation data yet</em>';
+            }}
 
-                // Quality judges evidence
-                for (const [judgeName, result] of Object.entries(qualityResults)) {{
-                    if (result.json && result.json.criteria) {{
-                        detailsHtml += '<div class="judge-section">';
-                        detailsHtml += `<h5>${{judgeName.replace(/_/g, ' ')}}</h5>`;
-                        detailsHtml += renderCriteriaEvidence(result.json.criteria);
-                        detailsHtml += '</div>';
-                    }}
-                }}
+            detailsHtml += '</div></td></tr>';
+            html += detailsHtml;
 
-                if (!criticalJson.criteria && Object.keys(qualityResults).length === 0) {{
-                    detailsHtml += '<em>No evaluation data yet</em>';
-                }}
+            return html;
+        }}
 
-                detailsHtml += '</div></td>';
-                detailsRow.innerHTML = detailsHtml;
-                tbody.appendChild(detailsRow);
-            }});
+        function togglePersonaGroup(header) {{
+            header.classList.toggle('collapsed');
+            header.nextElementSibling.classList.toggle('collapsed');
         }}
 
         function toggleDetails(index) {{
             const details = document.getElementById(`details-${{index}}`);
-            details.classList.toggle('open');
+            if (details) details.classList.toggle('open');
         }}
 
         renderCriteriaTable();
+        initFilters();
         renderConversations();
     </script>
 </body>

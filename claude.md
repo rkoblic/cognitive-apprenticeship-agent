@@ -68,7 +68,7 @@ python run_batch_eval.py --eval-only --deploy
 ```
 
 Each batch creates a separate LangSmith dataset (e.g., `batch-20260121_143000`).
-The dashboard aggregates results from all runs created **today** (by date prefix).
+The dashboard aggregates results from all runs created **from 2026-01-21 onwards**.
 
 ### Generate Single Conversation
 ```bash
@@ -140,7 +140,7 @@ Learner personas use a two-part output format:
 - **Score display**: Shows `passed/total (X N/A)` when criteria are N/A, and ⚠️ when parsing failed
 
 ### Aggregation
-- Dashboard aggregates all runs from **today** (by date prefix YYYYMMDD)
+- Dashboard aggregates all runs from **2026-01-21 onwards** (by date prefix >= 20260121)
 - Deduplicates by LangSmith conversation ID, preferring entries with valid persona data
 - Results stored in `eval_results/runs/<timestamp>/manifest.json`
 

@@ -5,8 +5,8 @@ Live Dashboard Generator for MentorAI Evaluations
 Generates a self-contained HTML dashboard with all evaluation data embedded.
 The dashboard can be opened locally or deployed to GitHub Pages for team sharing.
 
-By default, aggregates results from ALL runs in eval_results/runs/ for a
-comprehensive view. Use --no-aggregate for single-run mode.
+By default, aggregates results from runs dated 2026-01-21 onwards in
+eval_results/runs/. Use --no-aggregate for single-run mode.
 
 Features:
 - Aggregates results from all evaluation runs (deduplicates by conversation ID)
@@ -50,15 +50,15 @@ def load_manifest(run_dir: Path) -> dict:
     return json.loads(manifest_path.read_text())
 
 
-def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "today") -> dict:
+def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "20260121") -> dict:
     """
     Load and merge all manifest.json files from runs directory.
 
     Args:
         runs_dir: Path to runs directory (defaults to eval_results/runs/)
         date_filter: Filter runs by date prefix:
-            - "today" (default): Only runs from today (YYYYMMDD)
-            - "YYYYMMDD": Only runs from that specific date
+            - "today": Only runs from today (YYYYMMDD)
+            - "YYYYMMDD": Only runs from that date onwards (inclusive)
             - None: Include all runs (no filter)
 
     Returns:
@@ -72,11 +72,11 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
 
     # Resolve date filter
     if date_filter == "today":
-        date_prefix = datetime.now().strftime("%Y%m%d")
+        min_date = datetime.now().strftime("%Y%m%d")
     elif date_filter:
-        date_prefix = date_filter
+        min_date = date_filter
     else:
-        date_prefix = None
+        min_date = None
 
     all_conversations = []
     run_ids = []
@@ -84,8 +84,8 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
     for manifest_path in sorted(runs_dir.glob("*/manifest.json")):
         run_id = manifest_path.parent.name
 
-        # Apply date filter if specified
-        if date_prefix and not run_id.startswith(date_prefix):
+        # Apply date filter - include runs >= min_date
+        if min_date and run_id[:8] < min_date:
             continue
 
         try:
@@ -116,7 +116,7 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
     deduped_conversations = list(seen.values())
 
     return {
-        "run_id": f"aggregated-{date_prefix}" if date_prefix else "aggregated-all",
+        "run_id": f"aggregated-from-{min_date}" if min_date else "aggregated-all",
         "timestamp": datetime.now().isoformat(),
         "status": "complete",
         "conversations": deduped_conversations,

@@ -4,12 +4,12 @@ Batch Evaluation Orchestrator
 
 Single command that handles the full evaluation workflow:
 1. Generates N conversations per persona (saves to markdown)
-2. Adds conversations to master-eval dataset (accumulates over time)
+2. Creates a NEW LangSmith dataset for this batch (no re-evaluation of old data)
 3. Runs judge evaluation with dashboard updates after each conversation
 4. Deploys dashboard to GitHub Pages (optional)
 
-The master-eval dataset accumulates all conversations across runs, so
-the dashboard shows aggregated scores across all personas and sessions.
+Each batch creates a separate dataset (e.g., batch-20260121_143000). The dashboard
+aggregates results from ALL local eval_results/runs/ directories.
 
 Usage:
     # Run 10 conversations for 2 personas (20 turns each), deploy dashboard
@@ -21,11 +21,9 @@ Usage:
     # Single persona with custom turns
     python run_batch_eval.py --personas amara_SBI --count 3 --turns 15
 
-    # Evaluate full master dataset without generating new conversations
+    # Regenerate dashboard from existing local results (no LangSmith calls)
     python run_batch_eval.py --eval-only --deploy
 """
-
-MASTER_DATASET = "master-eval"
 
 import argparse
 import subprocess
@@ -90,15 +88,15 @@ def generate_conversations(
     return True
 
 
-def add_to_master_dataset(limit: int) -> bool:
-    """Add recent runs to the master-eval dataset."""
+def create_batch_dataset(dataset_name: str, limit: int) -> bool:
+    """Create a new dataset for this batch of conversations."""
     cmd = [
         sys.executable, "create_dataset.py",
-        "--name", MASTER_DATASET,
-        "--limit", str(limit),
-        "--append"
+        "--name", dataset_name,
+        "--limit", str(limit)
+        # No --append: creates a fresh dataset
     ]
-    return run_command(cmd, f"Adding {limit} conversations to {MASTER_DATASET}")
+    return run_command(cmd, f"Creating dataset '{dataset_name}' with {limit} conversations")
 
 
 def run_judge_evaluation(
@@ -158,15 +156,15 @@ def main():
     parser = argparse.ArgumentParser(
         description="Run full evaluation workflow: generate conversations, evaluate, and deploy dashboard",
         formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog=f"""
-All conversations are added to the '{MASTER_DATASET}' dataset, which accumulates
-over time. The dashboard shows aggregated scores across all personas and sessions.
+        epilog="""
+Each batch creates a separate LangSmith dataset (e.g., batch-20260121_143000).
+The dashboard aggregates results from ALL local eval_results/runs/ directories.
 
 Examples:
     # Generate and evaluate 10 conversations for 2 personas
     python run_batch_eval.py --personas amara_SBI,carlos_SBI --count 10 --deploy
 
-    # Re-evaluate full master dataset and deploy (no new conversations)
+    # Regenerate dashboard from existing local results (no new conversations)
     python run_batch_eval.py --eval-only --deploy
 
     # Quick test with 2 conversations
@@ -194,7 +192,7 @@ Examples:
     parser.add_argument(
         "--eval-only",
         action="store_true",
-        help="Only run evaluation on existing master dataset (no new conversations)"
+        help="Regenerate dashboard from existing local results (no LangSmith API calls)"
     )
     parser.add_argument(
         "--skip-evaluation",
@@ -218,10 +216,13 @@ Examples:
     if not args.eval_only and not args.personas:
         parser.error("--personas is required unless using --eval-only")
 
+    # Generate timestamp for this batch
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    batch_dataset = f"batch-{timestamp}"
+
     print("\n" + "="*60)
     print("  MentorAI Batch Evaluation")
     print("="*60)
-    print(f"  Master dataset: {MASTER_DATASET}")
 
     # Parse personas
     personas = []
@@ -231,11 +232,39 @@ Examples:
         print(f"  Conversations per persona: {args.count}")
         print(f"  Turns per conversation: {args.turns}")
         print(f"  New conversations: {len(personas) * args.count}")
+        print(f"  Batch dataset: {batch_dataset}")
 
-    # Step 1: Generate conversations and add to master dataset
+    # Handle --eval-only: regenerate dashboard from local results only
+    if args.eval_only:
+        print("\n[--eval-only] Regenerating dashboard from existing local results...")
+        from generate_dashboard import generate_dashboard, find_latest_run, aggregate_all_runs
+
+        runs_dir = EVAL_RESULTS_DIR / "runs"
+        if not runs_dir.exists() or not any(runs_dir.iterdir()):
+            print("ERROR: No evaluation runs found in eval_results/runs/")
+            return 1
+
+        # Find the latest run dir (for storing the new aggregated dashboard)
+        run_dir = find_latest_run()
+
+        # Generate dashboard (it will aggregate all runs internally)
+        dashboard_path = generate_dashboard(run_dir)
+        print(f"Dashboard regenerated: {dashboard_path}")
+
+        # Deploy if requested
+        if args.deploy:
+            print(f"\n[Step 3/3] Deploying dashboard...")
+            if not deploy_dashboard(run_dir):
+                print("\nWARNING: Dashboard deployment failed")
+
+        print("\n" + "="*60)
+        print("  Dashboard Regeneration Complete!")
+        print("="*60)
+        return 0
+
+    # Step 1: Generate conversations
     conversations_dir = None
-    if not args.eval_only and personas:
-        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    if personas:
         conversations_dir = SCRIPT_DIR / "conversations" / timestamp
 
         print(f"\n[Step 1/3] Generating conversations...")
@@ -252,21 +281,19 @@ Examples:
 
         print(f"\nConversations saved to: {conversations_dir}")
 
-        # Add to master dataset
+        # Create batch dataset for these conversations
         total_conversations = len(personas) * args.count
-        print(f"\nAdding to {MASTER_DATASET}...")
-        if not add_to_master_dataset(total_conversations):
-            print("WARNING: Failed to add to master dataset")
-    else:
-        print("\n[Step 1/3] Skipping conversation generation (--eval-only)")
+        print(f"\nCreating batch dataset '{batch_dataset}'...")
+        if not create_batch_dataset(batch_dataset, total_conversations):
+            print("WARNING: Failed to create batch dataset")
 
-    # Step 2: Run judge evaluation on full master dataset
+    # Step 2: Run judge evaluation on this batch only
     run_dir = None
     if not args.skip_evaluation:
-        print(f"\n[Step 2/3] Running judge evaluation on {MASTER_DATASET}...")
+        print(f"\n[Step 2/3] Running judge evaluation on batch '{batch_dataset}'...")
         run_dir = run_judge_evaluation(
-            dataset=MASTER_DATASET,
-            limit=None,  # Evaluate all
+            dataset=batch_dataset,
+            limit=None,  # Evaluate all in this batch
             dashboard=not args.no_dashboard
         )
 

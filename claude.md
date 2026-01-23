@@ -143,7 +143,7 @@ Learner personas use a two-part output format:
 - **Criterion tooltips**: Hover over any criterion code (A-01, B-02, etc.) to see a description of what that criterion evaluates
 - **Persona filtering**: Filter conversations by persona using the letter buttons (A-F), or click "All" to show all
 - **Group by persona**: Check the "Group by persona" box to collapse conversations into expandable persona sections with summary stats
-- **Color-coded pass rates**: Pass rate percentages are colored green (≥80%), orange (50-79%), or red (<50%) for quick scanning
+- **Color-coded pass rates**: Pass rate percentages are colored green (≥80%), orange (41-79%), or red (≤40%) for quick scanning
 
 ### Aggregation
 - Dashboard aggregates all runs from **2026-01-21 onwards** (by date prefix >= 20260121)

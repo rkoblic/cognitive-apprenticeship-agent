@@ -383,19 +383,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         tr:last-child td {{
             border-bottom: none;
         }}
-        /* Rate color classes */
-        .rate-high {{
-            color: #059669;
-            font-weight: 600;
-        }}
-        .rate-medium {{
-            color: #d97706;
-            font-weight: 600;
-        }}
-        .rate-low {{
-            color: #dc2626;
-            font-weight: 600;
-        }}
+        /* Rate colors now use inline styles with gradient colors */
         .verdict {{
             display: inline-block;
             padding: 0.125rem 0.5rem;
@@ -812,6 +800,19 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             return div.innerHTML;
         }}
 
+        // Calculate color based on percentage thresholds
+        // ≤40% = red, 41-79% = orange, ≥80% = green
+        function getRateColor(pct) {{
+            if (pct === '-' || pct === null || pct === undefined) return '#6b7280';  // gray for no data
+            if (pct <= 40) return 'hsl(0, 85%, 40%)';     // red
+            if (pct < 80) return 'hsl(35, 85%, 45%)';    // orange
+            return 'hsl(120, 85%, 35%)';                  // green
+        }}
+
+        function getRateStyle(pct) {{
+            return `color: ${{getRateColor(pct)}}; font-weight: 600;`;
+        }}
+
         function extractPersona(conv) {{
             // Try persona field first (if valid)
             if (conv.persona && conv.persona !== 'Unknown' && conv.persona !== 'unknown') {{
@@ -838,11 +839,20 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             const personaLetters = metrics.persona_letters || {{}};
             const numPersonaCols = personasSeen.length;
             const totalCols = 4 + numPersonaCols;
+            const conversations = manifest.conversations || [];
 
-            // Render header
+            // Calculate per-persona conversation counts
+            const personaCounts = {{}};
+            conversations.forEach(conv => {{
+                const persona = extractPersona(conv);
+                personaCounts[persona] = (personaCounts[persona] || 0) + 1;
+            }});
+
+            // Render header with counts
             let headerHtml = '<tr><th>Criterion</th><th>Passed</th><th>Pass Rate</th>';
             personasSeen.forEach(p => {{
-                headerHtml += `<th style="width: 40px; text-align: center" title="${{p}}">${{personaLetters[p] || p[0].toUpperCase()}}</th>`;
+                const count = personaCounts[p] || 0;
+                headerHtml += `<th style="width: 55px; text-align: center" title="${{p}}">${{personaLetters[p] || p[0].toUpperCase()}} (${{count}})</th>`;
             }});
             headerHtml += '</tr>';
             thead.innerHTML = headerHtml;
@@ -856,18 +866,17 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 const row = document.createElement('tr');
                 row.className = 'criteria-expand-row';
                 row.onclick = () => toggleCriteriaDetails(index);
-                const rateClass = percentage >= 80 ? 'rate-high' : percentage >= 50 ? 'rate-medium' : 'rate-low';
                 let rowHtml = `
                     <td>${{judgeId.replace(/_/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase())}}</td>
                     <td>${{data.passed}}/${{data.total}}</td>
-                    <td class="${{rateClass}}">${{percentage}}%</td>
+                    <td style="${{getRateStyle(percentage)}}">${{percentage}}%</td>
                 `;
                 // Add persona columns
                 personasSeen.forEach(p => {{
                     const pData = byPersona[p] || {{passed: 0, total: 0}};
                     const pPct = pData.total > 0 ? Math.round(pData.passed / pData.total * 100) : '-';
-                    const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
-                    rowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
+                    const style = pPct === '-' ? '' : getRateStyle(pPct);
+                    rowHtml += `<td style="text-align: center; ${{style}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
                 }});
                 row.innerHTML = rowHtml;
                 tbody.appendChild(row);
@@ -884,7 +893,6 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 sortedCriteria.forEach(([code, stats]) => {{
                     const total = stats.passed + stats.failed;
                     const pct = total > 0 ? Math.round(stats.passed / total * 100) : 0;
-                    const rateClass = pct >= 80 ? 'rate-high' : pct >= 50 ? 'rate-medium' : 'rate-low';
                     const cByPersona = stats.by_persona || {{}};
                     const tooltip = CRITERION_DESCRIPTIONS[code] || code;
 
@@ -895,15 +903,15 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                     let subRowHtml = `
                         <td style="padding-left: 2rem;"><span class="criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{code}}</span></td>
                         <td>${{stats.passed}}/${{total}}</td>
-                        <td class="${{rateClass}}">${{pct}}%</td>
+                        <td style="${{getRateStyle(pct)}}">${{pct}}%</td>
                     `;
                     // Add persona columns
                     personasSeen.forEach(p => {{
                         const ps = cByPersona[p] || {{passed: 0, failed: 0}};
                         const pTotal = ps.passed + ps.failed;
                         const pPct = pTotal > 0 ? Math.round(ps.passed / pTotal * 100) : '-';
-                        const pClass = pPct === '-' ? '' : (pPct >= 80 ? 'rate-high' : pPct >= 50 ? 'rate-medium' : 'rate-low');
-                        subRowHtml += `<td style="text-align: center" class="${{pClass}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
+                        const style = pPct === '-' ? '' : getRateStyle(pPct);
+                        subRowHtml += `<td style="text-align: center; ${{style}}">${{pPct}}${{pPct !== '-' ? '%' : ''}}</td>`;
                     }});
                     subRow.innerHTML = subRowHtml;
                     tbody.appendChild(subRow);
@@ -918,6 +926,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             document.querySelectorAll(`[id^="criteria-details-${{index}}-"]`).forEach(el => {{
                 el.classList.toggle('open');
             }});
+            saveState();
         }}
 
         function renderCriteriaEvidence(criteria, showAll = false) {{
@@ -987,9 +996,68 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             return html;
         }}
 
-        // Current filter state
-        let currentPersonaFilter = 'all';
-        let groupByPersona = false;
+        // State persistence helpers
+        const STATE_KEY = 'mentorDashboardState';
+
+        function saveState() {{
+            const state = {{
+                personaFilter: currentPersonaFilter,
+                groupByPersona: groupByPersona,
+                expandedDetails: Array.from(document.querySelectorAll('.details.open')).map(el => el.id),
+                collapsedGroups: Array.from(document.querySelectorAll('.persona-group-header.collapsed')).map((el, idx) => idx),
+                expandedCriteria: Array.from(document.querySelectorAll('.criteria-expand-row.open')).map((el, idx) => idx)
+            }};
+            try {{
+                localStorage.setItem(STATE_KEY, JSON.stringify(state));
+            }} catch (e) {{ /* ignore storage errors */ }}
+        }}
+
+        function loadState() {{
+            try {{
+                const saved = localStorage.getItem(STATE_KEY);
+                return saved ? JSON.parse(saved) : null;
+            }} catch (e) {{
+                return null;
+            }}
+        }}
+
+        function restoreExpandedState() {{
+            const state = loadState();
+            if (!state) return;
+
+            // Restore expanded details
+            (state.expandedDetails || []).forEach(id => {{
+                const el = document.getElementById(id);
+                if (el) el.classList.add('open');
+            }});
+
+            // Restore collapsed persona groups
+            (state.collapsedGroups || []).forEach(idx => {{
+                const headers = document.querySelectorAll('.persona-group-header');
+                if (headers[idx]) {{
+                    headers[idx].classList.add('collapsed');
+                    if (headers[idx].nextElementSibling) {{
+                        headers[idx].nextElementSibling.classList.add('collapsed');
+                    }}
+                }}
+            }});
+
+            // Restore expanded criteria rows
+            (state.expandedCriteria || []).forEach(idx => {{
+                const rows = document.querySelectorAll('.criteria-expand-row');
+                if (rows[idx]) {{
+                    rows[idx].classList.add('open');
+                    document.querySelectorAll(`[id^="criteria-details-${{idx}}-"]`).forEach(el => {{
+                        el.classList.add('open');
+                    }});
+                }}
+            }});
+        }}
+
+        // Current filter state (restored from localStorage if available)
+        const savedState = loadState();
+        let currentPersonaFilter = savedState?.personaFilter || 'all';
+        let groupByPersona = savedState?.groupByPersona || false;
 
         function initFilters() {{
             const personaFiltersContainer = document.getElementById('persona-filters');
@@ -1014,7 +1082,17 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             document.getElementById('group-by-persona').onchange = (e) => {{
                 groupByPersona = e.target.checked;
                 renderConversations();
+                restoreExpandedState();
+                saveState();
             }};
+
+            // Restore saved filter state
+            if (currentPersonaFilter !== 'all') {{
+                setPersonaFilter(currentPersonaFilter);
+            }}
+            if (groupByPersona) {{
+                document.getElementById('group-by-persona').checked = true;
+            }}
         }}
 
         function setPersonaFilter(persona) {{
@@ -1024,6 +1102,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 btn.classList.toggle('active', btn.dataset.persona === persona);
             }});
             renderConversations();
+            saveState();
         }}
 
         function renderConversations() {{
@@ -1207,16 +1286,21 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         function togglePersonaGroup(header) {{
             header.classList.toggle('collapsed');
             header.nextElementSibling.classList.toggle('collapsed');
+            saveState();
         }}
 
         function toggleDetails(index) {{
             const details = document.getElementById(`details-${{index}}`);
-            if (details) details.classList.toggle('open');
+            if (details) {{
+                details.classList.toggle('open');
+                saveState();
+            }}
         }}
 
         renderCriteriaTable();
         initFilters();
         renderConversations();
+        restoreExpandedState();
     </script>
 </body>
 </html>'''

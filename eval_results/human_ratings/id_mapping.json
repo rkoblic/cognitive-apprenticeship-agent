@@ -1,6 +1,7 @@
 {
   "_comment": "Map spot-check timestamps to LangSmith conversation IDs. Look up IDs in LangSmith UI by searching for the timestamp/run name.",
   "20260121_100749_amara_SBI": "e2206591-e8e0-4eac-a481-e66f8b60feba",
+  "20260121_113036_amara_SBI": "6c625dfd-4658-44f7-80b4-477522e9627f",
   "20260121_132804_carlos_SBI": "ae169560-c43f-43a0-a10c-a7ea23dd24fc",
   "20260122_135638_fatou_SBI": "8ffd393b-c49b-4510-9195-1881beccabae",
   "20260122_195437_daniel_SBI": "5a1e4f67-bc3f-440f-b638-6504ea20bcd4",

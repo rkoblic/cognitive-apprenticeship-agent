@@ -202,6 +202,25 @@ def get_llm_verdict_for_criterion(conv: dict, criterion_code: str) -> str | None
     return None
 
 
+def get_llm_evidence_for_criterion(conv: dict, criterion_code: str) -> str:
+    """Extract LLM evidence for a specific criterion code from conversation data."""
+    # Check critical criteria first
+    critical_json = conv.get("critical_json", {})
+    criteria = critical_json.get("criteria", {})
+    if criterion_code in criteria:
+        return criteria[criterion_code].get("evidence", "")
+
+    # Check quality results
+    quality_results = conv.get("quality_results", {})
+    for judge_data in quality_results.values():
+        judge_json = judge_data.get("json", {})
+        judge_criteria = judge_json.get("criteria", {})
+        if criterion_code in judge_criteria:
+            return judge_criteria[criterion_code].get("evidence", "")
+
+    return ""
+
+
 def calculate_human_agreement(conv: dict, human_rating: dict) -> dict:
     """Calculate agreement between LLM and human ratings for a conversation."""
     human_criteria = human_rating.get("criteria", {})
@@ -225,7 +244,8 @@ def calculate_human_agreement(conv: dict, human_rating: dict) -> dict:
                     "code": code,
                     "llm": llm_verdict,
                     "human": human_verdict,
-                    "human_evidence": human_data.get("evidence", "")
+                    "human_evidence": human_data.get("evidence", ""),
+                    "llm_evidence": get_llm_evidence_for_criterion(conv, code)
                 })
 
     total = agree + disagree
@@ -1574,31 +1594,30 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                                 <div class="details-content">
                                     <div class="failed-summary">
                                         <div class="failed-summary-title">Human vs LLM Disagreements</div>
-                                        <table style="margin-top: 0.5rem; font-size: 0.875rem;">
-                                            <thead>
-                                                <tr style="background: transparent;">
-                                                    <th style="padding: 0.5rem; width: 80px;">Criterion</th>
-                                                    <th style="padding: 0.5rem; width: 80px;">LLM</th>
-                                                    <th style="padding: 0.5rem; width: 80px;">Human</th>
-                                                    <th style="padding: 0.5rem;">Human Notes</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
                     `;
                     agreement.disagreements.forEach(d => {{
                         const tooltip = CRITERION_DESCRIPTIONS[d.code] || d.code;
                         html += `
-                                                <tr>
-                                                    <td style="padding: 0.5rem;"><span class="criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{d.code}}</span></td>
-                                                    <td style="padding: 0.5rem;"><span class="verdict ${{d.llm.toLowerCase()}}">${{d.llm}}</span></td>
-                                                    <td style="padding: 0.5rem;"><span class="verdict ${{d.human.toLowerCase()}}">${{d.human}}</span></td>
-                                                    <td style="padding: 0.5rem; font-style: italic; color: #4b5563;">${{escapeHtml(d.human_evidence) || '-'}}</td>
-                                                </tr>
+                                        <div style="margin: 0.75rem 0; padding: 0.75rem; background: #fff; border: 1px solid #e5e7eb; border-radius: 0.375rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                                <span class="criterion-code-tooltip" style="font-weight: 600;" data-tooltip="${{escapeHtml(tooltip)}}">${{d.code}}</span>
+                                                <span>LLM: <span class="verdict ${{d.llm.toLowerCase()}}">${{d.llm}}</span></span>
+                                                <span>Human: <span class="verdict ${{d.human.toLowerCase()}}">${{d.human}}</span></span>
+                                            </div>
+                                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.8125rem;">
+                                                <div>
+                                                    <div style="font-weight: 600; color: #6b7280; margin-bottom: 0.25rem;">LLM Rationale:</div>
+                                                    <div style="color: #4b5563; font-style: italic;">${{escapeHtml(d.llm_evidence) || '-'}}</div>
+                                                </div>
+                                                <div>
+                                                    <div style="font-weight: 600; color: #6b7280; margin-bottom: 0.25rem;">Human Notes:</div>
+                                                    <div style="color: #4b5563; font-style: italic;">${{escapeHtml(d.human_evidence) || '-'}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
                         `;
                     }});
                     html += `
-                                            </tbody>
-                                        </table>
                                     </div>
                                 </div>
                             </td>

@@ -30,6 +30,13 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 EVAL_RESULTS_DIR = SCRIPT_DIR / "eval_results"
 HUMAN_RATINGS_DIR = EVAL_RESULTS_DIR / "human_ratings"
+CONVERSATIONS_DIR = SCRIPT_DIR / "conversations"
+
+# GitHub repo URL for transcript links
+GITHUB_BASE_URL = "https://github.com/rkoblic/cognitive-apprenticeship-agent/blob/main"
+
+# Criteria to show in deep-dive section
+DEEP_DIVE_CRITERIA = ["B-03", "B-04", "E-02", "F-01"]
 
 
 def find_latest_run() -> Path | None:
@@ -40,6 +47,93 @@ def find_latest_run() -> Path | None:
 
     run_dirs = sorted(runs_dir.iterdir(), reverse=True)
     return run_dirs[0] if run_dirs else None
+
+
+def build_transcript_index(manifest: dict) -> dict:
+    """
+    Build mapping from langsmith_id to transcript path.
+
+    Uses batch dataset name to find corresponding conversations folder,
+    then matches transcripts by persona name.
+
+    Returns:
+        Dict mapping langsmith_id to relative transcript path
+    """
+    index = {}
+
+    if not CONVERSATIONS_DIR.exists():
+        return index
+
+    # Group conversations by their source batch
+    # The manifest may aggregate multiple batches, so we need to check each run
+    aggregated_from = manifest.get("aggregated_from", [])
+
+    # For aggregated manifests, we need to load each source manifest to get the dataset info
+    if aggregated_from:
+        runs_dir = EVAL_RESULTS_DIR / "runs"
+        for run_id in aggregated_from:
+            run_manifest_path = runs_dir / run_id / "manifest.json"
+            if run_manifest_path.exists():
+                try:
+                    run_manifest = json.loads(run_manifest_path.read_text())
+                    _add_transcripts_from_manifest(run_manifest, index)
+                except (json.JSONDecodeError, IOError):
+                    pass
+    else:
+        # Single run manifest
+        _add_transcripts_from_manifest(manifest, index)
+
+    return index
+
+
+def _add_transcripts_from_manifest(manifest: dict, index: dict) -> None:
+    """Helper to add transcript mappings from a single manifest."""
+    dataset = manifest.get("config", {}).get("dataset", "")
+
+    # Extract batch timestamp from dataset name (batch-YYYYMMDD_HHMMSS)
+    if not dataset.startswith("batch-"):
+        return
+
+    batch_ts = dataset.replace("batch-", "")
+
+    # Try exact match first, then prefix match (handles truncated timestamps)
+    batch_dir = None
+    if (CONVERSATIONS_DIR / batch_ts).exists():
+        batch_dir = CONVERSATIONS_DIR / batch_ts
+    else:
+        # Try prefix match for truncated timestamps (e.g., 20260123_1355 vs 20260123_135503)
+        for d in CONVERSATIONS_DIR.iterdir():
+            if d.is_dir() and d.name.startswith(batch_ts):
+                batch_dir = d
+                break
+
+    if not batch_dir:
+        return
+
+    # Build persona -> list of transcript files mapping
+    persona_files = {}
+    for md_file in sorted(batch_dir.glob("*.md")):
+        # Extract persona from filename like "20260123_120156_daniel_SBI.md"
+        parts = md_file.stem.split("_")
+        if len(parts) >= 3:
+            persona = "_".join(parts[2:])  # e.g., "daniel_SBI"
+            if persona not in persona_files:
+                persona_files[persona] = []
+            persona_files[persona].append(md_file)
+
+    # Match conversations to transcript files
+    for conv in manifest.get("conversations", []):
+        langsmith_id = conv.get("langsmith_id")
+        persona = conv.get("persona")
+
+        if not langsmith_id or not persona or langsmith_id in index:
+            continue
+
+        if persona in persona_files and persona_files[persona]:
+            # Use first available file for this persona, then remove it from the list
+            transcript_file = persona_files[persona].pop(0)
+            # Store relative path from repo root
+            index[langsmith_id] = str(transcript_file.relative_to(SCRIPT_DIR))
 
 
 def load_manifest(run_dir: Path) -> dict:
@@ -440,12 +534,15 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
     }
 
 
-def generate_html(manifest: dict, metrics: dict) -> str:
+def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None = None) -> str:
     """Generate self-contained HTML dashboard."""
     run_id = manifest.get("run_id", "Unknown")
     status = manifest.get("status", "unknown")
     timestamp = manifest.get("timestamp", datetime.now().isoformat())
     conversations = manifest.get("conversations", [])
+
+    if transcript_index is None:
+        transcript_index = {}
 
     # Status badge colors
     status_colors = {
@@ -455,8 +552,9 @@ def generate_html(manifest: dict, metrics: dict) -> str:
     }
     status_color = status_colors.get(status, status_colors["unknown"])
 
-    # Serialize manifest to embed as JSON
+    # Serialize manifest and transcript index to embed as JSON
     manifest_json = json.dumps(manifest, indent=2)
+    transcript_index_json = json.dumps(transcript_index)
 
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -868,6 +966,68 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             color: #6b7280;
             margin-left: 1rem;
         }}
+        /* Deep-dive section styles */
+        .deep-dive-btn {{
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background: white;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin-right: 0.5rem;
+        }}
+        .deep-dive-btn:hover {{
+            border-color: #ef4444;
+            color: #ef4444;
+        }}
+        .deep-dive-btn.active {{
+            background: #fef2f2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }}
+        .count-badge {{
+            display: inline-block;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }}
+        .deep-dive-btn.active .count-badge {{
+            background: #991b1b;
+            color: white;
+        }}
+        .evidence-cell {{
+            max-width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }}
+        .evidence-cell:hover {{
+            white-space: normal;
+            overflow: visible;
+            position: relative;
+            z-index: 10;
+            background: #f9fafb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+        }}
+        .transcript-link {{
+            color: #4338ca;
+            text-decoration: none;
+            font-weight: 500;
+        }}
+        .transcript-link:hover {{
+            text-decoration: underline;
+        }}
+        .no-link {{
+            color: #9ca3af;
+            font-style: italic;
+        }}
     </style>
 </head>
 <body>
@@ -938,6 +1098,30 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             </table>
         </div>
 
+        <div class="section" id="criterion-deep-dive-section">
+            <div class="section-header">Criterion Deep-Dive</div>
+            <div class="filter-bar" style="padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb;">
+                <label>Show failures for:</label>
+                <button class="deep-dive-btn active" data-criterion="B-03">B-03 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="B-04">B-04 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="E-02">E-02 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="F-01">F-01 <span class="count-badge">0</span></button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Persona</th>
+                        <th>Criterion</th>
+                        <th>Evidence</th>
+                        <th>Transcript</th>
+                    </tr>
+                </thead>
+                <tbody id="deep-dive-table">
+                </tbody>
+            </table>
+        </div>
+
         <div class="section">
             <div class="section-header">Per-Conversation Results</div>
             <div class="filter-bar" style="padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb;">
@@ -973,6 +1157,11 @@ def generate_html(manifest: dict, metrics: dict) -> str:
     <script>
         const manifest = {manifest_json};
         const metrics = {json.dumps(metrics)};
+
+        // Transcript index for linking to GitHub
+        const transcriptIndex = {transcript_index_json};
+        const GITHUB_BASE_URL = '{GITHUB_BASE_URL}';
+        const DEEP_DIVE_CRITERIA = ['B-03', 'B-04', 'E-02', 'F-01'];
 
         // Criterion descriptions for tooltips
         const CRITERION_DESCRIPTIONS = {{
@@ -1638,8 +1827,135 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             }}
         }}
 
+        // Deep-dive section for specific criteria failures
+        let activeDeepDiveCriteria = new Set(DEEP_DIVE_CRITERIA);
+
+        function extractCriterionFailures() {{
+            // Extract all failures for deep-dive criteria from conversations
+            const failures = [];
+            const conversations = manifest.conversations || [];
+
+            conversations.forEach(conv => {{
+                const langsmithId = conv.langsmith_id;
+                const shortId = conv.short_id;
+                const persona = extractPersona(conv);
+
+                // Check critical criteria
+                const criticalJson = conv.critical_json || {{}};
+                const criticalCriteria = criticalJson.criteria || {{}};
+                for (const [code, data] of Object.entries(criticalCriteria)) {{
+                    if (DEEP_DIVE_CRITERIA.includes(code) && data.verdict === 'FAIL') {{
+                        failures.push({{
+                            langsmithId,
+                            shortId,
+                            persona,
+                            criterion: code,
+                            evidence: data.evidence || ''
+                        }});
+                    }}
+                }}
+
+                // Check quality results
+                const qualityResults = conv.quality_results || {{}};
+                for (const [judgeName, result] of Object.entries(qualityResults)) {{
+                    const criteria = result.json?.criteria || {{}};
+                    for (const [code, data] of Object.entries(criteria)) {{
+                        if (DEEP_DIVE_CRITERIA.includes(code) && data.verdict === 'FAIL') {{
+                            failures.push({{
+                                langsmithId,
+                                shortId,
+                                persona,
+                                criterion: code,
+                                evidence: data.evidence || ''
+                            }});
+                        }}
+                    }}
+                }}
+            }});
+
+            return failures;
+        }}
+
+        function countFailuresByCriterion(failures) {{
+            const counts = {{}};
+            DEEP_DIVE_CRITERIA.forEach(c => counts[c] = 0);
+            failures.forEach(f => {{
+                if (counts[f.criterion] !== undefined) {{
+                    counts[f.criterion]++;
+                }}
+            }});
+            return counts;
+        }}
+
+        function renderCriterionDeepDive() {{
+            const failures = extractCriterionFailures();
+            const counts = countFailuresByCriterion(failures);
+
+            // Update count badges
+            document.querySelectorAll('.deep-dive-btn').forEach(btn => {{
+                const criterion = btn.dataset.criterion;
+                const badge = btn.querySelector('.count-badge');
+                if (badge && counts[criterion] !== undefined) {{
+                    badge.textContent = counts[criterion];
+                }}
+            }});
+
+            // Setup button click handlers
+            document.querySelectorAll('.deep-dive-btn').forEach(btn => {{
+                btn.onclick = () => {{
+                    btn.classList.toggle('active');
+                    const criterion = btn.dataset.criterion;
+                    if (btn.classList.contains('active')) {{
+                        activeDeepDiveCriteria.add(criterion);
+                    }} else {{
+                        activeDeepDiveCriteria.delete(criterion);
+                    }}
+                    updateDeepDiveTable(failures);
+                }};
+            }});
+
+            // Initial render
+            updateDeepDiveTable(failures);
+        }}
+
+        function updateDeepDiveTable(failures) {{
+            const tbody = document.getElementById('deep-dive-table');
+
+            // Filter to active criteria
+            const filtered = failures.filter(f => activeDeepDiveCriteria.has(f.criterion));
+
+            if (filtered.length === 0) {{
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #6b7280; padding: 2rem;">No failures for selected criteria</td></tr>';
+                return;
+            }}
+
+            let html = '';
+            filtered.forEach(f => {{
+                const tooltip = CRITERION_DESCRIPTIONS[f.criterion] || f.criterion;
+                const transcriptPath = transcriptIndex[f.langsmithId];
+                let transcriptLink = '<span class="no-link">-</span>';
+                if (transcriptPath) {{
+                    const githubUrl = `${{GITHUB_BASE_URL}}/${{transcriptPath}}`;
+                    transcriptLink = `<a href="${{githubUrl}}" target="_blank" class="transcript-link">View</a>`;
+                }}
+
+                html += `
+                    <tr>
+                        <td>${{f.shortId}}</td>
+                        <td><span class="persona-tag">${{f.persona}}</span></td>
+                        <td><span class="criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{f.criterion}}</span></td>
+                        <td class="evidence-cell" title="${{escapeHtml(f.evidence)}}">${{escapeHtml(f.evidence)}}</td>
+                        <td>${{transcriptLink}}</td>
+                    </tr>
+                `;
+            }});
+
+            tbody.innerHTML = html;
+        }}
+
         renderCriteriaTable();
         renderHumanSpotCheck();
+        renderCriterionDeepDive();
         initFilters();
         renderConversations();
         restoreExpandedState();
@@ -1673,9 +1989,12 @@ def generate_dashboard(run_dir: Path, output_path: Path | None = None, aggregate
     human_ratings = load_human_ratings()
     human_metrics = calculate_human_metrics(manifest, human_ratings)
 
+    # Build transcript index for linking to GitHub
+    transcript_index = build_transcript_index(manifest)
+
     metrics = calculate_dashboard_metrics(manifest)
     metrics["human"] = human_metrics
-    html = generate_html(manifest, metrics)
+    html = generate_html(manifest, metrics, transcript_index)
 
     if output_path is None:
         output_path = run_dir / "dashboard.html"

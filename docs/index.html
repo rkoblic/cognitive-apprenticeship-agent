@@ -408,6 +408,68 @@
             color: #6b7280;
             margin-left: 1rem;
         }
+        /* Deep-dive section styles */
+        .deep-dive-btn {
+            padding: 0.375rem 0.75rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background: white;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin-right: 0.5rem;
+        }
+        .deep-dive-btn:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+        .deep-dive-btn.active {
+            background: #fef2f2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }
+        .count-badge {
+            display: inline-block;
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.125rem 0.375rem;
+            border-radius: 9999px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            margin-left: 0.25rem;
+        }
+        .deep-dive-btn.active .count-badge {
+            background: #991b1b;
+            color: white;
+        }
+        .evidence-cell {
+            max-width: 400px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .evidence-cell:hover {
+            white-space: normal;
+            overflow: visible;
+            position: relative;
+            z-index: 10;
+            background: #f9fafb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+        }
+        .transcript-link {
+            color: #4338ca;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .transcript-link:hover {
+            text-decoration: underline;
+        }
+        .no-link {
+            color: #9ca3af;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -417,7 +479,7 @@
             <div class="meta">
                 <span>Run: <strong>aggregated-from-20260121</strong></span>
                 <span class="badge" style="background: #10b981">Complete</span>
-                <span class="timestamp">Updated: 2026-01-24T08:58:48.125414</span>
+                <span class="timestamp">Updated: 2026-01-24T09:33:58.751255</span>
             </div>
         </header>
 
@@ -478,6 +540,30 @@
             </table>
         </div>
 
+        <div class="section" id="criterion-deep-dive-section">
+            <div class="section-header">Criterion Deep-Dive</div>
+            <div class="filter-bar" style="padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb;">
+                <label>Show failures for:</label>
+                <button class="deep-dive-btn active" data-criterion="B-03">B-03 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="B-04">B-04 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="E-02">E-02 <span class="count-badge">0</span></button>
+                <button class="deep-dive-btn active" data-criterion="F-01">F-01 <span class="count-badge">0</span></button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Persona</th>
+                        <th>Criterion</th>
+                        <th>Evidence</th>
+                        <th>Transcript</th>
+                    </tr>
+                </thead>
+                <tbody id="deep-dive-table">
+                </tbody>
+            </table>
+        </div>
+
         <div class="section">
             <div class="section-header">Per-Conversation Results</div>
             <div class="filter-bar" style="padding: 1rem 1.5rem; border-bottom: 1px solid #e5e7eb;">
@@ -506,14 +592,14 @@
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-24T08:58:48.129255
+            Auto-refreshes every 30 seconds when hosted. Last generated: 2026-01-24T09:33:58.762624
         </footer>
     </div>
 
     <script>
         const manifest = {
   "run_id": "aggregated-from-20260121",
-  "timestamp": "2026-01-24T08:58:48.125414",
+  "timestamp": "2026-01-24T09:33:58.751255",
   "status": "complete",
   "conversations": [
     {
@@ -15813,6 +15899,11 @@
 };
         const metrics = {"total": 60, "completed": 60, "critical_passed": 60, "critical_failed": 0, "critical_pass_rate": 100.0, "quality_total_passed": 1080, "quality_total_criteria": 1178, "quality_average": 91.7, "per_criteria": {"session_setup": {"passed": 180, "total": 180, "individual": {"A-01": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "A-02": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "A-03": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 30, "total": 30}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 30, "total": 30}, "elise_SBI": {"passed": 30, "total": 30}, "fatou_SBI": {"passed": 30, "total": 30}}, "percentage": 100.0}, "modeling_quality": {"passed": 200, "total": 240, "individual": {"B-02": {"passed": 58, "failed": 2, "by_persona": {"amara_SBI": {"passed": 9, "failed": 1}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "B-03": {"passed": 41, "failed": 19, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 9, "failed": 1}, "carlos_SBI": {"passed": 6, "failed": 4}, "daniel_SBI": {"passed": 4, "failed": 6}, "elise_SBI": {"passed": 8, "failed": 2}, "fatou_SBI": {"passed": 6, "failed": 4}}}, "B-04": {"passed": 41, "failed": 19, "by_persona": {"amara_SBI": {"passed": 6, "failed": 4}, "bailey_SBI": {"passed": 8, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 8, "failed": 2}, "elise_SBI": {"passed": 8, "failed": 2}, "fatou_SBI": {"passed": 7, "failed": 3}}}, "B-05": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 33, "total": 40}, "bailey_SBI": {"passed": 37, "total": 40}, "carlos_SBI": {"passed": 29, "total": 40}, "daniel_SBI": {"passed": 32, "total": 40}, "elise_SBI": {"passed": 36, "total": 40}, "fatou_SBI": {"passed": 33, "total": 40}}, "percentage": 83.3}, "coaching_quality": {"passed": 296, "total": 300, "individual": {"C-02": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "C-04": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "C-05": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "C-06": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "C-07": {"passed": 56, "failed": 4, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 9, "failed": 1}, "carlos_SBI": {"passed": 9, "failed": 1}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 8, "failed": 2}}}}, "by_persona": {"amara_SBI": {"passed": 50, "total": 50}, "bailey_SBI": {"passed": 49, "total": 50}, "carlos_SBI": {"passed": 49, "total": 50}, "daniel_SBI": {"passed": 50, "total": 50}, "elise_SBI": {"passed": 50, "total": 50}, "fatou_SBI": {"passed": 48, "total": 50}}, "percentage": 98.7}, "sbi_content": {"passed": 178, "total": 180, "individual": {"D-04": {"passed": 58, "failed": 2, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 8, "failed": 2}}}, "D-05": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}, "D-06": {"passed": 60, "failed": 0, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 10, "failed": 0}}}}, "by_persona": {"amara_SBI": {"passed": 30, "total": 30}, "bailey_SBI": {"passed": 30, "total": 30}, "carlos_SBI": {"passed": 30, "total": 30}, "daniel_SBI": {"passed": 30, "total": 30}, "elise_SBI": {"passed": 30, "total": 30}, "fatou_SBI": {"passed": 28, "total": 30}}, "percentage": 98.9}, "adaptive_pacing": {"passed": 97, "total": 120, "individual": {"E-01": {"passed": 56, "failed": 4, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 8, "failed": 2}, "daniel_SBI": {"passed": 9, "failed": 1}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 9, "failed": 1}}}, "E-02": {"passed": 41, "failed": 19, "by_persona": {"amara_SBI": {"passed": 8, "failed": 2}, "bailey_SBI": {"passed": 7, "failed": 3}, "carlos_SBI": {"passed": 5, "failed": 5}, "daniel_SBI": {"passed": 7, "failed": 3}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 4, "failed": 6}}}}, "by_persona": {"amara_SBI": {"passed": 18, "total": 20}, "bailey_SBI": {"passed": 17, "total": 20}, "carlos_SBI": {"passed": 13, "total": 20}, "daniel_SBI": {"passed": 16, "total": 20}, "elise_SBI": {"passed": 20, "total": 20}, "fatou_SBI": {"passed": 13, "total": 20}}, "percentage": 80.8}, "conversational_quality": {"passed": 129, "total": 158, "individual": {"F-01": {"passed": 37, "failed": 23, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 8, "failed": 2}, "carlos_SBI": {"passed": 4, "failed": 6}, "daniel_SBI": {"passed": 7, "failed": 3}, "elise_SBI": {"passed": 5, "failed": 5}, "fatou_SBI": {"passed": 3, "failed": 7}}}, "F-02": {"passed": 59, "failed": 1, "by_persona": {"amara_SBI": {"passed": 10, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 10, "failed": 0}, "daniel_SBI": {"passed": 10, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 9, "failed": 1}}}, "F-03": {"passed": 33, "failed": 5, "by_persona": {"amara_SBI": {"passed": 0, "failed": 0}, "bailey_SBI": {"passed": 10, "failed": 0}, "carlos_SBI": {"passed": 4, "failed": 4}, "daniel_SBI": {"passed": 0, "failed": 0}, "elise_SBI": {"passed": 10, "failed": 0}, "fatou_SBI": {"passed": 9, "failed": 1}}}}, "by_persona": {"amara_SBI": {"passed": 20, "total": 20}, "bailey_SBI": {"passed": 28, "total": 30}, "carlos_SBI": {"passed": 18, "total": 28}, "daniel_SBI": {"passed": 17, "total": 20}, "elise_SBI": {"passed": 25, "total": 30}, "fatou_SBI": {"passed": 21, "total": 30}}, "percentage": 81.6}}, "personas_seen": ["amara_SBI", "bailey_SBI", "carlos_SBI", "daniel_SBI", "elise_SBI", "fatou_SBI"], "persona_letters": {"amara_SBI": "A", "bailey_SBI": "B", "carlos_SBI": "C", "daniel_SBI": "D", "elise_SBI": "E", "fatou_SBI": "F"}, "human": {"has_data": true, "total_conversations_rated": 4, "total_criteria_compared": 100, "total_agree": 87, "overall_agreement_pct": 87.0, "by_conversation": [{"timestamp": "20260121_100749", "persona": "amara_SBI", "rater": "Janine", "langsmith_id": "e2206591-e8e0-4eac-a481-e66f8b60feba", "human_summary": {"total_criteria": 27, "passed": 22, "failed": 2, "na": 3}, "agreement": {"agree": 22, "disagree": 2, "total": 24, "percentage": 91.7, "disagreements": [{"code": "B-02", "llm": "FAIL", "human": "PASS", "human_evidence": "Mentor sets this up at the start, rather than choice by choice.", "llm_evidence": "Mentor provides the SBI example and labels what they're doing ('I'll use a concrete moment, name only what a camera could capture, and own the impact') but doesn't explain WHY they made specific choices like why 'started talking while I was mid-sentence' is better than alternatives."}, {"code": "E-01", "llm": "PASS", "human": "FAIL", "human_evidence": "There is a check that is embeded into the transition to individual practice", "llm_evidence": "Mentor checks readiness multiple times: 'Ready to dive in?', 'Ready for a full attempt?', 'Can you draft that line now?', 'Can you write that now?', 'Anything else you want to tune before you take it into your 1:1?'"}]}}, {"timestamp": "20260121_132804", "persona": "carlos_SBI", "rater": "Janine", "langsmith_id": "ae169560-c43f-43a0-a10c-a7ea23dd24fc", "human_summary": {"total_criteria": 27, "passed": 25, "failed": 1, "na": 1}, "agreement": {"agree": 20, "disagree": 6, "total": 26, "percentage": 76.9, "disagreements": [{"code": "B-03", "llm": "FAIL", "human": "PASS", "human_evidence": "avoiding judgments like \u201cunprofessional.\u201d", "llm_evidence": "The mentor presents the model as a finished product without showing deliberation between alternatives. No moments like 'I could say X but instead chose Y because...' are demonstrated during the modeling phase."}, {"code": "B-04", "llm": "FAIL", "human": "PASS", "human_evidence": "kept the behavior camera-visible (\u201ctalking over me twice\u201d)", "llm_evidence": "The mentor does not model checking their own work against criteria during the demonstration. While they prompt the learner to self-check ('Quick self-check: looking at your draft...'), they don't demonstrate self-verification on their own example."}, {"code": "E-01", "llm": "PASS", "human": "FAIL", "human_evidence": "Although this happens at the start, it is buried in other transitions.", "llm_evidence": "Mentor checks readiness multiple times: 'Ready to try your own draft?' after modeling, 'Before we move on, quick step back: what single principle from this pass will you carry into future feedback' before advancing to round two, and 'Good to wrap here?' at the end."}, {"code": "E-02", "llm": "FAIL", "human": "PASS", "human_evidence": "In the second attempt, the mentor is initially more direct with Carlos on feedback as he had worked through these issues before: Direct call: judgment leaked. \u201cUnprofessional\u201d and \u201csteamrolled\u201d aren\u2019t camera-visible\u2014drop them and stick to what was said/done (promised GA by Q2, cut in while you were answering). Keep the same moment. Give me a revised two-sentence draft with behavior phrased as what I could\u2019ve seen or heard. Your turn.", "llm_evidence": "Mentor provides the same level of detailed scaffolding throughout both rounds. In round two, despite learner demonstrating competence in round one (correctly identifying 'dismissive' and 'dominating the conversation' as non-camera-visible), mentor still gives direct corrections like 'Direct call: judgment leaked' and continues to identify specific issues rather than asking learner to self-check first."}, {"code": "F-01", "llm": "FAIL", "human": "PASS", "human_evidence": "", "llm_evidence": "Nearly every mentor turn follows the same pattern: brief evaluation of draft \u2192 identify one specific issue \u2192 direct instruction to fix it \u2192 'Your turn.' This formula repeats throughout with minimal variation. Even acknowledgments follow a pattern ('That lands\u2014meets the SBI bar')."}, {"code": "F-03", "llm": "FAIL", "human": "PASS", "human_evidence": "", "llm_evidence": "Learner repeatedly signals impatience/frustration ('Let's keep it quick,' 'Can we move on?' appears 10+ times, 'Looks fine to me. Nothing major.'). Mentor occasionally acknowledges pace preference ('Sounds like you want to keep this moving,' 'I hear you want to keep this tight') but continues with the same methodical approach without meaningfully adjusting or exploring the frustration."}]}}, {"timestamp": "20260122_135638", "persona": "fatou_SBI", "rater": "Janine", "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae", "human_summary": {"total_criteria": 27, "passed": 24, "failed": 3, "na": 0}, "agreement": {"agree": 23, "disagree": 2, "total": 25, "percentage": 92.0, "disagreements": [{"code": "C-06", "llm": "PASS", "human": "FAIL", "human_evidence": "", "llm_evidence": "Mentor asked learner to explain reasoning: 'If you were doing a quick self-check on your own draft, what simple tests would you use to confirm the behavior is camera-testable and the impact is owned by you?' Also: 'Where do you think I'll push back against the criteria right now?' and 'Before I weigh in, where do you think I'd still push\u2014if anywhere?'"}, {"code": "E-01", "llm": "PASS", "human": "FAIL", "human_evidence": "", "llm_evidence": "Mentor checks readiness multiple times: 'Ready to start?', 'What did you notice in that example before we try yours?', 'Want me to give you a sample line to rate with those before we draft yours?', 'Before I weigh in, where do you think I'd still push\u2014if anywhere?'"}]}}, {"timestamp": "20260122_195437", "persona": "daniel_SBI", "rater": "Janine", "langsmith_id": "5a1e4f67-bc3f-440f-b638-6504ea20bcd4", "human_summary": {"total_criteria": 27, "passed": 23, "failed": 2, "na": 2}, "agreement": {"agree": 22, "disagree": 3, "total": 25, "percentage": 88.0, "disagreements": [{"code": "D-02", "llm": "PASS", "human": "FAIL", "human_evidence": "The mentor eventually agrees to Daniel's logic that includeing the interpretation is OKAY in certian situations. I don't disagree 100% but don't think the criteria passes as written", "llm_evidence": "Learner used 'careless and dismissive' and 'steamrolled the discussion'. Mentor caught both: asked learner to 'replace \"careless and dismissive\" with the specific actions' and later 'Cut \"steamrolled the discussion\" and keep just the concrete actions'"}, {"code": "E-01", "llm": "PASS", "human": "FAIL", "human_evidence": "There isn't a check, just a transition", "llm_evidence": "Mentor asks 'Ready to go?' at the start, and later checks 'What are you noticing in that wording\u2014anything you'd tighten or question?' before advancing. Also asks 'Before I weigh in, if I flagged one part as judgment instead of camera-visible behavior, which phrase would you point to?' and 'Before I give feedback, where do you think I'll push back on that draft\u2014and why?' to check learner readiness before providing guidance."}, {"code": "F-01", "llm": "FAIL", "human": "PASS", "human_evidence": "", "llm_evidence": "Mentor follows a predictable pattern throughout: acknowledge learner input \u2192 ask a targeted question or give a directive \u2192 request revision. Nearly every turn follows this formula (e.g., 'That breakdown is camera-visible\u2014nice. Given that, which fits...' / 'Great\u2014let's get you on the field...' / 'Before I weigh in...' / 'Run the self-check...'). Lacks variety in rhythm\u2014no short reactions, no pauses, consistently medium-length instructional turns."}]}}], "raters": ["Janine"]}};
 
+        // Transcript index for linking to GitHub
+        const transcriptIndex = {"2d3b6e6b-52a0-41ce-adb8-c8d3bd5752cb": "conversations/20260121_125008/20260121_130138_carlos_SBI.md", "6315179c-2dca-467c-9322-05f8fc10a057": "conversations/20260121_125008/20260121_131411_carlos_SBI.md", "ae169560-c43f-43a0-a10c-a7ea23dd24fc": "conversations/20260121_125008/20260121_132804_carlos_SBI.md", "4b6d5316-38c2-425f-b37e-c014462e2b86": "conversations/20260121_125008/20260121_134306_carlos_SBI.md", "9edefb96-306b-44d4-b25a-c3ae44f2f9ed": "conversations/20260121_125008/20260121_135600_carlos_SBI.md", "d833c8de-bf20-4d9b-8963-f4cc93ab488e": "conversations/20260121_160605/20260121_162124_carlos_SBI.md", "53cb5e2c-9f5e-4b4d-b2de-52ac8438c267": "conversations/20260121_163351/20260121_164314_carlos_SBI.md", "8f1a91bf-e944-4459-bafe-c7e233f82f3e": "conversations/20260121_175700/20260121_181642_bailey_SBI.md", "2762d0d6-8552-4fb8-b761-9b33be16644b": "conversations/20260121_175700/20260121_183148_bailey_SBI.md", "174a6847-1802-410e-9a95-23ca12e9e0b1": "conversations/20260121_183547/20260121_185624_bailey_SBI.md", "067b83df-d910-4dee-b890-c301e5864205": "conversations/20260122_073735/20260122_075615_bailey_SBI.md", "2bd4ad0d-65b5-44a6-8112-24aa3858cb20": "conversations/20260122_092608/20260122_094436_bailey_SBI.md", "55c4baf7-c281-42fa-91f9-5760d9e4e8ca": "conversations/20260122_092608/20260122_100450_bailey_SBI.md", "b29a875e-502a-44cd-9b8d-c7800af0b5d3": "conversations/20260122_113157/20260122_115035_elise_SBI.md", "479990dc-7ffb-43b6-8f6f-92a7638ca16a": "conversations/20260122_113157/20260122_121103_elise_SBI.md", "412fe355-246f-4427-b9c8-8c71e746bcfa": "conversations/20260122_123202/20260122_124632_daniel_SBI.md", "1b8b4aa5-f4cb-44cb-928a-a77ff596f245": "conversations/20260122_123202/20260122_130630_daniel_SBI.md", "7b711814-3777-44a4-81f2-94aa0a1a1cad": "conversations/20260122_133312/20260122_134523_fatou_SBI.md", "398fe72e-f2b6-4578-880e-fd279b0320ca": "conversations/20260122_143200/20260122_145039_daniel_SBI.md", "411ce1da-c053-4699-9283-d2e45879f31c": "conversations/20260122_143200/20260122_150417_daniel_SBI.md", "76f87aa4-8f11-4f72-8a69-ac2b00a09c14": "conversations/20260122_162017/20260122_163954_elise_SBI.md", "ac333c5c-042d-4ffa-90c3-cd74c7d089dd": "conversations/20260122_172339/20260122_173504_fatou_SBI.md", "8a282f8b-686f-4793-b3a2-17c47c4a9409": "conversations/20260122_172339/20260122_174603_fatou_SBI.md", "2e4d2814-92a1-42c2-9962-cfb4a3b27246": "conversations/20260122_172339/20260122_175601_fatou_SBI.md", "85580d40-46ed-4f5c-a0c0-71aeac0ef133": "conversations/20260122_181706/20260122_182929_daniel_SBI.md", "79d77a9e-8e67-4333-aaad-2be466ec8160": "conversations/20260122_181706/20260122_184220_daniel_SBI.md", "73b11ec5-72e0-499f-8997-a0de2b8ea591": "conversations/20260122_192256/20260122_193702_daniel_SBI.md", "5a1e4f67-bc3f-440f-b638-6504ea20bcd4": "conversations/20260122_192256/20260122_195437_daniel_SBI.md", "2f49fca6-156f-4ad6-adf7-8c33c451d1d9": "conversations/20260122_192256/20260122_201006_daniel_SBI.md", "5a674b42-7869-4c8d-a8a2-d9ffd30dee97": "conversations/20260122_192256/20260122_202858_daniel_SBI.md", "9e7e1c44-e2f5-4429-a1ab-65ba326e5dc0": "conversations/20260123_091452/20260123_093347_elise_SBI.md", "e32abe92-d44b-4488-8c8a-4fffd6bb84e7": "conversations/20260123_115444/20260123_121552_elise_SBI.md"};
+        const GITHUB_BASE_URL = 'https://github.com/rkoblic/cognitive-apprenticeship-agent/blob/main';
+        const DEEP_DIVE_CRITERIA = ['B-03', 'B-04', 'E-02', 'F-01'];
+
         // Criterion descriptions for tooltips
         const CRITERION_DESCRIPTIONS = {
             "A-01": "Goal Clarity: Mentor confirms the session goal is drafting SBI feedback and names what success looks like.",
@@ -16477,8 +16568,135 @@
             }
         }
 
+        // Deep-dive section for specific criteria failures
+        let activeDeepDiveCriteria = new Set(DEEP_DIVE_CRITERIA);
+
+        function extractCriterionFailures() {
+            // Extract all failures for deep-dive criteria from conversations
+            const failures = [];
+            const conversations = manifest.conversations || [];
+
+            conversations.forEach(conv => {
+                const langsmithId = conv.langsmith_id;
+                const shortId = conv.short_id;
+                const persona = extractPersona(conv);
+
+                // Check critical criteria
+                const criticalJson = conv.critical_json || {};
+                const criticalCriteria = criticalJson.criteria || {};
+                for (const [code, data] of Object.entries(criticalCriteria)) {
+                    if (DEEP_DIVE_CRITERIA.includes(code) && data.verdict === 'FAIL') {
+                        failures.push({
+                            langsmithId,
+                            shortId,
+                            persona,
+                            criterion: code,
+                            evidence: data.evidence || ''
+                        });
+                    }
+                }
+
+                // Check quality results
+                const qualityResults = conv.quality_results || {};
+                for (const [judgeName, result] of Object.entries(qualityResults)) {
+                    const criteria = result.json?.criteria || {};
+                    for (const [code, data] of Object.entries(criteria)) {
+                        if (DEEP_DIVE_CRITERIA.includes(code) && data.verdict === 'FAIL') {
+                            failures.push({
+                                langsmithId,
+                                shortId,
+                                persona,
+                                criterion: code,
+                                evidence: data.evidence || ''
+                            });
+                        }
+                    }
+                }
+            });
+
+            return failures;
+        }
+
+        function countFailuresByCriterion(failures) {
+            const counts = {};
+            DEEP_DIVE_CRITERIA.forEach(c => counts[c] = 0);
+            failures.forEach(f => {
+                if (counts[f.criterion] !== undefined) {
+                    counts[f.criterion]++;
+                }
+            });
+            return counts;
+        }
+
+        function renderCriterionDeepDive() {
+            const failures = extractCriterionFailures();
+            const counts = countFailuresByCriterion(failures);
+
+            // Update count badges
+            document.querySelectorAll('.deep-dive-btn').forEach(btn => {
+                const criterion = btn.dataset.criterion;
+                const badge = btn.querySelector('.count-badge');
+                if (badge && counts[criterion] !== undefined) {
+                    badge.textContent = counts[criterion];
+                }
+            });
+
+            // Setup button click handlers
+            document.querySelectorAll('.deep-dive-btn').forEach(btn => {
+                btn.onclick = () => {
+                    btn.classList.toggle('active');
+                    const criterion = btn.dataset.criterion;
+                    if (btn.classList.contains('active')) {
+                        activeDeepDiveCriteria.add(criterion);
+                    } else {
+                        activeDeepDiveCriteria.delete(criterion);
+                    }
+                    updateDeepDiveTable(failures);
+                };
+            });
+
+            // Initial render
+            updateDeepDiveTable(failures);
+        }
+
+        function updateDeepDiveTable(failures) {
+            const tbody = document.getElementById('deep-dive-table');
+
+            // Filter to active criteria
+            const filtered = failures.filter(f => activeDeepDiveCriteria.has(f.criterion));
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5" style="text-align: center; color: #6b7280; padding: 2rem;">No failures for selected criteria</td></tr>';
+                return;
+            }
+
+            let html = '';
+            filtered.forEach(f => {
+                const tooltip = CRITERION_DESCRIPTIONS[f.criterion] || f.criterion;
+                const transcriptPath = transcriptIndex[f.langsmithId];
+                let transcriptLink = '<span class="no-link">-</span>';
+                if (transcriptPath) {
+                    const githubUrl = `${GITHUB_BASE_URL}/${transcriptPath}`;
+                    transcriptLink = `<a href="${githubUrl}" target="_blank" class="transcript-link">View</a>`;
+                }
+
+                html += `
+                    <tr>
+                        <td>${f.shortId}</td>
+                        <td><span class="persona-tag">${f.persona}</span></td>
+                        <td><span class="criterion-code-tooltip" data-tooltip="${escapeHtml(tooltip)}">${f.criterion}</span></td>
+                        <td class="evidence-cell" title="${escapeHtml(f.evidence)}">${escapeHtml(f.evidence)}</td>
+                        <td>${transcriptLink}</td>
+                    </tr>
+                `;
+            });
+
+            tbody.innerHTML = html;
+        }
+
         renderCriteriaTable();
         renderHumanSpotCheck();
+        renderCriterionDeepDive();
         initFilters();
         renderConversations();
         restoreExpandedState();

@@ -865,7 +865,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 // Main row
                 const row = document.createElement('tr');
                 row.className = 'criteria-expand-row';
-                row.onclick = () => toggleCriteriaDetails(index);
+                row.onclick = (e) => toggleCriteriaDetails(index, e);
                 let rowHtml = `
                     <td>${{judgeId.replace(/_/g, ' ').replace(/\\b\\w/g, l => l.toUpperCase())}}</td>
                     <td>${{data.passed}}/${{data.total}}</td>
@@ -919,7 +919,8 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             }});
         }}
 
-        function toggleCriteriaDetails(index) {{
+        function toggleCriteriaDetails(index, event) {{
+            if (event) event.stopPropagation();
             const row = document.querySelectorAll('.criteria-expand-row')[index];
             row.classList.toggle('open');
             // Toggle all sub-rows for this index
@@ -1000,12 +1001,26 @@ def generate_html(manifest: dict, metrics: dict) -> str:
         const STATE_KEY = 'mentorDashboardState';
 
         function saveState() {{
+            // Get indices of collapsed groups by checking ALL headers
+            const allGroupHeaders = document.querySelectorAll('.persona-group-header');
+            const collapsedGroupIndices = [];
+            allGroupHeaders.forEach((el, idx) => {{
+                if (el.classList.contains('collapsed')) collapsedGroupIndices.push(idx);
+            }});
+
+            // Get indices of expanded criteria by checking ALL criteria rows
+            const allCriteriaRows = document.querySelectorAll('.criteria-expand-row');
+            const expandedCriteriaIndices = [];
+            allCriteriaRows.forEach((el, idx) => {{
+                if (el.classList.contains('open')) expandedCriteriaIndices.push(idx);
+            }});
+
             const state = {{
                 personaFilter: currentPersonaFilter,
                 groupByPersona: groupByPersona,
                 expandedDetails: Array.from(document.querySelectorAll('.details.open')).map(el => el.id),
-                collapsedGroups: Array.from(document.querySelectorAll('.persona-group-header.collapsed')).map((el, idx) => idx),
-                expandedCriteria: Array.from(document.querySelectorAll('.criteria-expand-row.open')).map((el, idx) => idx)
+                collapsedGroups: collapsedGroupIndices,
+                expandedCriteria: expandedCriteriaIndices
             }};
             try {{
                 localStorage.setItem(STATE_KEY, JSON.stringify(state));
@@ -1102,6 +1117,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 btn.classList.toggle('active', btn.dataset.persona === persona);
             }});
             renderConversations();
+            restoreExpandedState();
             saveState();
         }}
 
@@ -1139,7 +1155,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
 
                     html += `
                         <div class="persona-group">
-                            <div class="persona-group-header" onclick="togglePersonaGroup(this)">
+                            <div class="persona-group-header" onclick="togglePersonaGroup(this, event)">
                                 <span class="toggle-icon">▼</span>
                                 <h3 style="margin-left: 0.5rem;"><span class="persona-tag">${{letter}}</span> ${{persona}}</h3>
                                 <span class="persona-stats">${{convs.length}} conversation${{convs.length !== 1 ? 's' : ''}} · Critical: ${{critPassed}}/${{critTotal}}</span>
@@ -1228,7 +1244,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             const personaCol = showPersona ? `<td><span class="persona-tag">${{persona}}</span></td>` : '';
 
             let html = `
-                <tr class="expandable" onclick="toggleDetails('${{index}}')">
+                <tr class="expandable" onclick="toggleDetails('${{index}}', event)">
                     <td>${{conv.short_id}}</td>
                     ${{personaCol}}
                     <td><span class="verdict ${{criticalVerdict.toLowerCase()}}">${{criticalVerdict}}</span></td>
@@ -1283,13 +1299,15 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             return html;
         }}
 
-        function togglePersonaGroup(header) {{
+        function togglePersonaGroup(header, event) {{
+            if (event) event.stopPropagation();
             header.classList.toggle('collapsed');
             header.nextElementSibling.classList.toggle('collapsed');
             saveState();
         }}
 
-        function toggleDetails(index) {{
+        function toggleDetails(index, event) {{
+            if (event) event.stopPropagation();
             const details = document.getElementById(`details-${{index}}`);
             if (details) {{
                 details.classList.toggle('open');

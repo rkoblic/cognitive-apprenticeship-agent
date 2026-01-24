@@ -186,7 +186,7 @@ Using LLMs to evaluate LLM tutoring creates structural blind spots:
 
 - **~60 conversations**: Sufficient to identify strong patterns but limited for detecting smaller effects or rare failure modes.
 
-- **Unbalanced personas**: Not all personas have equal representation across evaluation runs, limiting some persona-specific comparisons.
+- **Slightly unbalanced personas**: amara_SBI has 7 conversations vs 10 for other personas, and 3 conversations have missing persona metadata.
 
 - **No statistical significance testing**: Reported differences (e.g., 60% vs 20% fail rates) are descriptive, not inferentially tested.
 

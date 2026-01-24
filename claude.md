@@ -45,7 +45,11 @@ generate_report.py          # Generate HTML/CSV reports
 generate_dashboard.py       # Generate live HTML dashboard
 deploy_dashboard.py         # Deploy dashboard to GitHub Pages
 run_batch_eval.py           # Full pipeline script (recommended)
+convert_spot_checks.py      # Convert human rating CSVs to JSON
 eval_results/               # Judge evaluation outputs (local)
+  runs/                     # LLM judge results by timestamp
+  human_ratings/            # Human spot-check ratings (JSON)
+  spot_check/               # Source CSV files from human raters
 docs/                       # GitHub Pages dashboard (index.html)
 conversations/              # Saved conversation transcripts
 ```
@@ -109,6 +113,30 @@ The dashboard shows per-persona pass rates and is automatically regenerated afte
 
 See `docs/llm-as-judge-notes.md` for full documentation.
 
+### Human Spot-Check Ratings
+
+To validate LLM judge accuracy, human raters can score conversations and compare against LLM results.
+
+**Adding new spot-check ratings:**
+
+1. **Score conversations** using the CSV template with columns: `Tag, Name, Criterion, Tier, CA Method, Pass/Fail, Evidence/Notes`
+2. **Save CSV** to `eval_results/spot_check/` with naming format: `{Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv`
+3. **Look up LangSmith ID** for the conversation in the LangSmith UI
+4. **Add mapping** to `eval_results/human_ratings/id_mapping.json`:
+   ```json
+   {
+     "20260121_100749_amara_SBI": "e2206591-e8e0-4eac-a481-e66f8b60feba"
+   }
+   ```
+5. **Convert and deploy**:
+   ```bash
+   python convert_spot_checks.py
+   python generate_dashboard.py --output docs/index.html
+   git add -A && git commit -m "Add spot-check ratings" && git push
+   ```
+
+The dashboard will show overall agreement percentage and highlight disagreements with side-by-side LLM vs human rationale.
+
 ## Documentation Conventions
 
 When making changes to personas or evaluation infrastructure:
@@ -144,6 +172,7 @@ Learner personas use a two-part output format:
 - **Persona filtering**: Filter conversations by persona using the letter buttons (A-F), or click "All" to show all
 - **Group by persona**: Check the "Group by persona" box to collapse conversations into expandable persona sections with summary stats
 - **Color-coded pass rates**: Pass rate percentages are colored green (≥80%), orange (41-79%), or red (≤40%) for quick scanning
+- **Human Spot-Check section**: Shows agreement rate between human raters and LLM judges, with expandable disagreement details showing side-by-side rationale
 
 ### Aggregation
 - Dashboard aggregates all runs from **2026-01-21 onwards** (by date prefix >= 20260121)

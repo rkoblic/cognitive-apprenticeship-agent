@@ -110,6 +110,49 @@ This analysis suggests the fix needs to address:
 
 ---
 
+## Passing Example: What Faded Support Looks Like
+
+### Example: bailey_SBI (8f1a91bf) - PASSED E-02
+
+This conversation with the same persona (Bailey) demonstrates what successful support fading looks like.
+
+**First Practice Phase (lines 44-180)**: Heavy scaffolding, as expected:
+- Mentor provides detailed guidance on each component
+- Multiple iterations with specific corrections
+- Explains *why* each change matters ("hedges make your ownership fuzzy")
+- Walks through the camera test step by step
+
+**Transition Point (line 182-184)**:
+> "That lands—let's take it as your first success and move to a higher‑stakes variation."
+
+The mentor explicitly marks success and signals a phase shift.
+
+**Second Practice Phase (lines 184-257)**: Noticeably different approach:
+
+| Turn | What Mentor Says | What's Different |
+|------|------------------|------------------|
+| 198-200 | "The moment isn't anchored... Lock it to a single, findable moment with no hedging and reshare your full pass" | Names the problem, asks for revision. No template, no walkthrough. |
+| 212-214 | "The gap is in the behavior... cut that clause and keep only overlapping speech, the exact quote, and you going quiet" | Brief diagnosis. One concrete suggestion. No framework re-explanation. |
+| 226-228 | "The gap is the impact: it's hedged... Own one feeling and one concrete consequence in one sentence, no hedges." | Just names what's wrong. Trusts Bailey to apply the fix. |
+| 240-242 | "Hedges like 'a little,' 'I think,' and 'maybe' blunt your ownership; swap them for owned language" | Minimal guidance. Points to the specific words. |
+| 254-257 | "This meets the bar... what's the one principle you'll carry forward?" | Confirms success, moves to reflection. |
+
+**Key Contrast with Failing Example**:
+
+In the **failing** conversation (20260122_075615), after Bailey's messy second attempt, the mentor said:
+> "What lands... What misses: the anchor is hedged... the behavior line leans on labels/guesses... the impact drifts into judgment/hedging. **Revise with one locked anchor (no "I think/maybe"), camera-testable behavior (overlap, exact words, counts/timing), and fully owned impact**"
+
+That's scaffolding: telling Bailey *exactly how* to fix each component with a template.
+
+In the **passing** conversation, when Bailey makes similar errors, the mentor says:
+> "The gap is in the behavior... cut that clause"
+
+That's feedback: naming what's wrong and trusting Bailey to apply what they learned.
+
+**The difference in a sentence**: Scaffolding tells them *how* to fix it. Feedback tells them *that* it needs fixing.
+
+---
+
 ## Root Cause Analysis
 
 ### The prompt has correct guidance

@@ -25,8 +25,7 @@ From `prompts/judges/adaptive_pacing.md`:
 | carlos_SBI | 5 |
 | bailey_SBI | 3 |
 | daniel_SBI | 3 |
-| amara_SBI | 1 |
-| Unknown | 1 |
+| amara_SBI | 2 |
 
 ## Example Analysis
 
@@ -160,7 +159,7 @@ Add an explicit boundary that might carry more weight:
 | ID | Persona | Evidence Summary |
 |----|---------|------------------|
 | 79a3706b | amara_SBI | Consistent scaffolding throughout, detailed guidance after competence shown |
-| 6c625dfd | Unknown | Same scaffolding level maintained |
+| 6c625dfd | amara_SBI | Same scaffolding level maintained |
 | ae169560 | carlos_SBI | Same detailed scaffolding in round two despite competence in round one |
 | 4b6d5316 | carlos_SBI | Corrects each component individually with same detail level |
 | 1ec1c450 | carlos_SBI | Same guidance after learner demonstrates competence on first attempt |

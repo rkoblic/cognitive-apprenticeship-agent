@@ -1615,6 +1615,7 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             const details = document.getElementById(`details-${{id}}`);
             if (details) {{
                 details.classList.toggle('open');
+                saveState();
             }}
         }}
 

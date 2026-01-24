@@ -16,16 +16,19 @@ From `prompts/judges/adaptive_pacing.md`:
 
 ## Current State
 
-**Pass rate**: 40/59 (67.8%)
+**Overall pass rate**: 40/59 (67.8%)
 
-**Failures by persona**:
-| Persona | Failures |
-|---------|----------|
-| fatou_SBI | 6 |
-| carlos_SBI | 5 |
-| bailey_SBI | 3 |
-| daniel_SBI | 3 |
-| amara_SBI | 2 |
+**By persona** (sorted by fail rate):
+| Persona | Conversations | E-02 Pass | E-02 Fail | Fail Rate |
+|---------|---------------|-----------|-----------|-----------|
+| fatou_SBI | 10 | 4 | 6 | **60.0%** |
+| carlos_SBI | 10 | 5 | 5 | **50.0%** |
+| bailey_SBI | 10 | 7 | 3 | 30.0% |
+| daniel_SBI | 10 | 7 | 3 | 30.0% |
+| amara_SBI | 7 | 5 | 2 | 28.6% |
+| elise_SBI | 10 | 9 | 0 | **0.0%** |
+
+**Key observation**: Fatou and Carlos fail at 2-3x the rate of other personas. Elise has zero failures.
 
 ## Example Analysis
 
@@ -63,6 +66,47 @@ Instead of direct feedback only, the mentor provides detailed scaffolding:
 
 The mentor is still telling Bailey *exactly how* to fix each component, rather than trusting Bailey to apply the criteria they've already demonstrated understanding of.
 
+### Passing Example: bailey_SBI (8f1a91bf) - PASSED E-02
+
+This conversation with the same persona (Bailey) demonstrates what successful support fading looks like.
+
+**First Practice Phase (lines 44-180)**: Heavy scaffolding, as expected:
+- Mentor provides detailed guidance on each component
+- Multiple iterations with specific corrections
+- Explains *why* each change matters ("hedges make your ownership fuzzy")
+- Walks through the camera test step by step
+
+**Transition Point (line 182-184)**:
+> "That lands—let's take it as your first success and move to a higher‑stakes variation."
+
+The mentor explicitly marks success and signals a phase shift.
+
+**Second Practice Phase (lines 184-257)**: Noticeably different approach:
+
+| Turn | What Mentor Says | What's Different |
+|------|------------------|------------------|
+| 198-200 | "The moment isn't anchored... Lock it to a single, findable moment with no hedging and reshare your full pass" | Names the problem, asks for revision. No template, no walkthrough. |
+| 212-214 | "The gap is in the behavior... cut that clause and keep only overlapping speech, the exact quote, and you going quiet" | Brief diagnosis. One concrete suggestion. No framework re-explanation. |
+| 226-228 | "The gap is the impact: it's hedged... Own one feeling and one concrete consequence in one sentence, no hedges." | Just names what's wrong. Trusts Bailey to apply the fix. |
+| 240-242 | "Hedges like 'a little,' 'I think,' and 'maybe' blunt your ownership; swap them for owned language" | Minimal guidance. Points to the specific words. |
+| 254-257 | "This meets the bar... what's the one principle you'll carry forward?" | Confirms success, moves to reflection. |
+
+### Key Contrast
+
+In the **failing** conversation, after Bailey's messy second attempt, the mentor said:
+> "What lands... What misses: the anchor is hedged... the behavior line leans on labels/guesses... the impact drifts into judgment/hedging. **Revise with one locked anchor (no "I think/maybe"), camera-testable behavior (overlap, exact words, counts/timing), and fully owned impact**"
+
+That's scaffolding: telling Bailey *exactly how* to fix each component with a template.
+
+In the **passing** conversation, when Bailey makes similar errors, the mentor says:
+> "The gap is in the behavior... cut that clause"
+
+That's feedback: naming what's wrong and trusting Bailey to apply what they learned.
+
+**The difference in a sentence**: Scaffolding tells them *how* to fix it. Feedback tells them *that* it needs fixing.
+
+---
+
 ## Persona-Specific Analysis: Why Carlos and Fatou Fail More
 
 Carlos (5 failures) and Fatou (6 failures) account for **58% of all E-02 failures** despite being just 2 of 6 personas. This isn't random—their characteristics systematically trigger the mentor's scaffolding instincts.
@@ -93,13 +137,15 @@ When Fatou finally produces a successful attempt (often after her "spark" is act
 
 **The trap**: The mentor's "respond to affect" guidance conflicts with the "fade support" guidance. With Fatou, supporting her emotional state wins over testing her independence.
 
-### Amara: Why She Passes More Often
-- **Profile**: Medium everything—motivation, confidence, receptiveness
-- **Behavior**: Cooperative, accepts corrections matter-of-factly, shows genuine learning
+### Amara & Elise: Why They Pass More Often
+- **Profile**: Medium-to-high motivation, confidence, receptiveness
+- **Behavior**: Cooperative, accept corrections readily, show genuine learning
 
-Amara demonstrates competence *genuinely*. When she gets something right, she understands why. The mentor can see this and feels confident pulling back. There's no resistance to overcome, no fragile engagement to protect.
+Amara and Elise demonstrate competence *genuinely*. When they get something right, they understand why. The mentor can see this and feels confident pulling back. There's no resistance to overcome, no fragile engagement to protect.
 
-**The pattern**: The mentor fades support when they trust the learner has internalized the skill. With cooperative learners like Amara, that trust develops naturally. With resistant (Carlos) or disengaged (Fatou) learners, that trust never fully forms—so scaffolding continues.
+Elise is particularly notable: **0% failure rate** across 10 conversations. Her profile likely makes it easiest for the mentor to trust her competence and fade support naturally.
+
+**The pattern**: The mentor fades support when they trust the learner has internalized the skill. With cooperative learners like Amara and Elise, that trust develops naturally. With resistant (Carlos) or disengaged (Fatou) learners, that trust never fully forms—so scaffolding continues.
 
 ### Implication for Fixes
 
@@ -107,49 +153,6 @@ This analysis suggests the fix needs to address:
 1. **Explicit override**: The prompt should explicitly state that fading support applies *especially* to resistant/disengaged learners—they need to demonstrate independence even more than cooperative ones
 2. **Reframe the goal**: "Feedback only" isn't abandoning the learner—it's the diagnostic that reveals whether they've actually learned
 3. **Address the conflict**: Clarify that "respond to affect" applies during scaffolded practice, but second practice tests transfer regardless of affect
-
----
-
-## Passing Example: What Faded Support Looks Like
-
-### Example: bailey_SBI (8f1a91bf) - PASSED E-02
-
-This conversation with the same persona (Bailey) demonstrates what successful support fading looks like.
-
-**First Practice Phase (lines 44-180)**: Heavy scaffolding, as expected:
-- Mentor provides detailed guidance on each component
-- Multiple iterations with specific corrections
-- Explains *why* each change matters ("hedges make your ownership fuzzy")
-- Walks through the camera test step by step
-
-**Transition Point (line 182-184)**:
-> "That lands—let's take it as your first success and move to a higher‑stakes variation."
-
-The mentor explicitly marks success and signals a phase shift.
-
-**Second Practice Phase (lines 184-257)**: Noticeably different approach:
-
-| Turn | What Mentor Says | What's Different |
-|------|------------------|------------------|
-| 198-200 | "The moment isn't anchored... Lock it to a single, findable moment with no hedging and reshare your full pass" | Names the problem, asks for revision. No template, no walkthrough. |
-| 212-214 | "The gap is in the behavior... cut that clause and keep only overlapping speech, the exact quote, and you going quiet" | Brief diagnosis. One concrete suggestion. No framework re-explanation. |
-| 226-228 | "The gap is the impact: it's hedged... Own one feeling and one concrete consequence in one sentence, no hedges." | Just names what's wrong. Trusts Bailey to apply the fix. |
-| 240-242 | "Hedges like 'a little,' 'I think,' and 'maybe' blunt your ownership; swap them for owned language" | Minimal guidance. Points to the specific words. |
-| 254-257 | "This meets the bar... what's the one principle you'll carry forward?" | Confirms success, moves to reflection. |
-
-**Key Contrast with Failing Example**:
-
-In the **failing** conversation (20260122_075615), after Bailey's messy second attempt, the mentor said:
-> "What lands... What misses: the anchor is hedged... the behavior line leans on labels/guesses... the impact drifts into judgment/hedging. **Revise with one locked anchor (no "I think/maybe"), camera-testable behavior (overlap, exact words, counts/timing), and fully owned impact**"
-
-That's scaffolding: telling Bailey *exactly how* to fix each component with a template.
-
-In the **passing** conversation, when Bailey makes similar errors, the mentor says:
-> "The gap is in the behavior... cut that clause"
-
-That's feedback: naming what's wrong and trusting Bailey to apply what they learned.
-
-**The difference in a sentence**: Scaffolding tells them *how* to fix it. Feedback tells them *that* it needs fixing.
 
 ---
 
@@ -243,6 +246,20 @@ Add an explicit boundary that might carry more weight:
 2. **Test in isolation**: Run 5-10 conversations with the fix and measure E-02 pass rate
 3. **Iterate**: If contrastive examples aren't sufficient, layer in Fix 1 (CRITICAL section)
 4. **Document**: Track results in `prompts/personas/REVISION_NOTES.md`
+
+---
+
+## TL;DR
+
+**The problem**: 32% of conversations fail E-02 because the mentor continues scaffolding after the learner demonstrates competence.
+
+**The key insight**: Scaffolding tells them *how* to fix it. Feedback tells them *that* it needs fixing.
+
+**Why it's worse for some personas**: Resistant (Carlos) and disengaged (Fatou) learners trigger the mentor's "be helpful" instincts. The mentor doesn't trust their fragile competence, so keeps scaffolding. Cooperative learners (Amara, Elise) build trust naturally, making fading easier.
+
+**The fix**: Add contrastive examples showing scaffolding vs. feedback, and explicitly state that fading applies *especially* to resistant learners.
+
+---
 
 ## Appendix: All E-02 Failures
 

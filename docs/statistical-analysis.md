@@ -13,7 +13,7 @@ Descriptive analysis revealed substantial variation in failure rates across pers
 - **60 conversations** across 6 synthetic learner personas
 - **20 evaluation criteria** organized into 6 dimensions
 - **Binary outcomes**: Each criterion receives PASS, FAIL, or N/A
-- **Sample sizes**: 10 conversations per persona, except amara_SBI (7) and 3 with unknown persona
+- **Sample sizes**: 10 conversations per persona (balanced design)
 
 ### Tests Applied
 

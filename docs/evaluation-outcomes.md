@@ -142,28 +142,102 @@ Several lessons emerged for designing effective instructional agent prompts:
 
 ## Limitations
 
-Several limitations should be considered when interpreting these results:
+Limitations describe constraints on interpreting the current findings—what we couldn't measure, what biases may affect results, and why readers should be cautious about generalizing. These are inherent to the study as conducted.
 
-1. **Synthetic personas may not capture real learner diversity**. Actual learners vary in ways the six personas cannot fully represent.
+### Synthetic Learner Validity
 
-2. **LLM judges may share blind spots with the LLM mentor**. Both are built on similar architectures and training, potentially missing failure modes a human would catch.
+The six personas are LLM-generated approximations of learner archetypes, not recordings of real learners. This creates several issues:
 
-3. **Criteria definitions shape measurement**. We can only evaluate what we operationalized—other important tutoring behaviors may go unmeasured.
+- **Persona consistency**: Each persona follows its script reliably, but real learners shift between states (cooperative one moment, frustrated the next). The mentor never faces genuinely unpredictable behavior.
 
-4. **Binary pass/fail loses nuance**. A criterion marked PASS may have degrees of quality not captured by the verdict.
+- **Missing learner types**: The personas cover impatience, disengagement, and cooperation—but not confusion stemming from genuine misconceptions, cultural differences in feedback norms, or domain expertise that exceeds the mentor's.
 
-5. **Single task domain**. All evaluation was conducted on SBI feedback delivery. Transfer to other instructional domains is unknown.
+- **Authentic mistakes**: Despite prompt engineering to make personas produce realistic errors, LLMs resist generating "wrong" answers. The mistakes may be too clean or too easily correctable.
+
+### LLM-as-Judge Limitations
+
+Using LLMs to evaluate LLM tutoring creates structural blind spots:
+
+- **Shared training biases**: If the mentor and judge share assumptions about what "good tutoring" looks like, failures invisible to both go undetected.
+
+- **Surface feature sensitivity**: LLM judges may over-weight linguistic markers ("Let me test...") rather than pedagogical substance. A mentor could game criteria with performative phrases.
+
+- **Criterion interpretation drift**: Different runs of the same judge may interpret edge cases differently, introducing noise.
+
+- **No access to learning outcomes**: The judge evaluates process (did the mentor do X?) not outcomes (did the learner actually learn?). A "passing" conversation may still fail pedagogically.
+
+### Measurement Constraints
+
+- **Binary pass/fail**: A criterion marked PASS encompasses everything from "barely passed" to "exemplary." We lose the ability to track improvement within passing range.
+
+- **Criteria define the ceiling**: We can only measure what we operationalized. Important tutoring behaviors not in our criteria go unevaluated (e.g., appropriate wait time, metacognitive prompting quality).
+
+- **N/A handling**: Some criteria are marked N/A when conditions aren't triggered (e.g., F-03 requires learner frustration). This reduces sample size for certain criteria and may hide problems.
+
+### Generalizability Constraints
+
+- **Single task domain**: All evaluation used SBI feedback delivery. The mentor's performance on other cognitive apprenticeship tasks (debugging code, analyzing arguments, clinical reasoning) is unknown.
+
+- **Single model**: Evaluation was conducted on one model. Other models may exhibit different failure patterns or strengths.
+
+- **Prompt-specific findings**: Root causes traced to this prompt design may not apply to other instructional agent prompts. The specific failure modes (formulaic turns, missing self-check) reflect this prompt's architecture.
+
+### Sample Size and Statistical Power
+
+- **~60 conversations**: Sufficient to identify strong patterns but limited for detecting smaller effects or rare failure modes.
+
+- **Unbalanced personas**: Not all personas have equal representation across evaluation runs, limiting some persona-specific comparisons.
+
+- **No statistical significance testing**: Reported differences (e.g., 60% vs 20% fail rates) are descriptive, not inferentially tested.
+
+### Evaluation Process Limitations
+
+- **Same team designed mentor and evaluation**: Criteria may reflect the designers' theory of good tutoring rather than empirically validated pedagogical principles. Blind spots in the design appear as blind spots in evaluation.
+
+- **No adversarial testing**: Personas were designed to be challenging but not adversarial. We didn't test edge cases like learners who deliberately try to break the system, provide nonsensical input, or test boundaries.
+
+- **Snapshot evaluation**: Each conversation is evaluated independently. We don't assess consistency across conversations or improvement over iterative prompt refinements on the same criteria.
 
 ## Future Directions
 
-Based on evaluation findings, several directions warrant further investigation:
+Future directions describe what we *could* do next—opportunities to address the limitations above, extend the work to new contexts, or explore questions that emerged from current findings. Where limitations say "here's what we couldn't do," future directions say "here's what would be valuable to try."
 
-1. **Robustness interventions**: Can prompt modifications maintain quality with challenging learners without sacrificing responsiveness?
+### Addressing Synthetic Learner Limitations
 
-2. **Human-in-the-loop validation**: Expand spot-checking to refine criteria definitions and calibrate LLM judges.
+- **Real learner pilots**: Deploy MentorAI with actual learners in controlled settings. Compare process metrics (do the same criteria pass/fail?) and add outcome metrics (did learning transfer?).
 
-3. **Multi-domain evaluation**: Test whether identified patterns (e.g., formulaic turn structure) appear across different learning tasks.
+- **Diverse persona expansion**: Add personas representing genuine misconceptions, non-native speakers, experts who push back with valid challenges, and learners who change state mid-conversation.
 
-4. **Longitudinal effects**: Do learners actually internalize skills better when the mentor demonstrates self-checking? Outcome-based evaluation beyond process criteria.
+- **Adversarial testing**: Systematically probe edge cases—off-topic requests, nonsensical input, attempts to extract the system prompt, deliberately triggering failure modes.
 
-5. **Adaptive prompting**: Could the mentor detect its own degradation with challenging learners and explicitly compensate?
+### Improving Evaluation Validity
+
+- **Human-LLM judge calibration**: Expand spot-checking with multiple human raters. Identify criteria where humans and LLM judges systematically disagree and refine definitions accordingly.
+
+- **Continuous scoring**: Replace binary pass/fail with rubric-based scoring (1-4 scale) to capture gradations of quality and track improvement within the passing range.
+
+- **Outcome-based criteria**: Add evaluation of learning outcomes—can the learner apply SBI independently in a transfer task after the session? Process criteria predict but don't guarantee learning.
+
+### Extending Generalizability
+
+- **Multi-domain evaluation**: Apply the same cognitive apprenticeship framework to different learning tasks (code debugging, argument analysis, clinical reasoning). Test whether identified failure patterns (formulaic turns, missing self-check) are prompt-specific or domain-general.
+
+- **Cross-model comparison**: Run the same evaluation on different foundation models. Identify which behaviors are model-specific vs. inherent to the prompt design.
+
+- **Prompt architecture variations**: Test whether alternative prompt structures (different CA method orderings, explicit turn templates, persona-conditional instructions) produce different failure patterns.
+
+### Robustness and Adaptation
+
+- **Robustness interventions**: Implement the proposed fixes (explicit self-check examples, permission for short turns) and measure impact on pass rates, particularly with challenging personas.
+
+- **Adaptive prompting**: Could the mentor detect its own degradation with challenging learners? Explore self-monitoring mechanisms that trigger explicit compensation ("I notice I'm being brief—let me slow down and demonstrate the self-check").
+
+- **Graceful degradation**: If full pedagogical quality isn't achievable with a highly resistant learner, what's the minimum viable tutoring? Define acceptable fallback behaviors.
+
+### Longitudinal and Ecological Studies
+
+- **Session-over-session learning**: Track learners across multiple sessions. Do they internalize self-check procedures? Does transfer improve?
+
+- **Real-world deployment**: Move beyond controlled evaluation to classroom or workplace settings. What new failure modes emerge? What contextual factors matter?
+
+- **Instructor augmentation**: Rather than replacing human instructors, how might MentorAI augment them? Evaluate hybrid human-AI tutoring configurations.

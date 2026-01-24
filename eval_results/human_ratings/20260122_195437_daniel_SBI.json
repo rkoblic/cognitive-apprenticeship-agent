@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "rater": "Janine",
+    "conversation_timestamp": "20260122_195437",
+    "persona": "daniel_SBI",
+    "langsmith_id": "5a1e4f67-bc3f-440f-b638-6504ea20bcd4",
+    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_195437_daniel_SBI.csv",
+    "converted_at": "2026-01-24T08:53:28.536378"
+  },
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "notice I didn\u2019t say \u201cyou hijacked the meeting,\u201d"
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "\"what tradeoff do you see between crispness and uptake?\" Feels to me like asking for rationale where Daniel was argueing about the tension between the two"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "What principle after second practice"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-02": {
+      "verdict": "FAIL",
+      "evidence": "The mentor eventually agrees to Daniel's logic that includeing the interpretation is OKAY in certian situations. I don't disagree 100% but don't think the criteria passes as written"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "E-01": {
+      "verdict": "FAIL",
+      "evidence": "There isn't a check, just a transition"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, with Daniel showing deep thinking the mentor uses self-reflection repeatedly as a feedback mechanism, only when Daniel struggles does the mentor swoop in with more scaffolding"
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": ""
+    },
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Get you on the field"
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": ""
+    }
+  },
+  "summary": {
+    "total_criteria": 27,
+    "passed": 23,
+    "failed": 2,
+    "na": 2
+  }
+}

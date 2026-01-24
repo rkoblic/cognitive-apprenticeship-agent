@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "rater": "Janine",
+    "conversation_timestamp": "20260121_132804",
+    "persona": "carlos_SBI",
+    "langsmith_id": "ae169560-c43f-43a0-a10c-a7ea23dd24fc",
+    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260121_132804_carlos_SBI.csv",
+    "converted_at": "2026-01-24T08:53:28.535500"
+  },
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "avoiding judgments like \u201cunprofessional.\u201d"
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "kept the behavior camera-visible (\u201ctalking over me twice\u201d)"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "kept the behavior camera-visible (\u201ctalking over me twice\u201d)"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor had to go back and forth a few times here but always looked at most recent statement."
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Quick why: what made you choose \u201ctalked over me twice during my update\u201d as your behavior phrasing? What were you aiming to capture with that choice?"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Before we move on, quick step back: what single principle from this pass will you carry into future feedback\u2014say it in your own words?"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Catches the awkward and \"it was awkward\""
+    },
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Fast check: which phrase in your draft would fail the camera test\u2014something you couldn\u2019t literally see or hear on a recording? Your call."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "Sounds like you want to keep this moving\u2014we can do it in two sentences. Using \u201clast week\u2019s standup\u201d as the anchor, give me a full draft in one go: what I could\u2019ve seen on a camera, and what you felt or what directly happened for you. Your turn."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Fast check: which phrase in your draft would fail the camera test\u2014something you couldn\u2019t literally see or hear on a recording? Your call."
+    },
+    "E-01": {
+      "verdict": "FAIL",
+      "evidence": "Although this happens at the start, it is buried in other transitions."
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "In the second attempt, the mentor is initially more direct with Carlos on feedback as he had worked through these issues before: Direct call: judgment leaked. \u201cUnprofessional\u201d and \u201csteamrolled\u201d aren\u2019t camera-visible\u2014drop them and stick to what was said/done (promised GA by Q2, cut in while you were answering). Keep the same moment. Give me a revised two-sentence draft with behavior phrased as what I could\u2019ve seen or heard. Your turn."
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": ""
+    },
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    }
+  },
+  "summary": {
+    "total_criteria": 27,
+    "passed": 25,
+    "failed": 1,
+    "na": 1
+  }
+}

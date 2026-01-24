@@ -29,6 +29,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 EVAL_RESULTS_DIR = SCRIPT_DIR / "eval_results"
+HUMAN_RATINGS_DIR = EVAL_RESULTS_DIR / "human_ratings"
 
 
 def find_latest_run() -> Path | None:
@@ -142,6 +143,168 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
             "total_runs": len(run_ids),
             "date_filter": date_filter,
         }
+    }
+
+
+def load_human_ratings() -> dict:
+    """Load all human rating JSON files from eval_results/human_ratings/."""
+    if not HUMAN_RATINGS_DIR.exists():
+        return {"ratings": [], "by_langsmith_id": {}, "by_timestamp": {}}
+
+    ratings = []
+    by_langsmith_id = {}
+    by_timestamp = {}
+
+    for json_path in sorted(HUMAN_RATINGS_DIR.glob("*.json")):
+        if json_path.name == "index.json" or json_path.name == "id_mapping.json":
+            continue
+        try:
+            rating = json.loads(json_path.read_text())
+            ratings.append(rating)
+
+            # Index by langsmith_id if available
+            langsmith_id = rating.get("metadata", {}).get("langsmith_id")
+            if langsmith_id:
+                by_langsmith_id[langsmith_id] = rating
+
+            # Index by timestamp_persona key
+            ts = rating.get("metadata", {}).get("conversation_timestamp", "")
+            persona = rating.get("metadata", {}).get("persona", "")
+            if ts and persona:
+                by_timestamp[f"{ts}_{persona}"] = rating
+
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"Warning: Could not load {json_path}: {e}")
+
+    return {
+        "ratings": ratings,
+        "by_langsmith_id": by_langsmith_id,
+        "by_timestamp": by_timestamp,
+    }
+
+
+def get_llm_verdict_for_criterion(conv: dict, criterion_code: str) -> str | None:
+    """Extract LLM verdict for a specific criterion code from conversation data."""
+    # Check critical criteria first
+    critical_json = conv.get("critical_json", {})
+    criteria = critical_json.get("criteria", {})
+    if criterion_code in criteria:
+        return criteria[criterion_code].get("verdict")
+
+    # Check quality results
+    quality_results = conv.get("quality_results", {})
+    for judge_data in quality_results.values():
+        judge_json = judge_data.get("json", {})
+        judge_criteria = judge_json.get("criteria", {})
+        if criterion_code in judge_criteria:
+            return judge_criteria[criterion_code].get("verdict")
+
+    return None
+
+
+def calculate_human_agreement(conv: dict, human_rating: dict) -> dict:
+    """Calculate agreement between LLM and human ratings for a conversation."""
+    human_criteria = human_rating.get("criteria", {})
+
+    agree = 0
+    disagree = 0
+    disagreements = []
+
+    for code, human_data in human_criteria.items():
+        human_verdict = human_data.get("verdict")
+        if human_verdict == "N/A":
+            continue  # Skip N/A criteria
+
+        llm_verdict = get_llm_verdict_for_criterion(conv, code)
+        if llm_verdict in ["PASS", "FAIL"] and human_verdict in ["PASS", "FAIL"]:
+            if llm_verdict == human_verdict:
+                agree += 1
+            else:
+                disagree += 1
+                disagreements.append({
+                    "code": code,
+                    "llm": llm_verdict,
+                    "human": human_verdict,
+                    "human_evidence": human_data.get("evidence", "")
+                })
+
+    total = agree + disagree
+    return {
+        "agree": agree,
+        "disagree": disagree,
+        "total": total,
+        "percentage": round(agree / total * 100, 1) if total > 0 else None,
+        "disagreements": disagreements
+    }
+
+
+def calculate_human_metrics(manifest: dict, human_ratings: dict) -> dict:
+    """Calculate human spot-check metrics."""
+    if not human_ratings.get("ratings"):
+        return {
+            "has_data": False,
+            "total_conversations_rated": 0,
+            "total_criteria_compared": 0,
+            "total_agree": 0,
+            "overall_agreement_pct": None,
+            "by_conversation": [],
+            "raters": []
+        }
+
+    conversations = manifest.get("conversations", [])
+    by_conversation = []
+    total_agree = 0
+    total_criteria = 0
+    raters = set()
+
+    # Try to match each human rating to a conversation
+    for rating in human_ratings["ratings"]:
+        raters.add(rating.get("metadata", {}).get("rater", "Unknown"))
+
+        # Try to find matching conversation by langsmith_id
+        langsmith_id = rating.get("metadata", {}).get("langsmith_id")
+        matched_conv = None
+
+        if langsmith_id:
+            for conv in conversations:
+                if conv.get("langsmith_id") == langsmith_id:
+                    matched_conv = conv
+                    break
+
+        # Calculate agreement even if no LLM match (will have empty disagreements)
+        if matched_conv:
+            agreement = calculate_human_agreement(matched_conv, rating)
+        else:
+            # No matching conversation - show human data but no agreement stats
+            agreement = {
+                "agree": 0,
+                "disagree": 0,
+                "total": 0,
+                "percentage": None,
+                "disagreements": [],
+                "no_llm_match": True
+            }
+
+        by_conversation.append({
+            "timestamp": rating.get("metadata", {}).get("conversation_timestamp", ""),
+            "persona": rating.get("metadata", {}).get("persona", ""),
+            "rater": rating.get("metadata", {}).get("rater", ""),
+            "langsmith_id": langsmith_id,
+            "human_summary": rating.get("summary", {}),
+            "agreement": agreement
+        })
+
+        total_agree += agreement["agree"]
+        total_criteria += agreement["total"]
+
+    return {
+        "has_data": True,
+        "total_conversations_rated": len(human_ratings["ratings"]),
+        "total_criteria_compared": total_criteria,
+        "total_agree": total_agree,
+        "overall_agreement_pct": round(total_agree / total_criteria * 100, 1) if total_criteria > 0 else None,
+        "by_conversation": by_conversation,
+        "raters": sorted(list(raters))
     }
 
 
@@ -722,6 +885,35 @@ def generate_html(manifest: dict, metrics: dict) -> str:
                 <thead id="criteria-header">
                 </thead>
                 <tbody id="criteria-table">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="human-spot-check-section" style="display: none;">
+            <div class="section-header">Human Spot-Check Agreement</div>
+            <div class="cards" style="padding: 1rem 1.5rem;">
+                <div class="card">
+                    <div class="card-label">Overall Agreement</div>
+                    <div class="card-value" id="human-agreement-pct">-</div>
+                    <div class="card-label" id="human-agreement-detail">-</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Conversations Rated</div>
+                    <div class="card-value" id="human-conv-count">-</div>
+                    <div class="card-label" id="human-raters">-</div>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Conversation</th>
+                        <th>Persona</th>
+                        <th>Rater</th>
+                        <th>Agreement</th>
+                        <th>Disagreements</th>
+                    </tr>
+                </thead>
+                <tbody id="human-spot-check-table">
                 </tbody>
             </table>
         </div>
@@ -1315,7 +1507,119 @@ def generate_html(manifest: dict, metrics: dict) -> str:
             }}
         }}
 
+        function renderHumanSpotCheck() {{
+            const humanMetrics = metrics.human;
+            if (!humanMetrics || !humanMetrics.has_data) {{
+                return; // Section stays hidden
+            }}
+
+            // Show the section
+            document.getElementById('human-spot-check-section').style.display = 'block';
+
+            // Update summary cards
+            if (humanMetrics.overall_agreement_pct !== null) {{
+                const pct = humanMetrics.overall_agreement_pct;
+                const pctEl = document.getElementById('human-agreement-pct');
+                pctEl.textContent = pct + '%';
+                pctEl.style.color = getRateColor(pct);
+            }}
+            document.getElementById('human-agreement-detail').textContent =
+                `${{humanMetrics.total_agree}}/${{humanMetrics.total_criteria_compared}} criteria`;
+
+            document.getElementById('human-conv-count').textContent = humanMetrics.total_conversations_rated;
+            document.getElementById('human-raters').textContent =
+                humanMetrics.raters.length > 0 ? `Rater${{humanMetrics.raters.length > 1 ? 's' : ''}}: ${{humanMetrics.raters.join(', ')}}` : '-';
+
+            // Render table
+            const tbody = document.getElementById('human-spot-check-table');
+            let html = '';
+
+            humanMetrics.by_conversation.forEach((item, idx) => {{
+                const agreement = item.agreement;
+                const hasMatch = !agreement.no_llm_match;
+
+                let agreementDisplay = '-';
+                let agreementStyle = '';
+                if (hasMatch && agreement.percentage !== null) {{
+                    agreementDisplay = `${{agreement.percentage}}% (${{agreement.agree}}/${{agreement.total}})`;
+                    agreementStyle = getRateStyle(agreement.percentage);
+                }} else if (!hasMatch) {{
+                    agreementDisplay = '<span class="na-badge" title="No matching LLM evaluation found">No LLM match</span>';
+                }}
+
+                let disagreementDisplay = '-';
+                if (agreement.disagreements && agreement.disagreements.length > 0) {{
+                    const codes = agreement.disagreements.map(d => d.code).join(', ');
+                    disagreementDisplay = `<span style="color: #ef4444;">${{agreement.disagreements.length}}</span> (${{codes}})`;
+                }} else if (hasMatch && agreement.total > 0) {{
+                    disagreementDisplay = '<span style="color: #10b981;">None</span>';
+                }}
+
+                // Main row
+                html += `
+                    <tr class="expandable" onclick="toggleHumanDetails('human-${{idx}}', event)">
+                        <td>${{item.timestamp}}</td>
+                        <td><span class="persona-tag">${{item.persona}}</span></td>
+                        <td>${{item.rater}}</td>
+                        <td style="${{agreementStyle}}">${{agreementDisplay}}</td>
+                        <td>${{disagreementDisplay}}</td>
+                    </tr>
+                `;
+
+                // Details row (disagreements)
+                if (agreement.disagreements && agreement.disagreements.length > 0) {{
+                    html += `
+                        <tr class="details" id="details-human-${{idx}}">
+                            <td colspan="5">
+                                <div class="details-content">
+                                    <div class="failed-summary">
+                                        <div class="failed-summary-title">Human vs LLM Disagreements</div>
+                                        <table style="margin-top: 0.5rem; font-size: 0.875rem;">
+                                            <thead>
+                                                <tr style="background: transparent;">
+                                                    <th style="padding: 0.5rem; width: 80px;">Criterion</th>
+                                                    <th style="padding: 0.5rem; width: 80px;">LLM</th>
+                                                    <th style="padding: 0.5rem; width: 80px;">Human</th>
+                                                    <th style="padding: 0.5rem;">Human Notes</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                    `;
+                    agreement.disagreements.forEach(d => {{
+                        const tooltip = CRITERION_DESCRIPTIONS[d.code] || d.code;
+                        html += `
+                                                <tr>
+                                                    <td style="padding: 0.5rem;"><span class="criterion-code-tooltip" data-tooltip="${{escapeHtml(tooltip)}}">${{d.code}}</span></td>
+                                                    <td style="padding: 0.5rem;"><span class="verdict ${{d.llm.toLowerCase()}}">${{d.llm}}</span></td>
+                                                    <td style="padding: 0.5rem;"><span class="verdict ${{d.human.toLowerCase()}}">${{d.human}}</span></td>
+                                                    <td style="padding: 0.5rem; font-style: italic; color: #4b5563;">${{escapeHtml(d.human_evidence) || '-'}}</td>
+                                                </tr>
+                        `;
+                    }});
+                    html += `
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    `;
+                }}
+            }});
+
+            tbody.innerHTML = html;
+        }}
+
+        function toggleHumanDetails(id, event) {{
+            if (event) event.stopPropagation();
+            const details = document.getElementById(`details-${{id}}`);
+            if (details) {{
+                details.classList.toggle('open');
+            }}
+        }}
+
         renderCriteriaTable();
+        renderHumanSpotCheck();
         initFilters();
         renderConversations();
         restoreExpandedState();
@@ -1345,7 +1649,12 @@ def generate_dashboard(run_dir: Path, output_path: Path | None = None, aggregate
         # Single run mode
         manifest = load_manifest(run_dir)
 
+    # Load human spot-check ratings
+    human_ratings = load_human_ratings()
+    human_metrics = calculate_human_metrics(manifest, human_ratings)
+
     metrics = calculate_dashboard_metrics(manifest)
+    metrics["human"] = human_metrics
     html = generate_html(manifest, metrics)
 
     if output_path is None:

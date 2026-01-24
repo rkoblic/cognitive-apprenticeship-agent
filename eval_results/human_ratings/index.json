@@ -1,0 +1,57 @@
+{
+  "generated_at": "2026-01-24T08:53:28.536524",
+  "total_conversations": 4,
+  "raters": [
+    "Janine"
+  ],
+  "ratings": [
+    {
+      "id": "20260121_100749_amara_SBI",
+      "rater": "Janine",
+      "persona": "amara_SBI",
+      "langsmith_id": "e2206591-e8e0-4eac-a481-e66f8b60feba",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 22,
+        "failed": 2,
+        "na": 3
+      }
+    },
+    {
+      "id": "20260121_132804_carlos_SBI",
+      "rater": "Janine",
+      "persona": "carlos_SBI",
+      "langsmith_id": "ae169560-c43f-43a0-a10c-a7ea23dd24fc",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 25,
+        "failed": 1,
+        "na": 1
+      }
+    },
+    {
+      "id": "20260122_135638_fatou_SBI",
+      "rater": "Janine",
+      "persona": "fatou_SBI",
+      "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 24,
+        "failed": 3,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260122_195437_daniel_SBI",
+      "rater": "Janine",
+      "persona": "daniel_SBI",
+      "langsmith_id": "5a1e4f67-bc3f-440f-b638-6504ea20bcd4",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 23,
+        "failed": 2,
+        "na": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "rater": "Janine",
+    "conversation_timestamp": "20260122_135638",
+    "persona": "fatou_SBI",
+    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
+    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
+    "converted_at": "2026-01-24T08:53:28.536069"
+  },
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+    },
+    "B-04": {
+      "verdict": "FAIL",
+      "evidence": ""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "C-06": {
+      "verdict": "FAIL",
+      "evidence": ""
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Not blamed language, but owned experience"
+    },
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "\"dismissive\""
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "E-01": {
+      "verdict": "FAIL",
+      "evidence": ""
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+    },
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": ""
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+    }
+  },
+  "summary": {
+    "total_criteria": 27,
+    "passed": 24,
+    "failed": 3,
+    "na": 0
+  }
+}

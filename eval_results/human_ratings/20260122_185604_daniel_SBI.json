@@ -3,9 +3,9 @@
     "rater": "Nthato",
     "conversation_timestamp": "20260122_185604",
     "persona": "daniel_SBI",
-    "langsmith_id": null,
+    "langsmith_id": "019be816-688c-7891-b60d-7469276c57fb",
     "source_csv": "Nthato_SBI_Spot_Checks - 20260122_185604_daniel_SBI.csv",
-    "converted_at": "2026-01-24T15:03:18.641667"
+    "converted_at": "2026-01-24T15:07:13.002417"
   },
   "criteria": {
     "A-01": {

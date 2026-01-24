@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-24T15:03:18.642191",
+  "generated_at": "2026-01-24T15:07:13.002936",
   "total_conversations": 12,
   "raters": [
     "Janine",
@@ -130,7 +130,7 @@
       "id": "20260122_185604_daniel_SBI",
       "rater": "Nthato",
       "persona": "daniel_SBI",
-      "langsmith_id": null,
+      "langsmith_id": "019be816-688c-7891-b60d-7469276c57fb",
       "summary": {
         "total_criteria": 27,
         "passed": 27,

@@ -63,6 +63,53 @@ Instead of direct feedback only, the mentor provides detailed scaffolding:
 
 The mentor is still telling Bailey *exactly how* to fix each component, rather than trusting Bailey to apply the criteria they've already demonstrated understanding of.
 
+## Persona-Specific Analysis: Why Carlos and Fatou Fail More
+
+Carlos (5 failures) and Fatou (6 failures) account for **58% of all E-02 failures** despite being just 2 of 6 personas. This isn't random—their characteristics systematically trigger the mentor's scaffolding instincts.
+
+### Carlos: Overconfident Coaster
+- **Profile**: High confidence, low motivation, low receptiveness
+- **Behavior**: Gives minimal responses, complies flatly ("Fine, got it"), impatient to move on
+
+**Why this triggers continued scaffolding:**
+
+Carlos's minimal compliance *looks* like he's moving forward, but the mentor can sense he hasn't really internalized anything. When Carlos produces a messy second attempt (which he will, because he's not genuinely engaging), the mentor faces a choice:
+1. Give feedback only and let Carlos figure it out (what E-02 requires)
+2. Provide scaffolding to actually help him succeed
+
+The mentor chooses #2 because Carlos's resistance makes them doubt whether "feedback only" will work. The mentor's instinct is: "This learner needs MORE support, not less."
+
+**The trap**: Carlos's superficial compliance doesn't signal genuine competence, so the mentor never feels confident enough to fade support.
+
+### Fatou: Defeated Learner
+- **Profile**: Low everything—experience, motivation, confidence, receptiveness
+- **Behavior**: Disengaged, minimal responses, resigned ("I don't know. Whatever you think.")
+
+**Why this triggers continued scaffolding:**
+
+Fatou's disengagement and resignation activate the mentor's nurturing instincts. The mentor prompt explicitly says to respond supportively when learners show "frustration, confusion, or anxiety." Fatou presents as defeated—which the mentor reads as needing extra support.
+
+When Fatou finally produces a successful attempt (often after her "spark" is activated), the mentor doesn't trust that this fragile engagement will survive without continued scaffolding. Fading support feels like abandoning a vulnerable learner.
+
+**The trap**: The mentor's "respond to affect" guidance conflicts with the "fade support" guidance. With Fatou, supporting her emotional state wins over testing her independence.
+
+### Amara: Why She Passes More Often
+- **Profile**: Medium everything—motivation, confidence, receptiveness
+- **Behavior**: Cooperative, accepts corrections matter-of-factly, shows genuine learning
+
+Amara demonstrates competence *genuinely*. When she gets something right, she understands why. The mentor can see this and feels confident pulling back. There's no resistance to overcome, no fragile engagement to protect.
+
+**The pattern**: The mentor fades support when they trust the learner has internalized the skill. With cooperative learners like Amara, that trust develops naturally. With resistant (Carlos) or disengaged (Fatou) learners, that trust never fully forms—so scaffolding continues.
+
+### Implication for Fixes
+
+This analysis suggests the fix needs to address:
+1. **Explicit override**: The prompt should explicitly state that fading support applies *especially* to resistant/disengaged learners—they need to demonstrate independence even more than cooperative ones
+2. **Reframe the goal**: "Feedback only" isn't abandoning the learner—it's the diagnostic that reveals whether they've actually learned
+3. **Address the conflict**: Clarify that "respond to affect" applies during scaffolded practice, but second practice tests transfer regardless of affect
+
+---
+
 ## Root Cause Analysis
 
 ### The prompt has correct guidance

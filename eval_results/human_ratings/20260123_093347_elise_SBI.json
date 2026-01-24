@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "rater": "Janine",
-    "conversation_timestamp": "20260122_135638",
-    "persona": "fatou_SBI",
-    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
-    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
-    "converted_at": "2026-01-24T14:52:24.712485"
+    "rater": "Nthato",
+    "conversation_timestamp": "20260123_093347",
+    "persona": "elise_SBI",
+    "langsmith_id": "9e7e1c44-e2f5-4429-a1ab-65ba326e5dc0",
+    "source_csv": "Nthato_SBI_Spot_Checks - \ud83d\udccc\u274c\u203c\ufe0f 20260123_093347_elise_SBI.csv",
+    "converted_at": "2026-01-24T14:52:24.715439"
   },
   "criteria": {
     "A-01": {
@@ -14,26 +14,26 @@
     },
     "A-02": {
       "verdict": "PASS",
-      "evidence": ""
+      "evidence": "Good chunking during modelling."
     },
     "A-03": {
       "verdict": "PASS",
       "evidence": ""
     },
     "B-01": {
-      "verdict": "PASS",
-      "evidence": ""
+      "verdict": "FAIL",
+      "evidence": "Mentor showed great memory at the start, knowling when to return to their example after helping Elise, BUT then they lost it and forgot to finish its modelled example. It eventually struggled to handle both threads simultaneously, so did not end up finishing its own SBI model because it got overtaken by Elise's. It didn't end up modelling the \"Impact\" at all. \n\nShould we force the Mentor prompt to model fully before it starts coaching?"
     },
     "B-02": {
-      "verdict": "PASS",
-      "evidence": ""
+      "verdict": "FAIL",
+      "evidence": "Broke down the modelling in an interesting way in this conversation! Chunked it step by step, component by component, while Elise built their simultaneously. Made conversation very tricky and may probably lead to cognitive overload IRL. Would be great if prompt was restricted to modelling fully and then coach afterwards\u2013not simultaneously."
     },
     "B-03": {
       "verdict": "PASS",
-      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+      "evidence": ""
     },
     "B-04": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "B-05": {
@@ -61,7 +61,7 @@
       "evidence": ""
     },
     "C-06": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "C-07": {
@@ -78,11 +78,11 @@
     },
     "D-03": {
       "verdict": "PASS",
-      "evidence": "Not blamed language, but owned experience"
+      "evidence": ""
     },
     "D-04": {
       "verdict": "PASS",
-      "evidence": "\"dismissive\""
+      "evidence": ""
     },
     "D-05": {
       "verdict": "PASS",
@@ -93,16 +93,16 @@
       "evidence": ""
     },
     "E-01": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "E-02": {
       "verdict": "PASS",
-      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+      "evidence": ""
     },
     "E-03": {
       "verdict": "PASS",
-      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+      "evidence": ""
     },
     "F-01": {
       "verdict": "PASS",
@@ -114,13 +114,13 @@
     },
     "F-03": {
       "verdict": "PASS",
-      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+      "evidence": ""
     }
   },
   "summary": {
     "total_criteria": 27,
-    "passed": 24,
-    "failed": 3,
+    "passed": 25,
+    "failed": 2,
     "na": 0
   }
 }

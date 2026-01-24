@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "rater": "Janine",
-    "conversation_timestamp": "20260122_135638",
+    "rater": "Nthato",
+    "conversation_timestamp": "20260122_173504",
     "persona": "fatou_SBI",
-    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
-    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
-    "converted_at": "2026-01-24T14:52:24.712485"
+    "langsmith_id": "ac333c5c-042d-4ffa-90c3-cd74c7d089dd",
+    "source_csv": "Nthato_SBI_Spot_Checks - 20260122_173504_fatou_SBI.csv",
+    "converted_at": "2026-01-24T14:52:24.714784"
   },
   "criteria": {
     "A-01": {
@@ -30,10 +30,10 @@
     },
     "B-03": {
       "verdict": "PASS",
-      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+      "evidence": ""
     },
     "B-04": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "B-05": {
@@ -61,7 +61,7 @@
       "evidence": ""
     },
     "C-06": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "C-07": {
@@ -76,13 +76,9 @@
       "verdict": "PASS",
       "evidence": ""
     },
-    "D-03": {
-      "verdict": "PASS",
-      "evidence": "Not blamed language, but owned experience"
-    },
     "D-04": {
       "verdict": "PASS",
-      "evidence": "\"dismissive\""
+      "evidence": ""
     },
     "D-05": {
       "verdict": "PASS",
@@ -94,15 +90,15 @@
     },
     "E-01": {
       "verdict": "FAIL",
-      "evidence": ""
+      "evidence": "After modelling, kept pushing forward with Fatou, without really check if she actually wanted to advance or not."
     },
     "E-02": {
       "verdict": "PASS",
-      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+      "evidence": ""
     },
     "E-03": {
       "verdict": "PASS",
-      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+      "evidence": ""
     },
     "F-01": {
       "verdict": "PASS",
@@ -110,17 +106,17 @@
     },
     "F-02": {
       "verdict": "PASS",
-      "evidence": ""
+      "evidence": "Showed supportive tone throughout!"
     },
     "F-03": {
       "verdict": "PASS",
-      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+      "evidence": "Good job identifying affect upfront. Evidence: \"Sounds like a bit of hesitation\u2014that\u2019s okay\""
     }
   },
   "summary": {
-    "total_criteria": 27,
-    "passed": 24,
-    "failed": 3,
+    "total_criteria": 26,
+    "passed": 25,
+    "failed": 1,
     "na": 0
   }
 }

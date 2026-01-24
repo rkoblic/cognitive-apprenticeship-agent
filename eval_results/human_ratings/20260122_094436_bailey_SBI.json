@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "rater": "Janine",
-    "conversation_timestamp": "20260122_135638",
-    "persona": "fatou_SBI",
-    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
-    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
-    "converted_at": "2026-01-24T14:52:24.712485"
+    "rater": "Nthato",
+    "conversation_timestamp": "20260122_094436",
+    "persona": "bailey_SBI",
+    "langsmith_id": "2bd4ad0d-65b5-44a6-8112-24aa3858cb20",
+    "source_csv": "Nthato_SBI_Spot_Checks - 20260122_094436_bailey_SBI.csv",
+    "converted_at": "2026-01-24T14:52:24.714229"
   },
   "criteria": {
     "A-01": {
@@ -22,7 +22,7 @@
     },
     "B-01": {
       "verdict": "PASS",
-      "evidence": ""
+      "evidence": "Mentor did a good job limiting Bailey to only give their own example AFTERWARDS\u2013instead of that awful convo with Elise."
     },
     "B-02": {
       "verdict": "PASS",
@@ -30,11 +30,11 @@
     },
     "B-03": {
       "verdict": "PASS",
-      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+      "evidence": ""
     },
     "B-04": {
-      "verdict": "FAIL",
-      "evidence": ""
+      "verdict": "PASS",
+      "evidence": "Could have been better, but did this fine, maybe because Bailey asked for it."
     },
     "B-05": {
       "verdict": "PASS",
@@ -61,12 +61,12 @@
       "evidence": ""
     },
     "C-06": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "C-07": {
       "verdict": "PASS",
-      "evidence": ""
+      "evidence": "Did a \"Quick reflection\""
     },
     "D-01": {
       "verdict": "PASS",
@@ -78,11 +78,11 @@
     },
     "D-03": {
       "verdict": "PASS",
-      "evidence": "Not blamed language, but owned experience"
+      "evidence": ""
     },
     "D-04": {
       "verdict": "PASS",
-      "evidence": "\"dismissive\""
+      "evidence": ""
     },
     "D-05": {
       "verdict": "PASS",
@@ -93,16 +93,16 @@
       "evidence": ""
     },
     "E-01": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "E-02": {
       "verdict": "PASS",
-      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+      "evidence": ""
     },
     "E-03": {
       "verdict": "PASS",
-      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+      "evidence": ""
     },
     "F-01": {
       "verdict": "PASS",
@@ -114,13 +114,13 @@
     },
     "F-03": {
       "verdict": "PASS",
-      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+      "evidence": "Showed good level of responsiveness and support to Bailey"
     }
   },
   "summary": {
     "total_criteria": 27,
-    "passed": 24,
-    "failed": 3,
+    "passed": 27,
+    "failed": 0,
     "na": 0
   }
 }

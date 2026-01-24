@@ -33,21 +33,48 @@ VALID_CRITERIA = [
 def parse_filename(filename: str) -> dict:
     """Extract metadata from CSV filename.
 
-    Expected format: {Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv
+    Expected formats:
+    - {Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv
+    - {Rater}_SBI_Spot_Checks - {timestamp}_{persona}.csv
+    - {Rater}_SBI_Spot_Checks - {emoji_prefix} {timestamp}_{persona}.csv
     """
-    # Pattern: {Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv
+    # Pattern 1: Full format with "Fidelity_Criteria"
     match = re.match(
         r'^(\w+)_SBI_Fidelity_Criteria_Spot Checks - (\d{8}_\d{6})_(\w+)\.csv$',
         filename
     )
-    if not match:
-        raise ValueError(f"Filename doesn't match expected pattern: {filename}")
+    if match:
+        return {
+            "rater": match.group(1),
+            "conversation_timestamp": match.group(2),
+            "persona": match.group(3)
+        }
 
-    return {
-        "rater": match.group(1),
-        "conversation_timestamp": match.group(2),
-        "persona": match.group(3)
-    }
+    # Pattern 2: Short format without "Fidelity_Criteria"
+    match = re.match(
+        r'^(\w+)_SBI_Spot_Checks - (\d{8}_\d{6})_(\w+)\.csv$',
+        filename
+    )
+    if match:
+        return {
+            "rater": match.group(1),
+            "conversation_timestamp": match.group(2),
+            "persona": match.group(3)
+        }
+
+    # Pattern 3: Short format with emoji/symbol prefix before timestamp
+    match = re.match(
+        r'^(\w+)_SBI_Spot_Checks - [^\d]*(\d{8}_\d{6})_(\w+)\.csv$',
+        filename
+    )
+    if match:
+        return {
+            "rater": match.group(1),
+            "conversation_timestamp": match.group(2),
+            "persona": match.group(3)
+        }
+
+    raise ValueError(f"Filename doesn't match expected pattern: {filename}")
 
 
 def normalize_verdict(value: str) -> str:

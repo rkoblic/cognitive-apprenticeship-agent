@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "rater": "Janine",
-    "conversation_timestamp": "20260122_135638",
-    "persona": "fatou_SBI",
-    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
-    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
-    "converted_at": "2026-01-24T14:52:24.712485"
+    "rater": "Nthato",
+    "conversation_timestamp": "20260121_113036",
+    "persona": "amara_SBI",
+    "langsmith_id": null,
+    "source_csv": "Nthato_SBI_Spot_Checks - 20260121_113036_amara_SBI.csv",
+    "converted_at": "2026-01-24T14:52:24.713168"
   },
   "criteria": {
     "A-01": {
@@ -30,10 +30,10 @@
     },
     "B-03": {
       "verdict": "PASS",
-      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+      "evidence": ""
     },
     "B-04": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "B-05": {
@@ -61,7 +61,7 @@
       "evidence": ""
     },
     "C-06": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "C-07": {
@@ -78,11 +78,11 @@
     },
     "D-03": {
       "verdict": "PASS",
-      "evidence": "Not blamed language, but owned experience"
+      "evidence": ""
     },
     "D-04": {
       "verdict": "PASS",
-      "evidence": "\"dismissive\""
+      "evidence": ""
     },
     "D-05": {
       "verdict": "PASS",
@@ -93,20 +93,20 @@
       "evidence": ""
     },
     "E-01": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "E-02": {
       "verdict": "PASS",
-      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+      "evidence": ""
     },
     "E-03": {
       "verdict": "PASS",
-      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+      "evidence": "Automatic pass."
     },
     "F-01": {
-      "verdict": "PASS",
-      "evidence": ""
+      "verdict": "FAIL",
+      "evidence": "Repeatedly did the 4-point self check. Barely any variation."
     },
     "F-02": {
       "verdict": "PASS",
@@ -114,13 +114,13 @@
     },
     "F-03": {
       "verdict": "PASS",
-      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+      "evidence": "Automatic pass."
     }
   },
   "summary": {
     "total_criteria": 27,
-    "passed": 24,
-    "failed": 3,
+    "passed": 26,
+    "failed": 1,
     "na": 0
   }
 }

@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-01-24T08:53:28.536524",
-  "total_conversations": 4,
+  "generated_at": "2026-01-24T14:52:24.715587",
+  "total_conversations": 12,
   "raters": [
-    "Janine"
+    "Janine",
+    "Nthato"
   ],
   "ratings": [
     {
@@ -51,6 +52,102 @@
         "passed": 23,
         "failed": 2,
         "na": 2
+      }
+    },
+    {
+      "id": "20260121_113036_amara_SBI",
+      "rater": "Nthato",
+      "persona": "amara_SBI",
+      "langsmith_id": null,
+      "summary": {
+        "total_criteria": 27,
+        "passed": 26,
+        "failed": 1,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260121_150158_carlos_SBI",
+      "rater": "Nthato",
+      "persona": "carlos_SBI",
+      "langsmith_id": null,
+      "summary": {
+        "total_criteria": 27,
+        "passed": 26,
+        "failed": 1,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260121_192012_bailey_SBI",
+      "rater": "Nthato",
+      "persona": "bailey_SBI",
+      "langsmith_id": null,
+      "summary": {
+        "total_criteria": 27,
+        "passed": 27,
+        "failed": 0,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260122_094436_bailey_SBI",
+      "rater": "Nthato",
+      "persona": "bailey_SBI",
+      "langsmith_id": "2bd4ad0d-65b5-44a6-8112-24aa3858cb20",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 27,
+        "failed": 0,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260122_121103_elise_SBI",
+      "rater": "Nthato",
+      "persona": "elise_SBI",
+      "langsmith_id": "479990dc-7ffb-43b6-8f6f-92a7638ca16a",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 25,
+        "failed": 2,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260122_173504_fatou_SBI",
+      "rater": "Nthato",
+      "persona": "fatou_SBI",
+      "langsmith_id": "ac333c5c-042d-4ffa-90c3-cd74c7d089dd",
+      "summary": {
+        "total_criteria": 26,
+        "passed": 25,
+        "failed": 1,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260122_185604_daniel_SBI",
+      "rater": "Nthato",
+      "persona": "daniel_SBI",
+      "langsmith_id": null,
+      "summary": {
+        "total_criteria": 27,
+        "passed": 27,
+        "failed": 0,
+        "na": 0
+      }
+    },
+    {
+      "id": "20260123_093347_elise_SBI",
+      "rater": "Nthato",
+      "persona": "elise_SBI",
+      "langsmith_id": "9e7e1c44-e2f5-4429-a1ab-65ba326e5dc0",
+      "summary": {
+        "total_criteria": 27,
+        "passed": 25,
+        "failed": 2,
+        "na": 0
       }
     }
   ]

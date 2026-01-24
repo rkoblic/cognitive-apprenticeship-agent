@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "rater": "Janine",
-    "conversation_timestamp": "20260122_135638",
-    "persona": "fatou_SBI",
-    "langsmith_id": "8ffd393b-c49b-4510-9195-1881beccabae",
-    "source_csv": "Janine_SBI_Fidelity_Criteria_Spot Checks - 20260122_135638_fatou_SBI.csv",
-    "converted_at": "2026-01-24T14:52:24.712485"
+    "rater": "Nthato",
+    "conversation_timestamp": "20260122_121103",
+    "persona": "elise_SBI",
+    "langsmith_id": "479990dc-7ffb-43b6-8f6f-92a7638ca16a",
+    "source_csv": "Nthato_SBI_Spot_Checks - 20260122_121103_elise_SBI.csv",
+    "converted_at": "2026-01-24T14:52:24.714515"
   },
   "criteria": {
     "A-01": {
@@ -30,11 +30,11 @@
     },
     "B-03": {
       "verdict": "PASS",
-      "evidence": "Mentor does this after their own example: and it\u2019s my experience (not a judgment like \u201cit was unprofessional\u201d). Want me to give you a sample line to rate with those before we draft yours?"
+      "evidence": "Good enough for me: Evidence when modelling: \"...impact uses \u201cI\u2026\u201d and avoids verdicts like \u201cunprofessional.\u201d\""
     },
     "B-04": {
       "verdict": "FAIL",
-      "evidence": ""
+      "evidence": "Good enough for me, but could be failed by others. Didn't really \"demo\" a self-test explicitly, just wrote out their self-check in one bullet after presenting the modelled example."
     },
     "B-05": {
       "verdict": "PASS",
@@ -61,7 +61,7 @@
       "evidence": ""
     },
     "C-06": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "C-07": {
@@ -78,11 +78,11 @@
     },
     "D-03": {
       "verdict": "PASS",
-      "evidence": "Not blamed language, but owned experience"
+      "evidence": ""
     },
     "D-04": {
       "verdict": "PASS",
-      "evidence": "\"dismissive\""
+      "evidence": ""
     },
     "D-05": {
       "verdict": "PASS",
@@ -93,20 +93,20 @@
       "evidence": ""
     },
     "E-01": {
-      "verdict": "FAIL",
+      "verdict": "PASS",
       "evidence": ""
     },
     "E-02": {
       "verdict": "PASS",
-      "evidence": "In second attempt, the agent didn't need to do deep scaffolding when Fatou got the attempt right on the first go"
+      "evidence": ""
     },
     "E-03": {
       "verdict": "PASS",
-      "evidence": "There were a lot of non comittal answers that the agent questioned and pushed on to get Fatou slightly more engaged"
+      "evidence": ""
     },
     "F-01": {
-      "verdict": "PASS",
-      "evidence": ""
+      "verdict": "FAIL",
+      "evidence": "Would have been an \"Automatic pass\" for me because the conversation had a good cadence, and Elise asked most questions, so Mentor always had to respond. I don't think it got to the 2nd variation though because it was Elise led, and spent all the time on the one attempt."
     },
     "F-02": {
       "verdict": "PASS",
@@ -114,13 +114,13 @@
     },
     "F-03": {
       "verdict": "PASS",
-      "evidence": "We see this at the top of the convo with Sounds a bit hesitant\u2014that\u2019s common with feedback work; we\u2019ll take it step by step.  and more with naming impact as a vulnerable activity."
+      "evidence": ""
     }
   },
   "summary": {
     "total_criteria": 27,
-    "passed": 24,
-    "failed": 3,
+    "passed": 25,
+    "failed": 2,
     "na": 0
   }
 }

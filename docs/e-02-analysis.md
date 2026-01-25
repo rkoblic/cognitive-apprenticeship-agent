@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-**19 of 59 conversations (32%)** failed the E-02 criterion ("Fades Support"). The root issue: the mentor continues providing detailed scaffolding even after confirming the learner has demonstrated competence.
+**19 of 60 conversations (32%)** failed the E-02 criterion ("Fades Support"). The root issue: the mentor continues providing detailed scaffolding even after confirming the learner has demonstrated competence.
 
 The mentor prompt already contains explicit guidance to withhold scaffolding in the second practice phase, but the LLM is not following it.
 
@@ -16,7 +16,7 @@ From `prompts/judges/adaptive_pacing.md`:
 
 ## Current State
 
-**Overall pass rate**: 40/59 (67.8%)
+**Overall pass rate**: 41/60 (68.3%)
 
 **By persona** (sorted by fail rate):
 | Persona | Conversations | E-02 Pass | E-02 Fail | Fail Rate |
@@ -25,8 +25,8 @@ From `prompts/judges/adaptive_pacing.md`:
 | carlos_SBI | 10 | 5 | 5 | **50.0%** |
 | bailey_SBI | 10 | 7 | 3 | 30.0% |
 | daniel_SBI | 10 | 7 | 3 | 30.0% |
-| amara_SBI | 7 | 5 | 2 | 28.6% |
-| elise_SBI | 10 | 9 | 0 | **0.0%** |
+| amara_SBI | 10 | 8 | 2 | 20.0% |
+| elise_SBI | 10 | 10 | 0 | **0.0%** |
 
 **Key observation**: Fatou and Carlos fail at 2-3x the rate of other personas. Elise has zero failures.
 

@@ -95,11 +95,11 @@ With challenging learners, responsiveness wins—and pedagogical quality suffers
 
 ## LLM-as-Judge Validation
 
-Human raters spot-checked a subset of conversations to validate automated evaluation accuracy. Key findings:
+Human raters (Janine and Nthato) spot-checked 12 conversations to validate automated evaluation accuracy. Key findings:
 
-- **Overall agreement**: [X%] between human raters and LLM judges
-- **Disagreement patterns**: LLM judges tended to [be more lenient / more strict] on [specific criteria]
-- **Implications**: Automated evaluation is [reliable for / limited in] [specific use cases]
+- **Overall agreement**: 89.7% between human raters and LLM judges (252 of 281 criteria compared)
+- **Disagreement patterns**: Most disagreements occurred on E-01 (checks before advancing), E-02 (fades support), B-03 (visible decision-making), and F-01 (varied turn structure). LLM judges tended to be stricter on modeling quality criteria (B-03, B-04) while humans were stricter on adaptive pacing criteria (E-01, E-02).
+- **Implications**: Automated evaluation is reliable for detecting clear pass/fail cases. Edge cases on "soft" criteria (turn variety, support fading) benefit from human review.
 
 ## Tracing Failures to Prompt Design
 

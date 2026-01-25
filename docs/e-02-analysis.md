@@ -109,7 +109,7 @@ That's feedback: naming what's wrong and trusting Bailey to apply what they lear
 
 ## Persona-Specific Analysis: Why Carlos and Fatou Fail More
 
-Carlos (5 failures) and Fatou (6 failures) account for **58% of all E-02 failures** despite being just 2 of 6 personas. This isn't random—their characteristics systematically trigger the mentor's scaffolding instincts.
+Carlos (5 failures) and Fatou (6 failures) account for **58% of all E-02 failures** despite being just 2 of 6 personas. This isn't random—their input patterns systematically trigger the LLM's scaffolding responses.
 
 ### Carlos: Overconfident Coaster
 - **Profile**: High confidence, low motivation, low receptiveness
@@ -117,13 +117,11 @@ Carlos (5 failures) and Fatou (6 failures) account for **58% of all E-02 failure
 
 **Why this triggers continued scaffolding:**
 
-Carlos's minimal compliance *looks* like he's moving forward, but the mentor can sense he hasn't really internalized anything. When Carlos produces a messy second attempt (which he will, because he's not genuinely engaging), the mentor faces a choice:
-1. Give feedback only and let Carlos figure it out (what E-02 requires)
-2. Provide scaffolding to actually help him succeed
+Carlos's minimal, dismissive responses are similar to patterns in training data where learners needed more support. When Carlos produces a messy second attempt (which he does, because his persona doesn't genuinely engage), the LLM's training—which rewards thorough, helpful responses—generates detailed scaffolding rather than brief feedback.
 
-The mentor chooses #2 because Carlos's resistance makes them doubt whether "feedback only" will work. The mentor's instinct is: "This learner needs MORE support, not less."
+Additionally, Carlos's curt responses don't include the explicit markers of understanding (explanations, self-corrections, articulated reasoning) that typically precede reduced scaffolding in tutoring dialogues.
 
-**The trap**: Carlos's superficial compliance doesn't signal genuine competence, so the mentor never feels confident enough to fade support.
+**The pattern**: The LLM's helpful-by-default training overrides the prompt's "no scaffolding" instruction when the learner's responses lack clear competence signals.
 
 ### Fatou: Defeated Learner
 - **Profile**: Low everything—experience, motivation, confidence, receptiveness
@@ -131,28 +129,28 @@ The mentor chooses #2 because Carlos's resistance makes them doubt whether "feed
 
 **Why this triggers continued scaffolding:**
 
-Fatou's disengagement and resignation activate the mentor's nurturing instincts. The mentor prompt explicitly says to respond supportively when learners show "frustration, confusion, or anxiety." Fatou presents as defeated—which the mentor reads as needing extra support.
+Fatou's defeated, low-confidence language patterns are similar to training examples where struggling learners needed extra support. The mentor prompt explicitly instructs responding supportively to learner "frustration, confusion, or anxiety"—and Fatou's responses consistently match these patterns.
 
-When Fatou finally produces a successful attempt (often after her "spark" is activated), the mentor doesn't trust that this fragile engagement will survive without continued scaffolding. Fading support feels like abandoning a vulnerable learner.
+This creates a prompt conflict: the "respond supportively to negative affect" instruction competes with the "fade support in second practice" instruction. When both apply, the model tends to prioritize the supportive scaffolding pattern.
 
-**The trap**: The mentor's "respond to affect" guidance conflicts with the "fade support" guidance. With Fatou, supporting her emotional state wins over testing her independence.
+**The pattern**: Conflicting prompt instructions + input patterns matching "struggling learner" = scaffolding wins over fading.
 
 ### Amara & Elise: Why They Pass More Often
 - **Profile**: Medium-to-high motivation, confidence, receptiveness
-- **Behavior**: Cooperative, accept corrections readily, show genuine learning
+- **Behavior**: Cooperative, accept corrections readily, articulate their reasoning
 
-Amara and Elise demonstrate competence *genuinely*. When they get something right, they understand why. The mentor can see this and feels confident pulling back. There's no resistance to overcome, no fragile engagement to protect.
+Amara and Elise produce responses with explicit competence markers: they explain their thinking, self-correct, and articulate why changes work. These patterns match training examples where learners had genuinely internalized skills and were ready for reduced support.
 
-Elise is particularly notable: **0% failure rate** across 10 conversations. Her profile likely makes it easiest for the mentor to trust her competence and fade support naturally.
+Elise is particularly notable: **0% failure rate** across 10 conversations. Her cooperative, articulate responses provide the clearest competence signals, making the "fade support" instruction easier for the model to follow.
 
-**The pattern**: The mentor fades support when they trust the learner has internalized the skill. With cooperative learners like Amara and Elise, that trust develops naturally. With resistant (Carlos) or disengaged (Fatou) learners, that trust never fully forms—so scaffolding continues.
+**The pattern**: When learner responses include explicit competence signals (articulated reasoning, self-correction), the LLM follows the "fade support" instruction. When those signals are absent (Carlos) or competing affect signals are present (Fatou), scaffolding continues.
 
 ### Implication for Fixes
 
 This analysis suggests the fix needs to address:
-1. **Explicit override**: The prompt should explicitly state that fading support applies *especially* to resistant/disengaged learners—they need to demonstrate independence even more than cooperative ones
-2. **Reframe the goal**: "Feedback only" isn't abandoning the learner—it's the diagnostic that reveals whether they've actually learned
-3. **Address the conflict**: Clarify that "respond to affect" applies during scaffolded practice, but second practice tests transfer regardless of affect
+1. **Make the rule unconditional**: The prompt should state that fading support applies regardless of learner response patterns—it tests transfer, not engagement
+2. **Override the helpfulness default**: Add explicit guidance that brief feedback IS the helpful response in second practice
+3. **Resolve the prompt conflict**: Clarify that "respond to affect" applies during scaffolded practice, but second practice tests independence regardless of affect
 
 ---
 
@@ -178,7 +176,7 @@ The "no scaffolding" guidance appears on lines 147-152 of a 189-line prompt. It'
 The prompt says *what not to do* ("no scaffolding") but doesn't show *what faded support looks like* vs. what continued scaffolding looks like. The LLM may not recognize its own behavior as scaffolding.
 
 **Hypothesis 3: Helpful-by-default bias**
-LLMs are trained to be helpful. When a learner produces a messy attempt, the natural instinct is to provide detailed guidance. Withholding help feels counterintuitive—the model may be overriding the prompt instruction because providing scaffolding feels more "helpful."
+LLMs are trained via RLHF to be helpful, which typically means providing thorough, detailed responses. When a learner produces a messy attempt, the training reward signal favors detailed corrective guidance over brief feedback. The model may weight this training bias more heavily than the prompt instruction to withhold scaffolding.
 
 **Hypothesis 4: No explicit checkpoint**
 The prompt doesn't create a clear cognitive checkpoint before responding in the second practice phase. The mentor doesn't pause to ask "have they demonstrated competence? If yes, I must reduce support."
@@ -255,7 +253,7 @@ Add an explicit boundary that might carry more weight:
 
 **The key insight**: Scaffolding tells them *how* to fix it. Feedback tells them *that* it needs fixing.
 
-**Why it's worse for some personas**: Resistant (Carlos) and disengaged (Fatou) learners trigger the mentor's "be helpful" instincts. The mentor doesn't trust their fragile competence, so keeps scaffolding. Cooperative learners (Amara, Elise) build trust naturally, making fading easier.
+**Why it's worse for some personas**: Resistant (Carlos) and disengaged (Fatou) learners produce responses that lack explicit competence markers and match "struggling learner" patterns from training data, triggering detailed scaffolding. Cooperative learners (Amara, Elise) produce responses with clear competence signals (articulated reasoning, self-correction), making it easier for the model to follow the "fade support" instruction.
 
 **The fix**: Add contrastive examples showing scaffolding vs. feedback, and explicitly state that fading applies *especially* to resistant learners.
 

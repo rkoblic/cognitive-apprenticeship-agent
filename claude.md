@@ -120,7 +120,7 @@ To validate LLM judge accuracy, human raters can score conversations and compare
 **Adding new spot-check ratings:**
 
 1. **Score conversations** using the CSV template with columns: `Tag, Name, Criterion, Tier, CA Method, Pass/Fail, Evidence/Notes`
-2. **Save CSV** to `eval_results/spot_check/` with naming format: `{Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv`
+2. **Save CSV** to `eval_results/spot_check/` with naming format: `{Rater}_SBI_Fidelity_Criteria_Spot Checks - {timestamp}_{persona}.csv` (alternate format `{Rater}_SBI_Spot_Checks - {timestamp}_{persona}.csv` also supported)
 3. **Look up LangSmith ID** for the conversation in the LangSmith UI
 4. **Add mapping** to `eval_results/human_ratings/id_mapping.json`:
    ```json

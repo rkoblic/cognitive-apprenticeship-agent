@@ -14,7 +14,6 @@ Features:
 - Summary cards: Critical pass rate, Quality average, Progress
 - Per-criteria table with pass rates
 - Per-conversation table with expandable details
-- Auto-refresh support when hosted
 
 Usage:
     python generate_dashboard.py                    # Aggregate all runs (default)
@@ -561,7 +560,6 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="30">
     <title>MentorAI Evaluation Dashboard - {run_id}</title>
     <style>
         * {{
@@ -1150,7 +1148,7 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
         </div>
 
         <footer>
-            Auto-refreshes every 30 seconds when hosted. Last generated: {datetime.now().isoformat()}
+            Last generated: {datetime.now().isoformat()}
         </footer>
     </div>
 

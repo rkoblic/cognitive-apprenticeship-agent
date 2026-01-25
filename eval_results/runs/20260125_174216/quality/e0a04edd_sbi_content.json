@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks diagnostic questions probing observable vs. interpretive: 'Quick check: for each line below, say pass or fail against the SBI criteria and one\u2011sentence why' including testing 'You interrupted me' vs 'You started talking while I was still speaking.' Also introduces 'camera-test' concept repeatedly to probe the distinction."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact wording ('is small too interpretive?'), mentor provides targeted scaffolding: 'if you want to de-mistify it, swap to a clearer emotion (e.g., embarrassed) or a body cue (e.g., my chest tightened).' Also offers specific sentence structure guidance and count alternatives ('more than once' or 'a couple of times')."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: (1) 'camera-test' heuristic used throughout, (2) 4-step snap-check: 'Moment: name a recognizable meeting/time; Behavior: camera-test, no labels; Impact: pick one or two you own; Leak check: remove hedges and judgments,' (3) 'swap the adjective for a verb you could film' rule, (4) silent cue formula 'In [moment]\u2026 + verb I could film + I felt/so I\u2026'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:49:56.487541"
+  }
+}

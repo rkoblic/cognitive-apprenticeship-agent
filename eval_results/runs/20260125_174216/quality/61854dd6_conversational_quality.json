@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turns vary from long demonstration (5-step model) to short reactions ('That works\u2014small impact still counts'), to questions ('what principle will you carry forward?'), to brief closings ('\ud83d\udc4d You're set'). Rhythm shifts throughout."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with reactions like 'That lands \ud83d\udc4d', 'Nice\u2014Monday's retro is a solid anchor', casual phrasing like 'this can feel nitpicky', and 'Fair\u2014proof's in using it.' Has a conversational, human tone."
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "Repeatedly acknowledges learner's negative affect: 'Sounds a bit hesitant\u2014that's normal', 'Sounds like you're a bit over it\u2014fair', 'Sounds like this is getting frustrating\u2014totally fair', 'Sounds like you're on the fence\u2014that's fine.' Validates difficulty and adjusts approach."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:53:10.096881"
+  }
+}

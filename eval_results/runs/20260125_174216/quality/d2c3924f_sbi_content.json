@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'what would a camera have seen or heard instead of \"took over\" or \"dismissive\"?' and later probes 'Why that phrasing\u2014what specific moments or words are you pointing to when you say \"interrupting\" and \"talking over me\"?' These questions test whether the learner can distinguish observable actions from interpretations."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with behavior component, mentor provides targeted scaffolding: 'what would a camera have seen or heard instead of \"took over\" or \"dismissive\"? Rewrite that as one sentence with the specific actions or words you observed.' This gives a specific technique (camera test) and a concrete task structure rather than generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides a reusable 10-second self-check tool: '- One real moment (a named meeting/time) - Camera-test behavior\u2014no motives or labels - Owned impact\u2014how I felt or a concrete consequence for me, not a verdict - Quick leak-scan for judgment words (rude, unprofessional, always/never)' This is a generalizable checklist the learner can apply independently to future SBI drafts."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:57:43.439184"
+  }
+}

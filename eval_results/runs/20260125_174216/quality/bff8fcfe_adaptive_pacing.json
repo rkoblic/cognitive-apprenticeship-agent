@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready for that?' at the start, 'Pause there. Your move when you're ready.' after demo, 'Before I weigh in, where do you think I'll push back' before giving feedback, and 'Step back for a moment: what was the hardest part' before advancing to the upward feedback variation."
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed step-by-step demo and explicit scaffolding. After learner demonstrates competence with the Priya draft, mentor shifts to brief confirmations ('That passes'), asks for self-generated principles ('What's the single principle you'll carry forward'), and ends with micro-tips rather than structured guidance. Final exchanges are brief affirmations without scaffolding."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:46:55.651025"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready to dive in?', 'Your move when you're ready', 'Say \"ready\" and I'll give you a higher-stakes variation', 'Want to take another pass?', 'If you want a last glance, paste the tweaked opener; otherwise you're good to run.'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed demos and explicit criteria. Later, mentor shifts to brief confirmations like 'That meets the bar' and 'Works' without re-explaining criteria. By the end, mentor offers only quick tips ('One delivery tip: after your opener, stop and let three beats of silence pass') rather than scaffolded guidance, showing calibration to learner's demonstrated competence."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:56:25.812954"
+  }
+}

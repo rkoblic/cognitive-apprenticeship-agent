@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready to see the model?', 'I'll pause there\u2014your turn when you're ready', 'Ready for a tougher variation?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "After learner demonstrates competence with first SBI, mentor stops offering stems/options and simply says 'Keep the first two pieces and take another pass by replacing just the impact, one sentence.' Earlier, mentor provided multiple choice options ('Which of these is closest...') but later just asks for revision without scaffolding."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:52:58.943895"
+  }
+}

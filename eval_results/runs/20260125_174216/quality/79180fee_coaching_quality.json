@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When giving feedback, mentor provides actionable direction: 'Miss: it's not anchored to a single moment\u2014you drifted to \"lately\" instead of last Friday's review. Your turn\u2014rewrite it for that one meeting.' Also earlier: 'Ready to try a full rewrite now, anchored to one specific meeting, with camera-testable actions/words and your owned impact?'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'This passes the bar across all three: anchored to last Friday, camera\u2011testable behavior, and owned impact with concrete consequences.' Also for first revision: 'That meets the bar\u2014specific moment, camera\u2011testable behavior, and owned impact. Nice work.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'Before I weigh in, where do you think this misses the bar\u2014specific moment, observable behavior, or owned impact? Pick one spot you expect I'll flag and tell me why.' Then follows up with: 'Let's run the self-check you saw me use\u2014quick pass on all three... What's your call on each\u2014pass or miss?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What made you choose \"embarrassed and a bit shut down\"\u2014what did you want them to understand about your experience with those words?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'Looking back, what was the hardest part to pin down\u2014and what phrasing or move will you carry forward next time?' Learner responds with meta-reflection about translating judgments into camera-testable actions."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:51:14.831461"
+  }
+}

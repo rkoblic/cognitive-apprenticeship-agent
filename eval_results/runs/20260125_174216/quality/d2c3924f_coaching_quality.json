@@ -1,0 +1,37 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently provides actionable direction. Example: 'One leak: \"it was awkward\" isn't owned\u2014make it \"I felt awkward/embarrassed\" or drop it since your impact is already clear.' Also: 'what would a camera have seen or heard instead of \"took over\" or \"dismissive\"? Rewrite that as one sentence with the specific actions or words you observed.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically. Example: After learner revised to 'You cut me off a couple times while I was mid-sentence,' mentor responded: 'That's camera-testable.' After final revision, mentor confirmed: 'That's across the bar \ud83d\udc4d' Also identified what still needed work in intermediate revisions: 'Almost\u2014one leak: \"came off as unprofessional\" is a judgment, not your state.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting. Examples: 'Before I weigh in\u2014where do you think I'll push back against the criteria in what you wrote?' and 'Do your 10\u2011second check on your draft now and call out what passes and what fails' and 'Before I give feedback\u2014what, if anything, do you think I'd push back on in that draft?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Why that phrasing\u2014what specific moments or words are you pointing to when you say \"interrupting\" and \"talking over me\"?'"
+    },
+    "C-07": {
+      "verdict": "FAIL",
+      "evidence": "Session ends without any reflective moment. The transcript ends with mentor giving feedback on the second draft variation without asking learner to step back and reflect on what they learned, what was difficult, or what principles they'll carry forward."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 1,
+    "pass_rate": 0.8,
+    "failed_criteria": [
+      "C-07"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:57:31.504520"
+  }
+}

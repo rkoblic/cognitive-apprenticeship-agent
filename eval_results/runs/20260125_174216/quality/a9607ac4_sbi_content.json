@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "FAIL",
+      "evidence": "Mentor corrects errors (e.g., 'your impact ducks owned impact') but never explicitly probes the observable vs. interpretive distinction with a testing question like 'Is that what you saw or what you concluded?' or 'Could a camera capture that?' The mentor models the distinction but doesn't test whether the learner understands it."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact ('it didn't really affect me'), mentor offers targeted scaffolding: 'Right after they cut in, what changed for you\u2014either in your body or in your flow?' and later 'did you shorten your blockers or leave out any detail you'd planned to share?' Also provides sentence stem guidance: 'start with \"I\u2026\" and name that you trimmed your blockers.'"
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides a reusable heuristic: 'when you feel the urge to write \"it didn't affect me,\" name the smallest honest thing that changed for you\u2014emotion, flow, or a follow-up\u2014and start it with \"I\u2026\"' This is repeated as a takeaway the learner can apply independently in future situations."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "D-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:45:09.992986"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'good to start?' at opening, 'Ready to try yours?' after modeling, 'Ready to try a full rewrite now?' after diagnosis, and transitions with 'Your turn\u2014rewrite it for that one meeting.'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed self-check framework and walks through each component. By second practice, mentor gives briefer feedback ('What lands... Miss: it's not anchored...Your turn\u2014rewrite it') without re-explaining the framework. Final exchanges shift to learner self-checking ('run a 10-second check') rather than mentor checking for them."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:51:39.243631"
+  }
+}

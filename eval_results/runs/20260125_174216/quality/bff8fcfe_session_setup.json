@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "\"We're working on delivering peer feedback using SBI. Success = a real moment, camera-testable behavior, and impact in your own words.\""
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "\"I'll demo my thinking first\u2014ready for that?\" followed later by \"Pause there. Your move when you're ready.\" and \"Your turn.\""
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios involve specific workplace situations: Tuesday's standup with Marcus rolling eyes and saying 'sure, whatever' after sharing a client request, and Thursday's cross-functional planning call with VP of Sales where manager Priya cut in with specific phrases while presenting Acme's request."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:46:07.180552"
+  }
+}

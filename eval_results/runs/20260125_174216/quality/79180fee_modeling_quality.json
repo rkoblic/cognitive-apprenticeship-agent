@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I could say 'you dismissed my update,' but that reads motive. I'll anchor it to what happened\" and \"For impact, I'll own what happened on my side\u2014emotion, sensation, and consequence\u2014not a verdict like 'unprofessional.'\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice point: \"I could say 'you dismissed my update,' but that reads motive. I'll anchor it to what happened: you started speaking while I was mid-sentence...\""
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Quick self-check: anchored to a specific moment\u2014yes. Behavior is observable\u2014someone watching the recording could verify those words/actions. Impact is owned\u2014my feelings and a concrete consequence on my work, not a judgment. That's the bar I'm holding.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers multiple heuristics: \"camera-testable behavior,\" \"the camera test,\" and \"If you couldn't video-record it, it's not behavior\" (implied through repeated use of \"could a camera/mic verify\")"
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:51:00.887583"
+  }
+}

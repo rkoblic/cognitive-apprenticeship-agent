@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I'm skipping labels like 'passive-aggressive.' Instead: you said 'I guess some people didn't read the doc'...\" and \"I'm not saying 'it hurt team morale.' What was true for me: I felt embarrassed; my face got hot\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice point: \"I'm skipping labels like 'passive-aggressive.' Instead: you said 'I guess some people didn't read the doc,' looked over at me, and a couple people laughed.\" This shows deliberation between alternatives."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Stitch and quick self-check... Checks: moment is specific, behavior is observable, impact is mine.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers reusable heuristics: \"camera-testable\" as a test for behavior, and later \"let the tape do the proving\u2014keep labels out of the behavior line\" as a generalizable principle."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:55:47.499192"
+  }
+}

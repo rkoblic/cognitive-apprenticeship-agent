@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "FAIL",
+      "evidence": "Nearly every mentor turn follows the same pattern: evaluate the learner's draft, identify what's wrong, give a correction or instruction, ask for revision. Turns are consistently medium-length instructional blocks with minimal variation in rhythm or structure."
+    },
+    "F-02": {
+      "verdict": "FAIL",
+      "evidence": "The mentor is entirely procedural throughout. The only hint of personality is a single '\ud83d\udc4d' emoji. No humor, opinions, reactions like 'Oh, that's a good one,' or human touches. Could be any interchangeable tutor."
+    },
+    "F-03": {
+      "verdict": "FAIL",
+      "evidence": "Learner repeatedly signals impatience/frustration ('keep it quick,' 'Can we move on?' appears 5+ times, 'Can we just fix it quickly?'). Mentor acknowledges once with 'Got it\u2014you want to move fast' but then continues with the same approach unchanged, pressing forward with more iterations rather than adjusting pace or validating the frustration."
+    }
+  },
+  "overall": {
+    "passed_count": 0,
+    "failed_count": 3,
+    "na_count": 0,
+    "pass_rate": 0.0,
+    "failed_criteria": [
+      "F-01",
+      "F-02",
+      "F-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:58:07.401676"
+  }
+}

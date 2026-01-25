@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction: 'Try one edit: drop the label and let the concrete repeats carry the pattern. Give me a clean stitch with that single change\u2014same anchor and impact you had, just no \"you were being passive\u2011aggressive.\"'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'That lands\u2014specific moment, camera\u2011testable behavior, and owned impact.' and 'Anchor and concrete behavior details (interruptions, the quote, looking at the clients) land, and your owned consequence of rushing/skipping is clear. One miss: \"you undercut me\" is a label/intent claim'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'Before I weigh in, predict where I'll push back the hardest\u2014what in your draft is likeliest to miss the criteria, and why?' and 'What were you hoping that word would do that the concrete examples wouldn't?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What were you hoping that word would do that the concrete examples wouldn't?' - This asks the learner to articulate why they made a specific word choice."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'If you had to put one sticky note on your screen for next time, what would it say?' and 'One reflection: what, if anything, shifted for you about using labels versus letting the tape show the pattern?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:56:01.242785"
+  }
+}

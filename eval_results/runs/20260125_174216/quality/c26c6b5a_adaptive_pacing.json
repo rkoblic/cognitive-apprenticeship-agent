@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently checks readiness: 'Ready for a quick check on behavior vs. judgment before we use your example?' 'Ready for a higher\u2011stakes variation for round two?' Also asks learner preference: 'Pick the moment you can recall most crisply\u2014yesterday's standup usually wins'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor fades support as learner demonstrates competence. Early: provides detailed 5-step structure and leads lightning rounds. Later: asks learner to self-check ('Run the self-check on your draft'), stops offering stems, and by end simply validates and sends learner to try independently: 'Run it in your 1:1 and drop your note here after.'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:54:55.097035"
+  }
+}

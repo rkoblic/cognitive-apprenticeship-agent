@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup, while I was midway through my API update, you began speaking before I finished\u2014twice\u2014and said, 'let's jump to my ticket.' I lost my train of thought, felt rushed, and left out two key risks, so I had to follow up after.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: 'your impact ducks owned impact\u2014\"I just moved on and kept quiet; it didn't really affect me\" undercuts itself' and identifies the specific issue (undercuts owned impact)."
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Revise so the impact names your actual internal state or a direct consequence in your words, then send the two sentences again.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'Some meeting' and 'I don't know. Tuesday's standup, maybe,' mentor pushes for specificity: 'which meeting was it\u2014something you can point to like Tuesday's standup, Wednesday's client call, or last week's 1:1?'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'being difficult,' mentor doesn't accept this judgment and redirects to observable behavior by asking about the specific meeting and what happened. In the model, mentor explicitly addresses this: 'I could say \"you were dismissive,\" but that's a judgment\u2014so instead...'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never uses accusatory 'you made...' or blame language in impact statements. Learner's impacts were either deflecting ('it didn't really affect me') or owned ('I felt a bit rushed')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner repeatedly says 'Whatever you think' asking mentor to evaluate, mentor redirects: 'Let's do a quick self-check on your draft using three lenses... Does your draft pass all three\u2014and if not, which one feels wobbly?'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrates all applicable critical criteria: models a complete SBI, provides specific feedback with quoted language, requests revisions, catches vague situations and judgment language, and protects productive struggle when learner defers.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:44:28.962474"
+  }
+}

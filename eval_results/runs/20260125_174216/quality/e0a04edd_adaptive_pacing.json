@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently checks readiness before transitions: 'Want a quick diagnostic check next, or do you feel ready to try your own first draft using this?' and 'Ready to take a variation for your solo rep?' and 'Do you want to give me a new prompt, or should I use the other moment I mentioned?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor visibly reduces scaffolding as learner improves. Early on, mentor provides detailed diagnostic exercises and extensive feedback. By the solo attempt, mentor gives minimal guidance ('tighten to own only your impact and drop the hedges\u2014give me a clean 2\u20133 sentence revision') and by the end simply confirms 'That lands\u2014meets the bar' without offering stems or detailed breakdowns. Final exchanges focus on practical application tips rather than SBI component instruction."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:50:09.005418"
+  }
+}

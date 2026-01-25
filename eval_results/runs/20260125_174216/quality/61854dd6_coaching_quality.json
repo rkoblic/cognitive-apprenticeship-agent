@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When identifying the impact problem, mentor provides actionable direction: 'Keep the first two pieces and take another pass by replacing just the impact, one sentence.' Also earlier: 'Which of these is closest to what happened to you in that moment: \"I lost my train of thought,\" \"I felt annoyed,\" or \"I decided not to share a point\"?'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "After learner revises to 'In yesterday's client call while I was answering the timeline question, you started talking over me and I stopped; I lost my train of thought,' mentor specifically evaluates: 'That lands\u2014specific moment, camera-testable behavior, and an owned impact. \u2705'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact ('It didn't really affect me'), mentor doesn't immediately correct but explores: 'Sounds like this feels like \"no big deal\"\u2014that's common; impact can be tiny and still valid. Which of these is closest to what happened to you in that moment...' offering options rather than the answer."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Walk me through your behavior phrasing\u2014what were you trying to capture by saying \"you started talking while I was mid-sentence and I stopped\" instead of a label like \"you interrupted me\"?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'One reflection: what principle will you carry forward next time you give SBI feedback?' and 'What felt hardest about getting this into one sentence?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:52:39.195944"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: 'For behavior, I strip judgment and keep it camera-testable: instead of \"you took over,\" I use \"you interjected twice while I was mid\u2011sentence\"' - explains WHY they made the choice (camera-testable) not just what the component is."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows a choice point: 'I avoid the tempting but invalid \"you were rude\"\u2014that's judgment, not behavior.' This shows considering an alternative and rejecting it with reasoning."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: 'Quick self-check: specific moment? yes. Observable actions? yes. Owned impact or direct consequence? yes.'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers multiple reusable heuristics: 'camera-testable behavior,' 'Camera-test behavior\u2014no motives or labels,' and the full 10-second check framework that learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:57:17.739188"
+  }
+}

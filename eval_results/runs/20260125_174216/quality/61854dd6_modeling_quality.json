@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "\"I could say 'you were rude,' but that sneaks in judgment\u2014so I'm sticking to who spoke when and what happened.\" Mentor explains WHY they chose observable language over judgmental language."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "\"I could say 'you were rude,' but that sneaks in judgment\u2014so I'm sticking to who spoke when and what happened.\" Mentor explicitly shows considering an alternative ('you were rude') and rejecting it."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "\"Quick self-check: specific moment? yes. camera-testable behavior? yes. owned impact (my feeling/consequence)? yes.\" Mentor explicitly models checking their own work against the three criteria."
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "\"describe only what a camera would catch\" - the camera test is offered as a reusable heuristic. Also reinforced later: \"if I push back on one part\" and \"Do a quick three-point self-check.\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:52:27.845858"
+  }
+}

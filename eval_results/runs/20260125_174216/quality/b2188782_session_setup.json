@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means naming a specific moment, describing observable behavior, and sharing your owned impact\u2014and you'll do two full attempts.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll model it so you can see the moves and the judgment traps to avoid' (modeling phase), then 'I'll pause there\u2014your move when you're ready' (transition to practice), and 'First rep done. Second rep\u2014raise the stakes' (transition between practice attempts)."
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios involve specific workplace situations: 'Tuesday's standup' with timeline updates, 'Wednesday's standup when you started the sprint update,' and 'Monday's cross-functional review with execs in the room' about a risk update\u2014all with plausible interpersonal dynamics of being interrupted/talked over."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:47:35.496458"
+  }
+}

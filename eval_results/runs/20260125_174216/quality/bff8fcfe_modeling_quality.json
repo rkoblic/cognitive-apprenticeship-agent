@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I could say 'passive-aggressive,' but that's a judgment\u2014so I'll anchor to the exact words and actions\" - explains WHY they chose specific wording over a label."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice point: \"I could say 'passive-aggressive,' but that's a judgment\u2014so I'll anchor to the exact words and actions\" - explicitly considers an alternative and rejects it with reasoning."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor models self-checking: \"Quick self-check: anchored moment\u2014yes; camera-testable behavior\u2014yes; impact in my words and a direct consequence I experienced\u2014yes.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers reusable heuristic: \"do a 10\u2011second preflight\u2014camera can see/hear every behavior; impact is something I felt or did. If either slips, swap labels for verbs and add your concrete consequence\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:46:18.229910"
+  }
+}

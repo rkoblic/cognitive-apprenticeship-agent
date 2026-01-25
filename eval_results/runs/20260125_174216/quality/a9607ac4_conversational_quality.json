@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turns vary from long modeling explanations (the full SBI demo) to short reactions ('That's it\u2014small and real is exactly what we want'), to focused questions ('which meeting was it'), to emoji-only closings ('\ud83d\udc4d'). Some turns are single sentences, others are multi-paragraph."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with reactions like 'That's the thread we need\u2014small and real beats \"no impact.\" \ud83d\udc4d', 'Nice catch' style affirmations, casual phrasing like 'Take a swing', and human touches like 'This part can feel awkward to name\u2014totally normal.'"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner shows hesitation ('I guess. Go ahead.'), mentor acknowledges: 'Sounds like a tentative yes\u2014that's fine. This can feel awkward at first.' When learner deflects with 'I don't know. Whatever you think,' mentor responds: 'I hear the hesitation\u2014and you still got it over the line.' Also validates discomfort around complaining: 'Makes sense\u2014you don't want to sound complain-y.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:45:33.200109"
+  }
+}

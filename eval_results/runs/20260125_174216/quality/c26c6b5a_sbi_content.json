@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'What about \"twice\" or \"while I was presenting\" makes it feel accusatory to you?' probing the learner's understanding of observable vs. interpretive. Also asks learner to 'point to the one spot in your draft you think I'm most likely to push back on\u2014what word or phrase feels riskiest?' testing their ability to identify judgment leakage."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with behavior vs. judgment distinctions, mentor provides targeted scaffolding: 'Rule of thumb: keep the smallest set of specifics that lets a neutral observer find the exact moment; counts and timing are fine if they change the meaning, and the \"heat\" usually comes from evaluative labels or motive, not from neutral facts.' Also provides specific sentence stems for handling defensiveness."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: the 'camera test' concept, the 'quotes + owned impact' heuristic, and explicitly helps learner build a Post-it checklist with items like 'Heat/clarity check\u2014keep only details that help a neutral observer find the exact moment, and replace any adjective label (rude/dismissive/unprofessional) with the exact words or an observable action.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:54:41.577348"
+  }
+}

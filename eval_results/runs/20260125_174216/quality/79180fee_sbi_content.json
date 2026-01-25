@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor probes the observable vs. interpretive line multiple times: 'Behavior: could a camera/mic verify the words/actions you named?' and in the model: 'I could say \"you dismissed my update,\" but that reads motive.' The mentor explicitly tests whether learner understands the distinction by asking them to self-check each component."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles to identify issues in their draft (initially only flagging tone), mentor provides targeted scaffolding: 'Let's run the self-check you saw me use\u2014quick pass on all three: Moment: is it a single, recognizable instance? Behavior: could a camera/mic verify the words/actions you named? Impact: is it owned (your feeling or direct consequence), not a judgment?' This gives the learner a structured framework to work through their difficulty."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: (1) The 'camera test' - 'could a camera/mic verify the words/actions you named?' (2) A self-check framework with three questions for moment/behavior/impact (3) Final takeaway: 'when you catch a judgment word in your head (\"dismissive\"), pause and rewrite it into what a camera would capture' and 'run a 10-second check\u2014one moment, camera-test behavior, owned impact.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:51:28.235505"
+  }
+}

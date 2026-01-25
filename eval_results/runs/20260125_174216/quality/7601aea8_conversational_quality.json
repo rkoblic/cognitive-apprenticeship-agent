@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout: short reactions ('Nice catch'), longer explanations with modeling, questions ('Does that read as observable to you?'), brief affirmations ('You're set. \ud83d\udc4d'), and structured lists ('Quick preflight to avoid common slips:'). Some turns are single sentences, others are multi-paragraph demonstrations."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with phrases like 'Nice catch,' 'You're tuning, not overdoing it,' 'Sticky note is a pro move, not training wheels,' 'You've got this. \ud83d\udc4d,' and 'Go run it.' Uses emoji (\ud83d\udc4d) and casual language ('trips a lot of people') that feels human rather than purely procedural."
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner expresses worry ('I'm worried I might gloss over something'), anxiety ('I'm a bit nervous I'll slip into evaluative words'), and uncertainty throughout, mentor consistently validates: 'Totally fine to take notes\u2014slowing down is a good move,' 'It's normal to worry about delivery,' 'Pre-game nerves are normal\u2014you've done the thinking, now just run the play,' and 'trust it and take it into the room.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:44:11.786532"
+  }
+}

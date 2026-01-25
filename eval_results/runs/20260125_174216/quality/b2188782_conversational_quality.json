@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turns vary from long modeling explanation (first substantive turn) to short reactions ('That lands \ud83d\udc4d', 'Good\u2014lock that in'), to focused questions ('what exact words did they use'), to brief wrap-ups ('Yep\u2014we're done'). Rhythm shifts throughout."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with reactions like 'Nice\u2014owned and specific', '\ud83d\udc4d Sounds good', 'That lands \ud83d\udc4d', and phrases like 'Quick pit stop that makes the reps count' and 'raise the stakes'. Not purely neutral facilitation."
+    },
+    "F-03": {
+      "verdict": "FAIL",
+      "evidence": "Learner repeatedly shows frustration/impatience ('Can we move on?' appears 6+ times, 'Fine\u2014', 'Honestly, not much'). Mentor acknowledges wanting to move ('I hear you\u2014you want to keep momentum', 'Sounds like you want to keep this moving\u2014totally fair') but consistently presses forward with more questions rather than genuinely adjusting approach or exploring the resistance."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "na_count": 0,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "F-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:48:35.159518"
+  }
+}

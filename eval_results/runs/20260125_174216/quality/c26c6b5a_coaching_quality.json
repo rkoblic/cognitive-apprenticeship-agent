@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When giving feedback, mentor includes what to do next: 'Swap \"on the second interruption\" for \"the second time you said, 'Hold on\u2014this isn't right,'\" and keep the rest as-is. Share your 2\u20133 sentence version with that tweak.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'That lands\u2014you've met the criteria. \"Mid-sentence\" is observable, and repeating the quote in the impact is fine; if you want it tighter, \"when you repeated it\" works just as well.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner makes errors, mentor explores before correcting: 'Before I weigh in, point to the one spot in your draft you think I'm most likely to push back on\u2014what word or phrase feels riskiest?' and 'Run the self-check on your draft: is the moment specific, is the behavior camera-testable, and is the impact fully owned?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What about \"twice\" or \"while I was presenting\" makes it feel accusatory to you?' This asks the learner to articulate their thinking about specific word choices."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'Quick look back: what was the hardest part to keep neutral in this higher\u2011stakes version?' This asks learner to step back and reflect on their learning process."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:54:25.071388"
+  }
+}

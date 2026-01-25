@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "FAIL",
+      "evidence": "Mentor follows a predictable pattern throughout: provide instruction/feedback \u2192 ask a reflective question or request revision \u2192 affirm with brief praise \u2192 repeat. The final 10+ turns are nearly identical ('Go run it, bring back the opener and their first sentence'). Little variation in rhythm or turn length."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with reactions like 'Nice catch,' 'You tightened this without losing the edge\u2014nice,' 'Nice work today \ud83d\udc4d,' and 'That's the move.' Uses emoji (\ud83d\udc4d, \u2705) and casual phrasing that feels human rather than purely procedural."
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never displays anxiety, frustration, or confusion. Daniel is confident and even pushback-oriented throughout, but never shows negative affect that would require emotional acknowledgment."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "na_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "F-01"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:47:09.187967"
+  }
+}

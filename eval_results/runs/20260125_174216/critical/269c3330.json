@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup when we talked about the API rollout, you said \"I guess some people didn't read the doc,\" looked over at me, and a couple people laughed. I felt embarrassed and my face got hot, and I ended up skipping the update I'd prepared.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: 'you kept the label \"passive-aggressive\" in the stitch' and 'that \"passive\u2011aggressive\" tag is an intent claim, not camera\u2011testable behavior'; also identifies '\"you undercut me\" is a label/intent claim\u2014not camera\u2011testable'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions multiple times: 'Give me a clean stitch with that single change'; 'Tighten the impact to owned language only... give me that version'; 'Want to take another pass?'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'pretty much every standup lately' and mentor addressed this: 'one recognizable moment (no \"every time\")' and later 'drop \"which keeps happening in client settings\" from the opener\u2014keep the anchor to a single moment'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'passive-aggressive' as judgment: 'that \"passive\u2011aggressive\" tag is an intent claim, not camera\u2011testable behavior, so it breaks the behavior criterion'; also catches 'you undercut me' as 'a label/intent claim\u2014not camera\u2011testable'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'It shut the room down and hurt team morale' and mentor addressed: 'Tighten the impact to owned language only\u2014what you felt, noticed in your body, or did'"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner submitted draft, mentor asked 'predict where I'll push back the hardest\u2014what in your draft is likeliest to miss the criteria, and why?' requiring learner to self-evaluate before providing feedback"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all critical tutoring behaviors: showed a complete SBI example, provided specific feedback with quoted language, requested revisions, and caught vague situations, judgment leakage, and accusatory impact while protecting productive struggle.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:55:26.672792"
+  }
+}

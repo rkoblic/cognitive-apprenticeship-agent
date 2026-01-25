@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout: some turns are longer explanations with numbered steps (the think-aloud demo), some are short affirmations ('That lands\u2014meets the bar \ud83d\udc4d'), some are diagnostic questions ('say pass or fail against the SBI criteria'), some are brief validations ('Totally okay\u2014never awkward'), and some are structured lists of options."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with reactions like 'Nice catch' tone in '\ud83d\udc4d', casual language ('Totally okay,' 'This is the right level of precision \ud83d\udc4d'), expressions like 'I'm keen to hear how it lands,' and warm encouragement like 'Nervous and ready is a good combo.'"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner expresses anxiety ('I'm a little nervous,' 'nervous, but ready(ish),' 'I might be over-cautious'), mentor consistently acknowledges and normalizes: 'Totally makes sense\u2014you're being precise, not nitpicky. This part trips a lot of people up,' 'Nerves are normal\u2014you're ready,' 'Nervous and ready is a good combo\u2014you've got a clear plan and that tends to settle once you start.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:50:24.973909"
+  }
+}

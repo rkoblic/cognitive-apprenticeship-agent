@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means anchoring to a real moment, naming camera-testable behavior, using owned impact language, and noticing when judgment sneaks in.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transitions: 'I'll demonstrate how I approach it, then we'll practice with your example' and later 'Lock your behavior line... and then we'll use your real situation for a full SBI attempt' and 'Your turn.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The practice scenarios are realistic workplace situations: 'yesterday's 10am standup' where a peer interrupted during QA timeline presentation, and 'Last Thursday's vendor call with Apex' with director present\u2014both include specific interpersonal dynamics and plausible workplace contexts."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:53:49.412743"
+  }
+}

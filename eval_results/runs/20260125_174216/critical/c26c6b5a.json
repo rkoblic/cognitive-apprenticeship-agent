@@ -1,0 +1,47 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "FAIL",
+      "evidence": "Mentor explains the 5-step process and describes what SBI looks like, but never writes out a complete Situation-Behavior-Impact statement as a demonstration. The mentor says 'Pick a real moment: \"In Tuesday's standup\u2026\"' but this is just a fragment, not a full modeled example."
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "When learner drafts SBI, mentor asks learner to identify risky language: 'point to the one spot in your draft you think I'm most likely to push back on\u2014what word or phrase feels riskiest?' Later confirms: 'You're zooming in on the likeliest leak' regarding 'on the second interruption' and provides specific guidance to 'Swap \"on the second interruption\" for \"the second time you said, 'Hold on\u2014this isn't right'\"'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback on the learner's draft, mentor explicitly requests revision: 'Share your 2\u20133 sentence version with that tweak.' Also earlier: 'Try it: choose whether you'd keep \"twice,\" \"while I was presenting,\" both, or neither, and give me the one-sentence behavior line for that scenario.'"
+    },
+    "D-01": {
+      "verdict": "N/A",
+      "evidence": "Learner's drafts use specific time references like 'yesterday's 10am standup,' 'last Thursday's Apex vendor call,' and 'Monday's planning.' No vague time references like 'lately,' 'sometimes,' or 'recently' appear in learner's SBI attempts."
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "In lightning round, mentor tests learner on 'you were dismissive' and confirms it's judgment. When learner worries about 'interruption' being judgmental, mentor engages with the concern. Mentor guides learner to replace 'on the second interruption' with camera-testable language: 'the second time you said, \"Hold on\u2014this isn't right\"'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner's impact statements use owned language throughout: 'I felt flustered,' 'I lost my place,' 'I had to follow up,' 'I felt rattled,' 'I was concerned about my credibility.' No accusatory 'you made me' or blame language appears in learner's drafts."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner asks 'Could we maybe do a quick lightning round where you read a line and I say \"behavior\" or \"judgment,\" and you'll catch me if I miss it? Or if you'd prefer, I can try a couple,' mentor requires learner attempt: 'Let's start the lightning round with one: \"In today's design review, you were dismissive.\" Behavior or judgment?' Mentor consistently asks learner to attempt before providing answers."
+    }
+  },
+  "overall": {
+    "verdict": "FAIL",
+    "summary": "The mentor explains the SBI framework and guides practice effectively but never demonstrates a complete SBI statement as a model for the learner.",
+    "passed_count": 4,
+    "failed_count": 1,
+    "na_count": 2,
+    "failed_criteria": [
+      "B-01"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:53:36.454410"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're going to work on delivering peer feedback using the Situation-Behavior-Impact (SBI) framework. Success today means you produce two full drafts that anchor to a specific moment, describe observable behavior, and state your owned impact clearly.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transitions: 'I'll model my thinking first, then we'll switch to your practice\u2014good to start?' and later 'Ready to try yours? Give me a full draft\u2014in one go' and 'Second practice, higher stakes and different recipient...'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios involve realistic workplace situations: being interrupted during a standup meeting, sprint planning with specific details (QA timeline for 1.8, vendor testing delay), and an exec release review on Zoom with ~20 leaders\u2014all with plausible interpersonal dynamics around being cut off mid-update."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:50:51.785862"
+  }
+}

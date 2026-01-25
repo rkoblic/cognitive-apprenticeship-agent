@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Multiple readiness checks throughout: 'Does that read as a clear, recognizable moment to you before we move on?' 'Does that read as observable to you, or do you spot any judgment leaking in before we move to impact?' 'If that tweak works for you, I'll move to the impact next\u2014ready?' 'If that lands for you, say ready and I'll toss you a quick test phrase before we switch to your draft.'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor progressively reduces scaffolding. Early: provides full modeling with pauses and detailed explanations. Middle: 'Before I weigh in, pick the single spot you think I'm most likely to push back on and tell me why that one' - shifts evaluation to learner. Later: 'Run your draft through this self-check' - asks learner to self-evaluate. Final attempts: 'That lands\u2014meets the bar. No misses against the criteria' with minimal intervention. By end: 'You've demonstrated you can do it; no need for a live line here\u2014trust it.'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:43:56.955570"
+  }
+}

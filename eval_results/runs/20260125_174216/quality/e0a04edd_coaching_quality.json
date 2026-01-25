@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When identifying problems, mentor consistently provides actionable direction. Example: 'the impact isn't owned\u2014there's judgment (\"unprofessional\") and mind\u2011reading (\"I felt like the room was frustrated\"). The hedges... also blur precision. Your move: tighten to own only your impact and drop the hedges\u2014give me a clean 2\u20133 sentence revision.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically. Example: After learner's revision 'In yesterday's quarterly review on Zoom, you joined eight minutes late, and we paused three minutes to catch you up. I felt rushed and cut two items to land on time.' Mentor responds: 'This is tight and meets the SBI bar\u2014real moment, camera-test behavior, owned impact. \ud83d\udc4d One risk: the exact minutes only work if you can truly own them...'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting. Example: After learner's first draft with 'dismissive,' mentor asks 'Before I weigh in: aside from \"dismissive,\" what's one other spot you think I might push on against the criteria or ask you to tighten?' Also uses diagnostic questions: 'for each line below, say pass or fail against the SBI criteria and one\u2011sentence why.'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning behind choices. Example: 'Run the quick check on your draft\u2014real moment, camera\u2011test behavior, owned impact\u2014and call out any judgment words you spot (e.g., \"dismissive\"); which piece needs the first fix?' Learner then articulates their analysis of each component."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning process. Example: 'Quick step back: what was the hardest part to nail in this draft?' and 'One reflection before we close: what principle will you carry into live conversations to keep yourself from sliding into labels or hedging?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:49:41.516202"
+  }
+}

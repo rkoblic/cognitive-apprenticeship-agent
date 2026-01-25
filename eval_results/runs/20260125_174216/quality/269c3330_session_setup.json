@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means you anchor to a specific moment, name only observable behavior, and state the impact in your own words.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demo my thinking first, then we'll use your situation\u2014ready to dive in?' and later 'Your move when you're ready.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenario involves Marcus's recurring passive-aggressive behavior in standups and later Dana (a director) interrupting during a cross-functional QBR with VPs and client reps\u2014both are specific, believable workplace situations with plausible interpersonal dynamics."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:55:36.461455"
+  }
+}

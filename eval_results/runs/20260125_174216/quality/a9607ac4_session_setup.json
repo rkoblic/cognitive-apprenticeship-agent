@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're going to practice delivering peer feedback using the SBI framework. Success looks like a specific moment, a camera-testable behavior, and an impact stated in your own experience.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transition: 'I'll model how to do it next\u2014ready to start?' and later 'Second practice, higher stakes: imagine you'll give upward feedback.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenario involves Tuesday's standup, discussing blockers, being talked over by a colleague\u2014specific workplace context with plausible interpersonal dynamics. The second scenario involves a skip-level manager in a cross-team planning meeting."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:44:36.976489"
+  }
+}

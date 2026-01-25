@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready to start?' at opening, 'Your move when you're ready' after modeling, 'Before I weigh in, what's the one piece you'd tighten...' before advancing, and explicitly transitions with 'Second practice, higher stakes' only after confirming 'This first attempt meets the bar.'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "In first practice, mentor provides extensive scaffolding (stems, multiple probing questions about impact, specific guidance). In second practice, mentor gives less detailed guidance\u2014just 'Draft your SBI as two sentences' without stems or step-by-step breakdown. When learner's second attempt misses impact, mentor gives targeted feedback ('Revise so the impact names your actual internal state') rather than walking through multiple questions as before."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:45:20.399175"
+  }
+}

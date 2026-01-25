@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "\"For behavior, I'll keep it camera-testable. I could say 'you were dismissive,' but that's a judgment\u2014so instead: 'you started speaking before I finished\u2014twice\u2014and said, let's jump to my ticket.'\" - Mentor explains WHY they chose specific wording over a judgment."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "\"I could say 'you were dismissive,' but that's a judgment\u2014so instead...\" - Mentor explicitly shows considering an alternative ('dismissive') and rejecting it, demonstrating a choice point."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "\"Quick self-check: the moment's specific, the behavior's observable, the impact is mine.\" - Mentor explicitly models checking their own work against the three criteria."
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "\"when you feel the urge to write 'it didn't affect me,' name the smallest honest thing that changed for you\u2014emotion, flow, or a follow-up\u2014and start it with 'I\u2026'\" and earlier references to \"camera-testable\" as a standard the learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:44:47.250136"
+  }
+}

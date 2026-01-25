@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Variety in turn structure: long think-aloud modeling turn, short reactions ('Nice catch on all three\u2014that's the right diagnosis \ud83d\udc4d'), questions ('What's your call on each\u2014pass or miss?'), brief affirmations ('That's it\u2014you're set'), and reflective prompts. The ending turns become repetitive, but overall there's rhythm variation."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with reactions like 'Nice catch on all three\u2014that's the right diagnosis \ud83d\udc4d', 'Totally normal to worry about tone', 'Nice work today \ud83d\udc4d', and casual phrasing like 'we'll tune it quickly' and 'Talk soon.' Has a warm, encouraging voice rather than purely neutral facilitation."
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner expressed worry about impact wording being 'a little strong' or 'accusatory,' mentor acknowledged the concern supportively: 'Totally normal to worry about tone\u2014owned impact isn't \"harsh\" when it's yours' and 'Tone worries are common here, and you're not being harsh by owning your experience.' Validated the difficulty rather than dismissing it."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:51:51.342200"
+  }
+}

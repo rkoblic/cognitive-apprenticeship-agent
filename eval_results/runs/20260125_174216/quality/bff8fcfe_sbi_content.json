@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'Before I weigh in, where do you think I'll push back\u2014moment, behavior, or impact? Name the exact words in your draft you think are most likely to miss the criteria.' This probes whether the learner can identify which of their words are interpretive vs. observable. The learner correctly identifies 'passive-aggressive' and 'dismissive' as labels, demonstrating the mentor successfully tested the distinction."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with the Priya upward feedback draft (impact not in their lane), mentor provided targeted, specific guidance: 'Anchored moment\u2014solid. Your behavior list is camera\u2011testable\u2014good. Miss: your impact isn't in your lane. Tighten that and send the full draft again.' This pinpoints exactly what needs fixing rather than giving the answer or generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: (1) '10\u2011second preflight\u2014camera can see/hear every behavior; impact is something I felt or did. If either slips, swap labels for verbs and add your concrete consequence' (2) 'make \"one moment + verbs + my consequence\" your non\u2011negotiable opener' (3) 'jot their first sentence verbatim\u2014it'll tell you whether to layer the stamped pattern or ask a clarifying question.' These are generalizable heuristics for future SBI drafting."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:46:44.242754"
+  }
+}

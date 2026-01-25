@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout: short affirmations ('You're tracking it'), longer explanations with numbered steps (5-step approach), quick questions ('Behavior or judgment?'), brief reactions ('Nice catch' style with 'You're right'), and coaching pauses ('What do you see?'). Some turns are 2-3 sentences, others are full paragraphs with structure."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with phrases like 'judgment leakage trips a lot of people up,' casual tone ('Totally fair to feel that spike'), emoji use (\ud83d\udc4d), and human touches like 'Clarity beats grandeur.' Also shows warmth: 'Makes sense to feel a bit exposed\u2014use the structure as your safety rail; you're ready.'"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner expresses anxiety ('I still feel a little exposed,' 'I'm worried I'll slip motive'), mentor consistently acknowledges: 'Totally fair to feel that spike\u2014higher stakes make judgment creep more tempting,' 'Totally normal to feel a little exposed here\u2014you're ready,' and 'Makes sense to feel a bit exposed\u2014use the structure as your safety rail.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:55:09.943921"
+  }
+}

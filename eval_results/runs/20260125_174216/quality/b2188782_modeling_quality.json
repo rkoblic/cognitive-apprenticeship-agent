@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I'm tempted to say 'you were dismissive,' but that's an interpretation\u2014so I swap it for what a camera would catch\" and \"For impact, I'd avoid 'I felt it was unprofessional' (that's a judgment) and name my internal state and consequence\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice point: \"I'm tempted to say 'you were dismissive,' but that's an interpretation\u2014so I swap it for what a camera would catch\" - explicitly showing the alternative considered and rejected"
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Quick self-check: specific moment\u2014yes; behavior is observable\u2014yes; impact is owned\u2014yes.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: \"what a camera would catch\" (camera test), and later \"keep impact owned by starting with 'I felt\u2026' and ending with what you did or experienced\" as a pocket rule"
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:47:45.357672"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup, when I started to list my blockers, you began talking while I was mid-sentence and said, \"Let's move on,\" then moved to the next update. I felt flustered and my heart raced; I lost my train of thought and didn't mention the CI failure, which meant I had to follow up in DMs afterward.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor identifies specific language issues: 'Miss: it's not anchored to a single moment\u2014you drifted to \"lately\" instead of last Friday's review.' Also guides learner to identify 'dismissive/don't care' as interpretations, not camera-verifiable actions."
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Ready to try a full rewrite now, anchored to one specific meeting, with camera-testable actions/words and your owned impact? Give me the whole draft in one go.' Also: 'Your turn\u2014rewrite it for that one meeting.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'In our team meetings lately' and 'In our exec release reviews lately' - mentor caught both. First instance: guided learner to self-identify via self-check. Second instance: 'Miss: it's not anchored to a single moment\u2014you drifted to \"lately\" instead of last Friday's review.'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'you're dismissive,' 'shut down my points,' 'don't really care' - mentor guided learner through self-check to identify these: 'Behavior: could a camera/mic verify the words/actions you named?' Learner correctly identified: 'dismissive/don't care are interpretations, not camera-verifiable actions.'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'you caused the team to miss important context' and 'It made the meeting awkward' - mentor guided learner through self-check to identify: 'Impact: is it owned (your feeling or direct consequence), not a judgment?' Learner identified: 'I blamed (\"you made it awkward/you caused\u2026\") instead of owning my feeling.'"
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never asked mentor to provide answers or do the work for them. Learner engaged with all revision requests independently."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated a complete SBI example, provided specific feedback referencing exact problematic language, requested revisions after feedback, and caught all error types (vague situations, judgment leakage, accusatory impact) through guided self-checks.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "79180fee",
+    "evaluated_at": "2026-01-25T17:50:42.718198"
+  }
+}

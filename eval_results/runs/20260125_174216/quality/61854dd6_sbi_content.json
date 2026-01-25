@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'Walk me through your behavior phrasing\u2014what were you trying to capture by saying \"you started talking while I was mid-sentence and I stopped\" instead of a label like \"you interrupted me\"?' This directly probes whether the learner understands the observable vs. interpretive distinction."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with impact ('I don't know\u2014nothing really. It didn't matter.'), mentor offered targeted scaffolding with specific options: 'Which of these is closest to what happened to you in that moment: \"I lost my train of thought,\" \"I felt annoyed,\" or \"I decided not to share a point\"?' This is a concrete multiple-choice scaffold, not generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides the 'camera test' heuristic multiple times ('describe only what a camera would catch') and a reusable self-check framework ('specific moment? yes. camera-testable behavior? yes. owned impact (my feeling/consequence)? yes'). Also provides a reusable process: 'next time it happens, just jot the meeting + the beat in the moment.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:52:49.957682"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction: 'Rewrite just your second sentence so it owns what happened for you: start with \"I\u2026\" and name that you trimmed your blockers and left out a couple things (and, if true, what you had to do afterward). Give me that one sentence.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revision specifically: 'That lands\u2014moment is specific, behavior observable, impact owned.' Also earlier: 'That's it\u2014small and real is exactly what we want.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'Nothing really. I just moved on,' mentor doesn't immediately correct but probes further: 'Quick check: when you moved on, did you shorten your blockers or leave out any detail you'd planned to share?' This helps learner discover the impact themselves."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What led you to add \"it didn't really affect me\" to your draft\u2014what were you aiming to do there?' This elicits the learner's thinking process behind their choice."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'Stepping back: what shifted for you in naming the impact this time?' This asks learner to reflect on how their thinking changed, not just justify a specific choice."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "a9607ac4",
+    "evaluated_at": "2026-01-25T17:44:58.723078"
+  }
+}

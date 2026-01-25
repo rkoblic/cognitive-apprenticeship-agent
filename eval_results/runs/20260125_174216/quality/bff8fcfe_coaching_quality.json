@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When identifying the impact issue in the Priya draft, mentor says: 'Miss: your impact isn't in your lane. Tighten that and send the full draft again.' Earlier, mentor provides actionable direction: 'Run a stricter self-check on your draft: one recognizable standup, behaviors a camera would catch (no labels), and impact in your lane (\"I felt/did\u2026\" with a direct consequence you experienced). Tighten it to pass that test.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "After learner's first revision, mentor evaluates specifically: 'You tightened this without losing the edge\u2014nice. I hear you that it's the same reality, just without the labels.' After the Priya revision, mentor provides specific evaluation: 'That passes: specific Thursday moment, camera\u2011testable behaviors without labels, and impact in your lane with a concrete consequence.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Before giving feedback on the first draft, mentor asks: 'Before I weigh in, where do you think I'll push back\u2014moment, behavior, or impact? Name the exact words in your draft you think are most likely to miss the criteria.' This lets the learner identify their own errors before correction."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Quick why behind a choice: what made you pick that specific Tuesday 9:15 moment as the anchor, instead of \"this week's standups\" or another instance?' This elicits articulation of the learner's decision-making process."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning process: 'Step back for a moment: what was the hardest part to tighten\u2014dropping labels in the behavior, or keeping the impact squarely in your lane\u2014and what did you change in your approach because of that?' Also asks: 'What's the single principle you'll carry forward when giving upward feedback under pressure?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:46:29.950912"
+  }
+}

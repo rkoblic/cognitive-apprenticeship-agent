@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We'll work on delivering peer feedback using the SBI framework. Success means you anchor to a real moment, describe observable behavior, and state impact in your own experience; you'll do two full attempts\u2014first with support, then on your own.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate the thinking process once before you try\u2014ready to begin?' and later 'Your turn: write a 2\u20133 sentence SBI message to Jordan' and 'Ready to take a variation for your solo rep?'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "Multiple realistic workplace scenarios used: design review where Jordan interrupted during Q&A, and quarterly review on Zoom with VP/leads where Alex joined 8 minutes late causing a pause\u2014both include specific interpersonal dynamics and plausible workplace contexts."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:49:09.611168"
+  }
+}

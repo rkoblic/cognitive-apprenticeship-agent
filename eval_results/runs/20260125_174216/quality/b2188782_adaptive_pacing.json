@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness at the start ('are you ready to start?'), pauses after modeling ('I'll pause there\u2014your move when you're ready'), and explicitly transitions to second rep only after first is complete ('First rep done. Second rep\u2014raise the stakes')"
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides similar level of scaffolding throughout both reps - continues prompting for specific fixes, asking learner to identify problems, and providing the same guided revision process. In rep 2, mentor still says 'The miss: your behavior and impact lines drift into judgments' and guides revision step-by-step, same as rep 1. No visible reduction in support despite learner demonstrating competence."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:48:22.027756"
+  }
+}

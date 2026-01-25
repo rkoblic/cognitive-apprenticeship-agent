@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor repeatedly probes the observable vs. interpretive line: 'Now drop the labels and name what a camera would catch in that moment\u2014what are two specific things they did or said right then?' and 'what exact words did they use that ended your update?' These questions test whether the learner can distinguish between what they saw ('started talking while I was mid-sentence') versus what they concluded ('rude,' 'dismissive')."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with specificity, mentor offers targeted scaffolding: 'pick one meeting and a distinct moment inside it (e.g., \"Wednesday's design review, right after I started the roadmap slide\")' - providing a concrete example format. Also offers sentence stem: 'start with \"In Wednesday's standup when I started the sprint update\u2026,\" add those two behaviors in neutral wording, and finish with your owned impact.'"
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: the 'camera test' for behaviors ('what a camera would catch'), the self-check framework ('specific moment, camera-testable behavior, owned impact'), and explicitly names a 'pocket rule to carry forward': 'own the impact (\"I felt\u2026\") and end with what you did/experienced, with behaviors that pass the camera test.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:48:10.400630"
+  }
+}

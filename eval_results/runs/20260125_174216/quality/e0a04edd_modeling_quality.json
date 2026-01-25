@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I could say 'you were dismissive,' but that's a judgment. Camera-test version: 'you jumped in while I was speaking\u2014twice\u2014before I finished my sentences.'\" This shows why they chose specific wording."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly shows a choice point: \"I could say 'you were dismissive,' but that's a judgment\" - demonstrating they considered an alternative and rejected it with reasoning."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor models self-checking: \"Quick self-check: Moment is real? Yes. Behavior observable? Yes. Impact owned (felt/lost/skipped)? Yes. Any leaked judgment? Don't see any; 'dismissive' stayed out.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: \"camera-test\" for behavior, \"one emotion plus one concrete effect on you,\" and \"if you hear an adjective about them in your mouth, swap it for a verb you could film.\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:49:23.557006"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning throughout: \"I could say 'lately in standups,' but that's too vague and would miss the real-moment criterion\u2014so I anchored to Tuesday.\" Also: \"I could say 'you cut me off' or 'you were dismissive,' but that sneaks in judgment; I'm sticking to what a camera would capture.\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly shows choice points and alternatives considered: \"I could say 'I felt disrespected' or 'that felt unprofessional,' but those evaluate them; I'm staying with my internal state and the direct consequence on my update.\" Also shows deliberation about situation specificity."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor models self-checking multiple times: \"Quick self-check: could someone else who was there recognize this moment? Yes.\" Also: \"Quick self-check I'm running: the moment is recognizable, the behavior is camera-testable, and the impact is mine to own\u2014this passes.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple reusable heuristics offered: \"if you couldn't video-record it, it's not behavior\" (camera test), \"if you can feel it in your body or see it in your timeline, it's impact; if it rates their behavior, it's judgment,\" and \"default to a relative anchor; use exact numbers only when the number itself is the point.\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:43:08.892260"
+  }
+}

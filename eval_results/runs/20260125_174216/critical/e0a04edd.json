@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup, you jumped in while I was speaking\u2014twice\u2014before I finished. I felt flustered, lost my train of thought, and ended up skipping the deployment risk.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: 'there's judgment (\"unprofessional\") and mind\u2011reading (\"I felt like the room was frustrated\"). The hedges (\"maybe,\" \"pretty,\" \"like around,\" \"kind of,\" \"for a bit,\" \"sort of,\" \"probably\") also blur precision.'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Your move: tighten to own only your impact and drop the hedges\u2014give me a clean 2\u20133 sentence revision.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'In this morning's design review\u2014during the Q&A part, I think\u2014' mentor later addresses hedges and vagueness. Also when learner wrote 'In yesterday's quarterly review on Zoom\u2014maybe in the first part\u2014' mentor identified hedges including 'maybe' as blurring precision."
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'dismissive' in learner's draft: 'aside from \"dismissive,\" what's one other spot you think I might push on' and later explicitly identifies 'judgment (\"unprofessional\")' in the second draft."
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never used accusatory 'you made/you caused' language in impact statements. Impact statements were either vague ('made things feel a little off') or properly owned ('I felt flustered')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner asked 'Does that seem like the right fix, or would you rather I tighten...' seeking direction, mentor redirected: 'Run the quick check on your draft... and call out any judgment words you spot... which piece needs the first fix?' requiring learner to analyze first."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI with a complete example, provided specific feedback quoting exact problematic language, requested revisions after feedback, caught vague situations and judgment leakage, and protected productive struggle by requiring learner analysis before providing answers.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "e0a04edd",
+    "evaluated_at": "2026-01-25T17:48:56.603106"
+  }
+}

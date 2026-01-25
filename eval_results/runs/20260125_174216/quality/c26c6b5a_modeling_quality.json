@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: 'I'm choosing 'spoke over me twice' instead of 'was rude' because a camera could capture that' is implied in the five-step approach where mentor explains WHY each choice matters: 'Name behavior that's camera-testable (something you could see/hear on a recording): quote the words or describe the action\u2014no labels.'"
+    },
+    "B-03": {
+      "verdict": "FAIL",
+      "evidence": "Mentor presents the 5-step framework and guides learner through choices, but does not explicitly show their own deliberation between alternatives during modeling. No moment where mentor says 'I could say X but that's interpretation\u2014what did I actually see?' The choice points shown are in the learner's work, not the mentor's demonstration."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: 'Self-check: Is the moment specific, the behavior observable, and the impact mine?' and later prompts learner to do the same: 'Run the self-check on your draft: is the moment specific, is the behavior camera-testable, and is the impact fully owned?'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: 'camera-testable' test, 'keep the smallest set of specifics that lets a neutral observer find the exact moment,' 'quotes + owned impact keeps you clean under pressure,' and 'If you couldn't video-record it, it's not behavior' (implied through camera-testable framing)."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 1,
+    "pass_rate": 0.75,
+    "failed_criteria": [
+      "B-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "c26c6b5a",
+    "evaluated_at": "2026-01-25T17:54:07.912337"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates complete SBI: '\"In Tuesday's standup when we moved to the Q3 timeline item\u2026\" \"you started talking while I was mid-sentence and I stopped.\" ... \"I lost my train of thought and felt frustrated, and my note about the API dependency didn't get shared.\"'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor points to specific language: 'Impact misses\u2014the \"didn't really affect me\" doesn't meet the impact criterion.' References exact phrase and names the specific issue."
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback on impact, mentor explicitly requests revision: 'Keep the first two pieces and take another pass by replacing just the impact, one sentence.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'some meeting' and 'being difficult, talking over people or whatever,' mentor catches vagueness: 'If you scan this past week, what's one recognizable meeting you can name where this happened\u2014like \"Monday's retro\" or \"yesterday's client call\"?'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When learner writes 'being difficult,' mentor addresses judgment: 'describe only what a camera would catch for the behavior' and later validates learner's understanding: 'what were you trying to capture by saying \"you started talking while I was mid-sentence and I stopped\" instead of a label like \"you interrupted me\"?'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never uses accusatory 'you' language in impact statements. Impacts were either dismissive ('didn't really affect me') or owned ('I lost my train of thought')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'I don't know. You tell me.' mentor doesn't give the answer, instead redirects: 'You've got the moment and a describable behavior; the piece that's not landing is impact. In that exact instant, what did you personally feel...'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI modeling, provided specific feedback with exact quotes, requested revisions, caught vague situations and judgment language, and protected productive struggle by not giving answers when asked.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "61854dd6",
+    "evaluated_at": "2026-01-25T17:52:10.454518"
+  }
+}

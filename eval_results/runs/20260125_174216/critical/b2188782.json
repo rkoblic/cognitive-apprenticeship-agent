@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup when I started the timeline update, you began talking while I was mid\u2011sentence, then asked Priya for her take before I'd finished, and said 'Let's move on' while my slide was up. I felt sidelined and lost my train of thought, and I didn't flag two risks as a result.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific problematic language: 'The miss: your behavior and impact lines drift into judgments (\"dismissive,\" \"took over/shut it down,\" \"awkward/created problems\")' and 'your impact isn't owned\u2014\"awkward\" and \"threw off the meeting\" aren't about what you felt'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions multiple times: 'Tighten just the impact to owned language and resend the full draft' and 'Your move to revise'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'Last week, in our meetings,' mentor pushed for specificity: 'pick one meeting and a distinct moment inside it (e.g., \"Wednesday's design review, right after I started the roadmap slide\"). Which exact moment from last week will you anchor to?'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When learner used 'dismissive and rude,' mentor addressed it: 'drop the labels and name what a camera would catch' and later 'your behavior and impact lines drift into judgments (\"dismissive,\" \"took over/shut it down\")'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'It was awkward and created problems for the meeting,' mentor caught it: 'Swap \"It was awkward\" for owned impact: name what you felt in the moment and the immediate effect on you' and 'your impact isn't owned\u2014\"awkward\" and \"threw off the meeting\" aren't about what you felt or what happened to you'"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner repeatedly asked 'Can we move on?', mentor required attempts first: 'run your draft through this check\u2014specific moment, camera\u2011testable behavior, owned impact\u2014and name the first item that doesn't pass' before providing help"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all critical tutoring behaviors: modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, catching vague situations/judgment leakage/accusatory impact, and protecting productive struggle when the learner tried to rush through.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:47:25.665284"
+  }
+}

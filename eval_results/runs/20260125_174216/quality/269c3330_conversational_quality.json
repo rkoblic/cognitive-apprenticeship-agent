@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure: longer demo explanation (turn 2), short affirmation ('That lands\u2014specific moment, camera\u2011testable behavior, and owned impact. \ud83d\udc4d'), probing questions ('What were you hoping that word would do...'), brief coaching tips ('One delivery tip: after your opener, stop and let three beats of silence pass'), and meta-cognitive prompts ('predict where I'll push back the hardest')."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with reactions like '\ud83d\udc4d', 'Nice sticky note', 'That meets the bar', 'One small prep move', and conversational phrases like 'Your move when you're ready' and 'I hear the reasons'. Has an engaged, direct coaching voice rather than purely neutral facilitation."
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never displays anxiety, frustration, or confusion. Daniel is confident throughout, even pushes back assertively on feedback. No negative affect to respond to."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "na_count": 1,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "269c3330",
+    "evaluated_at": "2026-01-25T17:56:38.915428"
+  }
+}

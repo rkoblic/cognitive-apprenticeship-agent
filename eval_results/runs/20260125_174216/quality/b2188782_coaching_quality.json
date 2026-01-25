@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently provides actionable direction. Example: 'Swap \"It was awkward\" for owned impact: name what you felt in the moment and the immediate effect on you (e.g., \"I felt [emotion] and I [consequence I experienced]\"). Rewrite just your impact line with your own words.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically. Example: After learner's revision 'I felt thrown off and cut my update short without covering a couple of points,' mentor responds: 'That lands\u2014clear moment, camera\u2011clean behaviors, and owned impact.' Also earlier: 'Anchoring is solid, and your behaviors are mostly camera\u2011clean (the \"Let's move on\" line especially). The miss: your impact isn't owned...'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting. Example: 'Before I weigh in, which part of your draft is most likely to miss the criteria\u2014pick the one you're least sure about.' And later: 'Before I weigh in, where do you think I'll push back\u2014point to the exact word or phrase that's most questionable.' Mentor uses partial hints and questions rather than immediately providing fixes."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Walk me through your phrasing for the behavior\u2014what were you trying to capture with those words?' This asks the learner to articulate why they made specific choices, not just whether they understood."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'Looking across both reps, what shifted for you\u2014especially in how you're distinguishing owned impact from judgments about \"the meeting\"?' This asks learner to step back and reflect on how their thinking changed across the session."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "b2188782",
+    "evaluated_at": "2026-01-25T17:47:58.587556"
+  }
+}

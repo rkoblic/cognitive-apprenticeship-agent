@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success is you producing two full attempts that hit the marks\u2014real situation, observable behavior, and owned impact; first with some scaffolding, second with feedback only.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transitions: 'I'll demonstrate my approach first and narrate choices\u2014ready for the model?' and later 'Your turn: draft a full SBI from your own real moment' and 'Let's raise the stakes for round two.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios involve realistic workplace situations: Tuesday's standup with interruptions during blocker sharing, Thursday's capacity planning meeting with a late joiner, and Monday's go/no-go meeting with product director and sales present\u2014all with plausible interpersonal dynamics."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:42:52.686839"
+  }
+}

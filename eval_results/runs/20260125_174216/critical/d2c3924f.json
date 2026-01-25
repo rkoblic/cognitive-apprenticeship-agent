@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup, while I was walking through the testing timeline, you interjected twice while I was mid\u2011sentence\u2014once to answer a question directed to me and once to correct the date. I felt rushed and lost my train of thought; I skipped two blockers and had to follow up afterward to clear things up.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: '\"it was awkward\" isn't owned', '\"came off as unprofessional\" is a judgment', '\"which wasn't helpful\" is a judgment', '\"dismissive\" is judgment\u2014fails'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor repeatedly requests revisions: 'Tweak that line and send your final', 'Tighten and send your final 2\u20133 sentence draft', 'Revise and send your updated 2\u20133 sentences'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'Last week in a meeting', mentor pushed: 'Make the moment a real, named instance\u2014what was the exact meeting (e.g., Tuesday's standup, Thursday's client call)?'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'dismissive': learner self-identifies 'dismissive is judgment\u2014fails' after mentor prompts self-check. Mentor also catches 'took over' by asking 'what would a camera have seen or heard instead of \"took over\" or \"dismissive\"?'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches unowned impact language multiple times: '\"it was awkward\" isn't owned\u2014make it \"I felt awkward/embarrassed\"', '\"threw the meeting off\" isn't owned; it's a verdict about the meeting, not your state'"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'Can we just fix it quickly?', mentor doesn't give answer but asks 'Make the moment a real, named instance\u2014what was the exact meeting?' requiring learner attempt first"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The transcript demonstrates all critical criteria with clear evidence of modeling, specific feedback, revision requests, and appropriate catching of vague situations, judgment leakage, and unowned impact.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:56:56.539802"
+  }
+}

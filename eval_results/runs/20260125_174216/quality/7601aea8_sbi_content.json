@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'Would this pass the behavior camera test?' about 'you were dismissive of my concerns' and later probes 'Is \"mid-sentence\" edging into judgment?' The mentor also asks 'What led you to include the exact time\u2014what were you hoping it would signal by naming \"3:10\" instead of \"a few minutes after we started\"?' to probe the learner's reasoning about observable vs. interpretive choices."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with behavior wording, mentor offers targeted help: 'I'd drop \"I stopped each time\" from the behavior and use that as part of your impact.' Also provides specific technique: 'if you hear yourself about to say \"you were [adjective],\" swap it to \"you [verb] [when],\" pause a beat, then name your body/timeline impact.'"
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: the 'camera test' ('could a camera capture that?'), the 'body/timeline test' ('if you can feel it in your body or see it in your timeline, it's impact; if it rates their behavior, it's judgment'), the 'cut-test' for stacking behaviors, and the sentence stem 'you [verb] [when]' as a swap for evaluative language."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:43:42.743139"
+  }
+}

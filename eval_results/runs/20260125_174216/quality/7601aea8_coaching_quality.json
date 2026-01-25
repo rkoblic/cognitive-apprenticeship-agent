@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When identifying problems, mentor consistently provides actionable direction. Example: 'That's interpretation\u2014try replacing 'dismissive' with what you actually saw or heard.' Also: 'I'd drop \"I stopped each time\" from the behavior and use that as part of your impact.' And: 'default to a relative anchor; use exact numbers only when the number is the point.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor specifically evaluates revisions. Example: 'This passes as-is\u2014the micro-choices you flagged are stylistic. \"You joined\" is fine, quoting here is optional, and \"about three minutes\" is reasonable because you've softened it with \"about.\"' Also: 'That lands\u2014meets the bar. Clear moment, camera\u2011testable behavior (including \"while I was still speaking\"), and owned impact with both feeling and concrete consequence. No misses against the criteria.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting. Example: 'Before I weigh in, pick the single spot you think I'm most likely to push back on and tell me why that one.' Also asks learner to run self-check: 'Run your draft through this self-check: 1) is the moment recognizable... Tell me pass or what you'd tweak for each.' And: 'What led you to include the exact time\u2014what were you hoping it would signal by naming \"3:10\" instead of \"a few minutes after we started\"?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning behind choices. Example: 'What led you to include the exact time\u2014what were you hoping it would signal by naming \"3:10\" instead of \"a few minutes after we started\"?' This asks the learner to articulate their thinking process behind a specific SBI choice."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning at session end: 'Before we close: what single principle will you carry forward when you deliver this live?' This asks learner to step back and reflect on what they'll take away from the learning experience."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:43:25.467725"
+  }
+}

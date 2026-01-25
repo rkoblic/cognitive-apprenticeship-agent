@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'I'll pause there\u2014ready to move on?' after demo, and later 'Before I weigh in\u2014where do you think I'll push back...' and 'Before I give feedback\u2014what, if anything, do you think I'd push back on in that draft?'"
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides the same level of detailed scaffolding throughout. Even after learner correctly identifies judgment leaks ('dismissive is judgment\u2014fails'), mentor continues giving the same step-by-step guidance and detailed corrections through the end, including on the second scenario where learner still gets the same level of feedback."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "d2c3924f",
+    "evaluated_at": "2026-01-25T17:57:54.515622"
+  }
+}

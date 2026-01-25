@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates a complete SBI example: 'In Tuesday's standup when we went around for blockers, while I was sharing my blocker, you began speaking while I was still speaking\u2014twice. I stopped each time, lost my place, and felt rushed and a bit frustrated for the rest of my update.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor points to specific language: 'The second has a small leak: \"without addressing the two points I'd listed\" reads like an inference\u2014trim to just what they did (looked away, waved, advanced the slide).'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revision: 'Go ahead and rewrite your full SBI with that choice and the cleaner impact you named.'"
+    },
+    "D-01": {
+      "verdict": "N/A",
+      "evidence": "Learner's drafts used specific time references ('last Thursday's capacity planning meeting at 3pm', 'Monday's go/no-go meeting'). No vague time references like 'lately' or 'sometimes' appeared in learner drafts."
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When testing the learner with 'you were dismissive of my concerns,' mentor confirms learner's catch: 'Nice catch\u2014\"dismissive\" is an evaluation.' Mentor also caught judgment in modeling: 'I could say \"you cut me off\" or \"you were dismissive,\" but that sneaks in judgment.'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner's impact statements consistently used 'I' statements ('I lost my place', 'I felt flustered'). No accusatory 'you made...' or blame language appeared in learner drafts."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner asked 'If this is off, could you nudge me, or should I try rewriting the behavior line myself?' mentor required attempt first: 'Before I weigh in, pick the single spot you think I'm most likely to push back on and tell me why that one.'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all applicable critical criteria including modeling a complete SBI, providing specific feedback with exact language references, requesting revisions, catching judgment language, and protecting productive struggle.",
+    "passed_count": 5,
+    "failed_count": 0,
+    "na_count": 2,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "7601aea8",
+    "evaluated_at": "2026-01-25T17:42:39.716136"
+  }
+}

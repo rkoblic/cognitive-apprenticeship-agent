@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates a complete SBI example: 'In Tuesday's standup after my API update, you laughed, said \"I guess QA will find it,\" and shook your head. I felt tense and hesitated to raise my blocker, and we ran out of time to cover it.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor identifies specific problematic words: 'You've spotted the exact pressure points' after learner identifies 'ongoing,' 'passive-aggressive,' 'dismissive,' 'damaged team morale,' and 'undermined the meeting.' Later: 'Miss: your impact isn't in your lane.'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revision: 'Tighten it to pass that test and share the revised version. Your turn.' And later: 'Tighten that and send the full draft again.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'This is ongoing with Marcus' and 'basically every standup, especially this week.' Mentor's feedback prompted learner to identify this: 'You'll say it's not a single timestamp' and mentor confirmed need to tighten to 'one recognizable standup.'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Learner used 'passive-aggressive,' 'dismissive,' and later 'controlling and dismissive.' Mentor addressed this: 'I'll show how I tighten it to meet the three criteria without sliding into labels like \"passive-aggressive.\"' Mentor confirmed learner spotted 'passive-aggressive' and 'dismissive' as labels."
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'It damaged team morale and derailed the standup' and 'That undermined the meeting.' Mentor guided learner to recognize these weren't 'in my lane' and requested revision to owned impact statements."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When mentor could have just corrected the learner's draft, mentor instead asked: 'Before I weigh in, where do you think I'll push back\u2014moment, behavior, or impact? Name the exact words in your draft you think are most likely to miss the criteria.' Required learner self-assessment before providing feedback."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all critical tutoring behaviors: showed a complete SBI example, provided specific feedback on exact language, requested revisions, caught vague situations/judgment leakage/accusatory impact, and protected productive struggle by requiring learner self-assessment.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "bff8fcfe",
+    "evaluated_at": "2026-01-25T17:45:55.825884"
+  }
+}

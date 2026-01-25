@@ -25,6 +25,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from openai import OpenAI
 from langsmith import traceable
+from langsmith.run_helpers import get_current_run_tree
 
 # Load environment variables from .env file (override existing)
 load_dotenv(override=True)
@@ -153,9 +154,11 @@ def save_conversation_markdown(result: dict, output_dir: Path) -> Path:
     filename = f"{timestamp}_{result['persona']}.md"
     filepath = output_dir / filename
 
+    langsmith_id = result.get('langsmith_id', 'N/A')
     lines = [
         f"# Conversation: {result['persona']}",
         f"**Turns:** {result['num_turns']} | **Generated:** {datetime.now().isoformat()}",
+        f"**LangSmith ID:** {langsmith_id}",
         "",
         "---",
         ""
@@ -339,12 +342,17 @@ def run_conversation(persona_name: str, num_turns: int = 10) -> dict:
     print(f"Conversation complete: {actual_turns} turns" +
           (f" (of {num_turns} max)" if actual_turns < num_turns else ""))
     print(f"{'='*60}\n")
-    
+
+    # Get LangSmith run ID
+    run_tree = get_current_run_tree()
+    langsmith_id = str(run_tree.id) if run_tree else None
+
     return {
         "persona": persona_name,
         "num_turns": actual_turns,
         "max_turns": num_turns,
-        "transcript": transcript
+        "transcript": transcript,
+        "langsmith_id": langsmith_id
     }
 
 

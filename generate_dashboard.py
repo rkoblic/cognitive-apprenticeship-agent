@@ -239,6 +239,122 @@ def aggregate_all_runs(runs_dir: Path | None = None, date_filter: str | None = "
     }
 
 
+def aggregate_by_experiment(runs_dir: Path | None = None, date_filter: str | None = "20260121") -> dict:
+    """
+    Load and merge all manifest.json files, grouping by experiment.
+
+    Returns:
+        Dict with "original" and "v2" keys, each containing a manifest dict
+    """
+    if runs_dir is None:
+        runs_dir = EVAL_RESULTS_DIR / "runs"
+
+    if not runs_dir.exists():
+        return {
+            "original": {"conversations": [], "status": "no_runs"},
+            "v2": {"conversations": [], "status": "no_runs"}
+        }
+
+    # Resolve date filter
+    if date_filter == "today":
+        min_date = datetime.now().strftime("%Y%m%d")
+    elif date_filter:
+        min_date = date_filter
+    else:
+        min_date = None
+
+    # Separate collections per experiment
+    experiments = {
+        "original": {"conversations": [], "run_ids": []},
+        "v2": {"conversations": [], "run_ids": []}
+    }
+
+    for manifest_path in sorted(runs_dir.glob("*/manifest.json")):
+        run_id = manifest_path.parent.name
+
+        # Apply date filter - include runs >= min_date
+        if min_date and run_id[:8] < min_date:
+            continue
+
+        try:
+            manifest = json.loads(manifest_path.read_text())
+            conversations = manifest.get("conversations", [])
+            dataset_name = manifest.get("config", {}).get("dataset", "")
+
+            # Classify this run into an experiment
+            exp = classify_experiment(run_id, dataset_name)
+
+            experiments[exp]["conversations"].extend(conversations)
+            experiments[exp]["run_ids"].append(run_id)
+        except (json.JSONDecodeError, IOError) as e:
+            print(f"Warning: Could not load {manifest_path}: {e}")
+
+    # Helper to count valid (non-error) quality results
+    def count_valid_quality_results(conv):
+        quality_results = conv.get("quality_results", {})
+        count = 0
+        for judge_id, result in quality_results.items():
+            if isinstance(result, dict) and "passed" in result:
+                count += 1
+        return count
+
+    # Deduplicate within each experiment
+    result = {}
+    for exp_name, exp_data in experiments.items():
+        seen = {}
+        for conv in exp_data["conversations"]:
+            langsmith_id = conv.get("langsmith_id")
+            if langsmith_id:
+                existing = seen.get(langsmith_id)
+                if not existing:
+                    seen[langsmith_id] = conv
+                else:
+                    existing_valid = count_valid_quality_results(existing)
+                    new_valid = count_valid_quality_results(conv)
+                    if new_valid > existing_valid:
+                        seen[langsmith_id] = conv
+                    elif new_valid == existing_valid:
+                        new_persona = conv.get("persona")
+                        if existing.get("persona") in [None, "Unknown", "unknown"] and new_persona not in [None, "Unknown", "unknown"]:
+                            seen[langsmith_id] = conv
+            else:
+                seen[id(conv)] = conv
+
+        deduped = list(seen.values())
+        result[exp_name] = {
+            "run_id": f"{exp_name}-aggregated",
+            "timestamp": datetime.now().isoformat(),
+            "status": "complete",
+            "conversations": deduped,
+            "aggregated_from": exp_data["run_ids"],
+            "config": {
+                "source": "aggregated",
+                "experiment": exp_name,
+                "total_runs": len(exp_data["run_ids"]),
+                "date_filter": date_filter,
+            }
+        }
+
+    return result
+
+
+def classify_experiment(run_id: str, dataset_name: str) -> str:
+    """
+    Classify a run into an experiment group.
+
+    Args:
+        run_id: The run ID (timestamp format YYYYMMDD_HHMMSS)
+        dataset_name: The dataset name from manifest config
+
+    Returns:
+        "v2" for the new mentor experiment, "original" for everything else
+    """
+    # New experiment: batch-202601251700 or runs dated >= 20260125
+    if "202601251700" in dataset_name or run_id[:8] >= "20260125":
+        return "v2"
+    return "original"
+
+
 def load_human_ratings() -> dict:
     """Load all human rating JSON files from eval_results/human_ratings/."""
     if not HUMAN_RATINGS_DIR.exists():
@@ -533,8 +649,21 @@ def calculate_dashboard_metrics(manifest: dict) -> dict:
     }
 
 
-def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None = None) -> str:
-    """Generate self-contained HTML dashboard."""
+def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None = None,
+                  experiments: dict | None = None) -> str:
+    """
+    Generate self-contained HTML dashboard.
+
+    Args:
+        manifest: Single manifest dict (for backward compatibility)
+        metrics: Metrics for the single manifest
+        transcript_index: Map of langsmith_id to transcript paths
+        experiments: Optional dict with "original" and "v2" experiment data
+                     If provided, generates tabbed interface
+    """
+    # If experiments provided, use tabbed mode
+    has_experiments = experiments is not None and len(experiments) > 1
+
     run_id = manifest.get("run_id", "Unknown")
     status = manifest.get("status", "unknown")
     timestamp = manifest.get("timestamp", datetime.now().isoformat())
@@ -554,6 +683,18 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
     # Serialize manifest and transcript index to embed as JSON
     manifest_json = json.dumps(manifest, indent=2)
     transcript_index_json = json.dumps(transcript_index)
+
+    # Generate experiment tabs HTML if in experiment mode
+    experiment_tabs_html = ""
+    if has_experiments:
+        original_count = len(experiments.get("original", {}).get("manifest", {}).get("conversations", []))
+        v2_count = len(experiments.get("v2", {}).get("manifest", {}).get("conversations", []))
+        experiment_tabs_html = f'''
+        <div class="experiment-tabs">
+            <button class="exp-tab active" data-exp="original">Original Mentor <span class="tab-count">{original_count}</span></button>
+            <button class="exp-tab" data-exp="v2">New Mentor v2 <span class="tab-count">{v2_count}</span></button>
+        </div>
+        '''
 
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -1026,6 +1167,58 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
             color: #9ca3af;
             font-style: italic;
         }}
+        /* Experiment tabs */
+        .experiment-tabs {{
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 2px solid #e5e7eb;
+        }}
+        .exp-tab {{
+            padding: 0.875rem 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-bottom: none;
+            border-radius: 0.5rem 0.5rem 0 0;
+            background: #f9fafb;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9375rem;
+            color: #6b7280;
+            margin-right: -1px;
+            position: relative;
+            transition: all 0.15s ease;
+        }}
+        .exp-tab:hover {{
+            background: #f3f4f6;
+            color: #374151;
+        }}
+        .exp-tab.active {{
+            background: white;
+            color: #1f2937;
+            border-bottom-color: white;
+            margin-bottom: -2px;
+            z-index: 1;
+        }}
+        .exp-tab .tab-count {{
+            display: inline-block;
+            background: #e5e7eb;
+            color: #6b7280;
+            padding: 0.125rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }}
+        .exp-tab.active .tab-count {{
+            background: #4338ca;
+            color: white;
+        }}
+        .experiment-content {{
+            display: none;
+        }}
+        .experiment-content.active {{
+            display: block;
+        }}
     </style>
 </head>
 <body>
@@ -1039,22 +1232,10 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
             </div>
         </header>
 
-        <div class="cards">
-            <div class="card">
-                <div class="card-label">Critical Pass Rate</div>
-                <div class="card-value {"pass" if metrics["critical_pass_rate"] >= 80 else "fail"}">{metrics["critical_pass_rate"]}%</div>
-                <div class="card-label">{metrics["critical_passed"]}/{metrics["completed"]} passed</div>
-            </div>
-            <div class="card">
-                <div class="card-label">Quality Average</div>
-                <div class="card-value">{metrics["quality_average"]}%</div>
-                <div class="card-label">{metrics["quality_total_passed"]}/{metrics["quality_total_criteria"]} criteria</div>
-            </div>
-            <div class="card">
-                <div class="card-label">Progress</div>
-                <div class="card-value">{metrics["completed"]}/{metrics["total"]}</div>
-                <div class="card-label">conversations evaluated</div>
-            </div>
+        {experiment_tabs_html}
+
+        <div class="cards" id="summary-cards">
+            <!-- Populated by JavaScript -->
         </div>
 
         <div class="section">
@@ -1153,8 +1334,27 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
     </div>
 
     <script>
-        const manifest = {manifest_json};
-        const metrics = {json.dumps(metrics)};
+        // Data for all experiments (or single manifest for backward compatibility)
+        const experimentsData = {json.dumps(experiments) if has_experiments else 'null'};
+        const hasExperiments = experimentsData !== null;
+
+        // Current experiment state
+        let currentExperiment = 'original';
+
+        // Get current manifest and metrics based on experiment
+        function getCurrentData() {{
+            if (hasExperiments) {{
+                return experimentsData[currentExperiment] || {{}};
+            }}
+            return {{
+                manifest: {manifest_json},
+                metrics: {json.dumps(metrics)}
+            }};
+        }}
+
+        // For backward compatibility
+        const manifest = hasExperiments ? experimentsData.original.manifest : {manifest_json};
+        const metrics = hasExperiments ? experimentsData.original.metrics : {json.dumps(metrics)};
 
         // Transcript index for linking to GitHub
         const transcriptIndex = {transcript_index_json};
@@ -1231,14 +1431,18 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
         }}
 
         function renderCriteriaTable() {{
+            const data = getCurrentData();
+            const currentMetrics = data.metrics || metrics;
+            const currentManifest = data.manifest || manifest;
+
             const thead = document.getElementById('criteria-header');
             const tbody = document.getElementById('criteria-table');
-            const perCriteria = metrics.per_criteria || {{}};
-            const personasSeen = metrics.personas_seen || [];
-            const personaLetters = metrics.persona_letters || {{}};
+            const perCriteria = currentMetrics.per_criteria || {{}};
+            const personasSeen = currentMetrics.personas_seen || [];
+            const personaLetters = currentMetrics.persona_letters || {{}};
             const numPersonaCols = personasSeen.length;
             const totalCols = 4 + numPersonaCols;
-            const conversations = manifest.conversations || [];
+            const conversations = currentManifest.conversations || [];
 
             // Calculate per-persona conversation counts
             const personaCounts = {{}};
@@ -1474,9 +1678,14 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
         let groupByPersona = savedState?.groupByPersona || false;
 
         function initFilters() {{
+            const data = getCurrentData();
+            const currentMetrics = data.metrics || metrics;
+
             const personaFiltersContainer = document.getElementById('persona-filters');
-            const personasSeen = metrics.personas_seen || [];
-            const personaLetters = metrics.persona_letters || {{}};
+            // Clear existing filter buttons
+            personaFiltersContainer.innerHTML = '';
+            const personasSeen = currentMetrics.personas_seen || [];
+            const personaLetters = currentMetrics.persona_letters || {{}};
 
             // Add filter buttons for each persona
             personasSeen.forEach(persona => {{
@@ -1521,10 +1730,14 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
         }}
 
         function renderConversations() {{
+            const data = getCurrentData();
+            const currentMetrics = data.metrics || metrics;
+            const currentManifest = data.manifest || manifest;
+
             const container = document.getElementById('conversations-container');
-            const conversations = manifest.conversations || [];
-            const personasSeen = metrics.personas_seen || [];
-            const personaLetters = metrics.persona_letters || {{}};
+            const conversations = currentManifest.conversations || [];
+            const personasSeen = currentMetrics.personas_seen || [];
+            const personaLetters = currentMetrics.persona_letters || {{}};
 
             // Filter conversations
             const filtered = conversations.filter(conv => {{
@@ -1830,8 +2043,11 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
 
         function extractCriterionFailures() {{
             // Extract all failures for deep-dive criteria from conversations
+            const data = getCurrentData();
+            const currentManifest = data.manifest || manifest;
+
             const failures = [];
-            const conversations = manifest.conversations || [];
+            const conversations = currentManifest.conversations || [];
 
             conversations.forEach(conv => {{
                 const langsmithId = conv.langsmith_id;
@@ -1951,12 +2167,67 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
             tbody.innerHTML = html;
         }}
 
+        // Render summary cards
+        function renderSummaryCards() {{
+            const data = getCurrentData();
+            const m = data.metrics || metrics;
+            const container = document.getElementById('summary-cards');
+
+            const passClass = m.critical_pass_rate >= 80 ? 'pass' : 'fail';
+            container.innerHTML = `
+                <div class="card">
+                    <div class="card-label">Critical Pass Rate</div>
+                    <div class="card-value ${{passClass}}">${{m.critical_pass_rate}}%</div>
+                    <div class="card-label">${{m.critical_passed}}/${{m.completed}} passed</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Quality Average</div>
+                    <div class="card-value">${{m.quality_average}}%</div>
+                    <div class="card-label">${{m.quality_total_passed}}/${{m.quality_total_criteria}} criteria</div>
+                </div>
+                <div class="card">
+                    <div class="card-label">Progress</div>
+                    <div class="card-value">${{m.completed}}/${{m.total}}</div>
+                    <div class="card-label">conversations evaluated</div>
+                </div>
+            `;
+        }}
+
+        // Switch experiment and re-render everything
+        function switchExperiment(expName) {{
+            currentExperiment = expName;
+
+            // Update tab active states
+            document.querySelectorAll('.exp-tab').forEach(tab => {{
+                tab.classList.toggle('active', tab.dataset.exp === expName);
+            }});
+
+            // Re-render all sections with new data
+            renderSummaryCards();
+            renderCriteriaTable();
+            renderCriterionDeepDive();
+            initFilters();
+            renderConversations();
+        }}
+
+        // Initialize experiment tabs
+        function initExperimentTabs() {{
+            if (!hasExperiments) return;
+
+            document.querySelectorAll('.exp-tab').forEach(tab => {{
+                tab.onclick = () => switchExperiment(tab.dataset.exp);
+            }});
+        }}
+
+        // Initial render
+        renderSummaryCards();
         renderCriteriaTable();
         renderHumanSpotCheck();
         renderCriterionDeepDive();
         initFilters();
         renderConversations();
         restoreExpandedState();
+        initExperimentTabs();
     </script>
 </body>
 </html>'''
@@ -1977,22 +2248,52 @@ def generate_dashboard(run_dir: Path, output_path: Path | None = None, aggregate
         Path to the generated dashboard file
     """
     if aggregate:
-        # Aggregate all runs for a complete view
-        manifest = aggregate_all_runs()
+        # Aggregate all runs by experiment
+        experiments_raw = aggregate_by_experiment()
+
+        # Calculate metrics for each experiment
+        experiments = {}
+        all_conversations = []
+        for exp_name, exp_manifest in experiments_raw.items():
+            exp_metrics = calculate_dashboard_metrics(exp_manifest)
+            experiments[exp_name] = {
+                "manifest": exp_manifest,
+                "metrics": exp_metrics
+            }
+            all_conversations.extend(exp_manifest.get("conversations", []))
+
+        # Use combined manifest for backward compatibility (default to original)
+        manifest = experiments_raw.get("original", experiments_raw.get("v2", {"conversations": []}))
+        metrics = experiments.get("original", {}).get("metrics", calculate_dashboard_metrics(manifest))
+
+        # Load human spot-check ratings (applies to original experiment)
+        human_ratings = load_human_ratings()
+        human_metrics = calculate_human_metrics(manifest, human_ratings)
+        metrics["human"] = human_metrics
+
+        # Also add human metrics to original experiment
+        if "original" in experiments:
+            experiments["original"]["metrics"]["human"] = human_metrics
+
+        # Build combined transcript index
+        combined_manifest = {"conversations": all_conversations, "aggregated_from": manifest.get("aggregated_from", [])}
+        transcript_index = build_transcript_index(combined_manifest)
+
+        html = generate_html(manifest, metrics, transcript_index, experiments=experiments)
     else:
         # Single run mode
         manifest = load_manifest(run_dir)
 
-    # Load human spot-check ratings
-    human_ratings = load_human_ratings()
-    human_metrics = calculate_human_metrics(manifest, human_ratings)
+        # Load human spot-check ratings
+        human_ratings = load_human_ratings()
+        human_metrics = calculate_human_metrics(manifest, human_ratings)
 
-    # Build transcript index for linking to GitHub
-    transcript_index = build_transcript_index(manifest)
+        # Build transcript index for linking to GitHub
+        transcript_index = build_transcript_index(manifest)
 
-    metrics = calculate_dashboard_metrics(manifest)
-    metrics["human"] = human_metrics
-    html = generate_html(manifest, metrics, transcript_index)
+        metrics = calculate_dashboard_metrics(manifest)
+        metrics["human"] = human_metrics
+        html = generate_html(manifest, metrics, transcript_index)
 
     if output_path is None:
         output_path = run_dir / "dashboard.html"

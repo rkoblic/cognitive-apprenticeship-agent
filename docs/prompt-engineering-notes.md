@@ -153,3 +153,56 @@ This approach likely applies beyond learner personas to any role that conflicts 
 - **Adversarial red team** roles for security testing
 
 In each case: put the "be difficult/flawed/adversarial" instruction at the absolute top, before the role description, with explicit framing about why correct/helpful behavior would defeat the purpose.
+
+---
+
+## Mentor Prompt Iterations: V3 Regression Analysis
+
+This section documents mentor prompt changes and their evaluation results.
+
+### V3 Changes (Jan 26, 2026)
+
+V3 targeted improvements for Carlos (impatient) and Fatou (withdrawn) personas with 6 changes:
+
+| Change | Target Criterion | Description |
+|--------|------------------|-------------|
+| Live self-check in modeling | B-04 | Added concrete example: "Let me test this—could a camera capture 'spoke over me twice'?" |
+| Show deliberation | B-03 | Show rejected alternatives: "I could say 'dismissive'—but that's a label" |
+| Turn variety | F-01 | Avoid formulaic patterns, vary acknowledgments |
+| Affect response actions | F-03 | Specific actions for impatience/withdrawal signals |
+| Fading support section | E-02 | New section on tracking competence and pulling back |
+| Validation variety | F-02 | Avoid repeating "that makes sense" |
+
+### V3 Results vs V2
+
+| Criterion | V2 | V3 | Change |
+|-----------|-----|-----|--------|
+| adaptive_pacing | 90% | 75% | **-15 pts** |
+| sbi_content | 96% | 88% | **-8 pts** |
+| conversational_quality | 82% | 93% | **+11 pts** |
+| coaching_quality | 98% | 98% | — |
+| modeling_quality | 98% | 100% | +2 pts |
+| session_setup | 100% | 100% | — |
+
+**Overall:** V2 = 94.9%, V3 = 94.4%
+
+### Root Cause Analysis
+
+The regression occurred because V3 **accidentally reverted stricter V2.5 language** in the Second Practice section:
+
+| Version | Second Practice Guidance |
+|---------|-------------------------|
+| V2.5 | "Name the gap. **Don't explain why it's a gap—that's their work now.**" |
+| V3 | "Give direct feedback. **Note what worked and what didn't.**" |
+
+The V3 phrasing ("note what worked and what didn't") is ambiguous and leads the mentor to over-explain errors instead of making learners self-diagnose.
+
+Additionally, V3 added a **"Fading Support" section AFTER** the second practice instructions. When instructions compete, LLMs follow the earlier, more concrete one.
+
+### Lesson Learned
+
+> **Competing instructions resolve to the first concrete one.**
+
+When V3 said "Give direct feedback. Note what worked and what didn't" followed later by "Resist the urge to re-teach," the model followed the first instruction.
+
+**Fix pattern:** Place the constraint (don't explain) BEFORE or INTEGRATED WITH the action (give feedback), not after.

@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI approach\u2014anchored to a real moment, describing only observable behavior, and naming your own impact in owned language.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phases: 'I'll demonstrate how I think it through, then you'll do two full attempts' and later 'Great\u2014here's a quick model of how I build an SBI, with my thinking out loud' followed by 'Got it\u2014let's jump to yours.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The second scenario is specific and realistic: 'Upward feedback to your manager after Monday's client QBR with Acme'\u2014includes specific day, specific client name, specific meeting type, and plausible interpersonal dynamic of giving feedback to a manager."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:10.358867"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"Tempting to say 'you were dismissive'\u2014but that's a label. What did I actually see?\" This shows why they chose specific observable behaviors over judgmental labels."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly shows a choice point: \"Tempting to say 'you were dismissive'\u2014but that's a label. What did I actually see?\" and later \"Avoided verdicts like 'unprofessional.'\" This demonstrates considering and rejecting alternatives."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Self-check live: camera-test on the behavior\u2014could a camera capture 'spoke while I was mid-sentence twice' and 'turned to Sam and asked X'? Yes. Impact\u2014are those my feelings and direct consequences? Yes.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers multiple reusable heuristics: \"Tools to reuse: moment anchor, camera-test for behavior, owned-impact check\" and later \"when a judgment word pops up (dismissive, undermined), pause and ask, 'What did I actually see or hear?'\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "6b3d52ac",
+    "evaluated_at": "2026-01-26T11:00:06.351140"
+  }
+}

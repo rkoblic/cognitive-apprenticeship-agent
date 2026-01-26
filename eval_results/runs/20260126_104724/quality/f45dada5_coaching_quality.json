@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently provides actionable direction: 'replace \"dismissive and unprepared\" with one thing a camera would catch (e.g., \"spoke over me twice\" or \"came without the deck\")' and 'Swap \"it was awkward and created tension\" for how it landed for you\u2014your emotion or what happened for you (e.g., \"I felt flustered and lost my train of thought\")'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'Nice\u2014your behavior is camera-testable now' after learner revised to 'you spoke over me'; 'That lands\u2014anchored moment, camera-testable behavior, owned impact' after final revision; 'Anchor and behavior land. The impact isn't owned\u2014it's a judgment about credibility' showing what improved and what still needs work"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'Before I weigh in, where do you think this misses the SBI bar\u2014what would I push on first?' when learner submitted flawed draft; also 'Quick check before we dive in: Does this meet the SBI bar... and if not, what's the first change you'd make?' giving learner chance to identify issues"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What made you pick \"the last standup\" as the moment to anchor to?' This asks why they made a specific decision, not just comprehension."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'Quick reflection: what's the single rule you'll keep front-of-mind next time\u2014anchor to a real moment, name one camera-testable behavior, or own your impact?' This asks learner to step back and identify what principle they'll carry forward."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:35.281343"
+  }
+}

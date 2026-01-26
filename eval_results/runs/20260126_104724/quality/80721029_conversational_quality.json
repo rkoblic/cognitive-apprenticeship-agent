@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout: longer explanations (demo with think-aloud), short reactions ('That lands'), questions ('which would you keep\u2014and why'), brief directives ('Go ahead'), and reflective prompts ('What's the one thing that clicked for you today'). Some turns are multi-paragraph, others are 1-2 sentences."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with reactions like 'You're asking exactly the right level of precision\u2014totally normal at this stage,' uses emoji '\ud83d\udc4d', offers encouragement 'You're not overdoing it\u2014this level of precision is the work,' and has a direct, warm coaching voice throughout."
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner expresses anxiety ('I'm still a little nervous about using it live,' 'makes me a little nervous'), mentor validates: 'Feeling a bit nervous before the first live use is normal\u2014this is a new muscle' and offers support ('send a quick debrief after your next feedback moment and I'll sanity-check'). Also responds supportively to early hesitation ('Sorry if that's overkill') with 'And no worries about pacing; it's smart to pause.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:56:08.202378"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "In the demo, mentor explicitly models the distinction: \"I'm tempted to say 'you were dismissive'\u2014that's a label. What did a camera pick up?\" Later, mentor probes the learner's understanding by asking: \"If you had to keep only one behavior to make your stated impact make sense, which would you keep\u2014and why does that one connect most directly to you feeling rushed, losing your place, and cutting the update short?\" This tests whether the learner understands the observable-interpretive line."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner asks multiple clarifying questions about granularity, wording, and impact phrasing, mentor provides targeted guidance: \"include the minimum behavior needed to make your impact make sense\u2014often one, sometimes two if they happened in the same moment and are additive.\" When learner struggles with whether to use 'interrupted' vs concrete phrasing, mentor scaffolds: \"Go with the concrete phrasing\u2014'you started speaking while I was mid-sentence'\u2014over 'interrupted me'; it's cleaner, camera-testable, and avoids a label.\""
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: (1) \"camera test\" heuristic introduced in demo and referenced throughout, (2) \"judgment-leak scan\" as a self-check, (3) sticky-note checklist: \"Moment + 1 observable behavior + my impact (I felt/then I did) + concrete consequence + 1 ask\", (4) mantra \"Protect the turn; SBI after\" for in-the-moment use. These are explicitly designed for future independent use."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:55:41.155765"
+  }
+}

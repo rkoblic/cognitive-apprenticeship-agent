@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're going to practice giving peer feedback using the SBI framework. Success looks like you producing two complete attempts that hit a specific moment, camera-testable behavior (no labels), and your owned impact.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate my thinking first, then we'll use one of your real situations\u2014ready to start?' and later 'Let's skip piece-by-piece and have you do one full draft from a real moment\u2014we'll refine after. Go ahead and give me your full SBI now.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The practice scenarios are realistic workplace situations: 'In yesterday's cross-functional standup at 9:30 in the main hub, while I was sharing the vendor rollout plan' and 'In Monday's client steering committee on Zoom, during my timeline update' - both involve specific meetings, plausible interpersonal dynamics around interruptions, and believable consequences."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:54:53.502801"
+  }
+}

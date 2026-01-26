@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates: 'Situation: in Tuesday's standup while I was reviewing Q2 milestones... you looking at your phone and jumping in while I was mid\u2011sentence twice. Impact on me: I felt flustered and lost my place, and we ran about five minutes over.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor points to specific language: 'The miss is the impact: \"didn't really affect me; we just kept going\" isn't your felt experience or a direct consequence.'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revision: 'Replace it with what you actually felt or what happened to your work in that moment, then resend your one\u2011 to two\u2011sentence draft. What's your revision?'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'Some meeting last week. Maybe the standup,' mentor catches vagueness: 'Sounds like picking a single moment feels fuzzy\u2014that's okay. To keep it low\u2011stakes, can we just use last Tuesday's standup as a placeholder'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'being difficult,' mentor catches judgment: 'What's one camera-catchable thing you saw in that standup that made you think \"being difficult\"\u2014specific words or a single action?'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never uses accusatory 'you made' or blame language in impact statements; impacts were either dismissive ('didn't affect me') or owned ('I lost my place')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'I don't know. You tell me,' mentor doesn't give the answer but redirects: 'Let's shrink the target: your moment and behavior work; we just need a real effect on you, even if tiny. What's the smallest true thing you noticed...'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI, provided specific feedback with quoted language, requested revisions, caught vague situations and judgment leakage, and protected productive struggle by redirecting rather than giving answers.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:50:24.608791"
+  }
+}

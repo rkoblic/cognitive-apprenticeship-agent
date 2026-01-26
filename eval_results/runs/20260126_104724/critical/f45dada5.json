@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup while I was sharing the API update, you spoke over me twice. I felt flustered\u2014my chest tightened\u2014and I lost my train of thought, so I skipped the risks.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: '\"dismissive/unprepared\" are labels' and '\"awkward/hurt our credibility\" isn't owned impact' - identifies exact problematic words and names the specific issue."
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions multiple times: 'Revise as one sentence anchored to Monday's Acme QBR...' and 'Rewrite that clause as your internal state or direct consequence for you, then send the full sentence.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'Last week in our meetings,' mentor caught it: 'anchor to one recognizable moment instead of \"last week in our meetings.\" Which specific meeting are you talking about?'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'dismissive and unprepared' multiple times: 'replace \"dismissive and unprepared\" with one thing a camera would catch' and later '\"dismissive/unprepared\" are labels.'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'it was awkward and created tension,' mentor caught it: 'make the impact owned. Swap \"it was awkward and created tension\" for how it landed for you.' Also caught 'I felt it hurt our credibility' as 'a judgment about credibility.'"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner said 'Looks fine to me. Can we move on?' mentor required attempt: 'First fix only: replace \"dismissive and unprepared\" with one thing a camera would catch... what's your rewrite of that behavior line?'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all critical tutoring behaviors: showed a complete SBI model, provided specific feedback with quoted language, requested revisions, and caught all error types (vague situations, judgment leakage, accusatory impact) while protecting productive struggle.",
+    "passed_count": 7,
+    "failed_count": 0,
+    "na_count": 0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:00.915383"
+  }
+}

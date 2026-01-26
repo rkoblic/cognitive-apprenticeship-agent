@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains: \"For behavior, I'm tempted to say 'you were dismissive'\u2014but that's a label. What did a camera catch? 'You started talking while I was mid-sentence, twice.'\" This shows WHY they rejected 'dismissive' (it's a label) and chose the specific behavior instead."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly shows a choice point: \"I'm tempted to say 'you were dismissive'\u2014but that's a label. What did a camera catch?\" This demonstrates considering an alternative and rejecting it."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly names self-checks: \"Self-checks I'm using: Moment Anchor (is it a specific meeting?), Camera Test (could a camera see that behavior?), Owned-Language Check (is the impact my felt experience or a consequence I had).\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers multiple reusable heuristics: \"Moment Anchor,\" \"Camera Test\" (referenced multiple times, e.g., \"swap 'being difficult' for one camera-catchable action\"), and \"Owned-Language Check.\" These are generalizable rules the learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:47:59.613861"
+  }
+}

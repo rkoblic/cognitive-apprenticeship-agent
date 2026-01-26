@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup when I was giving the API timeline update\u2026 You spoke over me twice and answered the question while I was mid\u2011sentence... I lost my place and felt flustered; I skipped the risk call\u2011out and had to DM three people after to clarify.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: 'judgment leaks\u2014\"basically took over,\" \"dismissive,\" and \"didn't trust my answer\" read as labels/motive reads' and 'drop \"took over\" (judgment leak) and \"maybe halfway through\" (fuzzy)'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions multiple times: 'Run your own moment/camera/ownership checks and then give me a tightened one-pass revision' and 'Give me a revised one\u2011pass with those labels removed'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'this week's standup\u2014maybe Tuesday?' mentor later addressed vague anchors, and when learner used 'maybe halfway through' mentor said 'drop... \"maybe halfway through\" (fuzzy)'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches judgment words: 'judgment leaks\u2014\"basically took over,\" \"dismissive,\" and \"didn't trust my answer\" read as labels/motive reads. Strip those; stick to what the camera would show'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never used accusatory 'you made/you caused' impact language - impacts were consistently owned ('I felt flustered', 'I felt thrown')"
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner asked for guidance, mentor required attempts first: 'Before I weigh in, predict the nudge: if I asked you to tighten one thing in that draft, what would you pick\u2014and why?'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The conversation demonstrates strong cognitive apprenticeship tutoring with clear modeling, specific feedback on exact language, revision requests, and appropriate catching of vague situations and judgment leakage.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "53eb5b0d",
+    "evaluated_at": "2026-01-26T10:58:06.158555"
+  }
+}

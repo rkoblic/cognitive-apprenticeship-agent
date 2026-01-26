@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework in a professional context. Success means you anchor to a real moment, describe camera-testable behavior, use owned-impact language, and can catch when judgment sneaks into behavior.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate first, then we'll practice with your own case\u2014ready to go?' and later 'Here's a fast demo' before modeling, followed by asking the learner to practice."
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios used are realistic workplace situations: 'last Tuesday's standup' with a colleague interrupting, and 'yesterday's client demo with the VP on the call' where a manager jumped in mid-answer\u2014both feature plausible interpersonal dynamics in professional settings."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:50:33.262374"
+  }
+}

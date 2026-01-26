@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'Good to do a 20-second diagnostic check before your draft?' and 'All set to wrap? \ud83d\udc4d' before concluding the session."
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "In the first attempt, mentor provided detailed step-by-step guidance (fixing situation, then behavior, then impact separately). In the second attempt (upward feedback variation), mentor gave less granular feedback - just identifying the issue category ('behavior\u2014dismissive and shut me down are labels') and asking for revision without providing stems or examples, showing calibration to learner's demonstrated competence."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:54:05.686718"
+  }
+}

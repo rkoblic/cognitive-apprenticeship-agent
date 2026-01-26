@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "FAIL",
+      "evidence": "Mentor corrects 'being difficult' by asking for camera-catchable specifics but never explicitly probes the observable vs. interpretive distinction with a testing question like 'Is that what you saw or what you concluded?' The mentor guides toward better answers but doesn't test whether the learner understands WHY the distinction matters."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact ('It didn't really affect me'), mentor offers targeted scaffolding: 'What's the smallest true thing you noticed in that moment\u2014a feeling (e.g., tense, flustered) or a consequence (lost your place, sped up, skipped a point)?' This provides specific options to build from, not just generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides the 'camera test' as a reusable tool (demonstrated in intro and referenced when coaching: 'camera-catchable action') and offers a generalizable heuristic at the end: 'small and true beats big and perfect\u2014pick one real moment, a camera\u2011catchable action, and the smallest honest impact on you, then stop.'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "D-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:51:08.977071"
+  }
+}

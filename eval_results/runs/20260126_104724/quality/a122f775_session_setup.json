@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor opens with: 'We're working on delivering peer feedback using the SBI framework so it's clear, specific, and grounded. Success is you doing two full attempts that meet the bar: a real moment, camera-testable behavior, and impact in your own words.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll model my thinking first, then we'll use one of your real situations\u2014ready to start?' and later 'Now for transfer: here's a variation with higher stakes and a different recipient.'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios involve specific workplace situations: Marcus rolling eyes, muttering 'Here we go again' to Priya during a pipeline review; Taylor typing contradictory chat messages and taking screen share during a client QBR\u2014both with plausible interpersonal dynamics and specific details."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:56:39.047478"
+  }
+}

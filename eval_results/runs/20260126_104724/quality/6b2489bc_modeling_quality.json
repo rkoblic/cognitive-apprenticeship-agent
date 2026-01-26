@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: 'I ditch labels like \"you were dismissive\" and go camera-testable: \"you started talking before I finished\u2014twice.\"' This shows WHY they made the choice (labels aren't camera-testable)."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows a choice point: 'I ditch labels like \"you were dismissive\" and go camera-testable' - explicitly contrasting what they could have said vs. what they chose, showing the deliberation between interpretation and observable behavior."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: 'Stitch it together, then self-check out loud: camera could capture the behavior? yes. impact is my experience? yes. moment is specific? yes.'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers the 'camera-testable' heuristic repeatedly as a reusable rule: 'go camera-testable' and later 'describe what a camera would see' - this is a generalizable principle the learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:52:06.587550"
+  }
+}

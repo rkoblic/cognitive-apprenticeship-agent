@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework, aiming for two solid attempts that hit: a real, anchorable moment, camera-testable behavior, and an owned impact\u2014with you spotting when judgment sneaks in.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transition: 'I'll demonstrate how I think through it, then you'll practice.' and later 'Quick demo of how I think it through:' followed by 'When you're ready, let's start small\u2014give me just the situation line'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenario involves a team standup where a colleague talked over the learner mid-sentence during sprint board review, causing them to miss sharing an ETA. Second scenario escalates to a cross-team roadmap review with directors present\u2014both are specific, believable workplace situations with plausible interpersonal dynamics."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:51:56.792053"
+  }
+}

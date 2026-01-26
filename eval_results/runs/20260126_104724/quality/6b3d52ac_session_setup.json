@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on giving peer feedback using the SBI frame. Success is: a real moment anchored in time, an observable behavior (camera-testable), and impact in your own words (your feeling or direct consequence).'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals transition to demo: 'I'll demo the approach next\u2014ready for that?' and later signals practice phase: 'Your turn\u2014pick a real moment from your own work'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "Multiple realistic workplace scenarios used: Tuesday's standup with API update, Wednesday's standup with blocker, and yesterday's client demo with Acme on Zoom involving manager cutting in mid-answer and redirecting to Dana\u2014all with plausible interpersonal dynamics"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "6b3d52ac",
+    "evaluated_at": "2026-01-26T10:59:56.531726"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction: 'The miss is the impact: \"didn't really affect me; we just kept going\" isn't your felt experience or a direct consequence. Replace it with what you actually felt or what happened to your work in that moment, then resend your one\u2011 to two\u2011sentence draft.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates the revision specifically: 'That meets the bar\u2014anchored moment, camera\u2011testable behavior, owned impact.' Also earlier: 'That lands\u2014anchored moment, camera-testable behavior, owned impact \ud83d\udc4d'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'Before I weigh in, where do you think I'll push back\u2014on the moment you chose, the behavior phrasing, or the impact line?' Also asks 'What's one camera-catchable thing you saw in that standup that made you think \"being difficult\"' rather than immediately correcting."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Briefly, why this wording for the behavior\u2014what were you trying to capture with \"started talking while I was mid\u2011sentence\"?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'What will you carry forward from this, especially about naming a small, true impact?' When learner deflects, mentor still provides the takeaway: 'Carry this forward: small and true beats big and perfect\u2014pick one real moment, a camera\u2011catchable action, and the smallest honest impact on you, then stop.'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:50:56.308721"
+  }
+}

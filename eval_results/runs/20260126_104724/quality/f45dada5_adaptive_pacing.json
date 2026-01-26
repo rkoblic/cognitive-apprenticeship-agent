@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'Ready to jump in?' at start, 'What did you notice in how I chose the moment, behavior, and impact?' before advancing, 'Good to wrap here? \ud83d\udc4d' before closing. Also asks 'Can we move on to the second one?' in response to learner's request, showing responsiveness to learner's pace."
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides similar level of scaffolding throughout. In attempt 1, mentor guides step-by-step through behavior, then moment, then impact. In attempt 2, mentor still provides detailed corrections ('The impact isn't owned\u2014it's a judgment about credibility. Rewrite that clause as your internal state...'). No visible reduction in scaffolding despite learner completing first SBI successfully."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:57.099153"
+  }
+}

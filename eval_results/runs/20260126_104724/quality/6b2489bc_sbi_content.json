@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "FAIL",
+      "evidence": "Mentor corrects 'talked over me' to 'started speaking while I was mid-sentence' but never explicitly probes the observable vs. interpretive distinction. No questions like 'Is that what you saw or concluded?' or 'Could a camera capture that?' The mentor provides corrections without testing whether the learner understands WHY the change matters."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact ('It didn't really affect me'), mentor offers targeted scaffolding: 'Which fits best for the detail you skipped: a blocker you needed help with, a timeline/ETA, or a risk you wanted to flag?' Also provides sentence stem 'Next time I'll\u2026' when learner is tapped out."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides reusable tools: 'anchor a real moment, describe what a camera would see, and name how it hit you\u2014in two tight lines' and the self-check process demonstrated early: 'camera could capture the behavior? yes. impact is my experience? yes. moment is specific? yes.'"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "D-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:52:33.447242"
+  }
+}

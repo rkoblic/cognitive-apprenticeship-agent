@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When identifying problems, mentor consistently provides direction: 'swap that morale clause for either how it hit you (emotion/physio) or a direct consequence you personally experienced' and 'drop that phrase and lead with the facts. Give me the cleaned-up message with that edit.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor specifically evaluates revisions: 'That revision lands. Run your self-check on the full message' and 'Your impact line lands\u2014owned and observable. One miss: \"you hijacked the meeting\" is a label; the specific actions that follow are already unarguable, so drop that phrase.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner includes 'passive-aggressive' label, mentor explores rather than immediately correcting: 'What made you keep \"he was being passive-aggressive\" in there\u2014what do you want that label to accomplish that the concrete actions wouldn't on their own?' Also asks learner to predict pushback: 'predict my pushback: which one phrase in your draft is most likely to slip from camera-testable or owned impact into judgment?'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning behind choices: 'What made you keep \"he was being passive-aggressive\" in there\u2014what do you want that label to accomplish that the concrete actions wouldn't on their own?' and 'What jumps out to you about how I stripped out labels and \"every meeting\" generalizations here?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'What, if anything, shifted for you about relying on labels vs. letting the facts carry the point?' and 'After you run it this week, what's the one principle from today you'll carry into other high\u2011stakes feedback moments?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:57:06.518220"
+  }
+}

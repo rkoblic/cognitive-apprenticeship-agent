@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'What made you keep \"he was being passive-aggressive\" in there\u2014what do you want that label to accomplish that the concrete actions wouldn't on their own?' This probes whether the learner understands the distinction between observable behavior and interpretive labels."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact statements containing verdicts, mentor provides targeted scaffolding: 'keep what's observable or you owned (people stopped contributing; we repeated; we ran over), and swap that morale clause for either how it hit you (emotion/physio) or a direct consequence you personally experienced.' This is specific, actionable guidance rather than generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides multiple reusable tools: the 'camera test' concept, the self-check question 'Could a camera see it? Is the feeling mine?', and a sentence stem template: 'In [meeting] while I was [X], you [filmable actions]. I lost my thread and felt [Y].' Learner even creates their own reusable self-check: 'Camera can see it, the feeling's mine; facts first, impact next, pattern last\u2014no verdicts in the behavior.'"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:57:18.350570"
+  }
+}

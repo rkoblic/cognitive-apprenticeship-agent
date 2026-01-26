@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction multiple times, e.g., 'Use this for the behavior: \"you started speaking while I was mid-sentence.\" Weave that into your 2\u20133 sentence feedback and send the full draft.' Also: 'Revise to include one emotion you had and the concrete consequence that mattered in that setting, then resend the full 2\u20133 sentences.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'That lands\u2014you hit all three: a recognizable moment, camera-testable behavior, and an owned impact with a concrete consequence. \"I felt sidelined\" works as your experience, and the missed ETA follow-up makes the stakes clear.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner submits draft with weak impact, mentor explores before correcting: 'Quick pause before I weigh in: if I were to push on one part, would it be the behavior phrasing or the impact\u2014which one, and why?' Also asks 'What, specifically, did you leave unsaid because you stopped?' and offers choices rather than immediate answers."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Quick pause before I weigh in: if I were to push on one part, would it be the behavior phrasing or the impact\u2014which one, and why?' This asks the learner to articulate their thinking about which element needs work."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'What's the one principle you'll carry forward next time you give SBI feedback?' and when learner resists, scaffolds with 'finish this sentence in 5 words or fewer\u2014\"Next time I'll\u2026\"' to elicit reflection on takeaways."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:52:21.155800"
+  }
+}

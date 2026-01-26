@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'I'll demo the approach next\u2014ready for that?', 'Quick check before we practice:', 'Your turn\u2014pick a real moment...', 'Want to call it there?'"
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides consistent detailed scaffolding throughout. Even after learner demonstrates competence with the Wednesday standup draft, mentor continues providing the same level of detailed guidance for the Acme scenario, explicitly stating 'Not there yet' and giving specific corrections rather than asking learner to self-diagnose."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "6b3d52ac",
+    "evaluated_at": "2026-01-26T11:00:40.367261"
+  }
+}

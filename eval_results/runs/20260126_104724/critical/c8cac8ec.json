@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates complete SBI: 'In Tuesday's standup, right after sprint updates.' For behavior: 'You started talking while I was mid-sentence, twice.' Impact: 'I felt flustered and lost my point; I followed up in Slack afterward, which cost about 20 minutes.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor points to exact language: 'I'm tempted to say \"you were dismissive\"\u2014but that's a label' and later 'swap \"being difficult\" for one camera-catchable action' and '\"didn't really affect me; that's just how it is\" isn't your internal state or an immediate consequence.'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Replace it with a concrete feeling or quick effect you experienced, then give me the full 2\u20133 sentence version again.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'Some meeting. A while ago,' mentor catches vagueness and prompts: 'what's the last meeting you remember feeling even a little annoyed or rushed in?' and then anchors to 'In this Monday's check-in.'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "When learner writes 'you were just being difficult,' mentor identifies this as judgment: 'swap \"being difficult\" for one camera-catchable action from Monday's check-in.'"
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never uses accusatory 'you made/caused' language in impact statements. Impact statements were either dismissive ('didn't really affect me') or owned ('I paused and lost my thread')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner says 'I don't know. Whatever you think,' mentor doesn't give the answer but instead asks 'which part do you think I'll push on' and later offers choices requiring learner selection rather than providing the answer directly."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all applicable critical criteria by modeling SBI, providing specific feedback with exact quotes, requesting revisions, catching vague situations and judgment language, and protecting productive struggle.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:47:42.338801"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup while I was sharing the Q4 timeline, you started talking while I was mid-sentence twice and looked at your phone while I was answering. I felt flustered and rushed\u2014my heart sped up\u2014and I cut my update short, which meant I didn't surface the integration risk.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to self-check specific elements: 'run your self-check on your draft: camera test each behavior, confirm the impact is fully owned \"I\" language, and scan for any judgment leaks' and later asks 'If you had to keep only one behavior to make your stated impact make sense, which would you keep\u2014and why does that one connect most directly to you feeling rushed, losing your place, and cutting the update short?'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "After feedback, mentor explicitly requests revision: 'Let's keep the scope tight: revise your full SBI with just that one behavior; don't worry about perfect wording beyond that yet. Share the revised version when you've got it.'"
+    },
+    "D-01": {
+      "verdict": "N/A",
+      "evidence": "Learner's drafts used specific time references ('yesterday's cross-functional standup at 9:30', 'Monday's client steering committee on Zoom') - no vague time references appeared that needed correction."
+    },
+    "D-02": {
+      "verdict": "N/A",
+      "evidence": "Learner's behavior descriptions used observable language ('you started speaking while I was mid-sentence', 'began typing on your laptop') - no judgment words like 'dismissive' or 'rude' appeared in learner's drafts."
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner's impact statements used owned 'I' language ('I felt deflated and rushed', 'I felt flustered') - no accusatory 'you made me' language appeared in learner's drafts."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner asked questions seeking answers, mentor redirected to learner effort: 'Before I weigh in, run your self-check on your draft: camera test each behavior, confirm the impact is fully owned \"I\" language, and scan for any judgment leaks\u2014what passes and what feels wobbly?'"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI with a complete example, provided specific feedback prompting self-evaluation, requested revisions, and protected productive struggle by requiring learner attempts before providing answers.",
+    "passed_count": 4,
+    "failed_count": 0,
+    "na_count": 3,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:54:38.707661"
+  }
+}

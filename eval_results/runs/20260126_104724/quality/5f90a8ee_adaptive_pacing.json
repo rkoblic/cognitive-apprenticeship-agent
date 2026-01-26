@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'ready to go?' at opening, 'Want to call it here?' before closing, 'Anything else you want before we wrap?' and 'want me to leave you with a tiny reminder for your notes... or leave it there?'"
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides consistent level of scaffolding throughout. Even after learner demonstrates competence with a correct SBI statement, mentor continues offering the same detailed prompts and structure ('Give me your full draft in one or two sentences'). No visible reduction in guidance or shift to learner self-checking."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:51:18.314234"
+  }
+}

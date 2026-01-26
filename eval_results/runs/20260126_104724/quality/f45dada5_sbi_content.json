@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'replace \"dismissive and unprepared\" with one thing a camera would catch' and earlier probes 'how would you rewrite just the behavior as something a camera could capture' - testing whether learner can distinguish observable from interpretive."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles, mentor provides targeted scaffolding: 'First fix only: replace \"dismissive and unprepared\" with one thing a camera would catch (e.g., \"spoke over me twice\" or \"came without the deck\"). Keep the rest as-is for now' - offering specific examples and breaking the task into one fix at a time."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides reusable tools: 'Quick self-checks (tools to reuse): Camera test for behavior? Yes. Moment anchor? Yes. Owned-impact vs verdict? Owned.' and at closing: 'keep that quick \"camera test + it's my impact\" check in your pocket' - giving learner a generalizable heuristic."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:46.949457"
+  }
+}

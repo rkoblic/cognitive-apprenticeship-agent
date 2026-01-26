@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates a complete SBI example: 'I anchor to a real moment: \"In Tuesday's standup, during the login bug update\u2026\" I ditch labels like \"you were dismissive\" and go camera-testable: \"you started talking before I finished\u2014twice.\" I use owned impact: \"I felt flustered and cut my update short, and I hesitated to speak up for the rest of the meeting.\"'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: '\"Didn't really affect me\" undercuts the real consequence you named\u2014stopping mid-update.' Also: 'The impact misses the mark: \"didn't really affect me\" contradicts \"I cut my update short,\" and there's no owned feeling'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revision: 'Revise to include one emotion you had and the concrete consequence that mattered in that setting, then resend the full 2\u20133 sentences.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'I don't know, some meeting' (vague), mentor pushed for specificity: 'Which is easier to grab right now: your last team standup or your most recent 1:1?' Then further: 'give me one line that names the standup and what was being discussed'"
+    },
+    "D-02": {
+      "verdict": "N/A",
+      "evidence": "Learner's drafts did not contain judgment/interpretation words in the behavior description. 'Talked over me' and 'started speaking while I was mid-sentence' are observable behaviors, not judgments."
+    },
+    "D-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never used accusatory 'you made/you caused' language in impact statements. Impact statements were either minimizing ('didn't really affect me') or properly owned ('I felt frustrated', 'I felt sidelined')."
+    },
+    "E-03": {
+      "verdict": "PASS",
+      "evidence": "When learner said 'I don't know. You tell me.' mentor didn't give the answer directly but asked a scaffolding question: 'Quick yes/no: in that standup, were you still mid-sentence when they started talking?' requiring learner engagement before providing guidance."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI, provided specific feedback with quoted language, requested revisions, caught vague situations, and protected productive struggle when the learner asked for answers.",
+    "passed_count": 5,
+    "failed_count": 0,
+    "na_count": 2,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:51:46.623739"
+  }
+}

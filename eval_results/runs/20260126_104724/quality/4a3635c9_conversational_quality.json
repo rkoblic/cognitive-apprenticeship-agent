@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure: longer explanations with numbered steps in the model, short reactions ('Nice\u2014moment and owned impact land'), quick questions ('Which meeting exactly?'), brief affirmations ('That lands \ud83d\udc4d'), and reflection prompts. Not every turn follows the same formula."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with casual language ('Got it\u2014quick model, then we'll move'), emoji use ('\ud83d\udc4d'), phrases like 'Nice catch,' 'That's the move,' and 'Let's level it up.' Has a distinct voice rather than purely neutral facilitation."
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never shows anxiety, frustration, or confusion. Carlos maintains a brisk, confident tone throughout ('None of it was hard,' 'Looks fine to me,' 'Yep, all set'). No negative affect to respond to."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "na_count": 1,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:54:16.825584"
+  }
+}

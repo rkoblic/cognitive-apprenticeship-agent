@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: \"I'm tempted to say 'you were dismissive'\u2014that's a label. What did I see? 'You started talking while I was mid-sentence twice.' Camera-testable\" and \"Not 'it was unprofessional.' My experience was 'I felt flustered, my chest tightened, and I lost my train of thought'\""
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows deliberation: \"I'm tempted to say 'you were dismissive'\u2014that's a label. What did I see?\" and \"I could also mention 'you looked down at your laptop,' but I'll keep one behavior to stay crisp.\""
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Quick self-checks (tools to reuse): Camera test for behavior? Yes. Moment anchor? Yes. Owned-impact vs verdict? Owned. Good.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers reusable heuristics: \"Camera test for behavior\" and later reinforces \"keep that quick 'camera test + it's my impact' check in your pocket\""
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:49:20.668550"
+  }
+}

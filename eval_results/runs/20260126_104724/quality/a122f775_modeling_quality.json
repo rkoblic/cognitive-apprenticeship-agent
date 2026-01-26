@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "During modeling: 'I could say \"you were dismissive\"\u2014that's a label. What did a camera capture? You turned to Alex and started a side conversation...' - explains WHY they chose observable behavior over the label."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly shows a choice point: 'I could say \"you were dismissive\"\u2014that's a label. What did a camera capture?' - demonstrates considering an alternative and rejecting it."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor models self-checking: 'Live self-check: Camera-test on the behavior? Yes. Is \"felt undercut\" my experience vs. a verdict like \"unprofessional\"? Mine. Good.'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Multiple heuristics offered: 'Camera-test on the behavior' and later 'Could a camera see it? Is the feeling mine?' - reusable rules the learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:56:52.324082"
+  }
+}

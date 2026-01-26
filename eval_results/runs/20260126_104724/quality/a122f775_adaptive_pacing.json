@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness at the start ('ready to start?'), asks 'What jumps out to you...' before advancing, asks 'what, if anything, would you tighten before we call this first attempt done?', and asks 'Anything you want to tweak in your one-line self-check before we wrap?' and 'Want that stem on a sticky for the room, or are you set?'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed modeling and explicit stems. By the second scenario, mentor asks learner to self-check ('Run your self-check on the full message'). By the end, mentor offers optional support ('Want that stem on a sticky...or are you set?') rather than providing it automatically, and asks open questions like 'what's the one principle from today you'll carry' rather than prescribing answers."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:57:30.486250"
+  }
+}

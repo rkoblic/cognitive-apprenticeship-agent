@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains: 'I could say \"you were dismissive\"\u2014that's a label; what I actually saw was you looking at your phone and jumping in while I was mid\u2011sentence twice.' This explains WHY they chose specific observable behaviors over a judgment label."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows a choice point: 'I could say \"you were dismissive\"\u2014that's a label; what I actually saw was...' This demonstrates considering an alternative ('dismissive') and rejecting it in favor of observable behavior."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: 'Let me test it: could a camera capture \"looked at your phone\" and \"spoke over me twice\"? Yes. Is the impact my experience vs a verdict about them? Yes.'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers the 'camera test' heuristic both in modeling ('could a camera capture...') and repeatedly throughout coaching ('camera-testable behavior,' 'camera-catchable action'). Also offers 'small and true beats big and perfect' as a reusable principle."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:50:43.743226"
+  }
+}

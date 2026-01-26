@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'What do you want me to replay or clarify before we switch to your first attempt?' and 'Anything else you want to sanity-check before we wrap?' Also asks 'ready to start?' at the beginning."
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early on, mentor provides detailed think-aloud demo and explicit guidance. After learner shows competence, mentor shifts to asking learner to self-check ('run your self-check on your draft'), then later simply confirms learner's work with brief feedback ('That lands\u2014clean, camera-testable') and eventually just asks for commitment statements ('Type the exact wording you'll use so it's locked')."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:55:54.589074"
+  }
+}

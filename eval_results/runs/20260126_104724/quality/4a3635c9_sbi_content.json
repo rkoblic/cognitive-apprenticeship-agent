@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks 'That lands \ud83d\udc4d In one sentence: what led you to choose that behavior wording\u2014what did you want to make camera-testable?' This probes whether the learner understands the observable vs. interpretive distinction by asking them to articulate their reasoning."
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggled with behavior wording, mentor provided targeted scaffolding: 'swap in the exact words/action that ended it (e.g., you said \"let's move on\" and moved to the next item)' - offering a specific example to build from rather than just generic encouragement."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides the 'camera/mic test' as a reusable tool multiple times: 'run the camera/mic test and swap it for the exact words and one clear action in a named moment\u2014keeps feedback tight and safe, even upward.' This is a generalizable heuristic the learner can apply independently."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:53:56.674904"
+  }
+}

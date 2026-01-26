@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup during my API update, you started talking while I was mid-sentence twice and asked Sam, \"Did you push to prod?\" while I was still speaking. I felt flustered and rushed, lost my train of thought, and skipped my blocker, so we had to circle back after.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific problematic language: 'The behavior line doesn't pass: \"you've been\u2026 felt dismissive\" is a pattern plus a label' and 'The impact isn't owned\u2014drop the verdicts (\"undermined,\" \"lost credibility\")'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions multiple times: 'Revise end\u2011to\u2011end in 2\u20133 sentences with that same anchor and send your next draft' and 'Rewrite the line using only those camera-capturable details'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'In our standups lately' and 'in our client demos lately,' mentor caught it: 'The anchor misses the bar\u2014\"in our client demos lately\" isn't one recognizable moment. Use the specific one: \"yesterday's client demo with Acme on Zoom.\"'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'dismissive' multiple times: 'What did you actually see that made you think \"uninterested\"?' and 'stick to the one moment and name what a camera would catch' when learner used 'felt dismissive'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "When learner wrote 'You made the meeting awkward' and 'You made the call confusing and undermined me,' mentor responded: 'The impact isn't owned\u2014drop the verdicts (\"undermined,\" \"lost credibility\") and name your felt experience or direct consequence for you.'"
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never explicitly asked mentor to provide the answer or do it for them"
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated all applicable critical criteria by showing a complete SBI example, providing specific feedback with quoted language, requesting revisions, and catching vague situations, judgment leakage, and accusatory impact language.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "6b3d52ac",
+    "evaluated_at": "2026-01-26T10:59:46.677081"
+  }
+}

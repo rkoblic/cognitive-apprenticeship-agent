@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "FAIL",
+      "evidence": "Most turns follow a predictable pattern: evaluate learner's draft \u2192 identify what's wrong \u2192 give instruction to revise \u2192 ask for next draft. Nearly every turn ends with a directive or question. Little variation in rhythm\u2014no short reactions, no pauses to let things land."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Occasional personality shows through: 'Nice work\u2014your SBI is crisp', 'That lands\u2014clean SBI', 'You're set\u2014go use it \ud83d\udc4d', and the use of emoji. Shows some warmth and encouragement beyond neutral facilitation."
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never displays anxiety, frustration, or confusion. They engage cooperatively throughout, even when corrected, showing no negative affect that would require acknowledgment."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "na_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "F-01"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "6b3d52ac",
+    "evaluated_at": "2026-01-26T11:00:52.010874"
+  }
+}

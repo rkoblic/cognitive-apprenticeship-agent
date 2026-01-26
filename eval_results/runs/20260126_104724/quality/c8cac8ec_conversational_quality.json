@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turn structure varies: short reactions ('Got it'), longer explanations (the demo turn), questions ('what's one thing you actually saw or heard?'), reflective prompts ('What felt different about naming the impact this time?'), and brief closings ('Sounds good\u2014catch you next time.')"
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with phrases like 'I hear the \"why bother\" vibe,' 'Let's go microscopic,' casual emoji use '\ud83d\udc4d', and human touches like 'totally fine; this skill feels awkward at first for most people.'"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner shows hesitance ('I guess'), mentor immediately acknowledges: 'Sounds a bit hesitant\u2014totally fine; this skill feels awkward at first.' When learner shows disengagement ('I don't know. Whatever you think'), mentor names it: 'Sounds like this feels not worth the effort right now\u2014fair, and we can make it lighter.' Consistently validates the 'why bother' affect throughout."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:48:44.965826"
+  }
+}

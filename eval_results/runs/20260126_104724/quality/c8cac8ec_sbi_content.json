@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "D-04": {
+      "verdict": "FAIL",
+      "evidence": "Mentor corrects 'being difficult' by asking for camera-catchable action but never probes whether learner understands the distinction. No questions like 'Is that what you saw or what you concluded?' or 'What's the difference between being difficult and what actually happened?'"
+    },
+    "D-05": {
+      "verdict": "PASS",
+      "evidence": "When learner struggles with impact ('It didn't really affect me'), mentor offers specific options: 'pick the smallest true thing from that moment, like \"I lost my thread,\" \"I sped up and skipped a point,\" or \"I felt a little deflated\"\u2014which one lands closest?' Also offers binary choice: 'resigned or fine' as a microscopic scaffold."
+    },
+    "D-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides 'Camera Test' as a reusable tool in the demo ('could a camera see that behavior?') and reinforces it as a takeaway: 'keep the behavior camera-testable and name the smallest true impact.' Also mentions 'Moment Anchor' and 'Owned-Language Check' as self-checks."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "D-04"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "sbi_content",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:48:22.302476"
+  }
+}

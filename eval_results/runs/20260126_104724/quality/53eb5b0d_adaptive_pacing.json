@@ -1,0 +1,23 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Multiple readiness checks throughout: 'Pause there\u2014anything you want me to slow down or unpack before we switch to your first attempt?', 'When you're ready, give me your full SBI draft in one go', and confirming mastery before introducing 'Second practice, higher stakes'"
+    },
+    "E-02": {
+      "verdict": "PASS",
+      "evidence": "Early detailed demos and explicit checks fade to asking learner to self-check ('Run your own moment/camera/ownership checks'), then brief confirmations ('That lands'), and finally focus shifts to habit triggers rather than SBI mechanics"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "53eb5b0d",
+    "evaluated_at": "2026-01-26T10:59:15.867678"
+  }
+}

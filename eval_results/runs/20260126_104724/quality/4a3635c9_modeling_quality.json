@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains: \"I'm tempted to say 'you were dismissive'\u2014that's a label. What I actually saw: you started talking while I was mid-sentence, twice.\" This shows WHY they chose specific wording over a label."
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows a choice point: \"I'm tempted to say 'you were dismissive'\u2014that's a label. What I actually saw...\" This demonstrates considering an alternative and rejecting it."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: \"Self-check: camera test on the behavior? Yes. Owned impact\u2014my feelings and consequence, not a verdict about them? Yes.\""
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers the \"camera test\" heuristic multiple times, including: \"camera test on the behavior\" and later reinforces \"camera/mic test\" as a reusable rule for identifying observable behavior."
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:53:31.253310"
+  }
+}

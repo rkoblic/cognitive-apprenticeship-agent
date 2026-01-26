@@ -1,0 +1,37 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently provides actionable direction: 'One fix first: \"dismissive\" is a label; swap it for exactly what you saw/heard (camera-testable).' Also: 'swap \"it was awkward and created problems\" for \"I felt X and Y happened to me (specific consequence).\"'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'Nice\u2014moment and owned impact land. One last tighten: \"shut the idea down\" is a conclusion; swap in the exact words/action...' and 'That lands \ud83d\udc4d' after final revision. Also 'Anchor and behavior are solid. Impact misses the bar\u2014\"it was awkward\" and \"made the directors think\" aren't owned'"
+    },
+    "C-05": {
+      "verdict": "FAIL",
+      "evidence": "Mentor immediately corrects errors without exploring learner's thinking. When learner says diagnostic example 'Looks fine to me,' mentor skips exploration and moves on: 'Let's go straight to your draft.' When learner uses 'dismissive,' mentor immediately identifies the fix rather than asking what the learner was thinking."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'In one sentence: what led you to choose that behavior wording\u2014what did you want to make camera-testable?' Learner responds with their reasoning about naming observable actions."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection multiple times: 'Quick reflection: what was the hardest part to tighten\u2014moment, behavior, or impact?' and 'Quick reflection: what's the one principle you'll carry forward from this\u2014especially for upward feedback?'"
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 1,
+    "pass_rate": 0.8,
+    "failed_criteria": [
+      "C-05"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:53:45.675625"
+  }
+}

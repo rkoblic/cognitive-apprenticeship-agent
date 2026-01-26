@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor demonstrates complete SBI: '1) Situation: Tuesday's standup while I was giving the roadmap update. 2) Behavior: I'm tempted to say \"you were dismissive\"\u2014that's a label. What I actually saw: you started talking while I was mid-sentence, twice. 3) Impact: I felt my chest tighten and lost my train of thought, and I held back a dependency I planned to flag.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: '\"dismissive\" is a label; swap it for exactly what you saw/heard' and later '\"shut the idea down\" is a conclusion; swap in the exact words/action' and '\"Dismissive tone\" is a label\u2014trim to what the mic would catch'"
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor consistently requests revisions: 'Give me a one-line revision with that change. What's your quick rewrite?' and 'Give me the one-line with that change. What's your revision?' and 'Can you give me that as a single line, keeping your impact the same?'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'Last week in a meeting' (vague). Mentor caught it: 'Which meeting exactly?' Learner then specified 'Last week's planning.'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor caught judgment words multiple times: '\"dismissive\" is a label; swap it for exactly what you saw/heard (camera-testable)' and '\"shut the idea down\" is a conclusion' and '\"Dismissive tone\" is a label\u2014trim to what the mic would catch'"
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Learner wrote 'it was awkward and created problems' and later 'made the directors think we weren't aligned' (not owned). Mentor caught it: 'swap \"it was awkward and created problems\" for \"I felt X and Y happened to me (specific consequence)\"' and '\"it was awkward\" and \"made the directors think\" aren't owned (that's mind-reading/judgment). Replace the second sentence with your emotion and a direct consequence you experienced.'"
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never explicitly asked the mentor to provide answers or do the work for them. Learner attempted drafts when requested."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrated SBI modeling, provided specific feedback with quoted language, requested revisions, and caught all three error types (vague situations, judgment leakage, and accusatory/unowned impact).",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "4a3635c9",
+    "evaluated_at": "2026-01-26T10:53:11.824348"
+  }
+}

@@ -252,7 +252,8 @@ def aggregate_by_experiment(runs_dir: Path | None = None, date_filter: str | Non
     if not runs_dir.exists():
         return {
             "original": {"conversations": [], "status": "no_runs"},
-            "v2": {"conversations": [], "status": "no_runs"}
+            "v2": {"conversations": [], "status": "no_runs"},
+            "v3": {"conversations": [], "status": "no_runs"}
         }
 
     # Resolve date filter
@@ -266,7 +267,8 @@ def aggregate_by_experiment(runs_dir: Path | None = None, date_filter: str | Non
     # Separate collections per experiment
     experiments = {
         "original": {"conversations": [], "run_ids": []},
-        "v2": {"conversations": [], "run_ids": []}
+        "v2": {"conversations": [], "run_ids": []},
+        "v3": {"conversations": [], "run_ids": []}
     }
 
     for manifest_path in sorted(runs_dir.glob("*/manifest.json")):
@@ -347,10 +349,15 @@ def classify_experiment(run_id: str, dataset_name: str) -> str:
         dataset_name: The dataset name from manifest config
 
     Returns:
-        "v2" for the new mentor experiment, "original" for everything else
+        "v3" for targeted Carlos/Fatou improvements (Jan 26+),
+        "v2" for new mentor experiment (Jan 25),
+        "original" for everything else
     """
-    # New experiment: batch-202601251700 or runs dated >= 20260125
-    if "202601251700" in dataset_name or run_id[:8] >= "20260125":
+    # v3 experiment: batch-20260126_v3 or runs dated >= 20260126
+    if "20260126_v3" in dataset_name or run_id[:8] >= "20260126":
+        return "v3"
+    # v2 experiment: batch-202601251700 or runs dated 20260125
+    if "202601251700" in dataset_name or run_id[:8] == "20260125":
         return "v2"
     return "original"
 
@@ -689,10 +696,12 @@ def generate_html(manifest: dict, metrics: dict, transcript_index: dict | None =
     if has_experiments:
         original_count = len(experiments.get("original", {}).get("manifest", {}).get("conversations", []))
         v2_count = len(experiments.get("v2", {}).get("manifest", {}).get("conversations", []))
+        v3_count = len(experiments.get("v3", {}).get("manifest", {}).get("conversations", []))
         experiment_tabs_html = f'''
         <div class="experiment-tabs">
             <button class="exp-tab active" data-exp="original">Original Mentor <span class="tab-count">{original_count}</span></button>
             <button class="exp-tab" data-exp="v2">New Mentor v2 <span class="tab-count">{v2_count}</span></button>
+            <button class="exp-tab" data-exp="v3">Mentor v3 (Carlos/Fatou) <span class="tab-count">{v3_count}</span></button>
         </div>
         '''
 

@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides actionable direction: 'swap \"being difficult\" for one camera-catchable action from Monday's check-in (for example, \"you started talking while I was mid-sentence, twice\"). What's one thing you actually saw or heard?'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates the revision specifically: 'Situation and behavior land. The impact line misses the bar\u2014\"didn't really affect me; that's just how it is\" isn't your internal state or an immediate consequence.' Also earlier: 'That works\u2014\"talked over me\" is camera-catchable.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor explores errors before correcting: 'I'm hearing a bit of \"why bother\" in there\u2014fair when this stuff feels touchy. If you had to bet, which part do you think I'll push on: the behavior wording or the impact sentence?' This invites learner to identify the issue themselves."
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'What made you choose \"fine\" for how it landed\u2014what were you trying to signal with that word?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'What felt different about naming the impact this time compared to your first try?' This asks learner to step back and reflect on how their approach changed."
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:48:10.131356"
+  }
+}

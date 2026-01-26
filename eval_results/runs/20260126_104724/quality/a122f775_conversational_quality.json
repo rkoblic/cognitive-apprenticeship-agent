@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor varies turn structure throughout: short affirmations ('That passes the bar\u2014clean, specific, owned'), longer modeling sequences with deliberation steps, direct questions ('What jumps out to you...'), brief reactions ('Nice catch'), and closing summaries. Some turns are single sentences while others are multi-paragraph explanations."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows personality with phrases like 'I hear you\u2014you don't want to euphemize; you want it undeniable,' 'Yep\u2014' as a casual opener, 'Nice catch,' '\ud83d\udc4d' emoji, and 'That's crisp and reusable\u2014nice.' The voice is direct and matches the learner's no-nonsense style."
+    },
+    "F-03": {
+      "verdict": "N/A",
+      "evidence": "Learner shows confidence and mild resistance/skepticism throughout ('Honestly, this is what I already do,' 'I don't see those as verdicts') but no anxiety, frustration, or confusion. The learner remains engaged and assertive, not distressed."
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "na_count": 1,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:57:45.007306"
+  }
+}

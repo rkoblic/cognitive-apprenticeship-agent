@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "B-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explains reasoning: 'I'm tempted to say \"you were dismissive\"\u2014that's a label. What did a camera pick up?' and 'I'm choosing that over \"lately\" so it's easy to recognize.'"
+    },
+    "B-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor shows choice point: 'I'm tempted to say \"you were dismissive\"\u2014that's a label. What did a camera pick up?' demonstrating deliberation between alternatives."
+    },
+    "B-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly models self-checking: 'Quick self-checks I'll reuse: camera test (could a camera capture those actions? yes), owned-impact (are these my feelings/choices? yes), judgment-leak scan (did I sneak in a verdict? I removed \"dismissive\"\u2014good).'"
+    },
+    "B-05": {
+      "verdict": "PASS",
+      "evidence": "Mentor offers multiple reusable heuristics: 'camera test,' 'owned-impact,' 'judgment-leak scan,' and later 'include the minimum behavior needed to make your impact make sense.'"
+    }
+  },
+  "overall": {
+    "passed_count": 4,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "modeling_quality",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:55:06.920509"
+  }
+}

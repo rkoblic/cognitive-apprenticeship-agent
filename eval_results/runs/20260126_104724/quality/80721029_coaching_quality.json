@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When learner asked about behavior granularity, mentor provided actionable direction: 'include the minimum behavior needed to make your impact make sense\u2014often one, sometimes two if they happened in the same moment and are additive.' Also: 'Go with the concrete phrasing\u2014\"you started speaking while I was mid-sentence\"\u2014over \"interrupted me\"; it's cleaner, camera-testable, and avoids a label.'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "After learner's revision removing the laptop-typing behavior, mentor specifically evaluated: 'That lands\u2014clean, camera-testable, and the \"twice\" anchors without reading as tallying here.' Also evaluated the manager SBI: 'It meets the bar: specific moment, camera-testable behavior, and fully owned impact with a clear consequence.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner submitted first draft with questions, mentor didn't immediately correct but asked: 'Before I weigh in, run your self-check on your draft: camera test each behavior, confirm the impact is fully owned \"I\" language, and scan for any judgment leaks\u2014what passes and what feels wobbly?' Also asked: 'If you had to keep only one behavior to make your stated impact make sense, which would you keep\u2014and why does that one connect most directly...'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asked learner to explain reasoning: 'If you had to keep only one behavior to make your stated impact make sense, which would you keep\u2014and why does that one connect most directly to you feeling rushed, losing your place, and cutting the update short?' This asks learner to articulate why they made a specific choice."
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompted reflection multiple times: 'Looking ahead, what's the one principle from this you'll carry into future feedback to a manager versus a peer?' and 'What's the one thing that clicked for you today that you'll lean on if nerves spike tomorrow?' and final question: 'One last reflection: when nerves spike, what's the first micro-action you'll do before speaking, and why that one?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "80721029",
+    "evaluated_at": "2026-01-26T10:55:24.943874"
+  }
+}

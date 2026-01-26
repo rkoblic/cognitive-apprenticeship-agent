@@ -1,0 +1,30 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turn structure varies: longer modeling turn with bullet points, short reactions ('Nice\u2014your behavior is camera-testable now'), questions ('What did you notice...'), direct feedback ('Direct take: You hit the three pieces, but it misses the bar'), and brief closings ('Got it\u2014closing here')"
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with phrases like 'Super quick pit stop so we don't bake in a trap,' 'Nice catch' style reactions ('Nice\u2014your behavior is camera-testable now'), emoji use (\ud83d\udc4d), and casual language ('Yep\u2014let's level it up')"
+    },
+    "F-03": {
+      "verdict": "FAIL",
+      "evidence": "Learner shows impatience/frustration repeatedly ('Can we move on?', 'Fine\u2014', 'Can we wrap?', 'Looks fine to me. Maybe you'll nitpick the wording') but mentor never acknowledges the affect\u2014just presses forward with corrections or pivots to next task without validating the learner's apparent frustration with the process"
+    }
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 1,
+    "na_count": 0,
+    "pass_rate": 0.67,
+    "failed_criteria": [
+      "F-03"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "f45dada5",
+    "evaluated_at": "2026-01-26T10:50:10.286265"
+  }
+}

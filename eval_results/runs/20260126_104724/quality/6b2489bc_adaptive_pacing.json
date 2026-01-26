@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'Ready to jump in?' at the start, 'When you're ready, let's start small' before first task, 'Quick pause before I weigh in: if I were to push on one part, would it be the behavior phrasing or the impact\u2014which one, and why?' before giving feedback, and 'Do you want to leave it here for today, or run one more quick scenario?' before ending."
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides similar levels of scaffolding throughout. In the second practice attempt, after learner demonstrated competence in the first, mentor still provides the same detailed corrective feedback ('The impact misses the mark...Revise to include one emotion you had and the concrete consequence'). No visible reduction in guidance or invitation for self-checking after learner showed mastery."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:52:43.175890"
+  }
+}

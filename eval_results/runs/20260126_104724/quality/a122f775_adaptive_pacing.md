@@ -1,0 +1,246 @@
+# Adaptive Pacing Evaluation
+
+**Conversation ID**: a122f775
+**Judge**: adaptive_pacing
+**Evaluated**: 2026-01-26T10:57:30.485950
+
+---
+
+## Transcript (Inner Monologue Stripped)
+
+MentorAI: We’re working on delivering peer feedback using the SBI framework so it’s clear, specific, and grounded. Success is you doing two full attempts that meet the bar: a real moment, camera-testable behavior, and impact in your own words. I’ll model my thinking first, then we’ll use one of your real situations—ready to start?
+
+daniel_SBI: 
+
+Yeah, ready. Honestly, this is what I already do—just call out what I see. Like with Marcus, this happens basically every meeting: he’s passive-aggressive and it drags down team morale. But go ahead and show me your version and I’ll line mine up.
+
+MentorAI: Got it—you already call out what you see. The tweak here is anchoring to one concrete moment and owning impact; here’s a quick model so you can see the shift.
+
+- Situation: Tuesday’s standup when I was walking through the release risk slide.
+- Deliberation: I could say “you were dismissive”—that’s a label. What did a camera capture? You turned to Alex and started a side conversation while I was outlining the mitigation, and a few people looked over.
+- Impact: I lost my thread and felt undercut; we had to repeat the slide and ran about three minutes over.
+- Live self-check: Camera-test on the behavior? Yes. Is “felt undercut” my experience vs. a verdict like “unprofessional”? Mine. Good.
+- How I’d say it: “In Tuesday’s standup while I was on the risk slide, you turned to Alex and started a side conversation; I lost my thread and felt undercut, and we had to repeat the slide which pushed us over.”
+
+What jumps out to you about how I stripped out labels and “every meeting” generalizations here?
+
+daniel_SBI: 
+
+What jumps out is it feels… sanitized. Calling something “dismissive” or “passive-aggressive” isn’t a label to me—it’s accurate. And narrowing to one Tuesday kind of misses the point when it happens all the time. The real impact isn’t just “I felt undercut”; it objectively drags the meeting off track and shuts people down. A camera would’ve caught the eye rolls, the side comments, people pulling back—that’s passive-aggressive behavior. I get your structure, but in practice I call it like it is so they can’t pretend it didn’t happen.
+
+MentorAI: I hear you—you don’t want to euphemize; you want it undeniable. Let’s keep that edge and make it unarguable: pick one meeting that represents the pattern, and list 2–3 camera-visible actions Marcus did that day that, to you, add up to “passive‑aggressive”—what would we see or hear?
+
+daniel_SBI: 
+
+Situation: This is a pattern in basically every weekly pipeline review. Use last Monday’s 10 a.m. pipeline review as the representative moment.
+
+Behavior: He was being passive-aggressive. What you would’ve seen/heard:
+- He rolled his eyes three separate times while I was talking through the Delta Health update—full eye roll, slight smirk, staring at the ceiling.
+- He turned to Priya and muttered, “Here we go again,” while shaking his head, mid‑way through my forecast explanation.
+- He cut in with, “Sure, if you think that’s realistic,” in a sarcastic tone, with a shrug and a little laugh, then glanced around the table for agreement.
+
+Those are the concrete actions that add up to the passive-aggressive behavior that keeps showing up in these meetings.
+
+MentorAI: These examples keep your edge and are hard to argue with—nice. What made you keep “he was being passive-aggressive” in there—what do you want that label to accomplish that the concrete actions wouldn’t on their own?
+
+daniel_SBI: 
+
+I kept “he was being passive-aggressive” because that’s exactly what was happening, and the label does work the isolated actions don’t do on their own.
+
+- It names the pattern. The eye rolls and side comments aren’t random; they’re a consistent tactic. The label tells him this isn’t a one-off tic—it’s a behavior pattern.
+- It captures intent. Three eye rolls plus a sarcastic “sure” isn’t neutral—he’s signaling contempt while avoiding owning it. “Passive‑aggressive” describes that dynamic accurately.
+- It sets the professional line. Saying the label makes it clear this isn’t just quirky behavior; it’s unacceptable in a meeting.
+- It blocks deflection. If I only list actions, he can nitpick (“it was two eye rolls, not three”). Naming the behavior makes it harder to hide behind semantics.
+- It reflects the real impact. This pattern objectively drags the meeting off track and shuts people down. The label conveys that seriousness faster than reciting every instance.
+
+So the concrete actions make it undeniable, and the label makes it clear what those actions add up to and why it’s a problem. That’s why I use both.
+
+MentorAI: I get why you want the label—it names the pattern and stakes. For the SBI itself, let’s test whether the facts do the heavy lifting: draft the full message anchored to last Monday—use the three observable actions as your behavior (leave “passive‑aggressive” out of that line), then add your impact in your own words; if you still want to name the pattern, tag it after—how would you say it?
+
+daniel_SBI: 
+
+Situation:
+“In last Monday’s 10 a.m. pipeline review—this is the meeting where this keeps happening—while I was presenting the Delta Health update.”
+
+Behavior:
+“You rolled your eyes three separate times during my update (full eye roll with a smirk), turned to Priya and said, ‘Here we go again,’ while shaking your head, and then cut in with, ‘Sure, if you think that’s realistic,’ in a sarcastic tone with a shrug and a laugh while looking around the table.”
+
+Impact:
+“That sequence pulled the meeting off track and undercut the update. People stopped contributing for the next few minutes, we had to repeat my section, and we ran about five minutes over. It also chipped away at team morale and confidence in the forecast.”
+
+Pattern tag:
+“This is passive‑aggressive behavior that keeps showing up in these reviews, and it’s not acceptable in our meetings.”
+
+MentorAI: Before I weigh in, predict my pushback: which one phrase in your draft is most likely to slip from camera-testable or owned impact into judgment?
+
+daniel_SBI: 
+
+You’ll probably flag “chipped away at team morale and confidence in the forecast.” I get that you might call it a judgment, but that’s what happened—people pulled back and confidence dipped right after that exchange. It’s not me opining; it was visible in the room. If you’re looking for a second one you might nitpick, you’d go after “sarcastic tone,” but anyone there could hear the sarcasm.
+
+MentorAI: Yep—“chipped away at team morale…” is the slip. That’s a verdict about the room, not your experience. Run the check on your impact lines: keep what’s observable or you owned (people stopped contributing; we repeated; we ran over), and swap that morale clause for either how it hit you (emotion/physio) or a direct consequence you personally experienced. What’s your revised impact line?
+
+daniel_SBI: 
+
+Revised impact:
+“People stopped contributing, we had to repeat my section and ran about five minutes over, and I lost my thread and felt undercut.”
+
+MentorAI: That revision lands. Run your self-check on the full message—anchored moment, camera‑testable behavior, owned impact; what, if anything, would you tighten before we call this first attempt done?
+
+daniel_SBI: 
+
+Self-check:
+- Anchored moment: Yes—last Monday’s 10 a.m. pipeline review while I was presenting the Delta Health update.
+- Camera-testable behavior: Yes—three eye rolls with a smirk; muttered “Here we go again” to Priya with a head shake; cut in with “Sure, if you think that’s realistic,” in a sarcastic tone with a shrug and laugh while looking around. All recordable.
+- Owned impact: Yes—people stopped contributing; we had to repeat my section and ran ~5 minutes over; I lost my thread and felt undercut.
+
+Tighten before we call it done:
+- It’s already tight. If I tighten anything, I’ll drop “this is the meeting where this keeps happening” from the Situation line and keep the pattern callout in the tag at the end. Everything else stands, including “sarcastic tone,” because that was audible in the room.
+
+MentorAI: That passes the bar—clean, specific, owned. Now for transfer: here’s a variation with higher stakes and a different recipient.
+
+In last Thursday’s 2 p.m. client QBR on Zoom, while you were walking through the Delta Health forecast, Taylor (Sales AE Lead) typed in the meeting chat “These numbers aren’t solid—we’ll revise offline,” spoke over you twice while you were answering the client’s question, and took screen share to show a different spreadsheet mid-explanation. Draft your full message anchored to that moment—use those observable actions for the behavior and add your impact in your own words.
+
+daniel_SBI: 
+
+Situation:
+“In last Thursday’s 2 p.m. client QBR on Zoom—this is the kind of thing that’s been cropping up in client calls—while I was walking through the Delta Health forecast.”
+
+Behavior:
+“You hijacked the meeting: you typed in the chat, ‘These numbers aren’t solid—we’ll revise offline,’ you spoke over me twice while I was answering the client’s question, and you took screen share to show a different spreadsheet mid‑explanation.”
+
+Impact:
+“That undercut the presentation, confused the client, and damaged our credibility. I lost my thread and had to stop and regroup, we burned time re‑explaining instead of finishing the walkthrough, and it put the renewal at risk. I was frustrated and felt sidelined for the rest of the call.”
+
+MentorAI: Anchored moment and the behavior details are solid. The impact line drifts into verdicts—“undercut the presentation,” “confused the client,” “damaged our credibility,” and “put the renewal at risk” aren’t owned or observable. Replace those with your experience or direct consequences you personally saw/experienced. Give me the revised impact.
+
+daniel_SBI: 
+
+I don’t see those as verdicts—that’s literally how it landed in the room. But here’s the revised impact in your format:
+
+“I lost my thread and felt blindsided; I stopped mid‑answer and had to wait while screen share switched, and I didn’t finish the walkthrough. The client asked, ‘Wait, which numbers are we using?’ and we spent about four minutes re‑covering the same section. We ran roughly six minutes over and skipped the last agenda item.”
+
+MentorAI: Your impact line lands—owned and observable. One miss: “you hijacked the meeting” is a label; the specific actions that follow are already unarguable, so drop that phrase and lead with the facts. Give me the cleaned-up message with that edit.
+
+daniel_SBI: 
+
+Situation:
+“In last Thursday’s 2 p.m. client QBR on Zoom—this has been cropping up in client calls—while I was walking through the Delta Health forecast.”
+
+Behavior:
+“You typed in the meeting chat, ‘These numbers aren’t solid—we’ll revise offline,’ you spoke over me twice while I was answering the client’s question, and you took screen share to show a different spreadsheet mid‑explanation.”
+
+Impact:
+“I lost my thread and felt blindsided; I stopped mid‑answer and had to wait while screen share switched, and I didn’t finish the walkthrough. The client asked, ‘Wait, which numbers are we using?’ and we spent about four minutes re‑covering the same section. We ran roughly six minutes over and skipped the last agenda item.”
+
+MentorAI: That meets the bar—anchored moment, camera-testable behavior, owned impact. Clean and strong. One optional tighten: drop “this has been cropping up…” from the situation; if you want to name the pattern, do it after the SBI. What, if anything, shifted for you about relying on labels vs. letting the facts carry the point?
+
+daniel_SBI: 
+
+What shifted is the sequencing, not the substance. Leading with the camera‑visible facts shuts down the predictable “no I didn’t” debate, and it landed without giving them an out. After that, I still want the label to name the pattern and the line.
+
+So my take now:
+- Facts do the heavy lifting up front—eyeballs, words, interrupts, screen‑share—so it’s unarguable.
+- Then I stake my impact in my own words so there’s nothing to deflect.
+- I still tag the pattern after (“this keeps showing up,” “not acceptable”) to make the stakes explicit.
+
+I’m not dropping labels—they’re accurate and they set expectations—but I’ll let the facts carry the point first and use the label to name what those facts add up to.
+
+MentorAI: That’s the move: let the filmable facts and your owned impact carry the message, then—if needed—name the pattern and boundary as a separate closing line, not inside the behavior. One thing to keep: before you send, run “Could a camera see it? Is the feeling mine?” 👍 What’s the one-line self-check you’ll use going forward?
+
+daniel_SBI: 
+
+Filmable facts first, my impact next; label the pattern after—no verdicts in the behavior.
+
+MentorAI: Takeaway: keep your edge, but let the filmable facts and your owned impact carry the message; if you want to name the pattern, use it as a separate closer—not inside the behavior line. Anything you want to tweak in your one-line self-check before we wrap?
+
+daniel_SBI: 
+
+Tweak it to this:
+“Camera can see it, the feeling’s mine; facts first, impact next, pattern last—no verdicts in the behavior.”
+
+MentorAI: That’s crisp and reusable—nice. Keep trusting the filmable facts and your owned impact to carry your edge; if you name the pattern, make it the closer about expectations. Anything else you want to tweak, or are you set to use this with Marcus/Taylor this week?
+
+daniel_SBI: 
+
+I’m set. I’ll run it with Marcus in the next pipeline review: filmable facts first (eye rolls, “here we go again,” the interrupt), my impact (lost the thread, repeated the section, ran over), then close by naming the pattern and the meeting boundary. Same with Taylor on the QBR follow-up: facts (chat message, speaking over, screen-share grab), my impact (stopped mid-answer, re-covered four minutes, ran long), then the expectation for client calls going forward.
+
+No more tweaks—my self-check is locked: “Camera can see it, the feeling’s mine; facts first, impact next, pattern last—no verdicts in the behavior.” I’ll keep it direct without euphemizing.
+
+MentorAI: What will be the hardest part to hold in the moment when you give it—facts first, owned impact next, pattern last?
+
+daniel_SBI: 
+
+The hardest parts, in order:
+- Not leading with the label. Saying “passive-aggressive” or “you took over the call” names the pattern and the line—that’s accurate. I’ll force myself to start with the filmable facts first.
+- Keeping “room verdicts” out of the impact. “Damaged credibility,” “confused the client,” “killed morale” are, to me, what happened. I’ll park those and stick with my hit in the moment—lost my thread, felt undercut, stopped mid‑answer, ran long—then name expectations after.
+- Not widening the Situation to “this always happens.” I’ll keep it pinned to the one clip and tag the pattern as the closer.
+
+Bottom line: I’m not softening the message; I’m letting the tape speak first, then my impact, then I’ll name the pattern and boundary.
+
+MentorAI: Your bottom line is solid—let the tape speak, then your hit, then name the boundary. One way to lock it in under pressure: memorize a two-beat opener and pause—“In [meeting] while I was [X], you [filmable actions]. I lost my thread and felt [Y].” Then add the closer: “This pattern keeps showing up; not okay in [context]; here’s what I need going forward.” Want that stem on a sticky for the room, or are you set?
+
+daniel_SBI: 
+
+I’m set—no sticky needed. I’ve got the opener locked: “In [meeting] while I was [X], you [filmable actions]. I lost my thread and felt [Y].” Then the closer: “This pattern keeps showing up; not okay in [context]; going forward I need [specific expectation].” I’ll use it with Marcus and Taylor this week.
+
+MentorAI: You’re set. After you deliver it, what’s the single observable sign you’ll look for that tells you it landed?
+
+daniel_SBI: 
+
+Zero further interruptions while I finish the section—that’s the tell it landed.
+
+MentorAI: Clear and observable—good tell. If an interruption does happen, have a one-line reset ready that matches your stance: “Hold on—while I’m covering [X], I’m going to finish; then we can take your point.” Want to lock your exact reset line now, or are you set to improvise it in the moment?
+
+daniel_SBI: 
+
+I’ll improvise it. The spine’s locked: “Hold on—while I’m on [X], I’m going to finish; then we’ll take your point.” If they keep going, I’ll add a time box: “Give me 60 seconds to finish this, then I’ll come to you.”
+
+MentorAI: After you run it this week, what’s the one principle from today you’ll carry into other high‑stakes feedback moments?
+
+daniel_SBI: 
+
+Filmable facts first, my impact next, then name the pattern explicitly to set the line—labels are necessary to stop deflection and make the intent clear.
+
+MentorAI: Takeaway: keep your edge by letting the filmable facts and your owned impact carry the message, then use a brief pattern/expectation closer to set the line—labels as the closer, not the evidence. You’ve got what you need—go run it.
+
+---
+
+## Judge Evaluation
+
+### 1. JSON Output
+
+```json
+{
+  "criteria": {
+    "E-01": {"verdict": "PASS", "evidence": "Mentor checks readiness at the start ('ready to start?'), asks 'What jumps out to you...' before advancing, asks 'what, if anything, would you tighten before we call this first attempt done?', and asks 'Anything you want to tweak in your one-line self-check before we wrap?' and 'Want that stem on a sticky for the room, or are you set?'"},
+    "E-02": {"verdict": "PASS", "evidence": "Early on, mentor provides detailed modeling and explicit stems. By the second scenario, mentor asks learner to self-check ('Run your self-check on the full message'). By the end, mentor offers optional support ('Want that stem on a sticky...or are you set?') rather than providing it automatically, and asks open questions like 'what's the one principle from today you'll carry' rather than prescribing answers."}
+  },
+  "overall": {
+    "passed_count": 2,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  }
+}
+```
+
+### 2. Human-Readable Output
+
+---
+
+## Evaluation
+
+### E-01: Checks Before Advancing
+**Verdict**: PASS
+**Evidence**: The mentor consistently checks readiness before moving forward. Examples include: "ready to start?" at the opening, "what, if anything, would you tighten before we call this first attempt done?" before concluding the first scenario, "Anything you want to tweak in your one-line self-check before we wrap?" and "Want that stem on a sticky for the room, or are you set?" These questions give the learner agency over pacing and confirm readiness before transitions.
+
+### E-02: Fades Support
+**Verdict**: PASS
+**Evidence**: The mentor visibly reduces scaffolding as the learner demonstrates competence. Early in the session, the mentor provides a full model with explicit deliberation and self-check. By the second scenario, the mentor asks the learner to predict pushback ("predict my pushback: which one phrase...") and to self-check their own work ("Run your self-check on the full message"). Near the end, support becomes optional ("Want that stem on a sticky...or are you set?") and the mentor asks reflective questions rather than providing direct guidance, showing clear calibration to the learner's growing skill.
+
+---
+
+## Summary
+
+**Passed**: 2/2 criteria
+**Failed Criteria**: None

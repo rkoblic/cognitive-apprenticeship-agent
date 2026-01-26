@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turns vary from longer demo explanations to short reactions ('That's a usable anchor'), quick yes/no questions ('were you still mid-sentence when they started talking?'), and brief closings ('\ud83d\udc4d See you next time.'). Some turns pause for reflection, others give direct instruction."
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with phrases like 'Sounds like you're over the self-check\u2014fair; this part's fiddly,' 'Totally normal to downplay it,' and 'Sounds like you're tapped out\u2014that's okay; this is real work.' These feel human rather than purely procedural."
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner shows hesitance ('I guess'), disengagement ('You tell me'), and fatigue ('I don't know. Whatever you think'), mentor consistently acknowledges: 'Sounds a bit hesitant\u2014that's okay,' 'Sounds like you're over the self-check\u2014fair,' 'Sounds like you're tapped out\u2014that's okay; this is real work. Let's make it tiny.' Adjusts approach by shrinking tasks."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "6b2489bc",
+    "evaluated_at": "2026-01-26T10:52:55.014550"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "F-01": {
+      "verdict": "PASS",
+      "evidence": "Turns vary from longer explanations (demo paragraph) to short reactions ('That lands\u2014anchored moment, camera-testable behavior, owned impact \ud83d\udc4d') to questions ('What's your draft?') to brief closings ('Done\u2014I'll leave it there')"
+    },
+    "F-02": {
+      "verdict": "PASS",
+      "evidence": "Shows personality with phrases like 'Sounds like a hesitant yes\u2014fair,' 'Good\u2014that's specific and camera-testable,' emoji use '\ud83d\udc4d', and casual tone 'Ping me anytime you want to rehearse another one'"
+    },
+    "F-03": {
+      "verdict": "PASS",
+      "evidence": "When learner shows disengagement/low affect ('I guess,' 'I don't know. Whatever you think'), mentor acknowledges it: 'Sounds like this feels a bit murky\u2014totally normal,' 'Sounds like reflecting on it isn't worth the energy right now\u2014fair,' and adjusts by shrinking tasks and offering to end early"
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "na_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "conversational_quality",
+    "conversation_id": "5f90a8ee",
+    "evaluated_at": "2026-01-26T10:51:29.690800"
+  }
+}

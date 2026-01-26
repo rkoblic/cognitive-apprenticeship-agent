@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "E-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor checks readiness multiple times: 'Ready for the quick demo?' after acknowledging hesitation, 'Would \"in this Monday's check-in\" be a specific enough anchor for you?' before locking in the situation, and 'Wrap there? \ud83d\udc4d' before closing the session."
+    },
+    "E-02": {
+      "verdict": "FAIL",
+      "evidence": "Mentor provides consistent scaffolding throughout despite learner producing correct SBI format. After learner's successful draft ('In Wednesday's cross-team sync...I paused and lost my thread'), mentor still offers the same level of guidance and doesn't reduce support or ask learner to self-check their own work."
+    }
+  },
+  "overall": {
+    "passed_count": 1,
+    "failed_count": 1,
+    "pass_rate": 0.5,
+    "failed_criteria": [
+      "E-02"
+    ]
+  },
+  "_metadata": {
+    "judge_id": "adaptive_pacing",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:48:32.545390"
+  }
+}

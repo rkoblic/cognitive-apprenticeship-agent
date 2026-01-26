@@ -1,0 +1,45 @@
+{
+  "criteria": {
+    "B-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor provides complete SBI example: 'In Tuesday's standup while I was on the risk slide, you turned to Alex and started a side conversation; I lost my thread and felt undercut, and we had to repeat the slide which pushed us over.'"
+    },
+    "C-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor quotes specific language: 'chipped away at team morale\u2026' is the slip. That's a verdict about the room, not your experience.' Also flags 'you hijacked the meeting' as a label."
+    },
+    "C-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly requests revisions: 'swap that morale clause for either how it hit you...What's your revised impact line?' and 'Give me the cleaned-up message with that edit.'"
+    },
+    "D-01": {
+      "verdict": "PASS",
+      "evidence": "When learner uses 'basically every meeting' and 'this happens all the time,' mentor redirects: 'pick one meeting that represents the pattern' and later suggests dropping 'this is the meeting where this keeps happening.'"
+    },
+    "D-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches 'He was being passive-aggressive' and asks learner to examine it: 'What made you keep \"he was being passive-aggressive\" in there\u2014what do you want that label to accomplish?' Also catches 'you hijacked the meeting' as a label."
+    },
+    "D-03": {
+      "verdict": "PASS",
+      "evidence": "Mentor catches accusatory impact: 'undercut the presentation,' 'confused the client,' 'damaged our credibility,' and 'put the renewal at risk' aren't owned or observable. Replace those with your experience.'"
+    },
+    "E-03": {
+      "verdict": "N/A",
+      "evidence": "Learner never asks mentor to provide answers or do the work for them; learner consistently attempts drafts independently."
+    }
+  },
+  "overall": {
+    "verdict": "PASS",
+    "summary": "The mentor demonstrates all applicable critical criteria by modeling a complete SBI example, providing specific feedback with quoted language, requesting revisions, and catching vague situations, judgment leakage, and accusatory impact.",
+    "passed_count": 6,
+    "failed_count": 0,
+    "na_count": 1,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "critical_criteria",
+    "conversation_id": "a122f775",
+    "evaluated_at": "2026-01-26T10:56:25.175972"
+  }
+}

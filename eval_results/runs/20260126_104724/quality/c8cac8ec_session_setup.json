@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "A-01": {
+      "verdict": "PASS",
+      "evidence": "Mentor states: 'We're working on delivering peer feedback using the SBI framework. Success means you anchor to a specific moment, describe only observable behavior, and name your own impact\u2014and you can catch when judgment sneaks in.'"
+    },
+    "A-02": {
+      "verdict": "PASS",
+      "evidence": "Mentor explicitly signals phase transition: 'I'll demonstrate my thinking first, then you'll try\u2014ready to start?' and later 'Your turn\u2014just the situation line: what's a real, specific moment you want to use?'"
+    },
+    "A-03": {
+      "verdict": "PASS",
+      "evidence": "The scenarios used are realistic workplace situations: 'In this Monday's check-in' where someone talked over the learner, and 'Wednesday's cross-team sync with Marketing' where a teammate jumped in mid-sentence\u2014both are specific, believable interpersonal dynamics in meetings."
+    }
+  },
+  "overall": {
+    "passed_count": 3,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "session_setup",
+    "conversation_id": "c8cac8ec",
+    "evaluated_at": "2026-01-26T10:47:50.764762"
+  }
+}

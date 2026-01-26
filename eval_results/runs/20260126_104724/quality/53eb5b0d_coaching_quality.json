@@ -1,0 +1,35 @@
+{
+  "criteria": {
+    "C-02": {
+      "verdict": "PASS",
+      "evidence": "When giving feedback, mentor includes what to do next: 'Strip those; stick to what the camera would show, and keep the impact in your words.' Also: 'drop \"took over\" (judgment leak) and \"maybe halfway through\" (fuzzy). Keep the camera line\u2014\"while I was answering the API timeline question, you started talking before I finished\"\u2014and choose one impact'"
+    },
+    "C-04": {
+      "verdict": "PASS",
+      "evidence": "Mentor evaluates revisions specifically: 'This passes all three checks\u2014clear moment, camera\u2011testable behavior, and owned impact\u2014with no judgment leaks.' Also: 'That lands\u2014your draft passes all three checks, and \"twice\" adds useful specificity without edge.'"
+    },
+    "C-05": {
+      "verdict": "PASS",
+      "evidence": "When learner submits draft with issues, mentor asks them to work through it: 'Before I weigh in, predict the nudge: if I asked you to tighten one thing in that draft, what would you pick\u2014and why?' Also: 'Run your own moment/camera/ownership checks and then give me a tightened one-pass revision'"
+    },
+    "C-06": {
+      "verdict": "PASS",
+      "evidence": "Mentor asks learner to explain reasoning: 'Walk me through your behavior phrasing: what were you trying to capture by including both \"started talking while I was mid\u2011sentence\" and \"answered Jeff's question before I finished\u2014twice\"?'"
+    },
+    "C-07": {
+      "verdict": "PASS",
+      "evidence": "Mentor prompts reflection on learning: 'What's the single principle from this you'll carry into real conversations?' and 'What shifted for you from your first draft to this final line that you want to remember next time?'"
+    }
+  },
+  "overall": {
+    "passed_count": 5,
+    "failed_count": 0,
+    "pass_rate": 1.0,
+    "failed_criteria": []
+  },
+  "_metadata": {
+    "judge_id": "coaching_quality",
+    "conversation_id": "53eb5b0d",
+    "evaluated_at": "2026-01-26T10:58:47.286299"
+  }
+}

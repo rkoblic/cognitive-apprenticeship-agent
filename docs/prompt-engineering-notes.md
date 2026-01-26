@@ -206,3 +206,21 @@ Additionally, V3 added a **"Fading Support" section AFTER** the second practice 
 When V3 said "Give direct feedback. Note what worked and what didn't" followed later by "Resist the urge to re-teach," the model followed the first instruction.
 
 **Fix pattern:** Place the constraint (don't explain) BEFORE or INTEGRATED WITH the action (give feedback), not after.
+
+### V3.1 Fix Attempt: Inconclusive
+
+**Hypothesis:** V3's adaptive_pacing regression (90% → 75%) was caused by reverting V2.5's strict Second Practice language ("Don't explain why it's a gap—that's their work now") to more permissive phrasing ("Note what worked and what didn't").
+
+**Intervention:** Restored V2.5 language in the Second Practice section, emphasizing "name gaps without explaining them" and "your job is to name gaps, not bridge them."
+
+**Result:** No improvement. In a 6-conversation sample (3 Fatou, 3 Carlos):
+- adaptive_pacing: 75% → 75% (unchanged)
+- sbi_content: 88% → 83% (worse)
+- conversational_quality: 93% → 78% (worse)
+
+**Interpretation:** The regression's root cause was either misidentified or more complex than a single section edit. Possible explanations:
+1. The V3 changes interacted in ways we didn't model—fixing one section without reverting others may create new inconsistencies
+2. Small sample variance (6 conversations) may obscure the signal
+3. The "fading support" behavior may depend on prompt factors beyond explicit instructions (e.g., the accumulated tone/examples elsewhere)
+
+**Lesson:** Prompt debugging is not like code debugging. Reverting a specific change doesn't reliably restore prior behavior when multiple edits were made simultaneously. Future iterations should test one change at a time from a stable baseline, not attempt surgical repairs on a multi-edit version.
